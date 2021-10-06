@@ -58,6 +58,7 @@ termcolor==1.1.0
 tfds-nightly==4.4.0.dev202109200107
 toml==0.10.2
 torch==1.9.1
+torchtext==0.10.1
 tqdm==4.62.2
 typing-extensions==3.7.4.3
 urllib3==1.26.6

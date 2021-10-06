@@ -13,12 +13,15 @@ import torch.nn as nn
 from torch import optim
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader, random_split
+from torchtext.legacy.data import BucketIterator
 
 import tensorflow_datasets as tfds
 import sign_language_datasets.datasets
 
-BATCH_SIZE = 16
-LEARNING_RATE = 0.000001
+SAMPLE_LIMIT = 10000
+N_EPOCH = 2
+BATCH_SIZE = 32
+LEARNING_RATE = 0.00001
 HIDDEN_SIZE = 256
 SEED = 42
 
@@ -74,7 +77,7 @@ class MyDataset(Dataset):
         item = self.data_list[idx]
         return [item['sign'], item['en']]
 
-dataset = MyDataset(limit=1000)
+dataset = MyDataset(limit=SAMPLE_LIMIT)
 total_len = len(dataset)
 print('total size', total_len)
 
@@ -82,13 +85,15 @@ train_len = math.floor(total_len*0.7)
 val_len = math.floor(total_len*0.2)
 test_len = total_len - train_len - val_len
 train_set, val_set, test_set = random_split(dataset, [train_len, val_len, test_len], generator=torch.Generator().manual_seed(SEED))
-train_dataloader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True)
-val_dataloader = DataLoader(val_set, batch_size=BATCH_SIZE, shuffle=True)
-test_dataloader = DataLoader(test_set, batch_size=BATCH_SIZE, shuffle=True)
-
 print('train size:', len(train_set))
 print('val size:', len(val_set))
 print('test size:', len(test_set))
+
+sort_key = lambda x: len(x[1])
+train_dataloader = BucketIterator(train_set, batch_size=BATCH_SIZE, shuffle=True, sort_key=sort_key, sort=False, sort_within_batch=True, train=True)
+val_dataloader = BucketIterator(val_set, batch_size=BATCH_SIZE, shuffle=True, sort_key=sort_key, sort=False, sort_within_batch=True, train=False)
+test_dataloader = BucketIterator(test_set, batch_size=BATCH_SIZE, shuffle=True, sort_key=sort_key, sort=False, sort_within_batch=True, train=False)
+
 
 # Dictionary
 SOS_token = 0
@@ -300,7 +305,7 @@ def train(input_tensor, target_tensor, encoder, decoder, encoder_optimizer, deco
 
     return loss.item() / target_length
 
-def trainIters(encoder, decoder, n_iters=None, n_epoch=1, print_every=1, val_every=10, plot_every=10, learning_rate=0.0001):
+def trainIters(encoder, decoder, n_epoch=1, print_every=1, val_every=8, plot_every=100, learning_rate=0.0001):
     start = time.time()
     plot_losses = []
     print_loss_total = 0  # Reset every print_every
@@ -310,13 +315,20 @@ def trainIters(encoder, decoder, n_iters=None, n_epoch=1, print_every=1, val_eve
     decoder_optimizer = optim.SGD(decoder.parameters(), lr=learning_rate)
     criterion = nn.NLLLoss()
 
-    if not n_iters:
-        n_iters = n_epoch * train_len / BATCH_SIZE
+    n_iters = n_epoch * train_len / BATCH_SIZE
+    iter = 0
 
     for i in range(n_epoch):
-        for index, pair in enumerate(train_dataloader):
-            if index == n_iters:
-                break
+        print('Epoch', i + 1)
+
+        train_dataloader.create_batches()
+
+        for index, pair in enumerate(train_dataloader.batches):
+            iter = iter + 1
+
+            # transpose list, see https://stackoverflow.com/questions/6473679/transpose-list-of-lists
+            pair = list(map(list, zip(*pair)))
+
             pair = tensorsFromPair(pair)
             input_tensor = pair[0]
             target_tensor = pair[1]
@@ -325,8 +337,6 @@ def trainIters(encoder, decoder, n_iters=None, n_epoch=1, print_every=1, val_eve
                         decoder, encoder_optimizer, decoder_optimizer, criterion)
             print_loss_total += loss
             plot_loss_total += loss
-
-            iter = index + 1
 
             if iter % print_every == 0:
                 print_loss_avg = print_loss_total / print_every
@@ -355,7 +365,12 @@ def validate(encoder, decoder, criterion):
         loss_total = 0
         count = 0
 
-        for index, pair in enumerate(val_dataloader):
+        val_dataloader.create_batches()
+
+        for index, pair in enumerate(val_dataloader.batches):
+            # transpose list, see https://stackoverflow.com/questions/6473679/transpose-list-of-lists
+            pair = list(map(list, zip(*pair)))
+
             pair = tensorsFromPair(pair)
             input_tensor = pair[0]
             target_tensor = pair[1]
@@ -456,7 +471,7 @@ def train_and_save():
     encoder1 = EncoderRNN(input_lang.n_words, HIDDEN_SIZE).to(device)
     attn_decoder1 = AttnDecoderRNN(HIDDEN_SIZE, output_lang.n_words, dropout_p=0.1).to(device)
 
-    trainIters(encoder1, attn_decoder1, n_iters=None, n_epoch=2, print_every=1, val_every=10, plot_every=10, learning_rate=LEARNING_RATE)
+    trainIters(encoder1, attn_decoder1, n_epoch=N_EPOCH, learning_rate=LEARNING_RATE)
     
     torch.save({
         'encoder': encoder1.state_dict(),
@@ -471,7 +486,7 @@ def load_and_eval():
     encoder1.load_state_dict(checkpoint['encoder'])
     attn_decoder1.load_state_dict(checkpoint['decoder'])
 
-    evaluateRandomly(encoder1, attn_decoder1, n=10)
+    evaluateRandomly(encoder1, attn_decoder1)
 
 train_and_save()
 load_and_eval()
