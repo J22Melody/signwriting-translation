@@ -17,7 +17,7 @@ from torch.utils.data import Dataset, DataLoader, random_split
 import tensorflow_datasets as tfds
 import sign_language_datasets.datasets
 
-BATCH_SIZE = 4
+BATCH_SIZE = 16
 LEARNING_RATE = 0.000001
 HIDDEN_SIZE = 256
 SEED = 42
@@ -74,7 +74,7 @@ class MyDataset(Dataset):
         item = self.data_list[idx]
         return [item['sign'], item['en']]
 
-dataset = MyDataset()
+dataset = MyDataset(limit=1000)
 total_len = len(dataset)
 print('total size', total_len)
 
@@ -155,15 +155,14 @@ class EncoderRNN(nn.Module):
         return torch.zeros(1, 1, self.hidden_size, device=device)
 
 class AttnDecoderRNN(nn.Module):
-    def __init__(self, hidden_size, output_size, dropout_p=0.1, max_length=input_lang.max_length):
+    def __init__(self, hidden_size, output_size, dropout_p=0.1):
         super(AttnDecoderRNN, self).__init__()
         self.hidden_size = hidden_size
         self.output_size = output_size
         self.dropout_p = dropout_p
-        self.max_length = max_length
 
         self.embedding = nn.Embedding(self.output_size, self.hidden_size)
-        self.attn = nn.Linear(self.hidden_size * 2, self.max_length)
+        self.attn = nn.Linear(self.hidden_size * 2, input_lang.max_length)
         self.attn_combine = nn.Linear(self.hidden_size * 2, self.hidden_size)
         self.dropout = nn.Dropout(self.dropout_p)
         self.gru = nn.GRU(self.hidden_size, self.hidden_size)
@@ -176,7 +175,9 @@ class AttnDecoderRNN(nn.Module):
 
         attn_weights = F.softmax(
             self.attn(torch.cat((embedded, hidden.repeat(batch_size, 1, 1)), 2)), dim=2)
-        attn_applied = torch.bmm(attn_weights, encoder_outputs)
+        # cut attn_weights to match sequence length
+        attn_weights_matched = attn_weights[:, :, :encoder_outputs.size(1)]
+        attn_applied = torch.bmm(attn_weights_matched, encoder_outputs)
 
         output = torch.cat((embedded, attn_applied), 2)
         output = self.attn_combine(output)
@@ -192,19 +193,21 @@ class AttnDecoderRNN(nn.Module):
 
 
 # Helpers
-def indexesFromSentence(lang, sentence):
+def indexesFromSentence(lang, sentence, max_length):
     return [
         lang.word2index[sentence[i]] if i < len(sentence) else 
         (PADDING_token if i > len(sentence) else EOS_token)
-        for i in range(lang.max_length)
+        for i in range(max_length)
     ]
 
 def tensorFromSentence(lang, sentences):
+    max_length = len(max(sentences, key=len)) + 1
+    # max_length = input_lang.max_length
     indexes = []
     for s in sentences:
-        idx = indexesFromSentence(lang, s)
+        idx = indexesFromSentence(lang, s, max_length)
         indexes.append(idx)
-    return torch.tensor(indexes, dtype=torch.long, device=device).view(len(sentences), lang.max_length, 1)
+    return torch.tensor(indexes, dtype=torch.long, device=device).view(len(sentences), max_length, 1)
 
 def tensorsFromPair(pair):
     input_tensor = tensorFromSentence(input_lang, pair[0])
@@ -235,7 +238,7 @@ def showPlot(points):
 # Training
 teacher_forcing_ratio = 0.5
 
-def train(input_tensor, target_tensor, encoder, decoder, encoder_optimizer, decoder_optimizer, criterion, max_length=input_lang.max_length):
+def train(input_tensor, target_tensor, encoder, decoder, encoder_optimizer, decoder_optimizer, criterion):
     encoder.train()
     decoder.train()
 
@@ -249,7 +252,7 @@ def train(input_tensor, target_tensor, encoder, decoder, encoder_optimizer, deco
 
     batch_size = input_tensor.size(0)
 
-    encoder_outputs = torch.zeros(batch_size, max_length, encoder.hidden_size, device=device)
+    encoder_outputs = torch.zeros(batch_size, input_length, encoder.hidden_size, device=device)
 
     loss = 0
 
@@ -297,7 +300,7 @@ def train(input_tensor, target_tensor, encoder, decoder, encoder_optimizer, deco
 
     return loss.item() / target_length
 
-def trainIters(encoder, decoder, n_iters=None, n_epoch=1, print_every=1, val_every=1, plot_every=10, learning_rate=0.0001):
+def trainIters(encoder, decoder, n_iters=None, n_epoch=1, print_every=1, val_every=10, plot_every=10, learning_rate=0.0001):
     start = time.time()
     plot_losses = []
     print_loss_total = 0  # Reset every print_every
@@ -311,12 +314,12 @@ def trainIters(encoder, decoder, n_iters=None, n_epoch=1, print_every=1, val_eve
         n_iters = n_epoch * train_len / BATCH_SIZE
 
     for i in range(n_epoch):
-        for index, training_pair in enumerate(train_dataloader):
+        for index, pair in enumerate(train_dataloader):
             if index == n_iters:
                 break
-            training_pair = tensorsFromPair(training_pair)
-            input_tensor = training_pair[0]
-            target_tensor = training_pair[1]
+            pair = tensorsFromPair(pair)
+            input_tensor = pair[0]
+            target_tensor = pair[1]
 
             loss = train(input_tensor, target_tensor, encoder,
                         decoder, encoder_optimizer, decoder_optimizer, criterion)
@@ -332,7 +335,7 @@ def trainIters(encoder, decoder, n_iters=None, n_epoch=1, print_every=1, val_eve
                     (iter, iter / n_iters * 100, timeSince(start, iter / n_iters), print_loss_avg))
 
             if iter % val_every == 0:
-                val_loss_avg = validate(encoder, decoder)
+                val_loss_avg = validate(encoder, decoder, criterion)
                 print('Val step: %d / loss: %.4f' % (iter / val_every, val_loss_avg))
 
             # if iter % plot_every == 0:
@@ -344,14 +347,60 @@ def trainIters(encoder, decoder, n_iters=None, n_epoch=1, print_every=1, val_eve
 
 
 # Validation
-def validate(encoder, decoder, max_length=input_lang.max_length):
+def validate(encoder, decoder, criterion):
     encoder.eval()
     decoder.eval()
-    return 1
+
+    with torch.no_grad():
+        loss_total = 0
+        count = 0
+
+        for index, pair in enumerate(val_dataloader):
+            pair = tensorsFromPair(pair)
+            input_tensor = pair[0]
+            target_tensor = pair[1]
+
+            input_length = input_tensor.size(1)
+            target_length = target_tensor.size(1)
+            batch_size = input_tensor.size(0)
+
+            encoder_hidden = encoder.initHidden()
+            encoder_outputs = torch.zeros(batch_size, input_length, encoder.hidden_size, device=device)
+
+            loss = 0
+
+            for ei in range(input_length):
+                encoder_output, encoder_hidden = encoder(input_tensor[:, ei], encoder_hidden)
+                encoder_outputs[:, ei] = encoder_output[:, 0]
+
+            decoder_input = torch.tensor([[SOS_token]] * batch_size, device=device)
+            decoder_hidden = encoder_hidden
+
+            for di in range(target_length):
+                decoder_output, decoder_hidden, decoder_attention = decoder(
+                    decoder_input, decoder_hidden, encoder_outputs)
+                topv, topi = decoder_output.topk(1)
+                decoder_input = topi.detach()  # detach from history as input
+
+                loss += criterion(decoder_output, target_tensor[:, di].view(-1))
+
+                # TODO: how to do this in a batch?
+                # if decoder_input.item() == EOS_token:
+                #     break
+
+                # FIXME: temporary workaround - fall back to teacher forcing
+                for i in range(batch_size):
+                    if decoder_input[i].item() == EOS_token:
+                        decoder_input[i] = target_tensor[i, di]
+            
+            loss_total += loss.item() / target_length
+            count = index + 1
+
+        return loss_total / count
 
 
 # Evaluation
-def evaluate(encoder, decoder, sentence, max_length=input_lang.max_length):
+def evaluate(encoder, decoder, sentence):
     encoder.eval()
     decoder.eval()
 
@@ -360,7 +409,7 @@ def evaluate(encoder, decoder, sentence, max_length=input_lang.max_length):
         input_length = input_tensor.size()[1]
         encoder_hidden = encoder.initHidden()
 
-        encoder_outputs = torch.zeros(1, max_length, encoder.hidden_size, device=device)
+        encoder_outputs = torch.zeros(1, input_length, encoder.hidden_size, device=device)
 
         for ei in range(input_length):
             encoder_output, encoder_hidden = encoder(input_tensor[:, ei], encoder_hidden)
@@ -371,9 +420,9 @@ def evaluate(encoder, decoder, sentence, max_length=input_lang.max_length):
         decoder_hidden = encoder_hidden
 
         decoded_words = []
-        decoder_attentions = torch.zeros(1, max_length, max_length)
+        decoder_attentions = torch.zeros(1, output_lang.max_length, input_lang.max_length)
 
-        for di in range(max_length):
+        for di in range(output_lang.max_length):
             decoder_output, decoder_hidden, decoder_attention = decoder(
                 decoder_input, decoder_hidden, encoder_outputs)
             decoder_attentions[0, di] = decoder_attention.data
@@ -407,7 +456,7 @@ def train_and_save():
     encoder1 = EncoderRNN(input_lang.n_words, HIDDEN_SIZE).to(device)
     attn_decoder1 = AttnDecoderRNN(HIDDEN_SIZE, output_lang.n_words, dropout_p=0.1).to(device)
 
-    trainIters(encoder1, attn_decoder1, n_iters=3, n_epoch=1, print_every=1, plot_every=10, learning_rate=LEARNING_RATE)
+    trainIters(encoder1, attn_decoder1, n_iters=None, n_epoch=2, print_every=1, val_every=10, plot_every=10, learning_rate=LEARNING_RATE)
     
     torch.save({
         'encoder': encoder1.state_dict(),
@@ -425,4 +474,4 @@ def load_and_eval():
     evaluateRandomly(encoder1, attn_decoder1, n=10)
 
 train_and_save()
-# load_and_eval()
+load_and_eval()
