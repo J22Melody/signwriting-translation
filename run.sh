@@ -6,7 +6,7 @@
 
 
 #SBATCH --job-name=baseline  	## job name
-#SBATCH --time=0-04:00:00       ## days-hours:minutes:seconds
+#SBATCH --time=0-12:00:00       ## days-hours:minutes:seconds
 #SBATCH --mem=4000M             ##   3GB ram (hardware ratio is < 4GB/core)
 
 ### SBATCH --output=job.out	## standard out file
