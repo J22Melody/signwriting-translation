@@ -3,6 +3,7 @@ import math
 import json
 import re
 import random
+import subprocess
 import numpy as np
 
 import matplotlib.pyplot as plt
@@ -22,12 +23,12 @@ import tensorflow_datasets as tfds
 import sign_language_datasets.datasets
 
 
-SAMPLE_LIMIT = 10000
+SAMPLE_LIMIT = 999999
 N_EPOCH = 10
-VAL_EVERY = 8
+VAL_EVERY = 32
 EARLY_STOPPING_N = 10
 BATCH_SIZE = 32
-LEARNING_RATE = 0.00001
+LEARNING_RATE = 0.001
 HIDDEN_SIZE = 256
 SEED = 42
 
@@ -39,6 +40,26 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 # Dataset and Dataloader
+def parse(raw, includeSpatials=False):
+    sequence = []
+
+    # if not punctuation, add the box information
+    if includeSpatials and not raw.startswith('S'):
+        for ch2 in raw[0:8]:
+            sequence.append(ch2)
+
+    for index, ch in enumerate(raw):
+        if ch == 'S':
+            # sequence of symbols
+            sequence.append(raw[index:index + 6])
+
+            # spatials
+            if includeSpatials:
+                for ch2 in raw[index + 6:index + 13]:
+                    sequence.append(ch2)
+
+    return ' '.join(sequence)
+
 # ASL Bible Books NLT
 class MyDataset(Dataset):
     def __init__(self, fromLocalFile=True, limit=9999999):
@@ -56,23 +77,34 @@ class MyDataset(Dataset):
 
             for index, row in enumerate(signbank):
                 puddle_id = row['puddle'].numpy().item()
-                if puddle_id == 151:
+                if puddle_id == 151 or puddle_id == 152:
                     terms = [f.decode('utf-8') for f in row['terms'].numpy()]
 
                     # the first element is chapter
                     # the second is the main text
                     if len(terms) == 2:
                         # only take the main text
-                        text = terms[1]
+                        en = terms[1].lower()
                         # remove line-break and source, e.g., Nehemiah 3v11 NLT
-                        text = re.sub(r"\n\n.*NLT", "", text)
+                        en = re.sub(r"\n\n.*NLT", "", en)
                         # tokenize
-                        text = ' '.join(nltk.word_tokenize(text))
+                        en = ' '.join(nltk.word_tokenize(en))
+
+                        sign = row['sign_writing'].numpy().decode('utf-8')
+
+                        # run standard js parser (https://github.com/sutton-signwriting/core/blob/master/src/fsw/fsw-parse.js#L63)
+                        # FIXME: js parser not compatible with dataset input
+                        # result = subprocess.run(['node', 'parse.js', sign], stdout=subprocess.PIPE)
+                        # sign = result.stdout
+
+                        # run customized parser
+                        signs = sign.split(' ')
+                        signs = list(map(parse, signs))
+                        sign = ' '.join(signs)
 
                         self.data_list.append({
-                            'en': text,
-                            # TODO: parse sign_writing by https://github.com/sutton-signwriting/core
-                            'sign': row['sign_writing'].numpy().decode('utf-8'),
+                            'en': en,
+                            'sign': sign,
                         })
 
             with open('bible.txt', 'w') as f:
@@ -86,7 +118,7 @@ class MyDataset(Dataset):
         item = self.data_list[idx]
         return [item['sign'], item['en']]
 
-dataset = MyDataset(fromLocalFile=False, limit=SAMPLE_LIMIT)
+dataset = MyDataset(fromLocalFile=True, limit=SAMPLE_LIMIT)
 total_len = len(dataset)
 print('total size', total_len)
 
@@ -144,8 +176,8 @@ class Lang:
         else:
             self.word2count[word] += 1
 
-input_lang = Lang('sign', char_level=True)
-output_lang = Lang('en')
+input_lang = Lang('sign', char_level=False)
+output_lang = Lang('en', char_level=False)
 
 for row in dataset:
     input_lang.addSentence(row[0])
@@ -216,7 +248,6 @@ class AttnDecoderRNN(nn.Module):
 
 # Helpers
 def indexesFromSentence(lang, sentence, max_length):
-    sentence = lang.tokenize(sentence)
     return [
         lang.word2index[sentence[i]] if i < len(sentence) else 
         (PADDING_token if i > len(sentence) else EOS_token)
@@ -224,8 +255,8 @@ def indexesFromSentence(lang, sentence, max_length):
     ]
 
 def tensorFromSentence(lang, sentences):
+    sentences = list(map(lang.tokenize, sentences))
     max_length = len(max(sentences, key=len)) + 1
-    # max_length = input_lang.max_length
     indexes = []
     for s in sentences:
         idx = indexesFromSentence(lang, s, max_length)
@@ -354,6 +385,10 @@ def trainIters(encoder, decoder, n_epoch=1, print_every=1, val_every=8, plot_eve
             input_tensor = pair[0]
             target_tensor = pair[1]
 
+            # print(target_tensor.shape)
+            # print(target_tensor.view(BATCH_SIZE, -1))
+            # continue
+
             loss = train(input_tensor, target_tensor, encoder,
                         decoder, encoder_optimizer, decoder_optimizer, criterion)
             print_loss_total += loss
@@ -376,6 +411,8 @@ def trainIters(encoder, decoder, n_epoch=1, print_every=1, val_every=8, plot_eve
                         print('early stop!')
                         return
                 last_val_loss_avg = val_loss_avg
+
+                evaluateRandomly(encoder, decoder, n=1)
 
             # if iter % plot_every == 0:
             #     plot_loss_avg = plot_loss_total / plot_every
@@ -495,7 +532,7 @@ def evaluateRandomly(encoder, decoder, n=10):
 
 
 # Main steps: train, save, load, eval
-PATH = 'baseline3.pt'
+PATH = 'baseline4.pt'
 def train_and_save():
     encoder1 = EncoderRNN(input_lang.n_words, HIDDEN_SIZE).to(device)
     attn_decoder1 = AttnDecoderRNN(HIDDEN_SIZE, output_lang.n_words, dropout_p=0.1).to(device)

@@ -1,0 +1,1013 @@
+Collecting sign-language-datasets@ git+https://github.com/sign-language-processing/datasets.git@c4f107c32169d03302fa858b14af7a252256507d
+  Using cached sign_language_datasets-0.0.2-py3-none-any.whl
+Requirement already satisfied: absl-py==0.12.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 1)) (0.12.0)
+Requirement already satisfied: astunparse==1.6.3 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 2)) (1.6.3)
+Requirement already satisfied: attrs==21.2.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 3)) (21.2.0)
+Requirement already satisfied: cachetools==4.2.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 4)) (4.2.2)
+Requirement already satisfied: certifi==2021.5.30 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 5)) (2021.5.30)
+Requirement already satisfied: charset-normalizer==2.0.6 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 6)) (2.0.6)
+Requirement already satisfied: clang==5.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 7)) (5.0)
+Requirement already satisfied: click==8.0.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 8)) (8.0.1)
+Requirement already satisfied: cycler==0.10.0 in /net/cephfs/data/zifjia/condaenvs/sign/lib/python3.8/site-packages (from -r requirements.txt (line 9)) (0.10.0)
+Requirement already satisfied: dill==0.3.4 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 10)) (0.3.4)
+Requirement already satisfied: flatbuffers==1.12 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 11)) (1.12)
+Requirement already satisfied: future==0.18.2 in /net/cephfs/data/zifjia/condaenvs/sign/lib/python3.8/site-packages (from -r requirements.txt (line 12)) (0.18.2)
+Requirement already satisfied: gast==0.4.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 13)) (0.4.0)
+Requirement already satisfied: google-auth==1.35.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 14)) (1.35.0)
+Requirement already satisfied: google-auth-oauthlib==0.4.6 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 15)) (0.4.6)
+Requirement already satisfied: google-pasta==0.2.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 16)) (0.2.0)
+Requirement already satisfied: googleapis-common-protos==1.53.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 17)) (1.53.0)
+Requirement already satisfied: grpcio==1.40.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 18)) (1.40.0)
+Requirement already satisfied: h5py==3.1.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 19)) (3.1.0)
+Requirement already satisfied: idna==3.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 20)) (3.2)
+Requirement already satisfied: importlib-resources==5.2.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 21)) (5.2.2)
+Requirement already satisfied: iniconfig==1.1.1 in /net/cephfs/data/zifjia/condaenvs/sign/lib/python3.8/site-packages (from -r requirements.txt (line 22)) (1.1.1)
+Requirement already satisfied: joblib==1.0.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 23)) (1.0.1)
+Requirement already satisfied: keras==2.6.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 24)) (2.6.0)
+Requirement already satisfied: Keras-Preprocessing==1.1.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 25)) (1.1.2)
+Requirement already satisfied: kiwisolver==1.3.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 26)) (1.3.2)
+Requirement already satisfied: Markdown==3.3.4 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 27)) (3.3.4)
+Requirement already satisfied: matplotlib==3.4.3 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 28)) (3.4.3)
+Requirement already satisfied: nltk==3.6.3 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 29)) (3.6.3)
+Requirement already satisfied: numpy==1.19.5 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 30)) (1.19.5)
+Requirement already satisfied: oauthlib==3.1.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 31)) (3.1.1)
+Requirement already satisfied: opencv-python==4.5.3.56 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 32)) (4.5.3.56)
+Requirement already satisfied: opt-einsum==3.3.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 33)) (3.3.0)
+Requirement already satisfied: packaging==21.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 34)) (21.0)
+Requirement already satisfied: Pillow==8.3.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 35)) (8.3.2)
+Requirement already satisfied: pluggy==1.0.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 36)) (1.0.0)
+Requirement already satisfied: pose-format==0.0.3 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 37)) (0.0.3)
+Requirement already satisfied: promise==2.3 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 38)) (2.3)
+Requirement already satisfied: protobuf==3.18.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 39)) (3.18.0)
+Requirement already satisfied: py==1.10.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 40)) (1.10.0)
+Requirement already satisfied: pyasn1==0.4.8 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 41)) (0.4.8)
+Requirement already satisfied: pyasn1-modules==0.2.8 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 42)) (0.2.8)
+Requirement already satisfied: pyparsing==2.4.7 in /net/cephfs/data/zifjia/condaenvs/sign/lib/python3.8/site-packages (from -r requirements.txt (line 43)) (2.4.7)
+Requirement already satisfied: pytest==6.2.5 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 44)) (6.2.5)
+Requirement already satisfied: python-dateutil==2.8.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 45)) (2.8.2)
+Requirement already satisfied: python-dotenv==0.19.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 46)) (0.19.0)
+Requirement already satisfied: regex==2021.9.30 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 47)) (2021.9.30)
+Requirement already satisfied: requests==2.26.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 48)) (2.26.0)
+Requirement already satisfied: requests-oauthlib==1.3.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 49)) (1.3.0)
+Requirement already satisfied: rsa==4.7.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 50)) (4.7.2)
+Requirement already satisfied: scipy==1.7.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 51)) (1.7.1)
+Requirement already satisfied: six==1.15.0 in /net/cephfs/data/zifjia/condaenvs/sign/lib/python3.8/site-packages (from -r requirements.txt (line 53)) (1.15.0)
+Requirement already satisfied: tensorboard==2.6.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 54)) (2.6.0)
+Requirement already satisfied: tensorboard-data-server==0.6.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 55)) (0.6.1)
+Requirement already satisfied: tensorboard-plugin-wit==1.8.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 56)) (1.8.0)
+Requirement already satisfied: tensorflow==2.6.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 57)) (2.6.0)
+Requirement already satisfied: tensorflow-datasets==4.4.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 58)) (4.4.0)
+Requirement already satisfied: tensorflow-estimator==2.6.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 59)) (2.6.0)
+Requirement already satisfied: tensorflow-metadata==1.2.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 60)) (1.2.0)
+Requirement already satisfied: termcolor==1.1.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 61)) (1.1.0)
+Requirement already satisfied: tfds-nightly==4.4.0.dev202109200107 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 62)) (4.4.0.dev202109200107)
+Requirement already satisfied: toml==0.10.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 63)) (0.10.2)
+Requirement already satisfied: torch==1.9.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 64)) (1.9.1)
+Requirement already satisfied: torchtext==0.10.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 65)) (0.10.1)
+Requirement already satisfied: tqdm==4.62.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 66)) (4.62.2)
+Requirement already satisfied: typing-extensions==3.7.4.3 in /net/cephfs/data/zifjia/condaenvs/sign/lib/python3.8/site-packages (from -r requirements.txt (line 67)) (3.7.4.3)
+Requirement already satisfied: urllib3==1.26.6 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 68)) (1.26.6)
+Requirement already satisfied: Werkzeug==2.0.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 69)) (2.0.1)
+Requirement already satisfied: wrapt==1.12.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 70)) (1.12.1)
+Requirement already satisfied: zipp==3.5.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 71)) (3.5.0)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in /net/cephfs/data/zifjia/condaenvs/sign/lib/python3.8/site-packages (from astunparse==1.6.3->-r requirements.txt (line 2)) (0.37.0)
+Requirement already satisfied: setuptools>=40.3.0 in /net/cephfs/data/zifjia/condaenvs/sign/lib/python3.8/site-packages (from google-auth==1.35.0->-r requirements.txt (line 14)) (58.0.4)
+[nltk_data] Downloading package punkt to
+[nltk_data]     /home/cluster/zifjia/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+total size 13162
+train size: 11845
+val size: 658
+test size: 659
+input vocab size: 3603
+output vocab size: 20891
+input max len: 232
+output max len: 135
+Epoch 1
+Train step: 1 (0.03%) / time: 0m 0s (- 33m 13s) / loss: 9.9449
+Train step: 2 (0.05%) / time: 0m 0s (- 23m 23s) / loss: 9.9241
+Train step: 3 (0.08%) / time: 0m 1s (- 21m 51s) / loss: 9.8856
+Train step: 4 (0.11%) / time: 0m 1s (- 19m 31s) / loss: 9.8643
+Train step: 5 (0.14%) / time: 0m 1s (- 18m 18s) / loss: 9.8149
+Train step: 6 (0.16%) / time: 0m 1s (- 17m 43s) / loss: 9.7597
+Train step: 7 (0.19%) / time: 0m 1s (- 16m 38s) / loss: 9.7415
+Train step: 8 (0.22%) / time: 0m 2s (- 16m 47s) / loss: 9.7917
+Train step: 9 (0.24%) / time: 0m 2s (- 16m 27s) / loss: 9.6830
+Train step: 10 (0.27%) / time: 0m 2s (- 16m 16s) / loss: 9.7210
+Train step: 11 (0.30%) / time: 0m 3s (- 16m 54s) / loss: 9.7980
+Train step: 12 (0.32%) / time: 0m 3s (- 17m 28s) / loss: 9.6100
+Train step: 13 (0.35%) / time: 0m 3s (- 17m 7s) / loss: 9.5478
+Train step: 14 (0.38%) / time: 0m 3s (- 16m 52s) / loss: 9.6512
+Train step: 15 (0.41%) / time: 0m 4s (- 16m 33s) / loss: 9.4186
+Train step: 16 (0.43%) / time: 0m 4s (- 17m 27s) / loss: 9.3898
+Train step: 17 (0.46%) / time: 0m 4s (- 17m 2s) / loss: 9.2592
+Train step: 18 (0.49%) / time: 0m 5s (- 17m 23s) / loss: 8.9306
+Train step: 19 (0.51%) / time: 0m 5s (- 17m 12s) / loss: 9.1290
+Train step: 20 (0.54%) / time: 0m 5s (- 17m 8s) / loss: 9.2247
+Train step: 21 (0.57%) / time: 0m 5s (- 17m 31s) / loss: 8.8036
+Train step: 22 (0.59%) / time: 0m 6s (- 17m 17s) / loss: 8.1042
+Train step: 23 (0.62%) / time: 0m 6s (- 17m 14s) / loss: 8.3564
+Train step: 24 (0.65%) / time: 0m 6s (- 17m 13s) / loss: 8.4141
+Train step: 25 (0.68%) / time: 0m 7s (- 17m 13s) / loss: 8.7257
+Train step: 26 (0.70%) / time: 0m 7s (- 17m 7s) / loss: 8.7101
+Train step: 27 (0.73%) / time: 0m 7s (- 16m 57s) / loss: 8.7627
+Train step: 28 (0.76%) / time: 0m 7s (- 17m 16s) / loss: 8.6545
+Train step: 29 (0.78%) / time: 0m 8s (- 17m 13s) / loss: 8.8047
+Train step: 30 (0.81%) / time: 0m 8s (- 17m 25s) / loss: 8.6278
+Train step: 31 (0.84%) / time: 0m 8s (- 17m 26s) / loss: 8.5280
+Train step: 32 (0.86%) / time: 0m 9s (- 18m 21s) / loss: 6.2883
+Val step: 1 / loss: 11.4565
+> S15a07 S1f010 S26507 S12d00 S22114 S38800 S2ff00 S22a03 S15a51 S30a00 S15a00 S2e74c S14220 S2e700 S14228 S10018 S1f010 S20600 S20340 S10018 S15040 S26502 S10041 S2d60e S38700 S10021 S10029 S22a07 S22a11 S26507 S15a37 S15a51 S2e74c S14220 S2e700 S14228 S14c59 S10020 S37b00 S26607 S10004 S22f04 S15a19 S2ff00 S15a11 S22f03 S22f15 S38800
+= verse 13. the wicked are trapped by their own words , but the godly escape such trouble . proverbs 12v13 nlt
+< [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 33 (0.89%) / time: 0m 13s (- 25m 39s) / loss: 8.9261
+Train step: 34 (0.92%) / time: 0m 14s (- 25m 13s) / loss: 12.3301
+Train step: 35 (0.95%) / time: 0m 14s (- 24m 52s) / loss: 8.1976
+Train step: 36 (0.97%) / time: 0m 14s (- 24m 36s) / loss: 8.6882
+Train step: 37 (1.00%) / time: 0m 14s (- 24m 36s) / loss: 9.2816
+Train step: 38 (1.03%) / time: 0m 15s (- 24m 24s) / loss: 8.5697
+Train step: 39 (1.05%) / time: 0m 15s (- 24m 12s) / loss: 9.0938
+Train step: 40 (1.08%) / time: 0m 15s (- 24m 1s) / loss: 8.9256
+Train step: 41 (1.11%) / time: 0m 15s (- 23m 41s) / loss: 8.7128
+Train step: 42 (1.13%) / time: 0m 16s (- 23m 24s) / loss: 8.3131
+Train step: 43 (1.16%) / time: 0m 16s (- 23m 19s) / loss: 8.2397
+Train step: 44 (1.19%) / time: 0m 16s (- 23m 18s) / loss: 8.2462
+Train step: 45 (1.22%) / time: 0m 17s (- 23m 7s) / loss: 8.1941
+Train step: 46 (1.24%) / time: 0m 17s (- 22m 57s) / loss: 7.9558
+Train step: 47 (1.27%) / time: 0m 17s (- 22m 49s) / loss: 8.6475
+Train step: 48 (1.30%) / time: 0m 17s (- 22m 44s) / loss: 8.7983
+Train step: 49 (1.32%) / time: 0m 18s (- 22m 43s) / loss: 7.9929
+Train step: 50 (1.35%) / time: 0m 18s (- 22m 35s) / loss: 8.7105
+Train step: 51 (1.38%) / time: 0m 18s (- 22m 33s) / loss: 8.4373
+Train step: 52 (1.40%) / time: 0m 19s (- 22m 32s) / loss: 7.8218
+Train step: 53 (1.43%) / time: 0m 19s (- 22m 22s) / loss: 7.1545
+Train step: 54 (1.46%) / time: 0m 19s (- 22m 18s) / loss: 7.8974
+Train step: 55 (1.49%) / time: 0m 20s (- 22m 10s) / loss: 8.9263
+Train step: 56 (1.51%) / time: 0m 20s (- 22m 3s) / loss: 7.4207
+Train step: 57 (1.54%) / time: 0m 20s (- 21m 55s) / loss: 7.5991
+Train step: 58 (1.57%) / time: 0m 20s (- 21m 48s) / loss: 8.2046
+Train step: 59 (1.59%) / time: 0m 21s (- 21m 48s) / loss: 8.0260
+Train step: 60 (1.62%) / time: 0m 21s (- 21m 36s) / loss: 8.2496
+Train step: 61 (1.65%) / time: 0m 21s (- 21m 32s) / loss: 8.4401
+Train step: 62 (1.67%) / time: 0m 22s (- 21m 32s) / loss: 7.4990
+Train step: 63 (1.70%) / time: 0m 22s (- 21m 22s) / loss: 8.1603
+Train step: 64 (1.73%) / time: 0m 22s (- 21m 17s) / loss: 8.4595
+Val step: 2 / loss: 7.4226
+> S15a07 S1f010 S26507 S1dc20 S1ce20 S38800 S10030 S10038 S2a200 S2a218 S30d00 S36d01 S10041 S2d608 S16d59 S16d59 S26c02 S26c12 S1f702 S1f728 S26506 S22a04 S15a30 S2ff00 S10e00 S10e50 S15a1a S26a07 S2ff00 S10002 S2ea00 S10012 S18518 S2ef00 S10047 S38700 S16d20 S22c04 S22c06 S36d01 S10041 S2d608 S15a30 S15a30 S22b04 S22b14 S15a50 S15a50 S2b705 S2b714 S15a37 S11537 S22a04 S38800
+= verse 29 . `` when they had done all that the prophecies said about him , they took him down from the cross and placed him in a tomb . acts13v29 nlt
+< [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 65 (1.76%) / time: 0m 26s (- 24m 49s) / loss: 8.4517
+Train step: 66 (1.78%) / time: 0m 26s (- 24m 38s) / loss: 6.6039
+Train step: 67 (1.81%) / time: 0m 27s (- 24m 25s) / loss: 7.8154
+Train step: 68 (1.84%) / time: 0m 27s (- 24m 16s) / loss: 7.7089
+Train step: 69 (1.86%) / time: 0m 27s (- 24m 9s) / loss: 7.6402
+Train step: 70 (1.89%) / time: 0m 27s (- 23m 59s) / loss: 8.0445
+Train step: 71 (1.92%) / time: 0m 28s (- 23m 59s) / loss: 7.5890
+Train step: 72 (1.95%) / time: 0m 28s (- 23m 51s) / loss: 8.3448
+Train step: 73 (1.97%) / time: 0m 28s (- 23m 46s) / loss: 7.1672
+Train step: 74 (2.00%) / time: 0m 28s (- 23m 35s) / loss: 7.6447
+Train step: 75 (2.03%) / time: 0m 29s (- 23m 37s) / loss: 7.1664
+Train step: 76 (2.05%) / time: 0m 29s (- 23m 25s) / loss: 7.6633
+Train step: 77 (2.08%) / time: 0m 29s (- 23m 19s) / loss: 8.1009
+Train step: 78 (2.11%) / time: 0m 30s (- 23m 18s) / loss: 7.8536
+Train step: 79 (2.13%) / time: 0m 30s (- 23m 19s) / loss: 7.5985
+Train step: 80 (2.16%) / time: 0m 30s (- 23m 11s) / loss: 7.9359
+Train step: 81 (2.19%) / time: 0m 31s (- 23m 8s) / loss: 7.9267
+Train step: 82 (2.22%) / time: 0m 31s (- 23m 3s) / loss: 7.5888
+Train step: 83 (2.24%) / time: 0m 31s (- 22m 55s) / loss: 7.8214
+Train step: 84 (2.27%) / time: 0m 31s (- 22m 46s) / loss: 7.8047
+Train step: 85 (2.30%) / time: 0m 32s (- 22m 44s) / loss: 7.2652
+Train step: 86 (2.32%) / time: 0m 32s (- 22m 43s) / loss: 7.4416
+Train step: 87 (2.35%) / time: 0m 32s (- 22m 40s) / loss: 8.1088
+Train step: 88 (2.38%) / time: 0m 32s (- 22m 34s) / loss: 7.8369
+Train step: 89 (2.40%) / time: 0m 33s (- 22m 26s) / loss: 7.3819
+Train step: 90 (2.43%) / time: 0m 33s (- 22m 26s) / loss: 7.9495
+Train step: 91 (2.46%) / time: 0m 33s (- 22m 22s) / loss: 7.8701
+Train step: 92 (2.49%) / time: 0m 33s (- 22m 13s) / loss: 7.5429
+Train step: 93 (2.51%) / time: 0m 34s (- 22m 9s) / loss: 7.1215
+Train step: 94 (2.54%) / time: 0m 34s (- 22m 7s) / loss: 7.3831
+Train step: 95 (2.57%) / time: 0m 35s (- 22m 10s) / loss: 7.5572
+Train step: 96 (2.59%) / time: 0m 35s (- 22m 3s) / loss: 7.5780
+Val step: 3 / loss: 7.6458
+> S15a07 S1f010 S26507 S10e50 S23004 S38800 S10021 S10029 S22a07 S22a11 S30a00 S1c519 S1c511 S15a17 S15a1f S10001 S2ff00 S2b702 S38700 S22a14 S19a30 S19a38 S22a04 S36d01 S26527 S1f540 S1f548 S30e00 S30124 S20500 S10013 S38800 S2e74c S14028 S2e700 S14020 S30d00 S36d01 S1d451 S1d437 S22b00 S22105 S15a30 S15a50 S2a208 S2a218 S38700 S15a48 S15a40 S2c600 S2c611 S37c06 S37c06 S30e00 S30124 S36d01 S10041 S2d60e S15a50 S15a50 S2b705 S2b714 S2d602 S15a20 S15a30 S15a50 S2a208 S2a218 S38800
+= but jesus told him , `` follow me now . let the spiritually dead bury their own dead . '' matthew8v22 nlt
+< . . , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+
+Train step: 97 (2.62%) / time: 0m 39s (- 24m 26s) / loss: 7.6160
+Train step: 98 (2.65%) / time: 0m 39s (- 24m 19s) / loss: 7.4382
+Train step: 99 (2.67%) / time: 0m 39s (- 24m 12s) / loss: 7.1488
+Train step: 100 (2.70%) / time: 0m 40s (- 24m 9s) / loss: 7.0681
+Train step: 101 (2.73%) / time: 0m 40s (- 24m 9s) / loss: 7.2122
+Train step: 102 (2.76%) / time: 0m 40s (- 24m 5s) / loss: 7.4942
+Train step: 103 (2.78%) / time: 0m 41s (- 23m 58s) / loss: 6.8908
+Train step: 104 (2.81%) / time: 0m 41s (- 23m 57s) / loss: 7.5305
+Train step: 105 (2.84%) / time: 0m 41s (- 23m 47s) / loss: 6.2366
+Train step: 106 (2.86%) / time: 0m 42s (- 23m 45s) / loss: 6.8396
+Train step: 107 (2.89%) / time: 0m 42s (- 23m 38s) / loss: 7.4269
+Train step: 108 (2.92%) / time: 0m 42s (- 23m 36s) / loss: 7.1817
+Train step: 109 (2.94%) / time: 0m 42s (- 23m 31s) / loss: 7.1950
+Train step: 110 (2.97%) / time: 0m 42s (- 23m 23s) / loss: 6.7018
+Train step: 111 (3.00%) / time: 0m 43s (- 23m 16s) / loss: 6.9559
+Train step: 112 (3.03%) / time: 0m 43s (- 23m 16s) / loss: 7.4928
+Train step: 113 (3.05%) / time: 0m 43s (- 23m 15s) / loss: 7.3911
+Train step: 114 (3.08%) / time: 0m 44s (- 23m 7s) / loss: 6.9934
+Train step: 115 (3.11%) / time: 0m 44s (- 23m 1s) / loss: 6.8902
+Train step: 116 (3.13%) / time: 0m 44s (- 22m 55s) / loss: 7.2275
+Train step: 117 (3.16%) / time: 0m 44s (- 22m 49s) / loss: 6.8101
+Train step: 118 (3.19%) / time: 0m 44s (- 22m 44s) / loss: 6.8530
+Train step: 119 (3.21%) / time: 0m 45s (- 22m 39s) / loss: 6.7817
+Train step: 120 (3.24%) / time: 0m 45s (- 22m 38s) / loss: 7.1550
+Train step: 121 (3.27%) / time: 0m 45s (- 22m 36s) / loss: 7.0269
+Train step: 122 (3.30%) / time: 0m 46s (- 22m 34s) / loss: 7.2027
+Train step: 123 (3.32%) / time: 0m 46s (- 22m 32s) / loss: 7.0178
+Train step: 124 (3.35%) / time: 0m 46s (- 22m 26s) / loss: 6.7559
+Train step: 125 (3.38%) / time: 0m 46s (- 22m 24s) / loss: 6.7980
+Train step: 126 (3.40%) / time: 0m 47s (- 22m 21s) / loss: 6.7515
+Train step: 127 (3.43%) / time: 0m 47s (- 22m 20s) / loss: 6.9634
+Train step: 128 (3.46%) / time: 0m 47s (- 22m 15s) / loss: 7.0253
+Val step: 4 / loss: 6.7886
+> S15a07 S1f010 S26507 S1dc20 S1ce20 S38800 S30d00 S19200 S36d01 S26500 S1f540 S2ff00 S30d00 S38700 S1dc0a S10003 S20500 S20500 S36d01 S10041 S15a30 S15a30 S23100 S23110 S15a06 S15a41 S23d04 S2ed09 S10020 S15a5a S14c50 S2e732 S38900 S30a00 S19a00 S36d01 S38700 S15a36 S1853d S22f04 S36d01 S15a37 S20341 S14c41 S26507 S38900 S1dc0a S10003 S20500 S20500 S36d01 S15a37 S15a01 S2e800 S2e74c S14228 S2e700 S14220 S34000 S1001b S10013 S22f07 S22f11 S10041 S38800
+= verse 29. otherwise , you might complete only the foundation before running out of money , and then everyone would laugh at you . luke14v29 nlt
+< verse [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 129 (3.49%) / time: 0m 52s (- 24m 3s) / loss: 7.0473
+Train step: 130 (3.51%) / time: 0m 52s (- 24m 2s) / loss: 6.5248
+Train step: 131 (3.54%) / time: 0m 52s (- 23m 58s) / loss: 6.7578
+Train step: 132 (3.57%) / time: 0m 52s (- 23m 52s) / loss: 6.8117
+Train step: 133 (3.59%) / time: 0m 53s (- 23m 48s) / loss: 7.0580
+Train step: 134 (3.62%) / time: 0m 53s (- 23m 45s) / loss: 6.5888
+Train step: 135 (3.65%) / time: 0m 53s (- 23m 43s) / loss: 6.7357
+Train step: 136 (3.67%) / time: 0m 54s (- 23m 37s) / loss: 6.5889
+Train step: 137 (3.70%) / time: 0m 54s (- 23m 36s) / loss: 6.7373
+Train step: 138 (3.73%) / time: 0m 54s (- 23m 30s) / loss: 6.4242
+Train step: 139 (3.76%) / time: 0m 54s (- 23m 28s) / loss: 7.1360
+Train step: 140 (3.78%) / time: 0m 55s (- 23m 25s) / loss: 6.9265
+Train step: 141 (3.81%) / time: 0m 55s (- 23m 22s) / loss: 6.6483
+Train step: 142 (3.84%) / time: 0m 55s (- 23m 19s) / loss: 6.3920
+Train step: 143 (3.86%) / time: 0m 56s (- 23m 16s) / loss: 6.5980
+Train step: 144 (3.89%) / time: 0m 56s (- 23m 11s) / loss: 6.4867
+Train step: 145 (3.92%) / time: 0m 56s (- 23m 10s) / loss: 6.9764
+Train step: 146 (3.94%) / time: 0m 56s (- 23m 7s) / loss: 6.5315
+Train step: 147 (3.97%) / time: 0m 57s (- 23m 6s) / loss: 7.0535
+Train step: 148 (4.00%) / time: 0m 57s (- 23m 1s) / loss: 6.6267
+Train step: 149 (4.03%) / time: 0m 57s (- 22m 58s) / loss: 7.0319
+Train step: 150 (4.05%) / time: 0m 58s (- 22m 56s) / loss: 6.7807
+Train step: 151 (4.08%) / time: 0m 58s (- 22m 54s) / loss: 6.8749
+Train step: 152 (4.11%) / time: 0m 58s (- 22m 49s) / loss: 6.5069
+Train step: 153 (4.13%) / time: 0m 58s (- 22m 45s) / loss: 6.5873
+Train step: 154 (4.16%) / time: 0m 59s (- 22m 40s) / loss: 6.2872
+Train step: 155 (4.19%) / time: 0m 59s (- 22m 36s) / loss: 6.0128
+Train step: 156 (4.21%) / time: 0m 59s (- 22m 35s) / loss: 7.0627
+Train step: 157 (4.24%) / time: 0m 59s (- 22m 32s) / loss: 6.9137
+Train step: 158 (4.27%) / time: 1m 0s (- 22m 29s) / loss: 6.8415
+Train step: 159 (4.30%) / time: 1m 0s (- 22m 25s) / loss: 6.7406
+Train step: 160 (4.32%) / time: 1m 0s (- 22m 21s) / loss: 6.6302
+Val step: 5 / loss: 6.6115
+> S15a07 S1f010 S26507 S10e00 S21d00 S38800 S20356 S14251 S20600 S30a00 S2ff00 S11a00 S2e307 S15a20 S26507 S17654 S17654 S14250 S14258 S2c611 S2c600 S38700 S14410 S2ff00 S20600 S15050 S15058 S26510 S26500 S38800 S10047 S30a00 S2ff00 S10002 S2ea00 S38700 S2e74c S14220 S2e700 S14228 S36d01 S2ff00 S22a04 S22a04 S19200 S38700 S14c39 S26516 S14c31 S26502 S30e00 S36d01 S21b00 S1dc27 S1dc2f S21b00 S2ff00 S10012 S18518 S2ef00 S10004 S22f04 S38900 S30e00 S10001 S2e008 S36d01 S2ea04 S10e55 S2ff00 S20500 S20500 S10043 S2d600 S26506 S19a50 S26502 S2ff00 S19200 S18217 S1821f S20500 S2d600 S20500 S20600 S1f710 S37800 S37806 S16d1c S1dc0a S10003 S20500 S20500 S1004a S10041 S22f04 S20302 S2030a S20340 S20348 S15a37 S15a37 S22a04 S22a14 S20500 S2ff00 S22a04 S15210 S1f550 S27100 S15a58 S15a50 S27114 S38800
+= verse 12. peter saw his opportunity and addressed the crowd . `` people of israel , '' he said , `` what is so surprising about this ? and why stare at us as though we had made this man walk by our own power or godliness ? acts3v12 nlt
+< verse [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 161 (4.35%) / time: 1m 4s (- 23m 45s) / loss: 6.6858
+Train step: 162 (4.38%) / time: 1m 5s (- 23m 41s) / loss: 6.5292
+Train step: 163 (4.40%) / time: 1m 5s (- 23m 38s) / loss: 6.8242
+Train step: 164 (4.43%) / time: 1m 5s (- 23m 36s) / loss: 6.7769
+Train step: 165 (4.46%) / time: 1m 5s (- 23m 34s) / loss: 6.9707
+Train step: 166 (4.48%) / time: 1m 6s (- 23m 32s) / loss: 6.8106
+Train step: 167 (4.51%) / time: 1m 6s (- 23m 30s) / loss: 6.7115
+Train step: 168 (4.54%) / time: 1m 6s (- 23m 28s) / loss: 6.5648
+Train step: 169 (4.57%) / time: 1m 7s (- 23m 24s) / loss: 6.6944
+Train step: 170 (4.59%) / time: 1m 7s (- 23m 21s) / loss: 6.5855
+Train step: 171 (4.62%) / time: 1m 7s (- 23m 19s) / loss: 6.5073
+Train step: 172 (4.65%) / time: 1m 8s (- 23m 19s) / loss: 6.9334
+Train step: 173 (4.67%) / time: 1m 8s (- 23m 14s) / loss: 6.1522
+Train step: 174 (4.70%) / time: 1m 8s (- 23m 11s) / loss: 6.6353
+Train step: 175 (4.73%) / time: 1m 8s (- 23m 8s) / loss: 6.9961
+Train step: 176 (4.75%) / time: 1m 9s (- 23m 11s) / loss: 6.3674
+Train step: 177 (4.78%) / time: 1m 9s (- 23m 8s) / loss: 6.7599
+Train step: 178 (4.81%) / time: 1m 9s (- 23m 5s) / loss: 6.4549
+Train step: 179 (4.84%) / time: 1m 10s (- 23m 2s) / loss: 6.4084
+Train step: 180 (4.86%) / time: 1m 10s (- 23m 0s) / loss: 6.8690
+Train step: 181 (4.89%) / time: 1m 10s (- 22m 59s) / loss: 6.7846
+Train step: 182 (4.92%) / time: 1m 11s (- 22m 53s) / loss: 6.6527
+Train step: 183 (4.94%) / time: 1m 11s (- 22m 54s) / loss: 6.7921
+Train step: 184 (4.97%) / time: 1m 11s (- 22m 52s) / loss: 6.9893
+Train step: 185 (5.00%) / time: 1m 12s (- 22m 48s) / loss: 6.6629
+Train step: 186 (5.02%) / time: 1m 12s (- 22m 44s) / loss: 6.7631
+Train step: 187 (5.05%) / time: 1m 12s (- 22m 40s) / loss: 6.8229
+Train step: 188 (5.08%) / time: 1m 12s (- 22m 36s) / loss: 6.4478
+Train step: 189 (5.11%) / time: 1m 12s (- 22m 36s) / loss: 6.5216
+Train step: 190 (5.13%) / time: 1m 13s (- 22m 35s) / loss: 7.1642
+Train step: 191 (5.16%) / time: 1m 13s (- 22m 32s) / loss: 6.7777
+Train step: 192 (5.19%) / time: 1m 13s (- 22m 30s) / loss: 6.6648
+Val step: 6 / loss: 6.4557
+> S15a37 S1f010 S26507 S14c20 S11e20 S38800 S14c37 S14c3f S22a04 S22a14 S30d00 S15a02 S15a06 S26500 S38700 S2ff00 S17e37 S18537 S22f04 S17d41 S23b1a S15a49 S26527 S15a40 S15a48 S23b0a S14c48 S10052 S2c300 S15a48 S15a40 S29406 S29416 S17911 S17919 S2c300 S2c311 S15a18 S10057 S26607 S1c519 S1c511 S15a17 S15a1f S38800
+= so from that time on , the jewish leaders began to plot jesus ' death . john11v53 nlt
+< verse verse [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 193 (5.21%) / time: 1m 18s (- 23m 38s) / loss: 6.3334
+Train step: 194 (5.24%) / time: 1m 18s (- 23m 35s) / loss: 6.7173
+Train step: 195 (5.27%) / time: 1m 18s (- 23m 36s) / loss: 6.3192
+Train step: 196 (5.30%) / time: 1m 18s (- 23m 32s) / loss: 6.4554
+Train step: 197 (5.32%) / time: 1m 19s (- 23m 28s) / loss: 6.4507
+Train step: 198 (5.35%) / time: 1m 19s (- 23m 26s) / loss: 6.5685
+Train step: 199 (5.38%) / time: 1m 19s (- 23m 23s) / loss: 6.5560
+Train step: 200 (5.40%) / time: 1m 19s (- 23m 19s) / loss: 6.3515
+Train step: 201 (5.43%) / time: 1m 20s (- 23m 15s) / loss: 6.1125
+Train step: 202 (5.46%) / time: 1m 20s (- 23m 14s) / loss: 6.9579
+Train step: 203 (5.48%) / time: 1m 20s (- 23m 10s) / loss: 6.6279
+Train step: 204 (5.51%) / time: 1m 20s (- 23m 7s) / loss: 6.4397
+Train step: 205 (5.54%) / time: 1m 21s (- 23m 8s) / loss: 6.5585
+Train step: 206 (5.57%) / time: 1m 21s (- 23m 5s) / loss: 6.5230
+Train step: 207 (5.59%) / time: 1m 22s (- 23m 4s) / loss: 6.4877
+Train step: 208 (5.62%) / time: 1m 22s (- 23m 3s) / loss: 6.9652
+Train step: 209 (5.65%) / time: 1m 22s (- 23m 1s) / loss: 6.4504
+Train step: 210 (5.67%) / time: 1m 22s (- 22m 57s) / loss: 6.5248
+Train step: 211 (5.70%) / time: 1m 23s (- 22m 53s) / loss: 6.4263
+Train step: 212 (5.73%) / time: 1m 23s (- 22m 52s) / loss: 6.4550
+Train step: 213 (5.75%) / time: 1m 23s (- 22m 50s) / loss: 6.5779
+Train step: 214 (5.78%) / time: 1m 23s (- 22m 48s) / loss: 6.3870
+Train step: 215 (5.81%) / time: 1m 24s (- 22m 47s) / loss: 6.7934
+Train step: 216 (5.84%) / time: 1m 24s (- 22m 43s) / loss: 6.4693
+Train step: 217 (5.86%) / time: 1m 24s (- 22m 40s) / loss: 6.2909
+Train step: 218 (5.89%) / time: 1m 24s (- 22m 37s) / loss: 6.3794
+Train step: 219 (5.92%) / time: 1m 25s (- 22m 34s) / loss: 5.8798
+Train step: 220 (5.94%) / time: 1m 25s (- 22m 33s) / loss: 6.7126
+Train step: 221 (5.97%) / time: 1m 25s (- 22m 30s) / loss: 6.0935
+Train step: 222 (6.00%) / time: 1m 26s (- 22m 31s) / loss: 6.1498
+Train step: 223 (6.02%) / time: 1m 26s (- 22m 29s) / loss: 6.7355
+Train step: 224 (6.05%) / time: 1m 26s (- 22m 29s) / loss: 6.5250
+Val step: 7 / loss: 6.3148
+> S15a07 S1f010 S26507 S10e00 S38800 S1f720 S20320 S11920 S1f720 S11920 S30a00 S38700 S16d20 S1f720 S20320 S19220 S1f720 S14250 S11502 S1f720 S14230 S27103 S11502 S22b00 S36a00 S1f010 S26a06 S38800 S10050 S10058 S2c600 S2c611 S30a00 S38700 S10020 S2450a S14a20 S16d20 S11502 S11a20 S11502 S1f720 S19220 S1f720 S15a20 S26507 S2ff00 S15a36 S18510 S37806 S22b03 S1813e S22104 S19220 S17620 S2a20c S11502 S11920 S30a00 S38700 S2ff00 S15a10 S22a04 S32107 S2ff00 S18538 S18538 S28812 S28902 S14c31 S14c3f S38900 S10041 S1dc0a S1dc02 S22a10 S22a00 S16d48 S14c00 S18501 S26501 S18551 S18559 S14c51 S14c59 S2d616 S2d60e S15a37 S15357 S26507 S1f710 S20302 S37706 S2ea08 S38800
+= verse 2. annas and caiaphas were the high priests . at this time a message from god came to john son of zechariah , who was living in the wilderness . luke3v2 nlt
+< verse verse [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 225 (6.08%) / time: 1m 31s (- 23m 29s) / loss: 6.5864
+Train step: 226 (6.11%) / time: 1m 31s (- 23m 26s) / loss: 6.3201
+Train step: 227 (6.13%) / time: 1m 31s (- 23m 23s) / loss: 6.2443
+Train step: 228 (6.16%) / time: 1m 31s (- 23m 20s) / loss: 6.3169
+Train step: 229 (6.19%) / time: 1m 32s (- 23m 17s) / loss: 6.6540
+Train step: 230 (6.21%) / time: 1m 32s (- 23m 16s) / loss: 6.4946
+Train step: 231 (6.24%) / time: 1m 32s (- 23m 14s) / loss: 6.3702
+Train step: 232 (6.27%) / time: 1m 33s (- 23m 13s) / loss: 6.6259
+Train step: 233 (6.29%) / time: 1m 33s (- 23m 11s) / loss: 6.6350
+Train step: 234 (6.32%) / time: 1m 33s (- 23m 9s) / loss: 6.1293
+Train step: 235 (6.35%) / time: 1m 34s (- 23m 7s) / loss: 6.4020
+Train step: 236 (6.38%) / time: 1m 34s (- 23m 3s) / loss: 6.2893
+Train step: 237 (6.40%) / time: 1m 34s (- 23m 2s) / loss: 6.3997
+Train step: 238 (6.43%) / time: 1m 34s (- 22m 59s) / loss: 6.5400
+Train step: 239 (6.46%) / time: 1m 35s (- 22m 56s) / loss: 6.0744
+Train step: 240 (6.48%) / time: 1m 35s (- 22m 55s) / loss: 6.4038
+Train step: 241 (6.51%) / time: 1m 35s (- 22m 53s) / loss: 6.1586
+Train step: 242 (6.54%) / time: 1m 35s (- 22m 50s) / loss: 6.3523
+Train step: 243 (6.56%) / time: 1m 36s (- 22m 48s) / loss: 6.4088
+Train step: 244 (6.59%) / time: 1m 36s (- 22m 48s) / loss: 6.7725
+Train step: 245 (6.62%) / time: 1m 36s (- 22m 46s) / loss: 6.5449
+Train step: 246 (6.65%) / time: 1m 37s (- 22m 42s) / loss: 6.0763
+Train step: 247 (6.67%) / time: 1m 37s (- 22m 39s) / loss: 6.6323
+Train step: 248 (6.70%) / time: 1m 37s (- 22m 38s) / loss: 6.3997
+Train step: 249 (6.73%) / time: 1m 37s (- 22m 36s) / loss: 5.7218
+Train step: 250 (6.75%) / time: 1m 38s (- 22m 33s) / loss: 6.4629
+Train step: 251 (6.78%) / time: 1m 38s (- 22m 29s) / loss: 5.8983
+Train step: 252 (6.81%) / time: 1m 38s (- 22m 27s) / loss: 6.4061
+Train step: 253 (6.83%) / time: 1m 38s (- 22m 26s) / loss: 6.3577
+Train step: 254 (6.86%) / time: 1m 39s (- 22m 23s) / loss: 6.2539
+Train step: 255 (6.89%) / time: 1m 39s (- 22m 23s) / loss: 6.6578
+Train step: 256 (6.92%) / time: 1m 39s (- 22m 20s) / loss: 6.5354
+Val step: 8 / loss: 6.4712
+> S15a07 S1f010 S26507 S1de20 S1a520 S38800 S15a39 S15a39 S2b707 S2b717 S30a00 S19220 S2a20c S15a11 S15a19 S20600 S15a36 S1813e S2890f S15a20 S15a20 S26612 S26606 S38700 S14c57 S2d800 S1dc20 S14a20 S10e20 S19220 S1fb20 S14a20 S2e74c S14220 S2e700 S14228 S10039 S10031 S2b713 S2b703 S19220 S2a20c S15a11 S15a19 S20600 S38700 S2e008 S10001 S30a00 S38700 S15a37 S1f702 S20600 S1f740 S1f748 S2ea4a S10a18 S2ea3e S10a10 S38800
+= verse 27. for the dedication of the new wall of jerusalem , the levites throughout the land were asked to come to jerusalem to assist in the ceremonies . nehemiah 12v27a nlt
+< verse verse , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+
+Train step: 257 (6.94%) / time: 1m 43s (- 23m 9s) / loss: 6.2251
+Train step: 258 (6.97%) / time: 1m 43s (- 23m 6s) / loss: 6.4426
+Train step: 259 (7.00%) / time: 1m 44s (- 23m 4s) / loss: 6.0796
+Train step: 260 (7.02%) / time: 1m 44s (- 23m 3s) / loss: 6.6882
+Train step: 261 (7.05%) / time: 1m 44s (- 23m 2s) / loss: 6.6180
+Train step: 262 (7.08%) / time: 1m 45s (- 23m 0s) / loss: 6.4329
+Train step: 263 (7.11%) / time: 1m 45s (- 22m 58s) / loss: 5.6966
+Train step: 264 (7.13%) / time: 1m 45s (- 22m 57s) / loss: 6.2781
+Train step: 265 (7.16%) / time: 1m 46s (- 22m 55s) / loss: 5.5854
+Train step: 266 (7.19%) / time: 1m 46s (- 22m 53s) / loss: 6.4280
+Train step: 267 (7.21%) / time: 1m 46s (- 22m 51s) / loss: 6.6354
+Train step: 268 (7.24%) / time: 1m 46s (- 22m 49s) / loss: 6.7177
+Train step: 269 (7.27%) / time: 1m 47s (- 22m 47s) / loss: 6.2609
+Train step: 270 (7.29%) / time: 1m 47s (- 22m 48s) / loss: 6.1994
+Train step: 271 (7.32%) / time: 1m 47s (- 22m 45s) / loss: 5.8773
+Train step: 272 (7.35%) / time: 1m 48s (- 22m 43s) / loss: 6.7480
+Train step: 273 (7.38%) / time: 1m 48s (- 22m 44s) / loss: 6.6167
+Train step: 274 (7.40%) / time: 1m 48s (- 22m 42s) / loss: 6.1865
+Train step: 275 (7.43%) / time: 1m 49s (- 22m 39s) / loss: 6.4604
+Train step: 276 (7.46%) / time: 1m 49s (- 22m 36s) / loss: 6.2435
+Train step: 277 (7.48%) / time: 1m 49s (- 22m 34s) / loss: 6.3225
+Train step: 278 (7.51%) / time: 1m 49s (- 22m 33s) / loss: 6.4552
+Train step: 279 (7.54%) / time: 1m 50s (- 22m 31s) / loss: 6.3057
+Train step: 280 (7.56%) / time: 1m 50s (- 22m 30s) / loss: 6.6927
+Train step: 281 (7.59%) / time: 1m 50s (- 22m 29s) / loss: 6.4649
+Train step: 282 (7.62%) / time: 1m 51s (- 22m 27s) / loss: 6.2347
+Train step: 283 (7.65%) / time: 1m 51s (- 22m 23s) / loss: 5.9884
+Train step: 284 (7.67%) / time: 1m 51s (- 22m 21s) / loss: 6.1769
+Train step: 285 (7.70%) / time: 1m 51s (- 22m 20s) / loss: 6.5750
+Train step: 286 (7.73%) / time: 1m 52s (- 22m 19s) / loss: 6.4843
+Train step: 287 (7.75%) / time: 1m 52s (- 22m 17s) / loss: 6.4403
+Train step: 288 (7.78%) / time: 1m 52s (- 22m 16s) / loss: 6.3459
+Val step: 9 / loss: 6.2129
+> S10047 S30a00 S2ff00 S10010 S10018 S26901 S26911 S38700 S20500 S15a01 S36d01 S30d00 S2ff00 S20500 S20500 S15211 S20500 S10043 S26500 S1f540 S30122 S10000 S2ff00 S2b701 S38800 S36d01 S10001 S2e008 S31000 S20500 S10043 S10001 S2ff00 S2b702 S10041 S10020 S29f0c S38800
+= `` i have n't even given the answer to my father or mother , he replied . `` why should i tell you ? '' judges 14v16b nlt
+< verse verse [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 289 (7.81%) / time: 1m 56s (- 22m 59s) / loss: 6.3098
+Train step: 290 (7.83%) / time: 1m 57s (- 23m 1s) / loss: 5.4692
+Train step: 291 (7.86%) / time: 1m 57s (- 22m 59s) / loss: 7.7080
+Train step: 292 (7.89%) / time: 1m 57s (- 22m 57s) / loss: 6.0544
+Train step: 293 (7.92%) / time: 1m 58s (- 22m 54s) / loss: 6.2717
+Train step: 294 (7.94%) / time: 1m 58s (- 22m 52s) / loss: 6.4826
+Train step: 295 (7.97%) / time: 1m 58s (- 22m 50s) / loss: 6.0649
+Train step: 296 (8.00%) / time: 1m 59s (- 22m 49s) / loss: 5.9495
+Train step: 297 (8.02%) / time: 1m 59s (- 22m 46s) / loss: 6.1033
+Train step: 298 (8.05%) / time: 1m 59s (- 22m 44s) / loss: 5.9917
+Train step: 299 (8.08%) / time: 1m 59s (- 22m 42s) / loss: 6.4011
+Train step: 300 (8.10%) / time: 1m 59s (- 22m 39s) / loss: 6.2541
+Train step: 301 (8.13%) / time: 2m 0s (- 22m 38s) / loss: 6.7030
+Train step: 302 (8.16%) / time: 2m 0s (- 22m 37s) / loss: 6.6525
+Train step: 303 (8.19%) / time: 2m 0s (- 22m 35s) / loss: 6.3380
+Train step: 304 (8.21%) / time: 2m 1s (- 22m 35s) / loss: 6.0987
+Train step: 305 (8.24%) / time: 2m 1s (- 22m 31s) / loss: 5.8704
+Train step: 306 (8.27%) / time: 2m 1s (- 22m 30s) / loss: 6.2781
+Train step: 307 (8.29%) / time: 2m 1s (- 22m 27s) / loss: 5.9901
+Train step: 308 (8.32%) / time: 2m 2s (- 22m 25s) / loss: 6.6090
+Train step: 309 (8.35%) / time: 2m 2s (- 22m 22s) / loss: 6.1158
+Train step: 310 (8.37%) / time: 2m 2s (- 22m 22s) / loss: 6.0214
+Train step: 311 (8.40%) / time: 2m 3s (- 22m 21s) / loss: 6.8925
+Train step: 312 (8.43%) / time: 2m 3s (- 22m 18s) / loss: 6.4787
+Train step: 313 (8.46%) / time: 2m 3s (- 22m 16s) / loss: 6.1179
+Train step: 314 (8.48%) / time: 2m 3s (- 22m 15s) / loss: 6.3693
+Train step: 315 (8.51%) / time: 2m 3s (- 22m 12s) / loss: 6.2058
+Train step: 316 (8.54%) / time: 2m 4s (- 22m 10s) / loss: 5.8583
+Train step: 317 (8.56%) / time: 2m 4s (- 22m 8s) / loss: 6.3068
+Train step: 318 (8.59%) / time: 2m 4s (- 22m 7s) / loss: 5.4958
+Train step: 319 (8.62%) / time: 2m 4s (- 22m 5s) / loss: 6.3284
+Train step: 320 (8.64%) / time: 2m 5s (- 22m 3s) / loss: 6.0587
+Val step: 10 / loss: 6.2196
+> S15a07 S1f010 S26507 S11e20 S14420 S38800 S1dc29 S22a13 S20500 S20500 S15a39 S2f900 S30a00 S10011 S2ff00 S2e500 S30a50 S38700 S1e141 S34600 S2ff00 S30e00 S20350 S20350 S22a04 S22a14 S2ff00 S15a11 S30e00 S38800 S30a00 S15a5a S26a07 S14c57 S18557 S1853f S1853f S2b707 S2b717 S15a37 S15a37 S38700 S1e141 S34600 S2ff00 S30e00 S2ff00 S15a11 S20348 S14c51 S26507 S30e00 S38800
+= for who can know the lord 's thoughts ? who knows enough to give him advice ? romans11v34 nlt
+< verse verse [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 321 (8.67%) / time: 2m 9s (- 22m 44s) / loss: 6.2530
+Train step: 322 (8.70%) / time: 2m 9s (- 22m 42s) / loss: 6.5618
+Train step: 323 (8.73%) / time: 2m 10s (- 22m 40s) / loss: 6.1422
+Train step: 324 (8.75%) / time: 2m 10s (- 22m 39s) / loss: 6.3406
+Train step: 325 (8.78%) / time: 2m 10s (- 22m 37s) / loss: 6.2241
+Train step: 326 (8.81%) / time: 2m 10s (- 22m 36s) / loss: 6.4015
+Train step: 327 (8.83%) / time: 2m 11s (- 22m 35s) / loss: 6.4915
+Train step: 328 (8.86%) / time: 2m 11s (- 22m 34s) / loss: 6.4893
+Train step: 329 (8.89%) / time: 2m 12s (- 22m 33s) / loss: 6.4608
+Train step: 330 (8.92%) / time: 2m 12s (- 22m 32s) / loss: 6.2753
+Train step: 331 (8.94%) / time: 2m 12s (- 22m 31s) / loss: 6.2290
+Train step: 332 (8.97%) / time: 2m 12s (- 22m 29s) / loss: 6.2631
+Train step: 333 (9.00%) / time: 2m 13s (- 22m 26s) / loss: 6.0672
+Train step: 334 (9.02%) / time: 2m 13s (- 22m 24s) / loss: 5.9469
+Train step: 335 (9.05%) / time: 2m 13s (- 22m 22s) / loss: 6.1045
+Train step: 336 (9.08%) / time: 2m 13s (- 22m 20s) / loss: 5.8549
+Train step: 337 (9.10%) / time: 2m 14s (- 22m 18s) / loss: 6.0443
+Train step: 338 (9.13%) / time: 2m 14s (- 22m 18s) / loss: 6.3325
+Train step: 339 (9.16%) / time: 2m 14s (- 22m 18s) / loss: 6.7893
+Train step: 340 (9.19%) / time: 2m 15s (- 22m 16s) / loss: 6.3964
+Train step: 341 (9.21%) / time: 2m 15s (- 22m 14s) / loss: 6.3372
+Train step: 342 (9.24%) / time: 2m 15s (- 22m 13s) / loss: 6.4587
+Train step: 343 (9.27%) / time: 2m 16s (- 22m 11s) / loss: 6.3216
+Train step: 344 (9.29%) / time: 2m 16s (- 22m 10s) / loss: 5.9094
+Train step: 345 (9.32%) / time: 2m 16s (- 22m 8s) / loss: 6.1606
+Train step: 346 (9.35%) / time: 2m 16s (- 22m 7s) / loss: 6.2475
+Train step: 347 (9.37%) / time: 2m 17s (- 22m 6s) / loss: 6.4968
+Train step: 348 (9.40%) / time: 2m 17s (- 22m 4s) / loss: 6.3981
+Train step: 349 (9.43%) / time: 2m 17s (- 22m 3s) / loss: 6.2034
+Train step: 350 (9.46%) / time: 2m 17s (- 22m 1s) / loss: 6.0591
+Train step: 351 (9.48%) / time: 2m 18s (- 21m 59s) / loss: 6.0974
+Train step: 352 (9.51%) / time: 2m 18s (- 21m 57s) / loss: 6.1556
+Val step: 11 / loss: 6.2568
+> S15a07 S1f010 S26507 S22114 S12d00 S38800 S14c30 S14c38 S2a204 S2a21c S30a00 S38700 S22a17 S20b00 S20357 S15a57 S15a57 S22b07 S20351 S38700 S1c519 S1c511 S15a17 S15a1f S10018 S29319 S38900 S15a57 S15d51 S26a05 S18151 S2e74c S14220 S2e700 S14228 S10047 S26504 S26514 S15030 S15038 S10002 S2be17 S2be07 S1000a S1f740 S1f748 S26a27 S38800 S10041 S2d60e S30a00 S30124 S10039 S10031 S2b716 S2b706 S10047 S38800
+= verse 13. afterward jesus went up on a mountain and called out the ones he wanted to go with him . and they came to him . mark3v13 nlt
+< verse verse [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 353 (9.54%) / time: 2m 22s (- 22m 32s) / loss: 6.0317
+Train step: 354 (9.56%) / time: 2m 22s (- 22m 31s) / loss: 6.5759
+Train step: 355 (9.59%) / time: 2m 23s (- 22m 31s) / loss: 6.4853
+Train step: 356 (9.62%) / time: 2m 23s (- 22m 30s) / loss: 6.4049
+Train step: 357 (9.64%) / time: 2m 24s (- 22m 29s) / loss: 6.1164
+Train step: 358 (9.67%) / time: 2m 24s (- 22m 26s) / loss: 5.8537
+Train step: 359 (9.70%) / time: 2m 24s (- 22m 25s) / loss: 6.0446
+Train step: 360 (9.73%) / time: 2m 24s (- 22m 22s) / loss: 6.0750
+Train step: 361 (9.75%) / time: 2m 24s (- 22m 21s) / loss: 6.1516
+Train step: 362 (9.78%) / time: 2m 25s (- 22m 19s) / loss: 7.1463
+Train step: 363 (9.81%) / time: 2m 25s (- 22m 17s) / loss: 6.5476
+Train step: 364 (9.83%) / time: 2m 25s (- 22m 15s) / loss: 6.3286
+Train step: 365 (9.86%) / time: 2m 25s (- 22m 13s) / loss: 5.9325
+Train step: 366 (9.89%) / time: 2m 26s (- 22m 12s) / loss: 6.1339
+Train step: 367 (9.91%) / time: 2m 26s (- 22m 11s) / loss: 6.4716
+Train step: 368 (9.94%) / time: 2m 26s (- 22m 10s) / loss: 6.5718
+Train step: 369 (9.97%) / time: 2m 27s (- 22m 8s) / loss: 6.0913
+Train step: 370 (10.00%) / time: 2m 27s (- 22m 7s) / loss: 6.0618
+Train step: 371 (10.02%) / time: 2m 27s (- 22m 5s) / loss: 6.1160
+Epoch 2
+Train step: 372 (10.05%) / time: 2m 27s (- 22m 3s) / loss: 6.3044
+Train step: 373 (10.08%) / time: 2m 28s (- 22m 3s) / loss: 6.2413
+Train step: 374 (10.10%) / time: 2m 28s (- 22m 0s) / loss: 5.9417
+Train step: 375 (10.13%) / time: 2m 28s (- 21m 59s) / loss: 6.1927
+Train step: 376 (10.16%) / time: 2m 28s (- 21m 57s) / loss: 6.2443
+Train step: 377 (10.18%) / time: 2m 29s (- 21m 56s) / loss: 6.4568
+Train step: 378 (10.21%) / time: 2m 29s (- 21m 56s) / loss: 6.1140
+Train step: 379 (10.24%) / time: 2m 30s (- 21m 55s) / loss: 6.4973
+Train step: 380 (10.27%) / time: 2m 30s (- 21m 54s) / loss: 6.4667
+Train step: 381 (10.29%) / time: 2m 30s (- 21m 52s) / loss: 5.9494
+Train step: 382 (10.32%) / time: 2m 30s (- 21m 51s) / loss: 6.2556
+Train step: 383 (10.35%) / time: 2m 31s (- 21m 49s) / loss: 5.9140
+Train step: 384 (10.37%) / time: 2m 31s (- 21m 48s) / loss: 6.3290
+Val step: 12 / loss: 6.1219
+> S15a07 S1f010 S26507 S1dc20 S14420 S38800 S10047 S36d01 S2ff00 S10002 S2ea00 S38700 S14250 S15a37 S26a07 S36d01 S10041 S38700 S26606 S15a57 S26612 S15a51 S3770b S37713 S30122 S30e00 S36d01 S14c0a S26a02 S14c02 S26a16 S38900 S10041 S36d01 S2ff00 S15a10 S26500 S30124 S10010 S26500 S1ce40 S1ce48 S23100 S23110 S15a10 S2890f S15a18 S16d20 S1f720 S20320 S14a20 S1f720 S11a20 S38810 S18518 S1853c S2880f S14c57 S36d01 S30a00 S38700 S2ff00 S15a10 S22a04 S32107 S36d01 S17644 S18522 S32107 S15a37 S15a37 S15a37 S15a01 S26a00 S2ff00 S15a00 S18537 S18537 S2b702 S2b712 S20337 S20331 S3770b S37713 S2891f S28907 S20326 S20326 S10011 S2ff00 S2df08 S15a37 S15a01 S2e800 S2e74c S14228 S2e700 S14220 S18130 S18138 S26620 S1f740 S1f748 S10041 S38800
+= verse 24. and he said , 'do n't be afraid , paul , for you will surely stand trial before caesar ! what 's more , god in his goodness has granted safety to everyone sailing with you . ' acts27v24 nlt
+< verse verse [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 385 (10.40%) / time: 2m 35s (- 22m 22s) / loss: 5.7303
+Train step: 386 (10.43%) / time: 2m 36s (- 22m 21s) / loss: 5.9196
+Train step: 387 (10.46%) / time: 2m 36s (- 22m 19s) / loss: 5.9892
+Train step: 388 (10.48%) / time: 2m 36s (- 22m 18s) / loss: 6.4195
+Train step: 389 (10.51%) / time: 2m 37s (- 22m 16s) / loss: 6.1450
+Train step: 390 (10.54%) / time: 2m 37s (- 22m 14s) / loss: 5.9480
+Train step: 391 (10.56%) / time: 2m 37s (- 22m 12s) / loss: 6.1182
+Train step: 392 (10.59%) / time: 2m 37s (- 22m 11s) / loss: 5.6922
+Train step: 393 (10.62%) / time: 2m 38s (- 22m 11s) / loss: 6.3711
+Train step: 394 (10.64%) / time: 2m 38s (- 22m 10s) / loss: 6.2423
+Train step: 395 (10.67%) / time: 2m 38s (- 22m 8s) / loss: 6.0850
+Train step: 396 (10.70%) / time: 2m 39s (- 22m 7s) / loss: 6.2559
+Train step: 397 (10.73%) / time: 2m 39s (- 22m 5s) / loss: 6.0691
+Train step: 398 (10.75%) / time: 2m 39s (- 22m 3s) / loss: 6.0249
+Train step: 399 (10.78%) / time: 2m 39s (- 22m 3s) / loss: 6.3739
+Train step: 400 (10.81%) / time: 2m 40s (- 22m 1s) / loss: 6.0212
+Train step: 401 (10.83%) / time: 2m 40s (- 21m 59s) / loss: 5.8386
+Train step: 402 (10.86%) / time: 2m 40s (- 21m 57s) / loss: 5.9498
+Train step: 403 (10.89%) / time: 2m 40s (- 21m 55s) / loss: 5.9187
+Train step: 404 (10.91%) / time: 2m 40s (- 21m 53s) / loss: 6.1577
+Train step: 405 (10.94%) / time: 2m 41s (- 21m 53s) / loss: 6.2849
+Train step: 406 (10.97%) / time: 2m 41s (- 21m 51s) / loss: 5.8987
+Train step: 407 (11.00%) / time: 2m 41s (- 21m 50s) / loss: 6.0067
+Train step: 408 (11.02%) / time: 2m 42s (- 21m 50s) / loss: 6.0035
+Train step: 409 (11.05%) / time: 2m 42s (- 21m 48s) / loss: 5.8235
+Train step: 410 (11.08%) / time: 2m 42s (- 21m 47s) / loss: 6.2532
+Train step: 411 (11.10%) / time: 2m 43s (- 21m 45s) / loss: 6.1665
+Train step: 412 (11.13%) / time: 2m 43s (- 21m 44s) / loss: 6.1202
+Train step: 413 (11.16%) / time: 2m 43s (- 21m 43s) / loss: 5.4877
+Train step: 414 (11.18%) / time: 2m 44s (- 21m 43s) / loss: 6.2513
+Train step: 415 (11.21%) / time: 2m 44s (- 21m 42s) / loss: 5.7210
+Train step: 416 (11.24%) / time: 2m 44s (- 21m 41s) / loss: 6.1864
+Val step: 13 / loss: 6.1796
+> S15a07 S1f010 S26507 S1de20 S18720 S38800 S18141 S18149 S22f10 S22f00 S20e00 S20e00 S30a00 S15a3f S15a37 S26c03 S26c15 S15a40 S15a48 S22a04 S22a14 S10047 S38700 S20300 S20300 S28c06 S28c16 S15a37 S15a0f S22a07 S10047 S17d40 S26526 S15a0a S38700 S20300 S20300 S28c06 S28c16 S2ff00 S10002 S2ea00 S38700 S16d48 S16d40 S22c00 S22c10 S22c00 S22c10 S26526 S36d03 S20302 S20300 S22f00 S15a56 S1fb20 S20600 S38700 S20500 S15a01 S36d03 S15a37 S15a0f S15a0f S22a11 S15a09 S22a07 S30e00 S30124 S17e29 S17e21 S28812 S2880a S14c28 S14c20 S38800 S20500 S10041 S36d03 S30a00 S26504 S26514 S15030 S15038 S15a01 S15a09 S20500 S20500 S3770b S37713 S14c28 S14c20 S38800
+= verse 26. samson said to the young servant who was leading him by the hand , `` place my hands against the pillars that hold up the temple . i want to rest against them . '' judges 16v26 nlt
+< verse verse [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 417 (11.27%) / time: 2m 49s (- 22m 11s) / loss: 6.2690
+Train step: 418 (11.29%) / time: 2m 49s (- 22m 10s) / loss: 6.5765
+Train step: 419 (11.32%) / time: 2m 49s (- 22m 9s) / loss: 6.1729
+Train step: 420 (11.35%) / time: 2m 49s (- 22m 7s) / loss: 6.0125
+Train step: 421 (11.37%) / time: 2m 50s (- 22m 5s) / loss: 5.5247
+Train step: 422 (11.40%) / time: 2m 50s (- 22m 3s) / loss: 5.8026
+Train step: 423 (11.43%) / time: 2m 50s (- 22m 1s) / loss: 5.7919
+Train step: 424 (11.45%) / time: 2m 50s (- 22m 0s) / loss: 6.0767
+Train step: 425 (11.48%) / time: 2m 50s (- 21m 58s) / loss: 5.9349
+Train step: 426 (11.51%) / time: 2m 51s (- 21m 57s) / loss: 5.9090
+Train step: 427 (11.54%) / time: 2m 51s (- 21m 54s) / loss: 5.7445
+Train step: 428 (11.56%) / time: 2m 51s (- 21m 53s) / loss: 6.0073
+Train step: 429 (11.59%) / time: 2m 51s (- 21m 51s) / loss: 5.8367
+Train step: 430 (11.62%) / time: 2m 52s (- 21m 50s) / loss: 6.0111
+Train step: 431 (11.64%) / time: 2m 52s (- 21m 48s) / loss: 6.0977
+Train step: 432 (11.67%) / time: 2m 52s (- 21m 47s) / loss: 6.0427
+Train step: 433 (11.70%) / time: 2m 52s (- 21m 45s) / loss: 6.0641
+Train step: 434 (11.72%) / time: 2m 53s (- 21m 44s) / loss: 6.1516
+Train step: 435 (11.75%) / time: 2m 53s (- 21m 43s) / loss: 6.4166
+Train step: 436 (11.78%) / time: 2m 53s (- 21m 41s) / loss: 6.1562
+Train step: 437 (11.81%) / time: 2m 53s (- 21m 39s) / loss: 6.2788
+Train step: 438 (11.83%) / time: 2m 54s (- 21m 40s) / loss: 5.8410
+Train step: 439 (11.86%) / time: 2m 54s (- 21m 39s) / loss: 5.9679
+Train step: 440 (11.89%) / time: 2m 55s (- 21m 38s) / loss: 5.6886
+Train step: 441 (11.91%) / time: 2m 55s (- 21m 37s) / loss: 6.2435
+Train step: 442 (11.94%) / time: 2m 55s (- 21m 36s) / loss: 6.4884
+Train step: 443 (11.97%) / time: 2m 56s (- 21m 35s) / loss: 6.0880
+Train step: 444 (11.99%) / time: 2m 56s (- 21m 33s) / loss: 6.3391
+Train step: 445 (12.02%) / time: 2m 56s (- 21m 32s) / loss: 6.3581
+Train step: 446 (12.05%) / time: 2m 57s (- 21m 32s) / loss: 6.0600
+Train step: 447 (12.08%) / time: 2m 57s (- 21m 31s) / loss: 6.3369
+Train step: 448 (12.10%) / time: 2m 57s (- 21m 30s) / loss: 5.7609
+Val step: 14 / loss: 6.2550
+> S15a07 S1f010 S26507 S10e50 S23004 S26506 S38800 S10047 S30a00 S1ce41 S1ce4f S27105 S27111 S20500 S10043 S38700 S10041 S36d01 S10120 S1f720 S11920 S19220 S14a20 S1dc20 S38700 S1813f S2ff00 S22b04 S18137 S22b14 S36d01 S30a00 S14c30 S14c38 S2a204 S2a21c S10039 S10031 S2b713 S2b703 S15a30 S15a30 S2e73a S2e742 S2e008 S10001 S30a00 S38900 S20350 S20350 S22f04 S22f14 S36d01 S2ff00 S10e00 S10018 S26501 S10e51 S38700 S2ff00 S10000 S21d00 S36d01 S18537 S18537 S2b702 S2b712 S10041 S38800
+= verse 22. he explained to me , `` daniel , i have come here to give you insight and understanding . daniel 9v22 nlt
+< verse verse [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 449 (12.13%) / time: 3m 1s (- 21m 57s) / loss: 5.6038
+Train step: 450 (12.16%) / time: 3m 2s (- 21m 56s) / loss: 6.3075
+Train step: 451 (12.18%) / time: 3m 2s (- 21m 55s) / loss: 6.0525
+Train step: 452 (12.21%) / time: 3m 2s (- 21m 54s) / loss: 5.8906
+Train step: 453 (12.24%) / time: 3m 2s (- 21m 52s) / loss: 6.4456
+Train step: 454 (12.27%) / time: 3m 3s (- 21m 51s) / loss: 6.1517
+Train step: 455 (12.29%) / time: 3m 3s (- 21m 50s) / loss: 5.7368
+Train step: 456 (12.32%) / time: 3m 3s (- 21m 49s) / loss: 6.6246
+Train step: 457 (12.35%) / time: 3m 4s (- 21m 48s) / loss: 6.3229
+Train step: 458 (12.37%) / time: 3m 4s (- 21m 47s) / loss: 6.0882
+Train step: 459 (12.40%) / time: 3m 4s (- 21m 46s) / loss: 6.0260
+Train step: 460 (12.43%) / time: 3m 5s (- 21m 45s) / loss: 6.2105
+Train step: 461 (12.45%) / time: 3m 5s (- 21m 44s) / loss: 5.9832
+Train step: 462 (12.48%) / time: 3m 5s (- 21m 43s) / loss: 5.9117
+Train step: 463 (12.51%) / time: 3m 6s (- 21m 41s) / loss: 5.8005
+Train step: 464 (12.54%) / time: 3m 6s (- 21m 40s) / loss: 6.1114
+Train step: 465 (12.56%) / time: 3m 6s (- 21m 39s) / loss: 6.1749
+Train step: 466 (12.59%) / time: 3m 7s (- 21m 39s) / loss: 6.2761
+Train step: 467 (12.62%) / time: 3m 7s (- 21m 38s) / loss: 6.6624
+Train step: 468 (12.64%) / time: 3m 7s (- 21m 36s) / loss: 6.1455
+Train step: 469 (12.67%) / time: 3m 7s (- 21m 34s) / loss: 5.9798
+Train step: 470 (12.70%) / time: 3m 8s (- 21m 33s) / loss: 5.9902
+Train step: 471 (12.72%) / time: 3m 8s (- 21m 33s) / loss: 5.8979
+Train step: 472 (12.75%) / time: 3m 8s (- 21m 32s) / loss: 6.9017
+Train step: 473 (12.78%) / time: 3m 9s (- 21m 32s) / loss: 6.4704
+Train step: 474 (12.81%) / time: 3m 9s (- 21m 31s) / loss: 6.1326
+Train step: 475 (12.83%) / time: 3m 9s (- 21m 29s) / loss: 6.0140
+Train step: 476 (12.86%) / time: 3m 10s (- 21m 27s) / loss: 5.9660
+Train step: 477 (12.89%) / time: 3m 10s (- 21m 27s) / loss: 6.3687
+Train step: 478 (12.91%) / time: 3m 10s (- 21m 26s) / loss: 6.3243
+Train step: 479 (12.94%) / time: 3m 11s (- 21m 25s) / loss: 5.6667
+Train step: 480 (12.97%) / time: 3m 11s (- 21m 23s) / loss: 5.8699
+Val step: 15 / loss: 6.0841
+> S15a20 S26500 S30a00 S20500 S2ff00 S18710 S20500 S10011 S2ff00 S28108 S10040 S30a00 S2ed09 S10020 S38700 S10611 S22a04 S26500 S1f540 S30122 S15d49 S15a41 S26c09 S1f740 S1f748 S2ff00 S16d17 S16d11 S28802 S2e74c S14028 S2e700 S14020 S38800
+= pr 5:17 let them be only thine own , and not strangers ’ with thee . your water for you only , should not share with strange people .
+< verse verse the [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 481 (12.99%) / time: 3m 15s (- 21m 47s) / loss: 5.6787
+Train step: 482 (13.02%) / time: 3m 15s (- 21m 46s) / loss: 5.1825
+Train step: 483 (13.05%) / time: 3m 15s (- 21m 44s) / loss: 6.4719
+Train step: 484 (13.08%) / time: 3m 16s (- 21m 43s) / loss: 6.2240
+Train step: 485 (13.10%) / time: 3m 16s (- 21m 41s) / loss: 6.1412
+Train step: 486 (13.13%) / time: 3m 16s (- 21m 40s) / loss: 6.1856
+Train step: 487 (13.16%) / time: 3m 17s (- 21m 41s) / loss: 5.7494
+Train step: 488 (13.18%) / time: 3m 17s (- 21m 40s) / loss: 6.8782
+Train step: 489 (13.21%) / time: 3m 17s (- 21m 39s) / loss: 6.1518
+Train step: 490 (13.24%) / time: 3m 18s (- 21m 38s) / loss: 6.1732
+Train step: 491 (13.26%) / time: 3m 18s (- 21m 38s) / loss: 6.1000
+Train step: 492 (13.29%) / time: 3m 18s (- 21m 36s) / loss: 5.9015
+Train step: 493 (13.32%) / time: 3m 19s (- 21m 36s) / loss: 6.3015
+Train step: 494 (13.35%) / time: 3m 19s (- 21m 34s) / loss: 5.5834
+Train step: 495 (13.37%) / time: 3m 19s (- 21m 33s) / loss: 6.3220
+Train step: 496 (13.40%) / time: 3m 20s (- 21m 32s) / loss: 6.1788
+Train step: 497 (13.43%) / time: 3m 20s (- 21m 31s) / loss: 5.9712
+Train step: 498 (13.45%) / time: 3m 20s (- 21m 30s) / loss: 5.9077
+Train step: 499 (13.48%) / time: 3m 20s (- 21m 29s) / loss: 5.9544
+Train step: 500 (13.51%) / time: 3m 21s (- 21m 28s) / loss: 5.6817
+Train step: 501 (13.53%) / time: 3m 21s (- 21m 27s) / loss: 6.0668
+Train step: 502 (13.56%) / time: 3m 21s (- 21m 26s) / loss: 6.0822
+Train step: 503 (13.59%) / time: 3m 22s (- 21m 25s) / loss: 5.9366
+Train step: 504 (13.62%) / time: 3m 22s (- 21m 23s) / loss: 5.9841
+Train step: 505 (13.64%) / time: 3m 22s (- 21m 21s) / loss: 6.0305
+Train step: 506 (13.67%) / time: 3m 22s (- 21m 19s) / loss: 5.8399
+Train step: 507 (13.70%) / time: 3m 22s (- 21m 18s) / loss: 6.2291
+Train step: 508 (13.72%) / time: 3m 23s (- 21m 17s) / loss: 6.1997
+Train step: 509 (13.75%) / time: 3m 23s (- 21m 15s) / loss: 6.0707
+Train step: 510 (13.78%) / time: 3m 23s (- 21m 14s) / loss: 6.2275
+Train step: 511 (13.80%) / time: 3m 23s (- 21m 13s) / loss: 6.1090
+Train step: 512 (13.83%) / time: 3m 24s (- 21m 11s) / loss: 5.9259
+Val step: 16 / loss: 5.9842
+> S15a07 S1f010 S26507 S10e00 S21d00 S38800 S14c37 S14c3f S22a04 S22a14 S30a00 S36d01 S1fb20 S1f720 S18d20 S11920 S14a20 S10041 S38700 S14c00 S22520 S14c08 S23108 S22520 S23118 S36d01 S1813f S22b14 S22b04 S18137 S2ff00 S2ff00 S15a10 S26500 S15a56 S18221 S26501 S22101 S2ff00 S38700 S17620 S14720 S10020 S2450a S11a20 S11502 S1f720 S36d01 S11559 S11551 S28818 S11559 S11551 S28800 S11559 S11551 S11559 S11551 S28818 S11559 S11551 S28800 S11559 S11551 S15a19 S15a11 S26520 S2ff00 S15a10 S26500 S15a07 S15a21 S15a01 S15a29 S14c38 S14c50 S1f738 S26703 S1f751 S26707 S38800
+= verse 12. so i will send down fire on teman , and the fortresses of bozrah will be destroyed . '' amos 1v12 nlt
+< verse verse the the [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 513 (13.86%) / time: 3m 28s (- 21m 34s) / loss: 5.3689
+Train step: 514 (13.89%) / time: 3m 28s (- 21m 33s) / loss: 6.1555
+Train step: 515 (13.91%) / time: 3m 28s (- 21m 31s) / loss: 6.0250
+Train step: 516 (13.94%) / time: 3m 29s (- 21m 30s) / loss: 5.8617
+Train step: 517 (13.97%) / time: 3m 29s (- 21m 29s) / loss: 5.8023
+Train step: 518 (13.99%) / time: 3m 29s (- 21m 27s) / loss: 5.9336
+Train step: 519 (14.02%) / time: 3m 29s (- 21m 26s) / loss: 6.4263
+Train step: 520 (14.05%) / time: 3m 30s (- 21m 25s) / loss: 6.3073
+Train step: 521 (14.08%) / time: 3m 30s (- 21m 24s) / loss: 5.9396
+Train step: 522 (14.10%) / time: 3m 30s (- 21m 23s) / loss: 6.2009
+Train step: 523 (14.13%) / time: 3m 30s (- 21m 22s) / loss: 6.1726
+Train step: 524 (14.16%) / time: 3m 31s (- 21m 20s) / loss: 6.1268
+Train step: 525 (14.18%) / time: 3m 31s (- 21m 19s) / loss: 5.5694
+Train step: 526 (14.21%) / time: 3m 31s (- 21m 17s) / loss: 5.9721
+Train step: 527 (14.24%) / time: 3m 31s (- 21m 16s) / loss: 5.7408
+Train step: 528 (14.26%) / time: 3m 32s (- 21m 14s) / loss: 6.0226
+Train step: 529 (14.29%) / time: 3m 32s (- 21m 13s) / loss: 6.3177
+Train step: 530 (14.32%) / time: 3m 32s (- 21m 13s) / loss: 5.9318
+Train step: 531 (14.35%) / time: 3m 33s (- 21m 12s) / loss: 6.0718
+Train step: 532 (14.37%) / time: 3m 33s (- 21m 12s) / loss: 5.6837
+Train step: 533 (14.40%) / time: 3m 33s (- 21m 10s) / loss: 6.3266
+Train step: 534 (14.43%) / time: 3m 33s (- 21m 8s) / loss: 5.6888
+Train step: 535 (14.45%) / time: 3m 34s (- 21m 7s) / loss: 5.9636
+Train step: 536 (14.48%) / time: 3m 34s (- 21m 7s) / loss: 6.2948
+Train step: 537 (14.51%) / time: 3m 34s (- 21m 6s) / loss: 6.1688
+Train step: 538 (14.53%) / time: 3m 35s (- 21m 5s) / loss: 6.3182
+Train step: 539 (14.56%) / time: 3m 35s (- 21m 5s) / loss: 6.4117
+Train step: 540 (14.59%) / time: 3m 35s (- 21m 4s) / loss: 6.0157
+Train step: 541 (14.62%) / time: 3m 36s (- 21m 2s) / loss: 5.8992
+Train step: 542 (14.64%) / time: 3m 36s (- 21m 1s) / loss: 6.1753
+Train step: 543 (14.67%) / time: 3m 36s (- 20m 59s) / loss: 6.0373
+Train step: 544 (14.70%) / time: 3m 36s (- 20m 58s) / loss: 5.7252
+Val step: 17 / loss: 6.1570
+> S15a07 S1f010 S26507 S1a520 S38800 S10058 S26526 S10050 S20500 S20500 S36d03 S30d00 S19220 S2a20c S1f720 S20320 S17620 S11920 S1823d S2d204 S20500 S10041 S2d60e S15a20 S26501 S20500 S2ff00 S17737 S38800 S1f737 S1dc31 S2d600 S30d00 S36d03 S36d00 S1f010 S20600 S1fb20 S11a20 S14a20 S1f720 S20320 S17620 S11920 S15a18 S18210 S26602 S26506 S16d20 S1f720 S20320 S14a20 S1f720 S11a20 S38900 S10041 S2d60e S36d03 S2ff00 S10001 S10009 S2d608 S2d610 S20302 S20300 S2890f S1f558 S28812 S1f538 S20500 S20500 S22a05 S14210 S38900 S22f04 S1150a S11541 S36d03 S1c519 S1c511 S15a17 S15a1f S38800
+= verse 7. and jason has welcomed them into his home . they are all guilty of treason against caesar , for they profess allegiance to another king , named jesus . '' acts17v7 nlt
+< verse verse the [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 545 (14.72%) / time: 3m 41s (- 21m 20s) / loss: 6.0774
+Train step: 546 (14.75%) / time: 3m 41s (- 21m 19s) / loss: 6.0178
+Train step: 547 (14.78%) / time: 3m 41s (- 21m 17s) / loss: 5.6543
+Train step: 548 (14.80%) / time: 3m 41s (- 21m 16s) / loss: 5.4252
+Train step: 549 (14.83%) / time: 3m 41s (- 21m 14s) / loss: 5.6130
+Train step: 550 (14.86%) / time: 3m 42s (- 21m 13s) / loss: 6.0347
+Train step: 551 (14.89%) / time: 3m 42s (- 21m 12s) / loss: 5.3267
+Train step: 552 (14.91%) / time: 3m 42s (- 21m 12s) / loss: 6.1382
+Train step: 553 (14.94%) / time: 3m 43s (- 21m 10s) / loss: 5.9792
+Train step: 554 (14.97%) / time: 3m 43s (- 21m 9s) / loss: 6.1161
+Train step: 555 (14.99%) / time: 3m 43s (- 21m 7s) / loss: 6.0023
+Train step: 556 (15.02%) / time: 3m 44s (- 21m 7s) / loss: 5.6918
+Train step: 557 (15.05%) / time: 3m 44s (- 21m 6s) / loss: 6.2946
+Train step: 558 (15.07%) / time: 3m 44s (- 21m 5s) / loss: 5.9677
+Train step: 559 (15.10%) / time: 3m 44s (- 21m 4s) / loss: 6.1129
+Train step: 560 (15.13%) / time: 3m 45s (- 21m 4s) / loss: 6.3279
+Train step: 561 (15.16%) / time: 3m 45s (- 21m 4s) / loss: 6.0440
+Train step: 562 (15.18%) / time: 3m 46s (- 21m 2s) / loss: 5.8085
+Train step: 563 (15.21%) / time: 3m 46s (- 21m 1s) / loss: 6.0913
+Train step: 564 (15.24%) / time: 3m 46s (- 21m 0s) / loss: 5.8738
+Train step: 565 (15.26%) / time: 3m 46s (- 20m 58s) / loss: 5.7080
+Train step: 566 (15.29%) / time: 3m 47s (- 20m 57s) / loss: 6.2680
+Train step: 567 (15.32%) / time: 3m 47s (- 20m 56s) / loss: 6.0684
+Train step: 568 (15.34%) / time: 3m 47s (- 20m 56s) / loss: 6.0680
+Train step: 569 (15.37%) / time: 3m 47s (- 20m 55s) / loss: 6.2481
+Train step: 570 (15.40%) / time: 3m 48s (- 20m 53s) / loss: 5.7433
+Train step: 571 (15.43%) / time: 3m 48s (- 20m 52s) / loss: 6.1342
+Train step: 572 (15.45%) / time: 3m 48s (- 20m 51s) / loss: 6.1298
+Train step: 573 (15.48%) / time: 3m 49s (- 20m 51s) / loss: 6.2862
+Train step: 574 (15.51%) / time: 3m 49s (- 20m 51s) / loss: 6.4031
+Train step: 575 (15.53%) / time: 3m 49s (- 20m 50s) / loss: 6.1700
+Train step: 576 (15.56%) / time: 3m 50s (- 20m 49s) / loss: 6.0371
+Val step: 18 / loss: 5.9622
+> S15a07 S1f010 S26507 S18720 S38800 S14c37 S14c3f S22a04 S22a14 S30a00 S2ff00 S15a1a S30e00 S2c601 S14710 S30124 S14710 S1f540 S26a00 S38900 S17911 S17919 S2c300 S2c311 S30a00 S38700 S17644 S18522 S32107 S22a04 S15a10 S2ff00 S20300 S20300 S26500 S26510 S37806 S18129 S18107 S37802 S37802 S22a05 S38700 S1dc0a S10003 S20500 S20500 S1001a S10041 S22a04 S30a00 S37806 S10050 S20356 S32107 S15a37 S15a37 S2ff00 S25900 S25910 S18210 S18218 S38700 S2ff00 S11510 S11518 S2c612 S2c602 S10041 S2d608 S30144 S15a10 S2b700 S38800
+= verse 6. so humble yourselves under the mighty power of god , and at the right time he will lift you up in honor . 1peter5v6 nlt
+< verse verse the [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 577 (15.59%) / time: 3m 54s (- 21m 9s) / loss: 5.8325
+Train step: 578 (15.62%) / time: 3m 54s (- 21m 7s) / loss: 5.9635
+Train step: 579 (15.64%) / time: 3m 54s (- 21m 7s) / loss: 6.3842
+Train step: 580 (15.67%) / time: 3m 55s (- 21m 5s) / loss: 5.7939
+Train step: 581 (15.70%) / time: 3m 55s (- 21m 5s) / loss: 6.1130
+Train step: 582 (15.72%) / time: 3m 55s (- 21m 4s) / loss: 6.0893
+Train step: 583 (15.75%) / time: 3m 56s (- 21m 3s) / loss: 5.6408
+Train step: 584 (15.78%) / time: 3m 56s (- 21m 1s) / loss: 5.4764
+Train step: 585 (15.80%) / time: 3m 56s (- 21m 0s) / loss: 6.2227
+Train step: 586 (15.83%) / time: 3m 56s (- 20m 59s) / loss: 5.8592
+Train step: 587 (15.86%) / time: 3m 57s (- 20m 58s) / loss: 5.7980
+Train step: 588 (15.89%) / time: 3m 57s (- 20m 57s) / loss: 6.0524
+Train step: 589 (15.91%) / time: 3m 57s (- 20m 56s) / loss: 6.2032
+Train step: 590 (15.94%) / time: 3m 57s (- 20m 54s) / loss: 5.9720
+Train step: 591 (15.97%) / time: 3m 58s (- 20m 53s) / loss: 5.9196
+Train step: 592 (15.99%) / time: 3m 58s (- 20m 52s) / loss: 6.0708
+Train step: 593 (16.02%) / time: 3m 58s (- 20m 51s) / loss: 5.9948
+Train step: 594 (16.05%) / time: 3m 58s (- 20m 49s) / loss: 5.5391
+Train step: 595 (16.07%) / time: 3m 59s (- 20m 48s) / loss: 5.8721
+Train step: 596 (16.10%) / time: 3m 59s (- 20m 47s) / loss: 5.7322
+Train step: 597 (16.13%) / time: 3m 59s (- 20m 46s) / loss: 5.5686
+Train step: 598 (16.16%) / time: 3m 59s (- 20m 45s) / loss: 6.0995
+Train step: 599 (16.18%) / time: 4m 0s (- 20m 43s) / loss: 5.7682
+Train step: 600 (16.21%) / time: 4m 0s (- 20m 42s) / loss: 6.2025
+Train step: 601 (16.24%) / time: 4m 0s (- 20m 42s) / loss: 5.7124
+Train step: 602 (16.26%) / time: 4m 1s (- 20m 42s) / loss: 6.7510
+Train step: 603 (16.29%) / time: 4m 1s (- 20m 41s) / loss: 6.4313
+Train step: 604 (16.32%) / time: 4m 1s (- 20m 40s) / loss: 6.4011
+Train step: 605 (16.34%) / time: 4m 2s (- 20m 39s) / loss: 6.3374
+Train step: 606 (16.37%) / time: 4m 2s (- 20m 38s) / loss: 5.9570
+Train step: 607 (16.40%) / time: 4m 2s (- 20m 37s) / loss: 6.0052
+Train step: 608 (16.43%) / time: 4m 2s (- 20m 36s) / loss: 5.9529
+Val step: 19 / loss: 5.9817
+> S15a07 S1f010 S26507 S18720 S1f540 S38800 S15a11 S22a07 S2ff00 S30124 S30e00 S15a19 S22a11 S1f522 S2ea46 S2ea02 S1f50a S1f740 S1f748 S22a05 S20500 S20500 S22a04 S22a14 S16d10 S15a40 S15a48 S3770b S20305 S20500 S20303 S20500 S37713 S38800 S15a37 S15a31 S2e800 S30a00 S16d20 S20356 S20500 S20500 S1ce40 S1ce48 S22a27 S2fb02 S22a13 S16d18 S20500 S20500 S15a37 S2f900 S15a11 S22a07 S2ff00 S33e00 S22a11 S15a19 S10041 S2d608 S38800
+= greet each other in christian love . all the churches of christ send you their greetings . romans16v16 nlt
+< verse verse the [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 609 (16.45%) / time: 4m 6s (- 20m 54s) / loss: 6.0576
+Train step: 610 (16.48%) / time: 4m 7s (- 20m 52s) / loss: 6.0930
+Train step: 611 (16.51%) / time: 4m 7s (- 20m 51s) / loss: 6.2160
+Train step: 612 (16.53%) / time: 4m 7s (- 20m 51s) / loss: 5.9555
+Train step: 613 (16.56%) / time: 4m 8s (- 20m 50s) / loss: 6.2228
+Train step: 614 (16.59%) / time: 4m 8s (- 20m 48s) / loss: 5.5768
+Train step: 615 (16.61%) / time: 4m 8s (- 20m 47s) / loss: 5.8694
+Train step: 616 (16.64%) / time: 4m 8s (- 20m 45s) / loss: 6.0986
+Train step: 617 (16.67%) / time: 4m 9s (- 20m 44s) / loss: 5.7544
+Train step: 618 (16.70%) / time: 4m 9s (- 20m 44s) / loss: 5.9631
+Train step: 619 (16.72%) / time: 4m 9s (- 20m 43s) / loss: 5.4941
+Train step: 620 (16.75%) / time: 4m 9s (- 20m 41s) / loss: 5.1940
+Train step: 621 (16.78%) / time: 4m 10s (- 20m 40s) / loss: 5.8469
+Train step: 622 (16.80%) / time: 4m 10s (- 20m 38s) / loss: 5.6795
+Train step: 623 (16.83%) / time: 4m 10s (- 20m 37s) / loss: 5.9471
+Train step: 624 (16.86%) / time: 4m 10s (- 20m 36s) / loss: 6.1697
+Train step: 625 (16.88%) / time: 4m 11s (- 20m 35s) / loss: 5.6983
+Train step: 626 (16.91%) / time: 4m 11s (- 20m 34s) / loss: 5.8118
+Train step: 627 (16.94%) / time: 4m 11s (- 20m 33s) / loss: 5.7092
+Train step: 628 (16.97%) / time: 4m 11s (- 20m 31s) / loss: 5.5989
+Train step: 629 (16.99%) / time: 4m 11s (- 20m 30s) / loss: 6.2785
+Train step: 630 (17.02%) / time: 4m 12s (- 20m 29s) / loss: 5.9342
+Train step: 631 (17.05%) / time: 4m 12s (- 20m 28s) / loss: 5.9441
+Train step: 632 (17.07%) / time: 4m 12s (- 20m 28s) / loss: 5.4301
+Train step: 633 (17.10%) / time: 4m 13s (- 20m 26s) / loss: 5.6833
+Train step: 634 (17.13%) / time: 4m 13s (- 20m 25s) / loss: 5.8249
+Train step: 635 (17.15%) / time: 4m 13s (- 20m 25s) / loss: 5.9201
+Train step: 636 (17.18%) / time: 4m 13s (- 20m 24s) / loss: 6.0109
+Train step: 637 (17.21%) / time: 4m 14s (- 20m 22s) / loss: 5.9460
+Train step: 638 (17.24%) / time: 4m 14s (- 20m 21s) / loss: 6.0885
+Train step: 639 (17.26%) / time: 4m 14s (- 20m 20s) / loss: 5.7801
+Train step: 640 (17.29%) / time: 4m 14s (- 20m 19s) / loss: 5.5136
+Val step: 20 / loss: 6.0248
+> S15a07 S1f010 S26507 S1e020 S21801 S38800 S15a20 S26507 S36d01 S30a00 S2ff00 S15a36 S18510 S37806 S22b03 S1813e S22104 S10000 S2ff00 S2b707 S38700 S15211 S2ff00 S20600 S36d03 S30d00 S10047 S38700 S20500 S10041 S36d03 S14c00 S14c08 S2a204 S2a21c S10619 S10611 S2ff00 S2e311 S2e309 S15a18 S18210 S26602 S26506 S32100 S18111 S18119 S2e734 S2e710 S28809 S28811 S38700 S15a18 S18210 S26602 S26506 S36d03 S10047 S16d48 S10e00 S11500 S22a04 S38900 S15a02 S15a06 S26500 S36d03 S30d00 S20600 S1f710 S26500 S1f540 S30122 S1ce50 S1ce58 S28900 S28918 S1814b S20500 S20500 S18143 S22f04 S1150a S11541 S2ff00 S15a36 S18510 S37806 S22b03 S1813e S22104 S15a20 S26507 S38800
+= verse 21. his son said to him , 'father , i have sinned against both heaven and you , and i am no longer worthy of being called your son . ' luke15v21 nlt
+< verse verse the [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 641 (17.32%) / time: 4m 19s (- 20m 37s) / loss: 5.7327
+Train step: 642 (17.34%) / time: 4m 19s (- 20m 36s) / loss: 6.3246
+Train step: 643 (17.37%) / time: 4m 19s (- 20m 35s) / loss: 6.3318
+Train step: 644 (17.40%) / time: 4m 20s (- 20m 34s) / loss: 5.8707
+Train step: 645 (17.43%) / time: 4m 20s (- 20m 34s) / loss: 6.1950
+Train step: 646 (17.45%) / time: 4m 20s (- 20m 33s) / loss: 5.5153
+Train step: 647 (17.48%) / time: 4m 20s (- 20m 31s) / loss: 6.2014
+Train step: 648 (17.51%) / time: 4m 21s (- 20m 31s) / loss: 5.8130
+Train step: 649 (17.53%) / time: 4m 21s (- 20m 29s) / loss: 6.0803
+Train step: 650 (17.56%) / time: 4m 21s (- 20m 28s) / loss: 6.4518
+Train step: 651 (17.59%) / time: 4m 21s (- 20m 27s) / loss: 5.9933
+Train step: 652 (17.61%) / time: 4m 22s (- 20m 27s) / loss: 5.7331
+Train step: 653 (17.64%) / time: 4m 22s (- 20m 26s) / loss: 5.6625
+Train step: 654 (17.67%) / time: 4m 22s (- 20m 25s) / loss: 6.0518
+Train step: 655 (17.70%) / time: 4m 23s (- 20m 24s) / loss: 5.6831
+Train step: 656 (17.72%) / time: 4m 23s (- 20m 23s) / loss: 6.2518
+Train step: 657 (17.75%) / time: 4m 23s (- 20m 22s) / loss: 6.1603
+Train step: 658 (17.78%) / time: 4m 24s (- 20m 21s) / loss: 5.5181
+Train step: 659 (17.80%) / time: 4m 24s (- 20m 20s) / loss: 5.8656
+Train step: 660 (17.83%) / time: 4m 24s (- 20m 20s) / loss: 5.8329
+Train step: 661 (17.86%) / time: 4m 25s (- 20m 19s) / loss: 6.3339
+Train step: 662 (17.88%) / time: 4m 25s (- 20m 19s) / loss: 6.5320
+Train step: 663 (17.91%) / time: 4m 25s (- 20m 18s) / loss: 5.9354
+Train step: 664 (17.94%) / time: 4m 26s (- 20m 17s) / loss: 5.5908
+Train step: 665 (17.97%) / time: 4m 26s (- 20m 15s) / loss: 6.0299
+Train step: 666 (17.99%) / time: 4m 26s (- 20m 15s) / loss: 5.9651
+Train step: 667 (18.02%) / time: 4m 26s (- 20m 14s) / loss: 5.9759
+Train step: 668 (18.05%) / time: 4m 27s (- 20m 13s) / loss: 5.7372
+Train step: 669 (18.07%) / time: 4m 27s (- 20m 11s) / loss: 5.3991
+Train step: 670 (18.10%) / time: 4m 27s (- 20m 10s) / loss: 5.2801
+Train step: 671 (18.13%) / time: 4m 28s (- 20m 10s) / loss: 5.9751
+Train step: 672 (18.15%) / time: 4m 28s (- 20m 9s) / loss: 5.9179
+Val step: 21 / loss: 5.9704
+> S15a20 S26507 S20300 S20300 S26500 S26510 S38700 S15a20 S26507 S15a48 S15a40 S15a40 S15a48 S26510 S26510 S26526 S26500 S26500 S38700 S18537 S18537 S2b702 S2b712 S10018 S10002 S26502 S20500 S2ff00 S1f550 S15210 S22f04 S38700 S26606 S15a57 S26612 S15a51 S3770b S37713 S30122 S30e00 S38810 S19a50 S22a04 S30a00 S2ff00 S15a10 S2b700 S14c38 S14c50 S1f738 S26703 S1f751 S26707 S20500 S20500 S14210 S22f05 S38800
+= proverbs 31:3 give not thy strength unto women , nor thy ways to that which destroyeth kings . your strength , your ways , give to women , not ! that will destroy kings .
+< verse verse the the , [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 673 (18.18%) / time: 4m 32s (- 20m 26s) / loss: 6.1248
+Train step: 674 (18.21%) / time: 4m 32s (- 20m 25s) / loss: 6.2676
+Train step: 675 (18.24%) / time: 4m 33s (- 20m 24s) / loss: 6.1391
+Train step: 676 (18.26%) / time: 4m 33s (- 20m 24s) / loss: 5.8664
+Train step: 677 (18.29%) / time: 4m 33s (- 20m 23s) / loss: 5.5978
+Train step: 678 (18.32%) / time: 4m 34s (- 20m 22s) / loss: 5.4987
+Train step: 679 (18.34%) / time: 4m 34s (- 20m 21s) / loss: 6.3598
+Train step: 680 (18.37%) / time: 4m 34s (- 20m 20s) / loss: 6.0963
+Train step: 681 (18.40%) / time: 4m 34s (- 20m 19s) / loss: 5.9058
+Train step: 682 (18.42%) / time: 4m 35s (- 20m 18s) / loss: 5.4759
+Train step: 683 (18.45%) / time: 4m 35s (- 20m 16s) / loss: 5.2750
+Train step: 684 (18.48%) / time: 4m 35s (- 20m 16s) / loss: 5.7841
+Train step: 685 (18.51%) / time: 4m 36s (- 20m 15s) / loss: 5.3720
+Train step: 686 (18.53%) / time: 4m 36s (- 20m 14s) / loss: 5.5668
+Train step: 687 (18.56%) / time: 4m 36s (- 20m 13s) / loss: 5.7072
+Train step: 688 (18.59%) / time: 4m 36s (- 20m 12s) / loss: 5.5034
+Train step: 689 (18.61%) / time: 4m 37s (- 20m 11s) / loss: 6.7381
+Train step: 690 (18.64%) / time: 4m 37s (- 20m 11s) / loss: 6.5293
+Train step: 691 (18.67%) / time: 4m 37s (- 20m 10s) / loss: 5.9043
+Train step: 692 (18.69%) / time: 4m 38s (- 20m 9s) / loss: 6.0074
+Train step: 693 (18.72%) / time: 4m 38s (- 20m 7s) / loss: 5.4574
+Train step: 694 (18.75%) / time: 4m 38s (- 20m 6s) / loss: 5.1234
+Train step: 695 (18.78%) / time: 4m 38s (- 20m 5s) / loss: 5.6979
+Train step: 696 (18.80%) / time: 4m 38s (- 20m 4s) / loss: 5.7305
+Train step: 697 (18.83%) / time: 4m 39s (- 20m 3s) / loss: 5.4994
+Train step: 698 (18.86%) / time: 4m 39s (- 20m 2s) / loss: 6.0009
+Train step: 699 (18.88%) / time: 4m 39s (- 20m 1s) / loss: 5.8553
+Train step: 700 (18.91%) / time: 4m 39s (- 20m 0s) / loss: 5.7196
+Train step: 701 (18.94%) / time: 4m 40s (- 19m 59s) / loss: 5.9411
+Train step: 702 (18.96%) / time: 4m 40s (- 19m 58s) / loss: 5.9774
+Train step: 703 (18.99%) / time: 4m 40s (- 19m 57s) / loss: 6.1118
+Train step: 704 (19.02%) / time: 4m 41s (- 19m 57s) / loss: 6.0823
+Val step: 22 / loss: 5.9239
+> S15a07 S1f010 S26507 S10e20 S11e20 S38800 S30d00 S36d01 S14220 S14228 S2e700 S2e74c S2ff00 S10011 S22a04 S15d39 S15d51 S2ff00 S1f540 S26500 S15a48 S15a40 S23b0a S23b1a S38700 S10004 S22f04 S36d01 S15a30 S2940a S10640 S10648 S26c00 S26c10 S15a20 S2d608 S10011 S2ff00 S20600 S38900 S10021 S10029 S22a07 S22a11 S36d01 S15a37 S15a01 S2e900 S15a20 S26501 S10611 S22f04 S38700 S15a20 S26501 S32100 S18111 S18119 S2e734 S2e710 S28909 S28911 S1f721 S1f70f S2ff00 S22a17 S22a07 S14c10 S14c18 S32107 S14c00 S14c08 S2a31c S2a304 S15a11 S2ff00 S30124 S38800
+= these things dominate the thoughts of unbelievers , but your heavenly father already knows all your needs . matthew6v32 nlt
+< verse verse the [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 705 (19.05%) / time: 4m 45s (- 20m 13s) / loss: 6.1842
+Train step: 706 (19.07%) / time: 4m 45s (- 20m 11s) / loss: 5.8518
+Train step: 707 (19.10%) / time: 4m 45s (- 20m 10s) / loss: 5.7504
+Train step: 708 (19.13%) / time: 4m 46s (- 20m 9s) / loss: 5.9063
+Train step: 709 (19.15%) / time: 4m 46s (- 20m 8s) / loss: 6.0931
+Train step: 710 (19.18%) / time: 4m 46s (- 20m 8s) / loss: 6.2695
+Train step: 711 (19.21%) / time: 4m 46s (- 20m 7s) / loss: 4.9612
+Train step: 712 (19.24%) / time: 4m 47s (- 20m 6s) / loss: 5.9138
+Train step: 713 (19.26%) / time: 4m 47s (- 20m 5s) / loss: 6.0323
+Train step: 714 (19.29%) / time: 4m 47s (- 20m 4s) / loss: 4.9322
+Train step: 715 (19.32%) / time: 4m 48s (- 20m 3s) / loss: 5.8849
+Train step: 716 (19.34%) / time: 4m 48s (- 20m 2s) / loss: 6.2131
+Train step: 717 (19.37%) / time: 4m 48s (- 20m 1s) / loss: 5.8849
+Train step: 718 (19.40%) / time: 4m 48s (- 20m 0s) / loss: 5.7351
+Train step: 719 (19.42%) / time: 4m 49s (- 19m 59s) / loss: 5.7584
+Train step: 720 (19.45%) / time: 4m 49s (- 19m 58s) / loss: 5.7822
+Train step: 721 (19.48%) / time: 4m 49s (- 19m 58s) / loss: 5.8980
+Train step: 722 (19.51%) / time: 4m 50s (- 19m 57s) / loss: 5.5569
+Train step: 723 (19.53%) / time: 4m 50s (- 19m 56s) / loss: 5.7041
+Train step: 724 (19.56%) / time: 4m 50s (- 19m 55s) / loss: 6.3961
+Train step: 725 (19.59%) / time: 4m 51s (- 19m 54s) / loss: 6.2569
+Train step: 726 (19.61%) / time: 4m 51s (- 19m 54s) / loss: 5.8466
+Train step: 727 (19.64%) / time: 4m 51s (- 19m 53s) / loss: 5.9879
+Train step: 728 (19.67%) / time: 4m 51s (- 19m 52s) / loss: 5.2598
+Train step: 729 (19.69%) / time: 4m 52s (- 19m 51s) / loss: 6.2748
+Train step: 730 (19.72%) / time: 4m 52s (- 19m 50s) / loss: 6.1359
+Train step: 731 (19.75%) / time: 4m 52s (- 19m 49s) / loss: 5.8872
+Train step: 732 (19.78%) / time: 4m 53s (- 19m 48s) / loss: 5.5338
+Train step: 733 (19.80%) / time: 4m 53s (- 19m 47s) / loss: 5.5201
+Train step: 734 (19.83%) / time: 4m 53s (- 19m 46s) / loss: 5.8442
+Train step: 735 (19.86%) / time: 4m 53s (- 19m 45s) / loss: 5.7335
+Train step: 736 (19.88%) / time: 4m 53s (- 19m 44s) / loss: 5.5364
+Val step: 23 / loss: 5.9016
+> S15a07 S1f010 S26507 S1eb20 S22114 S38800 S10030 S10038 S2a200 S2a218 S36d01 S30d00 S10041 S37806 S15a56 S37700 S15a20 S15a56 S15a5e S22a04 S1f728 S1f720 S23d04 S23d1c S38700 S1dc0a S10003 S20500 S20500 S36d01 S10040 S37806 S15a56 S37700 S15a20 S15a56 S15a5e S22a04 S1f548 S1f540 S26a00 S10058 S26526 S10050 S20500 S20500 S1f702 S1f728 S26506 S22a04 S15a30 S15a57 S15a51 S22f04 S38800
+= when you swear 'by the altar , ' you are swearing by it and by everything on it . matthew23v20 nlt
+< verse verse the [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+
+Train step: 737 (19.91%) / time: 4m 58s (- 19m 59s) / loss: 6.1433
+Train step: 738 (19.94%) / time: 4m 58s (- 19m 57s) / loss: 5.4303
+Train step: 739 (19.96%) / time: 4m 58s (- 19m 57s) / loss: 6.1697
+Train step: 740 (19.99%) / time: 4m 59s (- 19m 57s) / loss: 5.3317
+Train step: 741 (20.02%) / time: 4m 59s (- 19m 56s) / loss: 5.7416
+Train step: 742 (20.05%) / time: 4m 59s (- 19m 55s) / loss: 6.8070
+Epoch 3
+Train step: 743 (20.07%) / time: 4m 59s (- 19m 54s) / loss: 6.0001
+Train step: 744 (20.10%) / time: 5m 0s (- 19m 53s) / loss: 5.7907
+Train step: 745 (20.13%) / time: 5m 0s (- 19m 52s) / loss: 5.6594
+Train step: 746 (20.15%) / time: 5m 0s (- 19m 51s) / loss: 5.7568
+Train step: 747 (20.18%) / time: 5m 0s (- 19m 50s) / loss: 5.6600
+Train step: 748 (20.21%) / time: 5m 1s (- 19m 48s) / loss: 5.4785
+Train step: 749 (20.23%) / time: 5m 1s (- 19m 48s) / loss: 5.2506
+Train step: 750 (20.26%) / time: 5m 1s (- 19m 47s) / loss: 6.0663
+Train step: 751 (20.29%) / time: 5m 2s (- 19m 46s) / loss: 5.8410
+Train step: 752 (20.32%) / time: 5m 2s (- 19m 46s) / loss: 5.7479
+Train step: 753 (20.34%) / time: 5m 2s (- 19m 44s) / loss: 6.0701
+Train step: 754 (20.37%) / time: 5m 3s (- 19m 44s) / loss: 5.7823
+Train step: 755 (20.40%) / time: 5m 3s (- 19m 43s) / loss: 6.0614
+Train step: 756 (20.42%) / time: 5m 3s (- 19m 42s) / loss: 5.8845
+Train step: 757 (20.45%) / time: 5m 3s (- 19m 41s) / loss: 5.5844
+Train step: 758 (20.48%) / time: 5m 4s (- 19m 40s) / loss: 5.8290
+Train step: 759 (20.50%) / time: 5m 4s (- 19m 39s) / loss: 5.6278
+Train step: 760 (20.53%) / time: 5m 4s (- 19m 38s) / loss: 6.0604
+Train step: 761 (20.56%) / time: 5m 4s (- 19m 37s) / loss: 5.6089
+Train step: 762 (20.59%) / time: 5m 5s (- 19m 36s) / loss: 6.3261
+Train step: 763 (20.61%) / time: 5m 5s (- 19m 37s) / loss: 5.5743
+Train step: 764 (20.64%) / time: 5m 5s (- 19m 36s) / loss: 6.0990
+Train step: 765 (20.67%) / time: 5m 6s (- 19m 35s) / loss: 7.2766
+Train step: 766 (20.69%) / time: 5m 6s (- 19m 34s) / loss: 5.9829
+Train step: 767 (20.72%) / time: 5m 6s (- 19m 33s) / loss: 6.4211
+Train step: 768 (20.75%) / time: 5m 6s (- 19m 31s) / loss: 5.8225
+Val step: 24 / loss: 6.1137
+early stop!
+> S20500 S15a01 S30a00 S2ff00 S15a36 S18510 S37806 S22b03 S1813e S22104 S38700 S30a00 S19200 S15a40 S15a48 S22a04 S22a14 S2ff00 S18510 S26a00 S26a10 S18518 S1c519 S1c511 S15a17 S15a1f S15a10 S15a18 S15a00 S15a00 S1000a S10002 S26512 S26506 S38700 S10040 S10611 S22f04 S26606 S15a57 S26612 S15a51 S3770b S37713 S30122 S26612 S26606 S2ff00 S10011 S38800
+= pr 19:27 ¶ cease , my son , to hear the instruction that causes to err from the words of knowledge . my son , if agent teach bible opposite , you should not listen .
+< verse verse , and , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+
+> S15a07 S1f010 S26507 S18720 S1f540 S38800 S10021 S10029 S22a07 S22a11 S30a00 S18240 S18248 S2be00 S2be11 S20500 S20500 S10043 S2d600 S14c00 S14c08 S2a31c S2a304 S30a00 S16d59 S16d59 S26c02 S26c12 S38700 S20500 S20500 S10043 S2d600 S10611 S22a04 S30e00 S30124 S20340 S20348 S26520 S35000 S38800
+= verse 16. but we must hold on to the progress we have already made . philippians3v16 nlt
+< verse verse , and , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+
+> S15a07 S1f010 S26507 S1e020 S21801 S38800 S20320 S22e04 S30a00 S38700 S15a07 S15a27 S20600 S30124 S30e00 S1dc59 S22a13 S20500 S20500 S15a39 S32107 S38700 S15a09 S28b12 S32107 S36d00 S1f702 S1f70a S20600 S20600 S36d00 S18152 S18129 S1815a S18151 S22f07 S22f11 S38700 S15a09 S28b12 S32107 S15a3f S15a37 S26c09 S26c1f S32107 S15a37 S15a37 S38900 S32107 S15a37 S15a37 S15a48 S15a40 S29406 S29416 S38700 S15a09 S28b12 S32107 S16d59 S16d59 S26612 S26602 S26606 S26616 S38810
+= verse 21. yes , praise the lord , you armies of angels who serve him and do his will ! psalm 103v21 nlt
+< verse verse the , , and , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+
+> S10058 S26526 S10050 S20500 S20500 S30a00 S36d01 S1f702 S1f748 S22a04 S22a04 S20500 S10043 S2ff00 S15a10 S26500 S1853f S18537 S2b711 S2b700 S14c02 S18532 S26500 S20500 S20b00 S20357 S2035f S38900 S26a00 S1f748 S1f740 S36d01 S2ff00 S15a10 S2b700 S1814b S20500 S20500 S18143 S15a36 S1813e S2890f S11541 S1150a S1eb20 S20357 S26a07 S38900 S17620 S26512 S17628 S26506 S36d01 S22a14 S14220 S22a04 S14228 S30122 S10000 S21b00 S38700 S2ed09 S10020 S36d01 S22a14 S14220 S22a04 S14228 S20340 S20348 S26524 S15248 S15240 S38800
+= and i will give to each one a white stone , and on the stone will be engraved a new name that no one understands except the one who receives it . revelation2v17b nlt
+< verse verse the , , and , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+
+> S1eb20 S22114 S22104 S18540 S26506 S11920 S18136 S29226 S14c48 S10052 S2c300 S15a07 S15a21 S15a01 S15a29 S15a1b S16f11 S20603 S22a05 S14c50 S2d700 S20500 S2ff00 S14c11 S28906 S15a48 S15a40 S22a14 S22a04 S38700 S22104 S18540 S26506 S10041 S10004 S21b00 S21b00 S15a1b S16f11 S20603 S22a05 S14c50 S2d700 S20500 S38700
+= 20 and noah began to be an husbandman , and he planted a vineyard :
+< verse verse the , , and , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+
+> S15a07 S1f010 S26507 S1bb20 S38800 S30a00 S19a50 S26c02 S15a40 S15a48 S26500 S26510 S38700 S15a3f S15a37 S26c09 S26c1f S15a40 S15a48 S23b0a S23b1a S38700 S17620 S16d20 S10120 S14a20 S1f720 S11920 S20320 S10041 S2d60e S38700 S2e74c S14220 S2e700 S14228 S10611 S22a04 S2ff00 S11a10 S11a18 S2c602 S2c612 S38900 S10041 S2d60e S10611 S22a04 S1814b S20500 S20500 S18143 S2ff00 S11510 S11518 S2c612 S2c602 S38800 S1a002 S1a00a S22f04 S30d00 S38700 S10041 S2d60e S10611 S22a04 S26500 S1f540 S30122 S16d47 S33b00 S22e00 S15340 S15348 S2890a S28912 S38700 S26500 S1f540 S30122 S15a36 S1853d S22f04 S33100 S10010 S26a02 S38800
+= verse 8. in the same way , deacons must be well respected and have integrity . they must not be heavy drinkers or dishonest with money . 1timothy3v8 nlt
+< verse verse the , , and , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+
+> S15a07 S1f010 S26507 S1f540 S38800 S32107 S15a37 S15a37 S2ff00 S15a10 S22a04 S32107 S38700 S1f702 S1f728 S26506 S22a04 S15a30 S14c30 S14c38 S2a204 S2a21c S20302 S2030a S20340 S20348 S10011 S2ff00 S2df08 S30a00 S32107 S15a37 S15a37 S38700 S26501 S14c19 S15a01 S32107 S15a37 S15a37 S38900 S32107 S15a37 S15a37 S14c30 S14c38 S2a204 S2a21c S1d120 S1d420 S26504 S15a18 S22f00 S22f10 S14c38 S14c30 S20330 S20330 S2940a S29412 S15a50 S15a50 S15a30 S15a30 S28909 S28919 S15a5a S15a57 S2c607 S32107 S32107 S14c09 S25111 S14c21 S25107 S38800
+= verse 10. god , for whom and through whom everything was made , chose to bring many children into glory . hebrews2v10a nlt
+< verse verse the , , and , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+
+> S15a07 S1f010 S26507 S14400 S38800 S1f740 S14c58 S1f748 S14c50 S22a05 S22a13 S36d01 S30a00 S20500 S15a09 S15a39 S32107 S14c50 S14c58 S18551 S18559 S20500 S26514 S20500 S26504 S38700 S2e74c S14220 S2e700 S14228 S36d01 S1d120 S1d420 S26504 S20500 S20500 S14210 S22f05 S38700 S10058 S26526 S10050 S20500 S20500 S36d01 S1d120 S1d420 S26504 S14251 S20500 S20500 S22f05 S1f740 S14c58 S1f748 S14c50 S22a05 S22a13 S1813f S22b14 S22b04 S18137 S2ff00 S15a11 S2ff00 S20600 S38800 S15a20 S2d60e S36d01 S30a00 S20320 S2ff00 S10001 S22a05 S38700 S19a20 S19c11 S2ff00 S22a05 S10041 S2d60e S20302 S2030a S20340 S20348 S19220 S19228 S2920c S2920c S29214 S29214 S38700 S14c37 S14c3f S22a04 S22a14 S36d01 S15a20 S2d60e S26a01 S1f701 S14c38 S14c50 S1f738 S26703 S1f751 S26707 S10041 S2d60e S2033a S20332 S14c31 S14c39 S2b720 S26a01 S1f701 S38800
+= verse 4. the people have appointed kings without my consent , and princes without my knowledge . by making idols for themselves from their silver and gold , they have brought about their own destruction . hosea 8v4 nlt
+< verse verse the , [] [] [] [] [] [] [] [] [] [] [] [] [] , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+
+> S15a07 S1f010 S26507 S1e020 S21600 S21600 S38800 S30a00 S10001 S2e008 S38900 S2ff00 S1dc02 S1f502 S28806 S10041 S10011 S2ff00 S2e500 S38700 S15a20 S26507 S36d03 S30a00 S14c09 S14c01 S20500 S20500 S22f04 S22f14 S38700 S2ff00 S19200 S36d03 S30a00 S10043 S20500 S20350 S20350 S22a04 S22a14 S2ed09 S10020 S1c511 S15a50 S22a03 S30a00 S38700 S20500 S10041 S36d03 S2ff00 S15a10 S26500 S15a07 S15a21 S15a01 S15a29 S36d00 S14c5b S14c53 S26500 S20302 S26510 S20300 S38800
+= for she thought , `` if i can just touch his robe , i will be healed . '' matthew9v21 nlt
+< verse verse the , , and , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+
+> S15a07 S1f010 S26507 S14c00 S38800 S26501 S14c19 S15a31 S30a00 S22a13 S16d18 S20500 S20500 S15a39 S2f900 S38700 S2ff00 S15a10 S22a04 S14c00 S14c08 S2a204 S2a21c S18537 S18537 S2b713 S2b703 S32107 S20500 S20500 S10043 S2d600 S14c37 S14c3f S30a00 S26502 S26516 S38900 S36d00 S1d422 S22a04 S38700 S37806 S18159 S18137 S37802 S37802 S22a05 S26506 S19a50 S26502 S10118 S10120 S29306 S29316 S38900 S2ff00 S17e37 S18537 S22f04 S2ff00 S1f540 S26500 S30a00 S14c57 S2d700 S38700 S20500 S20500 S10043 S2d600 S20350 S20350 S22a04 S22a14 S2ff00 S10009 S10001 S2d608 S2d610 S15a30 S2940a S15a30 S29412 S2ff00 S15a10 S22a04 S14c00 S14c08 S2a204 S2a21c S16d51 S16d51 S26616 S26606 S26602 S26612 S10011 S2ff00 S2df08 S10041 S2d60e S38900 S30a00 S15d11 S19a37 S22a05 S38700 S14c37 S14c3f S22a04 S22a14 S30a00 S10041 S2d60e S2ff00 S10011 S22a04 S15d39 S15d51 S2ff00 S15a10 S2b700 S38700 S30104 S20300 S20302 S14c37 S14c39 S22b24 S32107 S15a37 S15a37 S38900 S32107 S15a37 S15a37 S11541 S1150a S22a04 S38700 S25107 S15a37 S14c51 S10041 S2d60e S20350 S20350 S22a04 S22a14 S15a30 S15a30 S22c07 S22c17 S38800
+= through christ , god has given us the privilege and authority as apostles to tell gentiles everywhere what god has done for them , so that they will believe and obey him , bringing glory to his name . romans1v5 nlt
+< verse verse the , , and , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+
