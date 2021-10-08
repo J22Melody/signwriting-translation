@@ -6,7 +6,7 @@
 
 
 #SBATCH --job-name=baseline  	## job name
-#SBATCH --time=0-04:00:00       ## days-hours:minutes:seconds
+#SBATCH --time=0-18:00:00       ## days-hours:minutes:seconds
 #SBATCH --mem=4000M             ##   3GB ram (hardware ratio is < 4GB/core)
 
 ### SBATCH --output=job.out	## standard out file
@@ -23,4 +23,4 @@ module load anaconda3
 source activate sign
 pip install -r requirements.txt
 
-stdbuf -o0 -e0 srun --unbuffered python -u ./baseline2.py 
+stdbuf -o0 -e0 srun --unbuffered python -u ./baseline3.py 

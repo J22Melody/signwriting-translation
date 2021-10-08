@@ -1,0 +1,611 @@
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: absl-py==0.12.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 1)) (0.12.0)
+Requirement already satisfied: astunparse==1.6.3 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 2)) (1.6.3)
+Requirement already satisfied: attrs==21.2.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 3)) (21.2.0)
+Requirement already satisfied: cachetools==4.2.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 4)) (4.2.2)
+Requirement already satisfied: certifi==2021.5.30 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 5)) (2021.5.30)
+Requirement already satisfied: charset-normalizer==2.0.6 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 6)) (2.0.6)
+Requirement already satisfied: clang==5.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 7)) (5.0)
+Requirement already satisfied: cycler==0.10.0 in /net/cephfs/sapps/opt/spack/linux-ubuntu16.04-x86_64/gcc-7.4.0/anaconda3-2020.11-q5jxtdwawrttqetvc2734tjx7v55v55y/lib/python3.8/site-packages (from -r requirements.txt (line 8)) (0.10.0)
+Requirement already satisfied: dill==0.3.4 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 9)) (0.3.4)
+Requirement already satisfied: flatbuffers==1.12 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 10)) (1.12)
+Requirement already satisfied: future==0.18.2 in /net/cephfs/sapps/opt/spack/linux-ubuntu16.04-x86_64/gcc-7.4.0/anaconda3-2020.11-q5jxtdwawrttqetvc2734tjx7v55v55y/lib/python3.8/site-packages (from -r requirements.txt (line 11)) (0.18.2)
+Requirement already satisfied: gast==0.4.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 12)) (0.4.0)
+Requirement already satisfied: google-auth==1.35.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 13)) (1.35.0)
+Requirement already satisfied: google-auth-oauthlib==0.4.6 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 14)) (0.4.6)
+Requirement already satisfied: google-pasta==0.2.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 15)) (0.2.0)
+Requirement already satisfied: googleapis-common-protos==1.53.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 16)) (1.53.0)
+Requirement already satisfied: grpcio==1.40.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 17)) (1.40.0)
+Requirement already satisfied: h5py==3.1.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 18)) (3.1.0)
+Requirement already satisfied: idna==3.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 19)) (3.2)
+Requirement already satisfied: importlib-resources==5.2.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 20)) (5.2.2)
+Requirement already satisfied: iniconfig==1.1.1 in /net/cephfs/sapps/opt/spack/linux-ubuntu16.04-x86_64/gcc-7.4.0/anaconda3-2020.11-q5jxtdwawrttqetvc2734tjx7v55v55y/lib/python3.8/site-packages (from -r requirements.txt (line 21)) (1.1.1)
+Requirement already satisfied: keras==2.6.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 22)) (2.6.0)
+Requirement already satisfied: Keras-Preprocessing==1.1.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 23)) (1.1.2)
+Requirement already satisfied: kiwisolver==1.3.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 24)) (1.3.2)
+Requirement already satisfied: Markdown==3.3.4 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 25)) (3.3.4)
+Requirement already satisfied: matplotlib==3.4.3 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 26)) (3.4.3)
+Requirement already satisfied: numpy==1.19.5 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 27)) (1.19.5)
+Requirement already satisfied: oauthlib==3.1.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 28)) (3.1.1)
+Requirement already satisfied: opencv-python==4.5.3.56 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 29)) (4.5.3.56)
+Requirement already satisfied: opt-einsum==3.3.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 30)) (3.3.0)
+Requirement already satisfied: packaging==21.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 31)) (21.0)
+Requirement already satisfied: Pillow==8.3.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 32)) (8.3.2)
+Requirement already satisfied: pluggy==1.0.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 33)) (1.0.0)
+Requirement already satisfied: pose-format==0.0.3 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 34)) (0.0.3)
+Requirement already satisfied: promise==2.3 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 35)) (2.3)
+Requirement already satisfied: protobuf==3.18.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 36)) (3.18.0)
+Requirement already satisfied: py==1.10.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 37)) (1.10.0)
+Requirement already satisfied: pyasn1==0.4.8 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 38)) (0.4.8)
+Requirement already satisfied: pyasn1-modules==0.2.8 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 39)) (0.2.8)
+Requirement already satisfied: pyparsing==2.4.7 in /net/cephfs/sapps/opt/spack/linux-ubuntu16.04-x86_64/gcc-7.4.0/anaconda3-2020.11-q5jxtdwawrttqetvc2734tjx7v55v55y/lib/python3.8/site-packages (from -r requirements.txt (line 40)) (2.4.7)
+Requirement already satisfied: pytest==6.2.5 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 41)) (6.2.5)
+Requirement already satisfied: python-dateutil==2.8.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 42)) (2.8.2)
+Requirement already satisfied: python-dotenv==0.19.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 43)) (0.19.0)
+Requirement already satisfied: requests==2.26.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 44)) (2.26.0)
+Requirement already satisfied: requests-oauthlib==1.3.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 45)) (1.3.0)
+Requirement already satisfied: rsa==4.7.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 46)) (4.7.2)
+Requirement already satisfied: scipy==1.7.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 47)) (1.7.1)
+Requirement already satisfied: sign-language-datasets@ git+https://github.com/sign-language-processing/datasets.git@c4f107c32169d03302fa858b14af7a252256507d from git+https://github.com/sign-language-processing/datasets.git@c4f107c32169d03302fa858b14af7a252256507d in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 48)) (0.0.2)
+Requirement already satisfied: six==1.15.0 in /net/cephfs/sapps/opt/spack/linux-ubuntu16.04-x86_64/gcc-7.4.0/anaconda3-2020.11-q5jxtdwawrttqetvc2734tjx7v55v55y/lib/python3.8/site-packages (from -r requirements.txt (line 49)) (1.15.0)
+Requirement already satisfied: tensorboard==2.6.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 50)) (2.6.0)
+Requirement already satisfied: tensorboard-data-server==0.6.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 51)) (0.6.1)
+Requirement already satisfied: tensorboard-plugin-wit==1.8.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 52)) (1.8.0)
+Requirement already satisfied: tensorflow==2.6.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 53)) (2.6.0)
+Requirement already satisfied: tensorflow-datasets==4.4.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 54)) (4.4.0)
+Requirement already satisfied: tensorflow-estimator==2.6.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 55)) (2.6.0)
+Requirement already satisfied: tensorflow-metadata==1.2.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 56)) (1.2.0)
+Requirement already satisfied: termcolor==1.1.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 57)) (1.1.0)
+Requirement already satisfied: tfds-nightly==4.4.0.dev202109200107 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 58)) (4.4.0.dev202109200107)
+Requirement already satisfied: toml==0.10.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 59)) (0.10.2)
+Requirement already satisfied: torch==1.9.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 60)) (1.9.1)
+Requirement already satisfied: torchtext==0.10.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 61)) (0.10.1)
+Requirement already satisfied: tqdm==4.62.2 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 62)) (4.62.2)
+Requirement already satisfied: typing-extensions==3.7.4.3 in /net/cephfs/sapps/opt/spack/linux-ubuntu16.04-x86_64/gcc-7.4.0/anaconda3-2020.11-q5jxtdwawrttqetvc2734tjx7v55v55y/lib/python3.8/site-packages (from -r requirements.txt (line 63)) (3.7.4.3)
+Requirement already satisfied: urllib3==1.26.6 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 64)) (1.26.6)
+Requirement already satisfied: Werkzeug==2.0.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 65)) (2.0.1)
+Requirement already satisfied: wrapt==1.12.1 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 66)) (1.12.1)
+Requirement already satisfied: zipp==3.5.0 in /net/cephfs/home/zifjia/.local/lib/python3.8/site-packages (from -r requirements.txt (line 67)) (3.5.0)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in /net/cephfs/sapps/opt/spack/linux-ubuntu16.04-x86_64/gcc-7.4.0/anaconda3-2020.11-q5jxtdwawrttqetvc2734tjx7v55v55y/lib/python3.8/site-packages (from astunparse==1.6.3->-r requirements.txt (line 2)) (0.35.1)
+Requirement already satisfied: setuptools>=40.3.0 in /net/cephfs/sapps/opt/spack/linux-ubuntu16.04-x86_64/gcc-7.4.0/anaconda3-2020.11-q5jxtdwawrttqetvc2734tjx7v55v55y/lib/python3.8/site-packages (from google-auth==1.35.0->-r requirements.txt (line 13)) (50.3.1.post20201107)
+total size 10000
+train size: 7000
+val size: 2000
+test size: 1000
+input vocab size: 25
+output vocab size: 82
+input max len: 3351
+output max len: 454
+Epoch 1
+Train step: 1 (0.23%) / time: 0m 2s (- 17m 42s) / loss: 4.3891
+Train step: 2 (0.46%) / time: 0m 6s (- 23m 9s) / loss: 4.3729
+Train step: 3 (0.69%) / time: 0m 11s (- 26m 44s) / loss: 4.3745
+Train step: 4 (0.91%) / time: 0m 13s (- 24m 42s) / loss: 4.3740
+Train step: 5 (1.14%) / time: 0m 16s (- 24m 24s) / loss: 4.3849
+Train step: 6 (1.37%) / time: 0m 18s (- 22m 33s) / loss: 4.3849
+Train step: 7 (1.60%) / time: 0m 21s (- 21m 38s) / loss: 4.3824
+Train step: 8 (1.83%) / time: 0m 23s (- 20m 58s) / loss: 4.3724
+Val step: 1 / loss: 4.3843
+Train step: 9 (2.06%) / time: 2m 16s (- 108m 10s) / loss: 4.3756
+Train step: 10 (2.29%) / time: 2m 21s (- 100m 39s) / loss: 4.3728
+Train step: 11 (2.51%) / time: 2m 24s (- 93m 5s) / loss: 4.3694
+Train step: 12 (2.74%) / time: 2m 28s (- 87m 41s) / loss: 4.3801
+Train step: 13 (2.97%) / time: 2m 32s (- 82m 59s) / loss: 4.3692
+Train step: 14 (3.20%) / time: 2m 34s (- 77m 53s) / loss: 4.3677
+Train step: 15 (3.43%) / time: 2m 40s (- 75m 7s) / loss: 4.3737
+Train step: 16 (3.66%) / time: 2m 43s (- 71m 52s) / loss: 4.3714
+Val step: 2 / loss: 4.3738
+Train step: 17 (3.89%) / time: 4m 39s (- 115m 4s) / loss: 4.3635
+Train step: 18 (4.11%) / time: 4m 41s (- 109m 17s) / loss: 4.3698
+Train step: 19 (4.34%) / time: 4m 45s (- 104m 46s) / loss: 4.3704
+Train step: 20 (4.57%) / time: 4m 47s (- 100m 0s) / loss: 4.3654
+Train step: 21 (4.80%) / time: 4m 51s (- 96m 14s) / loss: 4.3660
+Train step: 22 (5.03%) / time: 4m 53s (- 92m 24s) / loss: 4.3638
+Train step: 23 (5.26%) / time: 4m 55s (- 88m 40s) / loss: 4.3669
+Train step: 24 (5.49%) / time: 4m 57s (- 85m 25s) / loss: 4.3600
+Val step: 3 / loss: 4.3652
+Train step: 25 (5.71%) / time: 6m 52s (- 113m 23s) / loss: 4.3610
+Train step: 26 (5.94%) / time: 6m 54s (- 109m 17s) / loss: 4.3632
+Train step: 27 (6.17%) / time: 6m 58s (- 105m 58s) / loss: 4.3608
+Train step: 28 (6.40%) / time: 7m 1s (- 102m 39s) / loss: 4.3572
+Train step: 29 (6.63%) / time: 7m 4s (- 99m 32s) / loss: 4.3573
+Train step: 30 (6.86%) / time: 7m 7s (- 96m 46s) / loss: 4.3559
+Train step: 31 (7.09%) / time: 7m 10s (- 94m 9s) / loss: 4.3543
+Train step: 32 (7.31%) / time: 7m 13s (- 91m 37s) / loss: 4.3566
+Val step: 4 / loss: 4.3540
+Train step: 33 (7.54%) / time: 9m 9s (- 112m 13s) / loss: 4.3503
+Train step: 34 (7.77%) / time: 9m 13s (- 109m 25s) / loss: 4.3483
+Train step: 35 (8.00%) / time: 9m 15s (- 106m 24s) / loss: 4.3576
+Train step: 36 (8.23%) / time: 9m 19s (- 104m 1s) / loss: 4.3455
+Train step: 37 (8.46%) / time: 9m 23s (- 101m 43s) / loss: 4.3428
+Train step: 38 (8.69%) / time: 9m 27s (- 99m 21s) / loss: 4.3399
+Train step: 39 (8.91%) / time: 9m 28s (- 96m 47s) / loss: 4.3457
+Train step: 40 (9.14%) / time: 9m 32s (- 94m 51s) / loss: 4.3406
+Val step: 5 / loss: 4.3399
+Train step: 41 (9.37%) / time: 11m 27s (- 110m 48s) / loss: 4.3366
+Train step: 42 (9.60%) / time: 11m 31s (- 108m 36s) / loss: 4.3486
+Train step: 43 (9.83%) / time: 11m 33s (- 106m 4s) / loss: 4.3482
+Train step: 44 (10.06%) / time: 11m 36s (- 103m 48s) / loss: 4.3492
+Train step: 45 (10.29%) / time: 11m 39s (- 101m 42s) / loss: 4.3538
+Train step: 46 (10.51%) / time: 11m 40s (- 99m 25s) / loss: 4.3744
+Train step: 47 (10.74%) / time: 11m 44s (- 97m 32s) / loss: 4.3478
+Train step: 48 (10.97%) / time: 11m 47s (- 95m 44s) / loss: 4.3468
+Val step: 6 / loss: 4.3356
+Train step: 49 (11.20%) / time: 13m 43s (- 108m 48s) / loss: 4.3340
+Train step: 50 (11.43%) / time: 13m 45s (- 106m 36s) / loss: 4.3504
+Train step: 51 (11.66%) / time: 13m 49s (- 104m 42s) / loss: 4.3430
+Train step: 52 (11.89%) / time: 13m 53s (- 102m 58s) / loss: 4.3429
+Train step: 53 (12.11%) / time: 13m 57s (- 101m 14s) / loss: 4.3402
+Train step: 54 (12.34%) / time: 14m 0s (- 99m 27s) / loss: 4.3234
+Train step: 55 (12.57%) / time: 14m 2s (- 97m 40s) / loss: 4.3233
+Train step: 56 (12.80%) / time: 14m 7s (- 96m 14s) / loss: 4.3240
+Val step: 7 / loss: 4.3251
+Train step: 57 (13.03%) / time: 16m 1s (- 106m 55s) / loss: 4.3423
+Train step: 58 (13.26%) / time: 16m 4s (- 105m 12s) / loss: 4.3197
+Train step: 59 (13.49%) / time: 16m 6s (- 103m 18s) / loss: 4.3391
+Train step: 60 (13.71%) / time: 16m 11s (- 101m 51s) / loss: 4.3404
+Train step: 61 (13.94%) / time: 16m 18s (- 100m 41s) / loss: 4.3204
+Train step: 62 (14.17%) / time: 16m 20s (- 99m 1s) / loss: 4.3136
+Train step: 63 (14.40%) / time: 16m 24s (- 97m 33s) / loss: 4.3140
+Train step: 64 (14.63%) / time: 16m 27s (- 96m 0s) / loss: 4.3170
+Val step: 8 / loss: 4.3146
+Train step: 65 (14.86%) / time: 18m 22s (- 105m 17s) / loss: 4.3127
+Train step: 66 (15.09%) / time: 18m 26s (- 103m 50s) / loss: 4.3082
+Train step: 67 (15.31%) / time: 18m 28s (- 102m 10s) / loss: 4.3385
+Train step: 68 (15.54%) / time: 18m 33s (- 100m 48s) / loss: 4.3697
+Train step: 69 (15.77%) / time: 18m 36s (- 99m 21s) / loss: 4.3345
+Train step: 70 (16.00%) / time: 18m 39s (- 97m 57s) / loss: 4.3325
+Train step: 71 (16.23%) / time: 18m 43s (- 96m 37s) / loss: 4.3357
+Train step: 72 (16.46%) / time: 18m 48s (- 95m 29s) / loss: 4.3052
+Val step: 9 / loss: 4.3076
+Train step: 73 (16.69%) / time: 20m 44s (- 103m 32s) / loss: 4.3024
+Train step: 74 (16.91%) / time: 20m 46s (- 102m 3s) / loss: 4.3328
+Train step: 75 (17.14%) / time: 20m 49s (- 100m 39s) / loss: 4.3026
+Train step: 76 (17.37%) / time: 20m 51s (- 99m 11s) / loss: 4.3365
+Train step: 77 (17.60%) / time: 20m 55s (- 97m 57s) / loss: 4.3013
+Train step: 78 (17.83%) / time: 20m 59s (- 96m 45s) / loss: 4.3266
+Train step: 79 (18.06%) / time: 21m 4s (- 95m 36s) / loss: 4.3273
+Train step: 80 (18.29%) / time: 21m 6s (- 94m 18s) / loss: 4.3265
+Val step: 10 / loss: 4.3064
+Train step: 81 (18.51%) / time: 23m 3s (- 101m 29s) / loss: 4.3068
+Train step: 82 (18.74%) / time: 23m 7s (- 100m 13s) / loss: 4.3221
+Train step: 83 (18.97%) / time: 23m 14s (- 99m 15s) / loss: 4.3287
+Train step: 84 (19.20%) / time: 23m 16s (- 97m 58s) / loss: 4.3105
+Train step: 85 (19.43%) / time: 23m 21s (- 96m 52s) / loss: 4.3237
+Train step: 86 (19.66%) / time: 23m 25s (- 95m 45s) / loss: 4.3188
+Train step: 87 (19.89%) / time: 23m 30s (- 94m 41s) / loss: 4.3090
+Train step: 88 (20.11%) / time: 23m 34s (- 93m 38s) / loss: 4.3072
+Val step: 11 / loss: 4.3136
+Train step: 89 (20.34%) / time: 25m 30s (- 99m 52s) / loss: 4.3144
+Train step: 90 (20.57%) / time: 25m 34s (- 98m 44s) / loss: 4.3126
+Train step: 91 (20.80%) / time: 25m 38s (- 97m 37s) / loss: 4.3161
+Train step: 92 (21.03%) / time: 25m 43s (- 96m 35s) / loss: 4.3015
+Train step: 93 (21.26%) / time: 25m 47s (- 95m 32s) / loss: 4.3035
+Train step: 94 (21.49%) / time: 25m 49s (- 94m 22s) / loss: 4.3148
+Train step: 95 (21.71%) / time: 25m 51s (- 93m 13s) / loss: 4.3162
+Train step: 96 (21.94%) / time: 25m 53s (- 92m 7s) / loss: 4.3135
+Val step: 12 / loss: 4.3061
+Train step: 97 (22.17%) / time: 27m 51s (- 97m 47s) / loss: 4.2992
+Train step: 98 (22.40%) / time: 27m 55s (- 96m 43s) / loss: 4.3007
+Train step: 99 (22.63%) / time: 27m 59s (- 95m 41s) / loss: 4.2978
+Train step: 100 (22.86%) / time: 28m 3s (- 94m 41s) / loss: 4.2941
+Train step: 101 (23.09%) / time: 28m 5s (- 93m 36s) / loss: 4.3071
+Train step: 102 (23.31%) / time: 28m 9s (- 92m 36s) / loss: 4.2963
+Train step: 103 (23.54%) / time: 28m 12s (- 91m 36s) / loss: 4.2965
+Train step: 104 (23.77%) / time: 28m 16s (- 90m 39s) / loss: 4.2899
+Val step: 13 / loss: 4.2945
+Train step: 105 (24.00%) / time: 30m 12s (- 95m 38s) / loss: 4.3065
+Train step: 106 (24.23%) / time: 30m 15s (- 94m 38s) / loss: 4.2890
+Train step: 107 (24.46%) / time: 30m 17s (- 93m 34s) / loss: 4.3045
+Train step: 108 (24.69%) / time: 30m 22s (- 92m 40s) / loss: 4.3030
+Train step: 109 (24.91%) / time: 30m 25s (- 91m 40s) / loss: 4.3042
+Train step: 110 (25.14%) / time: 30m 29s (- 90m 46s) / loss: 4.2847
+Train step: 111 (25.37%) / time: 30m 33s (- 89m 52s) / loss: 4.2816
+Train step: 112 (25.60%) / time: 30m 35s (- 88m 55s) / loss: 4.2998
+Val step: 14 / loss: 4.2868
+Train step: 113 (25.83%) / time: 32m 29s (- 93m 19s) / loss: 4.2841
+Train step: 114 (26.06%) / time: 32m 32s (- 92m 21s) / loss: 4.3013
+Train step: 115 (26.29%) / time: 32m 37s (- 91m 28s) / loss: 4.2758
+Train step: 116 (26.51%) / time: 32m 40s (- 90m 34s) / loss: 4.2776
+Train step: 117 (26.74%) / time: 32m 46s (- 89m 46s) / loss: 4.2972
+Train step: 118 (26.97%) / time: 32m 50s (- 88m 54s) / loss: 4.2771
+Train step: 119 (27.20%) / time: 32m 51s (- 87m 57s) / loss: 4.2829
+Train step: 120 (27.43%) / time: 32m 53s (- 87m 2s) / loss: 4.2951
+Val step: 15 / loss: 4.2777
+Train step: 121 (27.66%) / time: 34m 48s (- 91m 1s) / loss: 4.2856
+Train step: 122 (27.89%) / time: 34m 51s (- 90m 8s) / loss: 4.2741
+Train step: 123 (28.11%) / time: 34m 55s (- 89m 18s) / loss: 4.2650
+Train step: 124 (28.34%) / time: 34m 57s (- 88m 24s) / loss: 4.2760
+Train step: 125 (28.57%) / time: 35m 1s (- 87m 33s) / loss: 4.2913
+Train step: 126 (28.80%) / time: 35m 5s (- 86m 45s) / loss: 4.2897
+Train step: 127 (29.03%) / time: 35m 7s (- 85m 52s) / loss: 4.2907
+Train step: 128 (29.26%) / time: 35m 10s (- 85m 3s) / loss: 4.2656
+Val step: 16 / loss: 4.2691
+Train step: 129 (29.49%) / time: 37m 6s (- 88m 45s) / loss: 4.2607
+Train step: 130 (29.71%) / time: 37m 9s (- 87m 53s) / loss: 4.2612
+Train step: 131 (29.94%) / time: 37m 13s (- 87m 5s) / loss: 4.2857
+Train step: 132 (30.17%) / time: 37m 16s (- 86m 16s) / loss: 4.2848
+Train step: 133 (30.40%) / time: 37m 21s (- 85m 31s) / loss: 4.2546
+Train step: 134 (30.63%) / time: 37m 24s (- 84m 44s) / loss: 4.2584
+Train step: 135 (30.86%) / time: 37m 27s (- 83m 55s) / loss: 4.2882
+Train step: 136 (31.09%) / time: 37m 29s (- 83m 6s) / loss: 4.2814
+Val step: 17 / loss: 4.2597
+Train step: 137 (31.31%) / time: 39m 25s (- 86m 28s) / loss: 4.2808
+Train step: 138 (31.54%) / time: 39m 30s (- 85m 45s) / loss: 4.2485
+Train step: 139 (31.77%) / time: 39m 32s (- 84m 54s) / loss: 4.2513
+Train step: 140 (32.00%) / time: 39m 34s (- 84m 5s) / loss: 4.2833
+Train step: 141 (32.23%) / time: 39m 37s (- 83m 19s) / loss: 4.2775
+Train step: 142 (32.46%) / time: 39m 40s (- 82m 33s) / loss: 4.2470
+Train step: 143 (32.69%) / time: 39m 45s (- 81m 52s) / loss: 4.2827
+Train step: 144 (32.91%) / time: 39m 47s (- 81m 6s) / loss: 4.2454
+Val step: 18 / loss: 4.2475
+Train step: 145 (33.14%) / time: 41m 44s (- 84m 12s) / loss: 4.2751
+Train step: 146 (33.37%) / time: 41m 49s (- 83m 30s) / loss: 4.2765
+Train step: 147 (33.60%) / time: 41m 51s (- 82m 43s) / loss: 4.2429
+Train step: 148 (33.83%) / time: 41m 56s (- 82m 2s) / loss: 4.2352
+Train step: 149 (34.06%) / time: 42m 0s (- 81m 19s) / loss: 4.2707
+Train step: 150 (34.29%) / time: 42m 3s (- 80m 37s) / loss: 4.2711
+Train step: 151 (34.51%) / time: 42m 8s (- 79m 56s) / loss: 4.2315
+Train step: 152 (34.74%) / time: 42m 12s (- 79m 16s) / loss: 4.2265
+Val step: 19 / loss: 4.2332
+Train step: 153 (34.97%) / time: 44m 7s (- 82m 3s) / loss: 4.2705
+Train step: 154 (35.20%) / time: 44m 9s (- 81m 17s) / loss: 4.2310
+Train step: 155 (35.43%) / time: 44m 12s (- 80m 34s) / loss: 4.2667
+Train step: 156 (35.66%) / time: 44m 17s (- 79m 55s) / loss: 4.2680
+Train step: 157 (35.89%) / time: 44m 21s (- 79m 15s) / loss: 4.2648
+Train step: 158 (36.11%) / time: 44m 26s (- 78m 36s) / loss: 4.2221
+Train step: 159 (36.34%) / time: 44m 28s (- 77m 53s) / loss: 4.2659
+Train step: 160 (36.57%) / time: 44m 32s (- 77m 14s) / loss: 4.2614
+Val step: 20 / loss: 4.2244
+Train step: 161 (36.80%) / time: 46m 29s (- 79m 51s) / loss: 4.2649
+Train step: 162 (37.03%) / time: 46m 34s (- 79m 12s) / loss: 4.2172
+Train step: 163 (37.26%) / time: 46m 36s (- 78m 29s) / loss: 4.2649
+Train step: 164 (37.49%) / time: 46m 40s (- 77m 50s) / loss: 4.2122
+Train step: 165 (37.71%) / time: 46m 45s (- 77m 13s) / loss: 4.2096
+Train step: 166 (37.94%) / time: 46m 47s (- 76m 31s) / loss: 4.2900
+Train step: 167 (38.17%) / time: 46m 48s (- 75m 49s) / loss: 4.2613
+Train step: 168 (38.40%) / time: 46m 51s (- 75m 10s) / loss: 4.2064
+Val step: 21 / loss: 4.2111
+Train step: 169 (38.63%) / time: 48m 46s (- 77m 28s) / loss: 4.2582
+Train step: 170 (38.86%) / time: 48m 49s (- 76m 50s) / loss: 4.2557
+Train step: 171 (39.09%) / time: 48m 52s (- 76m 9s) / loss: 4.2071
+Train step: 172 (39.31%) / time: 48m 56s (- 75m 32s) / loss: 4.2011
+Train step: 173 (39.54%) / time: 48m 58s (- 74m 52s) / loss: 4.2598
+Train step: 174 (39.77%) / time: 49m 3s (- 74m 16s) / loss: 4.1941
+Train step: 175 (40.00%) / time: 49m 7s (- 73m 41s) / loss: 4.1934
+Train step: 176 (40.23%) / time: 49m 10s (- 73m 3s) / loss: 4.2620
+Val step: 22 / loss: 4.1980
+Train step: 177 (40.46%) / time: 51m 5s (- 75m 12s) / loss: 4.2487
+Train step: 178 (40.69%) / time: 51m 8s (- 74m 34s) / loss: 4.2500
+Train step: 179 (40.91%) / time: 51m 14s (- 73m 59s) / loss: 4.2511
+Train step: 180 (41.14%) / time: 51m 16s (- 73m 21s) / loss: 4.2508
+Train step: 181 (41.37%) / time: 51m 20s (- 72m 45s) / loss: 4.1881
+Train step: 182 (41.60%) / time: 51m 25s (- 72m 11s) / loss: 4.1847
+Train step: 183 (41.83%) / time: 51m 27s (- 71m 33s) / loss: 4.1920
+Train step: 184 (42.06%) / time: 51m 30s (- 70m 57s) / loss: 4.2493
+Val step: 23 / loss: 4.1867
+Train step: 185 (42.29%) / time: 53m 26s (- 72m 56s) / loss: 4.2427
+Train step: 186 (42.51%) / time: 53m 30s (- 72m 21s) / loss: 4.2406
+Train step: 187 (42.74%) / time: 53m 33s (- 71m 45s) / loss: 4.1762
+Train step: 188 (42.97%) / time: 53m 38s (- 71m 11s) / loss: 4.2400
+Train step: 189 (43.20%) / time: 53m 41s (- 70m 35s) / loss: 4.2385
+Train step: 190 (43.43%) / time: 53m 44s (- 70m 0s) / loss: 4.2372
+Train step: 191 (43.66%) / time: 53m 47s (- 69m 24s) / loss: 4.2459
+Train step: 192 (43.89%) / time: 53m 50s (- 68m 50s) / loss: 4.2372
+Val step: 24 / loss: 4.1782
+Train step: 193 (44.11%) / time: 55m 46s (- 70m 40s) / loss: 4.2349
+Train step: 194 (44.34%) / time: 55m 49s (- 70m 3s) / loss: 4.1732
+Train step: 195 (44.57%) / time: 55m 52s (- 69m 29s) / loss: 4.2375
+Train step: 196 (44.80%) / time: 55m 57s (- 68m 57s) / loss: 4.1643
+Train step: 197 (45.03%) / time: 56m 4s (- 68m 27s) / loss: 4.2355
+Train step: 198 (45.26%) / time: 56m 10s (- 67m 56s) / loss: 4.2318
+Train step: 199 (45.49%) / time: 56m 11s (- 67m 20s) / loss: 4.1800
+Train step: 200 (45.71%) / time: 56m 15s (- 66m 48s) / loss: 4.2297
+Val step: 25 / loss: 4.1625
+Train step: 201 (45.94%) / time: 58m 11s (- 68m 27s) / loss: 4.1579
+Train step: 202 (46.17%) / time: 58m 13s (- 67m 53s) / loss: 4.1647
+Train step: 203 (46.40%) / time: 58m 18s (- 67m 20s) / loss: 4.1538
+Train step: 204 (46.63%) / time: 58m 22s (- 66m 49s) / loss: 4.2449
+Train step: 205 (46.86%) / time: 58m 26s (- 66m 16s) / loss: 4.2319
+Train step: 206 (47.09%) / time: 58m 30s (- 65m 45s) / loss: 4.2335
+Train step: 207 (47.31%) / time: 58m 33s (- 65m 12s) / loss: 4.2375
+Train step: 208 (47.54%) / time: 58m 37s (- 64m 40s) / loss: 4.2301
+Val step: 26 / loss: 4.1503
+Train step: 209 (47.77%) / time: 60m 32s (- 66m 11s) / loss: 4.2392
+Train step: 210 (48.00%) / time: 60m 34s (- 65m 37s) / loss: 4.1559
+Train step: 211 (48.23%) / time: 60m 36s (- 65m 3s) / loss: 4.2472
+Train step: 212 (48.46%) / time: 60m 39s (- 64m 30s) / loss: 4.1514
+Train step: 213 (48.69%) / time: 60m 40s (- 63m 57s) / loss: 4.2713
+Train step: 214 (48.91%) / time: 60m 43s (- 63m 24s) / loss: 4.2320
+Train step: 215 (49.14%) / time: 60m 47s (- 62m 55s) / loss: 4.1403
+Train step: 216 (49.37%) / time: 60m 52s (- 62m 25s) / loss: 4.1592
+Val step: 27 / loss: 4.1364
+Train step: 217 (49.60%) / time: 62m 47s (- 63m 48s) / loss: 4.1325
+Train step: 218 (49.83%) / time: 62m 53s (- 63m 19s) / loss: 4.1369
+Train step: 219 (50.06%) / time: 62m 57s (- 62m 49s) / loss: 4.2251
+Epoch 2
+Train step: 220 (50.29%) / time: 63m 0s (- 62m 17s) / loss: 4.2204
+Train step: 221 (50.51%) / time: 63m 2s (- 61m 45s) / loss: 4.1192
+Train step: 222 (50.74%) / time: 63m 4s (- 61m 14s) / loss: 4.1221
+Train step: 223 (50.97%) / time: 63m 8s (- 60m 44s) / loss: 4.1117
+Train step: 224 (51.20%) / time: 63m 11s (- 60m 13s) / loss: 4.1225
+Val step: 28 / loss: 4.1181
+Train step: 225 (51.43%) / time: 65m 6s (- 61m 29s) / loss: 4.2141
+Train step: 226 (51.66%) / time: 65m 11s (- 61m 0s) / loss: 4.1069
+Train step: 227 (51.89%) / time: 65m 16s (- 60m 32s) / loss: 4.1064
+Train step: 228 (52.11%) / time: 65m 19s (- 60m 1s) / loss: 4.1006
+Train step: 229 (52.34%) / time: 65m 21s (- 59m 30s) / loss: 4.2098
+Train step: 230 (52.57%) / time: 65m 25s (- 59m 1s) / loss: 4.0975
+Train step: 231 (52.80%) / time: 65m 32s (- 58m 35s) / loss: 4.2975
+Train step: 232 (53.03%) / time: 65m 34s (- 58m 4s) / loss: 4.2073
+Val step: 29 / loss: 4.1020
+Train step: 233 (53.26%) / time: 67m 28s (- 59m 13s) / loss: 4.0953
+Train step: 234 (53.49%) / time: 67m 31s (- 58m 43s) / loss: 4.0879
+Train step: 235 (53.71%) / time: 67m 35s (- 58m 14s) / loss: 4.2021
+Train step: 236 (53.94%) / time: 67m 40s (- 57m 46s) / loss: 4.2021
+Train step: 237 (54.17%) / time: 67m 42s (- 57m 16s) / loss: 4.0957
+Train step: 238 (54.40%) / time: 67m 44s (- 56m 47s) / loss: 4.1992
+Train step: 239 (54.63%) / time: 67m 48s (- 56m 19s) / loss: 4.0788
+Train step: 240 (54.86%) / time: 67m 52s (- 55m 51s) / loss: 4.0853
+Val step: 30 / loss: 4.0859
+Train step: 241 (55.09%) / time: 69m 46s (- 56m 53s) / loss: 4.2003
+Train step: 242 (55.31%) / time: 69m 51s (- 56m 25s) / loss: 4.0763
+Train step: 243 (55.54%) / time: 69m 54s (- 55m 57s) / loss: 4.0729
+Train step: 244 (55.77%) / time: 69m 59s (- 55m 30s) / loss: 4.0678
+Train step: 245 (56.00%) / time: 70m 4s (- 55m 3s) / loss: 4.1867
+Train step: 246 (56.23%) / time: 70m 7s (- 54m 35s) / loss: 4.0681
+Train step: 247 (56.46%) / time: 70m 11s (- 54m 8s) / loss: 4.1864
+Train step: 248 (56.69%) / time: 70m 13s (- 53m 39s) / loss: 4.1918
+Val step: 31 / loss: 4.0688
+Train step: 249 (56.91%) / time: 72m 9s (- 54m 37s) / loss: 4.0623
+Train step: 250 (57.14%) / time: 72m 13s (- 54m 10s) / loss: 4.1896
+Train step: 251 (57.37%) / time: 72m 18s (- 53m 43s) / loss: 4.1868
+Train step: 252 (57.60%) / time: 72m 20s (- 53m 15s) / loss: 4.0600
+Train step: 253 (57.83%) / time: 72m 24s (- 52m 48s) / loss: 4.1880
+Train step: 254 (58.06%) / time: 72m 27s (- 52m 21s) / loss: 4.1873
+Train step: 255 (58.29%) / time: 72m 31s (- 51m 54s) / loss: 4.0511
+Train step: 256 (58.51%) / time: 72m 35s (- 51m 28s) / loss: 4.0459
+Val step: 32 / loss: 4.0527
+Train step: 257 (58.74%) / time: 74m 30s (- 52m 19s) / loss: 4.1893
+Train step: 258 (58.97%) / time: 74m 31s (- 51m 51s) / loss: 4.1873
+Train step: 259 (59.20%) / time: 74m 34s (- 51m 23s) / loss: 4.1840
+Train step: 260 (59.43%) / time: 74m 37s (- 50m 56s) / loss: 4.0440
+Train step: 261 (59.66%) / time: 74m 40s (- 50m 29s) / loss: 4.0411
+Train step: 262 (59.89%) / time: 74m 44s (- 50m 3s) / loss: 4.0333
+Train step: 263 (60.11%) / time: 74m 48s (- 49m 38s) / loss: 4.1723
+Train step: 264 (60.34%) / time: 74m 52s (- 49m 12s) / loss: 4.1778
+Val step: 33 / loss: 4.0397
+Train step: 265 (60.57%) / time: 76m 48s (- 49m 59s) / loss: 4.0343
+Train step: 266 (60.80%) / time: 76m 52s (- 49m 33s) / loss: 4.0287
+Train step: 267 (61.03%) / time: 76m 54s (- 49m 6s) / loss: 4.0366
+Train step: 268 (61.26%) / time: 76m 56s (- 48m 39s) / loss: 4.0295
+Train step: 269 (61.49%) / time: 76m 59s (- 48m 13s) / loss: 4.0181
+Train step: 270 (61.71%) / time: 77m 3s (- 47m 48s) / loss: 4.2589
+Train step: 271 (61.94%) / time: 77m 7s (- 47m 23s) / loss: 4.0112
+Train step: 272 (62.17%) / time: 77m 11s (- 46m 57s) / loss: 4.1697
+Val step: 34 / loss: 4.0215
+Train step: 273 (62.40%) / time: 79m 6s (- 47m 40s) / loss: 4.0044
+Train step: 274 (62.63%) / time: 79m 11s (- 47m 15s) / loss: 4.0024
+Train step: 275 (62.86%) / time: 79m 14s (- 46m 49s) / loss: 4.1691
+Train step: 276 (63.09%) / time: 79m 18s (- 46m 24s) / loss: 4.1606
+Train step: 277 (63.31%) / time: 79m 20s (- 45m 58s) / loss: 4.1722
+Train step: 278 (63.54%) / time: 79m 22s (- 45m 32s) / loss: 4.0010
+Train step: 279 (63.77%) / time: 79m 23s (- 45m 6s) / loss: 4.1900
+Train step: 280 (64.00%) / time: 79m 25s (- 44m 40s) / loss: 4.0165
+Val step: 35 / loss: 4.0075
+Train step: 281 (64.23%) / time: 81m 19s (- 45m 17s) / loss: 4.0904
+Train step: 282 (64.46%) / time: 81m 23s (- 44m 52s) / loss: 4.1550
+Train step: 283 (64.69%) / time: 81m 24s (- 44m 26s) / loss: 4.0227
+Train step: 284 (64.91%) / time: 81m 27s (- 44m 1s) / loss: 4.1530
+Train step: 285 (65.14%) / time: 81m 32s (- 43m 37s) / loss: 4.1589
+Train step: 286 (65.37%) / time: 81m 36s (- 43m 13s) / loss: 3.9907
+Train step: 287 (65.60%) / time: 81m 41s (- 42m 50s) / loss: 3.9885
+Train step: 288 (65.83%) / time: 81m 44s (- 42m 25s) / loss: 4.1579
+Val step: 36 / loss: 3.9923
+Train step: 289 (66.06%) / time: 83m 39s (- 42m 59s) / loss: 4.1511
+Train step: 290 (66.29%) / time: 83m 44s (- 42m 35s) / loss: 4.1519
+Train step: 291 (66.51%) / time: 83m 48s (- 42m 11s) / loss: 4.1532
+Train step: 292 (66.74%) / time: 83m 51s (- 41m 47s) / loss: 3.9916
+Train step: 293 (66.97%) / time: 83m 55s (- 41m 23s) / loss: 3.9664
+Train step: 294 (67.20%) / time: 83m 58s (- 40m 59s) / loss: 4.1452
+Train step: 295 (67.43%) / time: 84m 1s (- 40m 35s) / loss: 3.9705
+Train step: 296 (67.66%) / time: 84m 6s (- 40m 12s) / loss: 3.9659
+Val step: 37 / loss: 3.9754
+Train step: 297 (67.89%) / time: 86m 0s (- 40m 41s) / loss: 4.1676
+Train step: 298 (68.11%) / time: 86m 5s (- 40m 17s) / loss: 4.1424
+Train step: 299 (68.34%) / time: 86m 7s (- 39m 53s) / loss: 4.1452
+Train step: 300 (68.57%) / time: 86m 9s (- 39m 29s) / loss: 3.9656
+Train step: 301 (68.80%) / time: 86m 15s (- 39m 6s) / loss: 3.9569
+Train step: 302 (69.03%) / time: 86m 18s (- 38m 43s) / loss: 3.9569
+Train step: 303 (69.26%) / time: 86m 22s (- 38m 20s) / loss: 3.9491
+Train step: 304 (69.49%) / time: 86m 26s (- 37m 57s) / loss: 3.9441
+Val step: 38 / loss: 3.9552
+Train step: 305 (69.71%) / time: 88m 22s (- 38m 23s) / loss: 4.1499
+Train step: 306 (69.94%) / time: 88m 28s (- 38m 1s) / loss: 4.1302
+Train step: 307 (70.17%) / time: 88m 30s (- 37m 37s) / loss: 4.1351
+Train step: 308 (70.40%) / time: 88m 35s (- 37m 14s) / loss: 3.9385
+Train step: 309 (70.63%) / time: 88m 37s (- 36m 51s) / loss: 3.9535
+Train step: 310 (70.86%) / time: 88m 40s (- 36m 28s) / loss: 3.9441
+Train step: 311 (71.09%) / time: 88m 42s (- 36m 4s) / loss: 3.9470
+Train step: 312 (71.31%) / time: 88m 47s (- 35m 42s) / loss: 4.1170
+Val step: 39 / loss: 3.9395
+Train step: 313 (71.54%) / time: 90m 44s (- 36m 5s) / loss: 4.1290
+Train step: 314 (71.77%) / time: 90m 48s (- 35m 42s) / loss: 4.1250
+Train step: 315 (72.00%) / time: 90m 50s (- 35m 19s) / loss: 3.9354
+Train step: 316 (72.23%) / time: 90m 55s (- 34m 57s) / loss: 3.9218
+Train step: 317 (72.46%) / time: 90m 59s (- 34m 35s) / loss: 4.1263
+Train step: 318 (72.69%) / time: 91m 3s (- 34m 12s) / loss: 3.9233
+Train step: 319 (72.91%) / time: 91m 6s (- 33m 50s) / loss: 4.1353
+Train step: 320 (73.14%) / time: 91m 10s (- 33m 28s) / loss: 3.9055
+Val step: 40 / loss: 3.9208
+Train step: 321 (73.37%) / time: 93m 7s (- 33m 47s) / loss: 3.9007
+Train step: 322 (73.60%) / time: 93m 10s (- 33m 25s) / loss: 3.9070
+Train step: 323 (73.83%) / time: 93m 14s (- 33m 3s) / loss: 3.9013
+Train step: 324 (74.06%) / time: 93m 18s (- 32m 41s) / loss: 3.9040
+Train step: 325 (74.29%) / time: 93m 21s (- 32m 18s) / loss: 4.1189
+Train step: 326 (74.51%) / time: 93m 24s (- 31m 56s) / loss: 3.9056
+Train step: 327 (74.74%) / time: 93m 27s (- 31m 34s) / loss: 4.1158
+Train step: 328 (74.97%) / time: 93m 31s (- 31m 13s) / loss: 3.8869
+Val step: 41 / loss: 3.8996
+Train step: 329 (75.20%) / time: 95m 26s (- 31m 28s) / loss: 3.8912
+Train step: 330 (75.43%) / time: 95m 28s (- 31m 6s) / loss: 3.9065
+Train step: 331 (75.66%) / time: 95m 31s (- 30m 44s) / loss: 3.8965
+Train step: 332 (75.89%) / time: 95m 34s (- 30m 22s) / loss: 4.1052
+Train step: 333 (76.11%) / time: 95m 38s (- 30m 0s) / loss: 3.8719
+Train step: 334 (76.34%) / time: 95m 41s (- 29m 39s) / loss: 4.1048
+Train step: 335 (76.57%) / time: 95m 42s (- 29m 17s) / loss: 3.8904
+Train step: 336 (76.80%) / time: 95m 46s (- 28m 55s) / loss: 3.8659
+Val step: 42 / loss: 3.8825
+Train step: 337 (77.03%) / time: 97m 43s (- 29m 8s) / loss: 4.1008
+Train step: 338 (77.26%) / time: 97m 48s (- 28m 47s) / loss: 3.8696
+Train step: 339 (77.49%) / time: 97m 52s (- 28m 26s) / loss: 4.0994
+Train step: 340 (77.71%) / time: 97m 57s (- 28m 5s) / loss: 4.0985
+Train step: 341 (77.94%) / time: 97m 59s (- 27m 43s) / loss: 3.8618
+Train step: 342 (78.17%) / time: 98m 2s (- 27m 22s) / loss: 4.0958
+Train step: 343 (78.40%) / time: 98m 7s (- 27m 2s) / loss: 4.0975
+Train step: 344 (78.63%) / time: 98m 10s (- 26m 41s) / loss: 4.0893
+Val step: 43 / loss: 3.8679
+Train step: 345 (78.86%) / time: 100m 7s (- 26m 50s) / loss: 4.0915
+Train step: 346 (79.09%) / time: 100m 12s (- 26m 30s) / loss: 3.8527
+Train step: 347 (79.31%) / time: 100m 14s (- 26m 8s) / loss: 3.8641
+Train step: 348 (79.54%) / time: 100m 16s (- 25m 47s) / loss: 4.1008
+Train step: 349 (79.77%) / time: 100m 18s (- 25m 26s) / loss: 3.8473
+Train step: 350 (80.00%) / time: 100m 22s (- 25m 5s) / loss: 4.0960
+Train step: 351 (80.23%) / time: 100m 27s (- 24m 45s) / loss: 3.8367
+Train step: 352 (80.46%) / time: 100m 32s (- 24m 25s) / loss: 3.8380
+Val step: 44 / loss: 3.8480
+Train step: 353 (80.69%) / time: 102m 29s (- 24m 32s) / loss: 3.8245
+Train step: 354 (80.91%) / time: 102m 34s (- 24m 11s) / loss: 4.0741
+Train step: 355 (81.14%) / time: 102m 38s (- 23m 51s) / loss: 3.8225
+Train step: 356 (81.37%) / time: 102m 42s (- 23m 30s) / loss: 4.0802
+Train step: 357 (81.60%) / time: 102m 43s (- 23m 9s) / loss: 3.8401
+Train step: 358 (81.83%) / time: 102m 45s (- 22m 49s) / loss: 4.0929
+Train step: 359 (82.06%) / time: 102m 50s (- 22m 29s) / loss: 4.0793
+Train step: 360 (82.29%) / time: 102m 53s (- 22m 8s) / loss: 4.0829
+Val step: 45 / loss: 3.8335
+Train step: 361 (82.51%) / time: 104m 48s (- 22m 12s) / loss: 3.8242
+Train step: 362 (82.74%) / time: 104m 50s (- 21m 51s) / loss: 4.0757
+Train step: 363 (82.97%) / time: 104m 52s (- 21m 31s) / loss: 3.8291
+Train step: 364 (83.20%) / time: 104m 56s (- 21m 11s) / loss: 3.8103
+Train step: 365 (83.43%) / time: 105m 0s (- 20m 51s) / loss: 4.0676
+Train step: 366 (83.66%) / time: 105m 2s (- 20m 31s) / loss: 3.8226
+Train step: 367 (83.89%) / time: 105m 6s (- 20m 11s) / loss: 4.0630
+Train step: 368 (84.11%) / time: 105m 12s (- 19m 52s) / loss: 3.8050
+Val step: 46 / loss: 3.8159
+Train step: 369 (84.34%) / time: 107m 10s (- 19m 53s) / loss: 4.0598
+Train step: 370 (84.57%) / time: 107m 17s (- 19m 34s) / loss: 3.7850
+Train step: 371 (84.80%) / time: 107m 21s (- 19m 14s) / loss: 3.8057
+Train step: 372 (85.03%) / time: 107m 24s (- 18m 54s) / loss: 3.7920
+Train step: 373 (85.26%) / time: 107m 26s (- 18m 34s) / loss: 3.8159
+Train step: 374 (85.49%) / time: 107m 29s (- 18m 15s) / loss: 3.7808
+Train step: 375 (85.71%) / time: 107m 31s (- 17m 55s) / loss: 4.0738
+Train step: 376 (85.94%) / time: 107m 36s (- 17m 35s) / loss: 4.0527
+Val step: 47 / loss: 3.7980
+Train step: 377 (86.17%) / time: 109m 31s (- 17m 34s) / loss: 3.7871
+Train step: 378 (86.40%) / time: 109m 35s (- 17m 14s) / loss: 4.0516
+Train step: 379 (86.63%) / time: 109m 36s (- 16m 55s) / loss: 4.1056
+Train step: 380 (86.86%) / time: 109m 39s (- 16m 35s) / loss: 3.7693
+Train step: 381 (87.09%) / time: 109m 41s (- 16m 15s) / loss: 3.8218
+Train step: 382 (87.31%) / time: 109m 44s (- 15m 56s) / loss: 4.0523
+Train step: 383 (87.54%) / time: 109m 47s (- 15m 37s) / loss: 4.0444
+Train step: 384 (87.77%) / time: 109m 51s (- 15m 18s) / loss: 4.0505
+Val step: 48 / loss: 3.7869
+Train step: 385 (88.00%) / time: 111m 45s (- 15m 14s) / loss: 4.1777
+Train step: 386 (88.23%) / time: 111m 51s (- 14m 55s) / loss: 4.0424
+Train step: 387 (88.46%) / time: 111m 55s (- 14m 36s) / loss: 4.0433
+Train step: 388 (88.69%) / time: 111m 57s (- 14m 16s) / loss: 4.0568
+Train step: 389 (88.91%) / time: 112m 0s (- 13m 57s) / loss: 3.7905
+Train step: 390 (89.14%) / time: 112m 4s (- 13m 38s) / loss: 3.7611
+Train step: 391 (89.37%) / time: 112m 8s (- 13m 20s) / loss: 3.7595
+Train step: 392 (89.60%) / time: 112m 12s (- 13m 1s) / loss: 3.7598
+Val step: 49 / loss: 3.7716
+Train step: 393 (89.83%) / time: 114m 7s (- 12m 55s) / loss: 4.0547
+Train step: 394 (90.06%) / time: 114m 11s (- 12m 36s) / loss: 3.7426
+Train step: 395 (90.29%) / time: 114m 14s (- 12m 17s) / loss: 4.0382
+Train step: 396 (90.51%) / time: 114m 16s (- 11m 58s) / loss: 4.0539
+Train step: 397 (90.74%) / time: 114m 18s (- 11m 39s) / loss: 4.0331
+Train step: 398 (90.97%) / time: 114m 23s (- 11m 21s) / loss: 3.7535
+Train step: 399 (91.20%) / time: 114m 25s (- 11m 2s) / loss: 3.8133
+Train step: 400 (91.43%) / time: 114m 27s (- 10m 43s) / loss: 4.0395
+Val step: 50 / loss: 3.7589
+Train step: 401 (91.66%) / time: 116m 23s (- 10m 35s) / loss: 4.0262
+Train step: 402 (91.89%) / time: 116m 25s (- 10m 16s) / loss: 4.0305
+Train step: 403 (92.11%) / time: 116m 27s (- 9m 58s) / loss: 4.0481
+Train step: 404 (92.34%) / time: 116m 29s (- 9m 39s) / loss: 3.7631
+Train step: 405 (92.57%) / time: 116m 32s (- 9m 21s) / loss: 3.7369
+Train step: 406 (92.80%) / time: 116m 35s (- 9m 2s) / loss: 4.0253
+Train step: 407 (93.03%) / time: 116m 38s (- 8m 44s) / loss: 4.0265
+Train step: 408 (93.26%) / time: 116m 42s (- 8m 26s) / loss: 3.7361
+Val step: 51 / loss: 3.7475
+Train step: 409 (93.49%) / time: 118m 38s (- 8m 16s) / loss: 3.7213
+Train step: 410 (93.71%) / time: 118m 42s (- 7m 57s) / loss: 4.0170
+Train step: 411 (93.94%) / time: 118m 46s (- 7m 39s) / loss: 3.7138
+Train step: 412 (94.17%) / time: 118m 48s (- 7m 21s) / loss: 3.7242
+Train step: 413 (94.40%) / time: 118m 51s (- 7m 3s) / loss: 3.7365
+Train step: 414 (94.63%) / time: 118m 54s (- 6m 45s) / loss: 4.0164
+Train step: 415 (94.86%) / time: 119m 2s (- 6m 27s) / loss: 4.1206
+Train step: 416 (95.09%) / time: 119m 6s (- 6m 9s) / loss: 4.0109
+Val step: 52 / loss: 3.7322
+Train step: 417 (95.31%) / time: 120m 59s (- 5m 56s) / loss: 4.0325
+Train step: 418 (95.54%) / time: 121m 2s (- 5m 38s) / loss: 4.0019
+Train step: 419 (95.77%) / time: 121m 4s (- 5m 20s) / loss: 3.7225
+Train step: 420 (96.00%) / time: 121m 8s (- 5m 2s) / loss: 4.0241
+Train step: 421 (96.23%) / time: 121m 13s (- 4m 45s) / loss: 4.0200
+Train step: 422 (96.46%) / time: 121m 16s (- 4m 27s) / loss: 3.7729
+Train step: 423 (96.69%) / time: 121m 19s (- 4m 9s) / loss: 4.0156
+Train step: 424 (96.91%) / time: 121m 24s (- 3m 51s) / loss: 4.0230
+Val step: 53 / loss: 3.7210
+Train step: 425 (97.14%) / time: 123m 21s (- 3m 37s) / loss: 4.1304
+Train step: 426 (97.37%) / time: 123m 23s (- 3m 19s) / loss: 4.0027
+Train step: 427 (97.60%) / time: 123m 25s (- 3m 2s) / loss: 3.8146
+Train step: 428 (97.83%) / time: 123m 28s (- 2m 44s) / loss: 4.0041
+Train step: 429 (98.06%) / time: 123m 31s (- 2m 26s) / loss: 3.7324
+Train step: 430 (98.29%) / time: 123m 33s (- 2m 9s) / loss: 3.7677
+Train step: 431 (98.51%) / time: 123m 37s (- 1m 51s) / loss: 4.0178
+Train step: 432 (98.74%) / time: 123m 40s (- 1m 34s) / loss: 4.0059
+Val step: 54 / loss: 3.7124
+Train step: 433 (98.97%) / time: 125m 37s (- 1m 18s) / loss: 4.0158
+Train step: 434 (99.20%) / time: 125m 40s (- 1m 0s) / loss: 3.7178
+Train step: 435 (99.43%) / time: 125m 44s (- 0m 43s) / loss: 3.7106
+Train step: 436 (99.66%) / time: 125m 46s (- 0m 25s) / loss: 4.0288
+Train step: 437 (99.89%) / time: 125m 51s (- 0m 8s) / loss: 4.0130
+Train step: 438 (100.11%) / time: 125m 56s (- -1m 51s) / loss: 3.7106
+> M528x518S15a07472x487S1f010490x503S26507515x483 M523x515S10e20508x485S11e20478x485 S38800464x496 M555x557S10057506x527S2b707530x507S30a00482x483 M523x518S19a50495x482S26c06477x491 S38900464x493 R539x551S10047509x530S30a00482x483 R546x518S2ff00482x483S18510520x489S26a00519x470S26a10455x470S18518455x489 S38700463x496 M529x538S2e74c472x513S14220498x462S2e700514x497S14228471x478 M543x545S15008457x501S15000518x501S2ff00482x483S26a16484x518S26a02503x518S34400482x483 S38900464x493 M573x534S30a00482x483S15d11518x484S19a37550x507S22a05538x504 S38700463x496 R515x511S10047485x490 R518x543S14410492x512S2ff00482x483 R534x526S37806502x507S18129466x479S18107481x502S37802480x475S37802481x475S22a05477x494 S38800464x496
+= Verse 32. There, too, the people were amazed at his teaching, for he spoke with authority.
+<
+
+> M528x518S15a07472x487S1f010490x503S26507515x483 M527x515S1dc20474x485S11e20504x485 S38800464x496 L522x569S10021483x548S10029462x548S22a07494x531S22a11469x531S30d00479x478S36d01480x511 L533x525S10030518x495S10038467x495S2a200504x476S2a218472x476 L517x514S15a20505x487S26501483x487 L529x530S31400482x483S10011508x500 L518x566S15a21461x543S2ff00482x483S22a03480x534S30d00482x483S15a00494x508 S38700463x496 M521x533S1dc0a470x509S10003480x485S20500465x499S20500502x513S36d01479x467 M523x520S15a37499x490S15a01500x489S2e900478x480 M517x514S15a20505x487S26501483x486 M531x530S15a01508x470S15a07470x470S20500485x519S20500504x519S20500486x487S20500504x486S22a04502x501S22a14484x501 M521x515S26503479x496S20348496x500S15a51498x485 M567x518S2ff00482x483S15a06479x497S15a02493x502S28902522x483S2891a446x484S15a00555x479S15a00430x480 S38800464x496 M521x588S10058466x541S26526491x574S10050483x541S20500478x575S20500511x575S30d00480x482S36d01479x515 M534x519S2ff00482x483S19200513x500 M552x532S14c27526x468S14c2f448x468S28811476x481S28809501x481S1851f480x505S18517501x505 M511x515S10041490x485 M539x520S2ff00482x483S10011518x490S30d00482x483 M511x515S10041490x485 M533x520S1814b468x481S20500507x509S20500484x509S18143511x481 L526x522S1f748475x487S1f702497x479S26a01505x501 L530x548S2ff00482x488S10010486x518S26500516x517S30124482x477S30d00482x488 L567x518S2ff00482x483S15a06479x497S15a02493x502S28902522x483S2891a446x484S15a00555x479S15a00430x480 S38700463x496 M521x533S1dc0a470x509S10003480x485S20500465x499S20500502x513S36d01479x468 M567x518S2ff00482x483S15a06479x497S15a02493x502S28902522x483S2891a446x484S15a00555x479S15a00430x480 M545x525S15340509x500S15348478x500S28a0a509x476S28a12456x476 M519x600S15a18488x551S10004504x533S22b04499x570S30124482x477S35000482x488 S38810463x495
+= But when your eye is bad, your whole body is filled with darkness. And if the light you think you have is actually darkness, how deep that darkness is!
+<
+
+> M508x515S10e00493x485 S38800464x496 M525x563S10021495x542S10029474x542S22a07506x525S22a11481x525S30d00482x483 M529x546S2ff00482x483S22a04514x531S22a04484x531S19200508x509S30d00482x483 M508x515S10040493x485 S38700463x496 M528x524S10058473x477S26526498x510S10050490x477S20500485x511S20500518x511 M533x532S14c00509x468S14c08469x468S2a204510x504S2a21c467x504 M533x520S1814b468x481S20500507x509S20500484x509S18143511x481 M518x535S33100482x483S10010490x505S26502469x512 M563x602S2ff00482x483S10e00499x498S10e50541x488S15a1a536x471S23b0a537x582S15a10535x550S15a18496x550S23b1a498x583S26507520x507 S38700463x496 L531x520S26606473x504S19a50503x481S26602469x489 L518x535S33100482x483S10010490x505S26502469x512 L544x590S2ff00482x483S18510519x487S15a40516x540S18518456x487S23b0a519x571S26500520x465S26510466x465S15a48475x540S23b1a478x571 L533x518S2ff00482x483S15a10521x484S2b700514x454 L521x529S10013484x471S2dd04479x488S14c09479x502 L518x524S10057497x494S2d600483x476 S38800464x496 M537x569S10130509x539S10138473x539S22114511x528S22114461x528S30100482x477S34600482x488S30d00482x488 M524x526S10041503x496S2d60e476x475 S38900464x493 M581x518S2ff00482x483S1c500511x477S26507542x474S1c520551x450S30d00482x483 M546x518S2ff00482x483S18510520x489S26a00519x470S26a10455x470S18518455x489 M537x549S14c38474x471S14c50492x451S1f738497x517S26703464x481S1f751482x528S26707506x495 M518x587S11502482x414S11a20497x454S14a20497x433S14a20497x488S20320497x508S19220497x529S14a20497x552S20320497x572 S38700463x496 M521x568S20320505x530S22e04504x550S30d00482x483 S38700463x496 R535x560S10640509x448S10648473x440S26c00508x478S26c10465x478S22a14472x545S15a40515x513S15a48472x513S22a04515x545 R571x518S32107482x483S15a37548x494S15a37522x494 R533x532S14c00509x468S14c08469x468S2a204510x504S2a21c467x504 R515x529S1853c486x500S15a36488x517S2b700491x472 R518x564S10041477x534S2d60e450x513S30d00482x483 S38700463x496 M524x525S10041503x495S2d60e476x476 M533x518S2ff00482x483S15a10521x484S2b700514x454 M532x542S2ff00482x483S26507519x504S26511468x504S1f525474x520S1f527503x520 S38800464x496 M584x518S2ff00482x483S1dc02511x482S1f502569x483S28806544x497S30d00482x483 M513x526S10004498x475S22f04488x512 S38700463x496 M524x525S10041503x495S2d60e476x476 M527x553S2033a496x538S20332496x521S14c31501x448S14c39474x463S2b720490x490 M526x519S1f540511x495S1f548475x495S21b00514x482S21b00479x482 M537x549S14c38474x471S14c50492x451S1f738497x517S26703464x481S1f751482x528S26707506x495 M542x520S10011519x490S2ff00482x483S2df08521x465 M519x519S1f701498x497S26a01482x482 S38800464x496
+= &nbsp;2. But there were also false prophets in Israel, just as there will be false teachers among you. They will cleverly teach destructive heresies and even deny the Master who bought them. In this way, they will bring sudden destruction on themselves.
+<
+
+> M528x518S15a07472x487S1f010490x503S26507515x483 M526x515S11e20474x485S1a520505x487 S38800464x496 M540x531S35610482x483S10601517x503S30a00482x483 M519x521S26504502x506S15a0a482x480S15a02492x488 M535x518S14250485x488S15a37466x483S26a07514x483 M524x525S10041503x495S2d60e476x476 M533x522S15a30467x495S15a30503x495S2880a511x478S2881a473x478 M527x520S15a5a487x480S15a57473x497S2c607504x494 S38700463x496 R553x512S36d00479x508S16d52507x489S20600531x497 R527x522S15a37504x479S15a37474x481S22a14483x507S22a04512x507 S38700463x496 M535x518S14250485x488S15a37466x483S26a07514x483 M535x537S2ff00482x483S10002505x520S2ea00488x512 S38700463x496 M536x579S20350473x543S20350517x543S22f04511x565S22f14468x565S36d03479x518S30a00486x483 M520x517S20500480x506S10043490x484 M518x543S14410492x512S2ff00482x483S20600467x518 M515x511S10047485x490 S38800464x496 R560x524S36d00483x520S16d52514x500S20600538x508S30a00476x483 R545x518S21b00460x479S1dc27522x486S1dc2f454x487S21b00530x477S30a00482x483 S38700463x496 R531x533S10020516x503S26501496x496S10620469x468 S38700463x496 R522x565S30a00479x488S36d01480x521S10041466x535S30301479x477 R540x518S15a11517x484S2ff00482x483 R518x546S2ff00482x483S1f036490x497S22f04485x532 S38800464x496
+= Verse 37. As Paul was about to be taken inside, he said to the commander, "May I have a word with you?" "Do you know Greek?" the commander asked, surprised.
+<
+
+> M528x519S15a37473x494S1f010487x504S26507515x482 M523x515S11e20478x485S17620507x499 S38800464x496 M537x570S20500496x547S30a00482x483S1f550513x487S15210509x539S22a04517x516 M518x556S2ff00482x483S10010486x513S37b0b441x514S2b702453x499S2b712423x503S37b0b471x511S10018451x526 S38700463x496 M522x534S14c31496x488S14c39450x490S22a04504x519S22a14458x519S36d01479x467 S38700463x496 M524x532S19a20496x490S22e04502x514S36d01479x469 M528x543S2ff00482x483S10010486x513S26500514x512 M532x530S2ff00482x483S16d17512x506S16d11468x510S28802489x498 S38810463x495 M521x567S20500487x556S15a01490x537S30a00479x483S36d01479x516 M532x535S2ff00482x483S10001511x505S20500504x492S20500487x493 M515x511S10047485x490 M533x532S14c30508x469S14c38468x469S2a204510x504S2a21c468x503 M533x541S20300465x460S14c5b459x503S14c53507x500S26500518x478S20302518x459S26510464x481S36d01479x530 S38700463x496 M521x531S10021477x510S10029456x510S22a07494x490S22a11460x490S36d01479x469 M535x526S19a50507x506S19a58466x506S2c600512x475S37c06522x491S37c06468x491S2c611472x475 M525x527S10041504x497S2d60e476x474 M566x518S2ff00482x483S15a11517x484S26507532x473S15a21543x456 M518x527S10020503x474S2710e483x487 M515x511S10047485x490 M526x522S10018475x483S26505513x509S10611490x479 M519x520S10020482x490S29f0c500x480 S38800464x496
+= "Why, that's very strange!" the man replied. "He healed my eyes, and yet you don't know where he comes from?
+<
+
+> M549x532S15a07452x501S1f010470x517S26507494x498S2df08528x475S1bb10503x469 S38800464x496 M518x555S15a20489x528S26501469x528S30a00482x483 M540x527S15a11503x473S15a19477x473S23904520x497S2391c461x497 M521x573S15a5a486x531S15a5f498x550S2c602469x549S30d00482x483 S38700463x496 L536x508S17d48487x493S15a02509x496S26522465x494 L539x525S15a30461x498S15a50505x498S2a208516x475S2a218471x475 S38700463x496 M519x519S26a01482x482S1f701498x497 M537x534S15a41514x493S15a4f491x511S26601489x466S26611464x485 M536x508S17d48487x493S15a02509x496S26522465x494 L511x515S10041490x485 L527x532S15a50511x469S15a50478x469S2b705513x508S2b714474x508 S38800464x496
+= Verse 18. Entering her house leads to death; it is the road to the grave.
+<
+
+> M528x518S15a07472x487S1f010490x503S26507515x483 M513x521S22114487x480S12d00489x491 S38800464x496 M541x559S14c37514x510S14c3f458x509S22a04516x543S22a14471x544S30a00482x483 M537x549S1f540465x452S1f550513x458S28806485x465S14220506x499S22a14465x534S22a04521x534S14228464x499 M518x543S14410492x512S2ff00482x483S20600467x518 M542x595S2ff00482x435S10010487x465S2ff00482x531S14c10492x564S14c18516x552S22510520x538S22510492x550S26620510x504 M513x525S10611489x476S22f04488x511 M528x524S10058473x477S26526498x510S10050490x477S20500485x511S20500518x511 M554x541S15a18528x483S15a10542x483S2ea2c533x516S32107482x483 M540x520S10011519x490S2ff00482x483S2df08518x462 R534x518S20350471x482S20350515x482S22f04509x504S22f14466x504 R544x516S1ce28456x485S1ce20480x485S2c401504x493 R535x537S2ff00482x483S10002505x520S2ea00488x512 S38800464x496
+= Verse 13. So anyone who speaks in tongues should pray also for the ability to interpret what has been said.
+<
+
+> M527x518S15a37473x494S1f010487x503S26507514x483 M525x516S14420475x485S1a520504x488 S38800464x496 M522x591S10050507x561S10058477x561S2c600502x527S2c611477x527S30a00482x483 M553x516S10e18448x486S10010538x484S2921a469x500 M524x549S1c519477x506S1c511499x452S15a17494x526S15a1f482x471 M515x511S10047485x490 S38700463x496 M515x511S10047485x490 M536x535S2ff00482x483S10002506x510S2ea00493x510 S38700463x496 M521x539S15a30457x492S15a30495x491S2ea36490x523S2ea4e450x524S36d01479x462 M530x541S2ff00482x483S10010486x511S26500516x512 M544x574S2ff00482x483S15a36513x562S18510519x488S37806481x567S22b03504x519S1813e471x554S22104521x479 M519x515S1ce18481x485S1ce10497x485S2fb06497x499 M529x538S22a04501x523S19200508x508S22a04482x523S2ff00482x483 S38900464x493 M521x527S36d01479x474S26a01442x491S1f701460x505 M542x566S2ff00482x483S1f550518x482S15210509x535S20500498x545S22a04523x511 M528x524S15a06480x502S15a41473x476S23d04501x490 M518x545S2ff00482x483S11510460x489S11518438x515S2c602434x495S2c612411x519 M511x515S10041490x485 S38800464x496
+= As they approached, Jesus said, "Now here is a genuine son of Israel -- a man of complete integrity."
+<
+
+> M540x533S15a07461x502S1f010479x518S26507504x498S1a520519x467 S38800464x496 M557x534S16d47509x511S30a00482x483S23000532x516 S38700463x496 M542x522S15a3f505x499S15a37469x493S26c03522x485S26c15458x479 M512x519S17644488x503S18522497x482 M574x561S19a20546x541S19c11513x499S2ff00482x483S22a05536x527 M518x619S15a36486x607S1ce40491x572S34600482x483S16d1e490x528S22a00494x551 L518x619S15a36486x607S1ce40491x572S34600482x483S16d1e490x528S22a00494x551 M536x535S22a00518x500S22a10470x500S14c08465x465S14c00513x465S20330469x520S20330517x520 M521x527S15a37479x498S10151482x473S29a04506x492 S38700463x496 M528x524S10058472x477S26526498x510S10050490x477S20500485x511S20500518x511 M558x513S15340508x488S15348477x488S2890a529x488S28912442x488 M530x530S11a01483x478S20500470x471S22a05506x503S20500520x519 M549x527S2ff00482x483S18710504x495S2e301526x504 S38700463x496 M519x531S10011495x501S15a18481x488S26520487x469S26520505x469 M532x533S20500522x522S20500498x499S22a05507x508S14210469x467 M517x514S15a20484x487S26507504x488 M537x538S1853f464x511S18530512x502S2be00500x463S2be11472x473 S38800464x496
+= Verse 7. Drinks were served in gold goblets of many designs, and there was an abundance of royal wine, reflecting the king's generosity.
+<
+
+> M528x518S15a07472x487S1f010490x503S26507515x483 M522x515S1a520479x487S10e20507x485 S38800464x496 M545x560S15a37483x534S18250494x545S28902516x524S30d00482x483 M515x563S14a20500x514S14a20500x472S1fb20500x491S11a20500x533S14250485x438 M532x541S2ff00482x483S26507519x504S26511468x504S1f525474x519S1f527503x519 S38700463x496 M536x521S22a14472x506S19a30508x480S19a38465x480S22a04516x506 M511x515S10041490x485 M541x577S10049499x547S19a51496x526S26607519x513S31000482x483 S38800464x496 M546x547S10047516x526S30d00482x483 M522x542S2ff00482x483S20600477x520S10001501x512 S38700463x496 M559x530S19a20531x488S22e04537x512S36d03479x471 M542x566S20500498x546S2ff00482x483S22a04513x515S15210509x535S1f550518x483 M517x519S20500483x481S10041496x489 M570x524S30126482x476S15a11516x489S26507534x479S15a21547x463 S38800464x496
+= Again Peter denied it, this time with an oath. "I don't even know the man," he said.
+<
