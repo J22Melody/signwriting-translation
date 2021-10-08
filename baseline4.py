@@ -90,8 +90,8 @@ dataset = MyDataset(fromLocalFile=False, limit=SAMPLE_LIMIT)
 total_len = len(dataset)
 print('total size', total_len)
 
-train_len = math.floor(total_len*0.7)
-val_len = math.floor(total_len*0.2)
+train_len = math.floor(total_len*0.9)
+val_len = math.floor(total_len*0.05)
 test_len = total_len - train_len - val_len
 train_set, val_set, test_set = random_split(dataset, [train_len, val_len, test_len], generator=torch.Generator().manual_seed(SEED))
 print('train size:', len(train_set))
