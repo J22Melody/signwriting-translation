@@ -4,16 +4,16 @@
 name: "transformer"
 
 data:
-    src: "en"
-    trg: "de"
-    train: "data/train.bpe"
-    dev:   "data/dev.bpe"
-    test:  "data/test.bpe"
-    level: "bpe"
+    src: "sign"
+    trg: "en"
+    train: "data/train"
+    dev:   "data/dev"
+    test:  "data/test"
+    level: "word"
     lowercase: False
-    max_sent_length: 100
-    src_vocab: "shared_models/vocab.txt"
-    trg_vocab: "shared_models/vocab.txt"
+    max_sent_length: 500
+    # src_vocab: "model/vocab_sign.txt"
+    # trg_vocab: "model/vocab_en.txt"
 
 testing:
     beam_size: 5
@@ -33,21 +33,19 @@ training:
     learning_rate_min: 0.00000001
     weight_decay: 0.0
     label_smoothing: 0.1
-    batch_size: 4096
-    batch_type: "token"
-    eval_batch_size: 3600
-    eval_batch_type: "token"
+    batch_size: 32
+    eval_batch_size: 32
     batch_multiplier: 1
-    early_stopping_metric: "ppl"
+    early_stopping_metric: "loss"
     epochs: 100
-    validation_freq: 4000
+    validation_freq: 1000
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "models/wmt17_ende_transformer"
-    overwrite: False
+    model_dir: "model"
+    overwrite: True
     shuffle: True
-    use_cuda: True
-    max_output_length: 100
+    use_cuda: False
+    max_output_length: 200
     print_valid_sents: [0, 1, 2, 3]
     keep_last_ckpts: 3
 
@@ -57,8 +55,6 @@ model:
     init_gain: 1.0
     embed_initializer: "xavier"
     embed_init_gain: 1.0
-    tied_embeddings: True
-    tied_softmax: True
     encoder:
         type: "transformer"
         num_layers: 6

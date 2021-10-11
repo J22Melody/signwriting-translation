@@ -6,9 +6,9 @@ base=$scripts/..
 models=$base/models
 configs=$base/configs
 
-mkdir -p $models
+mkdir -p $model
 
 num_threads=6
 device=5
 
-CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt train $configs/transformer_wmt17_ende.yaml
+CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt train $configs/baseline.yaml
