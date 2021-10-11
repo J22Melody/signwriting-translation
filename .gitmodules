@@ -1,0 +1,6 @@
+[submodule "tools/joeynmt"]
+	path = tools/joeynmt
+	url = https://github.com/joeynmt/joeynmt.git
+[submodule "tools/moses-scripts"]
+	path = tools/moses-scripts
+	url = https://github.com/bricksdont/moses-scripts
