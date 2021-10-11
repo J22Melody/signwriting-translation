@@ -1,0 +1,15 @@
+future
+pillow 
+numpy>=1.19.5
+setuptools>=41.0.0
+torch>=1.9.0
+tensorboard>=1.15
+torchtext>=0.10.0
+sacrebleu>=2.0.0
+subword-nmt
+matplotlib
+seaborn
+pyyaml>=5.1
+pylint>=2.9.6
+six==1.12
+wrapt==1.11.1
