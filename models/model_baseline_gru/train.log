@@ -1,0 +1,609 @@
+2021-10-12 19:58:55,629 - INFO - root - Hello! This is Joey-NMT (version 1.3).
+2021-10-12 19:58:55,632 - INFO - joeynmt.data - Loading training data...
+2021-10-12 19:58:56,235 - INFO - joeynmt.data - Building vocabulary...
+2021-10-12 19:58:56,408 - INFO - joeynmt.data - Loading dev data...
+2021-10-12 19:58:56,443 - INFO - joeynmt.data - Loading test data...
+2021-10-12 19:58:56,480 - INFO - joeynmt.data - Data loaded.
+2021-10-12 19:58:56,523 - INFO - joeynmt.model - Building an encoder-decoder model...
+2021-10-12 19:58:56,634 - INFO - joeynmt.model - Enc-dec model built.
+2021-10-12 19:59:00,143 - DEBUG - tensorflow - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2021-10-12 19:59:00,449 - DEBUG - h5py._conv - Creating converter from 7 to 5
+2021-10-12 19:59:00,449 - DEBUG - h5py._conv - Creating converter from 5 to 7
+2021-10-12 19:59:00,449 - DEBUG - h5py._conv - Creating converter from 7 to 5
+2021-10-12 19:59:00,449 - DEBUG - h5py._conv - Creating converter from 5 to 7
+2021-10-12 19:59:01,162 - INFO - joeynmt.training - Total params: 6753024
+2021-10-12 19:59:01,163 - DEBUG - joeynmt.training - Trainable parameters: ['decoder.att_vector_layer.bias', 'decoder.att_vector_layer.weight', 'decoder.attention.energy_layer.weight', 'decoder.attention.key_layer.weight', 'decoder.attention.query_layer.weight', 'decoder.output_layer.weight', 'decoder.rnn.bias_hh_l0', 'decoder.rnn.bias_hh_l1', 'decoder.rnn.bias_ih_l0', 'decoder.rnn.bias_ih_l1', 'decoder.rnn.weight_hh_l0', 'decoder.rnn.weight_hh_l1', 'decoder.rnn.weight_ih_l0', 'decoder.rnn.weight_ih_l1', 'encoder.rnn.bias_hh_l0', 'encoder.rnn.bias_hh_l0_reverse', 'encoder.rnn.bias_hh_l1', 'encoder.rnn.bias_hh_l1_reverse', 'encoder.rnn.bias_hh_l2', 'encoder.rnn.bias_hh_l2_reverse', 'encoder.rnn.bias_ih_l0', 'encoder.rnn.bias_ih_l0_reverse', 'encoder.rnn.bias_ih_l1', 'encoder.rnn.bias_ih_l1_reverse', 'encoder.rnn.bias_ih_l2', 'encoder.rnn.bias_ih_l2_reverse', 'encoder.rnn.weight_hh_l0', 'encoder.rnn.weight_hh_l0_reverse', 'encoder.rnn.weight_hh_l1', 'encoder.rnn.weight_hh_l1_reverse', 'encoder.rnn.weight_hh_l2', 'encoder.rnn.weight_hh_l2_reverse', 'encoder.rnn.weight_ih_l0', 'encoder.rnn.weight_ih_l0_reverse', 'encoder.rnn.weight_ih_l1', 'encoder.rnn.weight_ih_l1_reverse', 'encoder.rnn.weight_ih_l2', 'encoder.rnn.weight_ih_l2_reverse', 'src_embed.lut.weight', 'trg_embed.lut.weight']
+2021-10-12 19:59:01,166 - INFO - joeynmt.helpers - cfg.name                           : my_experiment
+2021-10-12 19:59:01,166 - INFO - joeynmt.helpers - cfg.data.src                       : sign
+2021-10-12 19:59:01,166 - INFO - joeynmt.helpers - cfg.data.trg                       : en
+2021-10-12 19:59:01,166 - INFO - joeynmt.helpers - cfg.data.train                     : data/train
+2021-10-12 19:59:01,166 - INFO - joeynmt.helpers - cfg.data.dev                       : data/dev
+2021-10-12 19:59:01,166 - INFO - joeynmt.helpers - cfg.data.test                      : data/test
+2021-10-12 19:59:01,166 - INFO - joeynmt.helpers - cfg.data.random_train_subset       : 1000
+2021-10-12 19:59:01,166 - INFO - joeynmt.helpers - cfg.data.level                     : word
+2021-10-12 19:59:01,167 - INFO - joeynmt.helpers - cfg.data.lowercase                 : True
+2021-10-12 19:59:01,167 - INFO - joeynmt.helpers - cfg.data.max_sent_length           : 250
+2021-10-12 19:59:01,167 - INFO - joeynmt.helpers - cfg.data.src_voc_min_freq          : 1
+2021-10-12 19:59:01,167 - INFO - joeynmt.helpers - cfg.data.trg_voc_min_freq          : 1
+2021-10-12 19:59:01,167 - INFO - joeynmt.helpers - cfg.testing.beam_size              : 5
+2021-10-12 19:59:01,167 - INFO - joeynmt.helpers - cfg.testing.alpha                  : 1.0
+2021-10-12 19:59:01,167 - INFO - joeynmt.helpers - cfg.testing.postprocess            : True
+2021-10-12 19:59:01,171 - INFO - joeynmt.helpers - cfg.testing.bpe_type               : subword-nmt
+2021-10-12 19:59:01,172 - INFO - joeynmt.helpers - cfg.testing.sacrebleu.remove_whitespace : True
+2021-10-12 19:59:01,172 - INFO - joeynmt.helpers - cfg.testing.sacrebleu.tokenize     : 13a
+2021-10-12 19:59:01,172 - INFO - joeynmt.helpers - cfg.training.reset_best_ckpt       : False
+2021-10-12 19:59:01,172 - INFO - joeynmt.helpers - cfg.training.reset_scheduler       : False
+2021-10-12 19:59:01,172 - INFO - joeynmt.helpers - cfg.training.reset_optimizer       : False
+2021-10-12 19:59:01,172 - INFO - joeynmt.helpers - cfg.training.reset_iter_state      : False
+2021-10-12 19:59:01,173 - INFO - joeynmt.helpers - cfg.training.random_seed           : 42
+2021-10-12 19:59:01,173 - INFO - joeynmt.helpers - cfg.training.optimizer             : adam
+2021-10-12 19:59:01,173 - INFO - joeynmt.helpers - cfg.training.adam_betas            : [0.9, 0.999]
+2021-10-12 19:59:01,173 - INFO - joeynmt.helpers - cfg.training.learning_rate         : 0.005
+2021-10-12 19:59:01,173 - INFO - joeynmt.helpers - cfg.training.learning_rate_min     : 0.0001
+2021-10-12 19:59:01,173 - INFO - joeynmt.helpers - cfg.training.clip_grad_val         : 1.0
+2021-10-12 19:59:01,173 - INFO - joeynmt.helpers - cfg.training.weight_decay          : 0.0
+2021-10-12 19:59:01,173 - INFO - joeynmt.helpers - cfg.training.batch_size            : 10
+2021-10-12 19:59:01,173 - INFO - joeynmt.helpers - cfg.training.batch_type            : sentence
+2021-10-12 19:59:01,173 - INFO - joeynmt.helpers - cfg.training.eval_batch_size       : 10
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.eval_batch_type       : sentence
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.batch_multiplier      : 1
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.normalization         : batch
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.scheduling            : plateau
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.patience              : 5
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.decrease_factor       : 0.5
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.epochs                : 1
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.validation_freq       : 10
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.logging_freq          : 10
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.eval_metric           : bleu
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.early_stopping_metric : loss
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.model_dir             : models/model_baseline_gru
+2021-10-12 19:59:01,174 - INFO - joeynmt.helpers - cfg.training.overwrite             : True
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.training.shuffle               : True
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.training.use_cuda              : False
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.training.fp16                  : False
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.training.max_output_length     : 200
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.training.print_valid_sents     : [0, 1, 2]
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.training.keep_best_ckpts       : 3
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.training.label_smoothing       : 0.0
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.model.initializer              : xavier
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.model.init_weight              : 0.01
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.model.init_gain                : 1.0
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.model.bias_initializer         : zeros
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.model.embed_initializer        : normal
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.model.embed_init_weight        : 0.1
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.model.embed_init_gain          : 1.0
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.model.init_rnn_orthogonal      : False
+2021-10-12 19:59:01,175 - INFO - joeynmt.helpers - cfg.model.lstm_forget_gate         : 1.0
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.tied_embeddings          : False
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.tied_softmax             : False
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.encoder.type             : recurrent
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.encoder.rnn_type         : gru
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.encoder.embeddings.embedding_dim : 256
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.encoder.embeddings.scale : False
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.encoder.embeddings.freeze : False
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.encoder.hidden_size      : 256
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.encoder.bidirectional    : True
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.encoder.dropout          : 0.2
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.encoder.num_layers       : 3
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.encoder.freeze           : False
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.decoder.type             : recurrent
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.decoder.rnn_type         : gru
+2021-10-12 19:59:01,176 - INFO - joeynmt.helpers - cfg.model.decoder.embeddings.embedding_dim : 256
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - cfg.model.decoder.embeddings.scale : False
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - cfg.model.decoder.embeddings.freeze : False
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - cfg.model.decoder.hidden_size      : 256
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - cfg.model.decoder.dropout          : 0.2
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - cfg.model.decoder.hidden_dropout   : 0.2
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - cfg.model.decoder.num_layers       : 2
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - cfg.model.decoder.input_feeding    : True
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - cfg.model.decoder.init_hidden      : last
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - cfg.model.decoder.attention        : bahdanau
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - cfg.model.decoder.freeze           : False
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - Data set sizes: 
+	train 1000,
+	valid 656,
+	test 658
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - First training example:
+	[SRC] s15a07 s1f010 s26507 s1bb20 s1f540 s38800 s10021 s10029 s22a07 s22a11 s36d01 s30a00 s26500 s1f540 s30122 s10000 s36b00 s1d410 s20800 s15a20 s2d60e s2ff00 s15a10 s2b700 s15a30 s15a50 s2a208 s2a218 s30146 s38810
+	[TRG] verse 18 . but not a hair of your head will perish !
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - First 10 words (src): (0) <unk> (1) <pad> (2) <s> (3) </s> (4) s20500 (5) s2ff00 (6) s38700 (7) s38800 (8) s22a04 (9) s30a00
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - First 10 words (trg): (0) <unk> (1) <pad> (2) <s> (3) </s> (4) . (5) , (6) the (7) and (8) of (9) verse
+2021-10-12 19:59:01,177 - INFO - joeynmt.helpers - Number of Src words (types): 1943
+2021-10-12 19:59:01,178 - INFO - joeynmt.helpers - Number of Trg words (types): 3361
+2021-10-12 19:59:01,178 - INFO - joeynmt.training - Model(
+	encoder=RecurrentEncoder(GRU(256, 256, num_layers=3, batch_first=True, dropout=0.2, bidirectional=True)),
+	decoder=RecurrentDecoder(rnn=GRU(512, 256, num_layers=2, batch_first=True, dropout=0.2), attention=BahdanauAttention),
+	src_embed=Embeddings(embedding_dim=256, vocab_size=1943),
+	trg_embed=Embeddings(embedding_dim=256, vocab_size=3361))
+2021-10-12 19:59:01,182 - INFO - joeynmt.training - Train stats:
+	device: cpu
+	n_gpu: 0
+	16-bits training: False
+	gradient accumulation: 1
+	batch size per device: 10
+	total batch size (w. parallel & accumulation): 10
+2021-10-12 19:59:01,182 - INFO - joeynmt.training - EPOCH 1
+2021-10-12 19:59:16,460 - INFO - joeynmt.training - Epoch   1, Step:       10, Batch Loss:   166.451874, Tokens per Sec:      191, Lr: 0.005000
+2021-10-12 20:01:14,743 - INFO - joeynmt.training - Hooray! New best validation result [loss]!
+2021-10-12 20:01:14,822 - INFO - joeynmt.training - Example #0
+2021-10-12 20:01:14,822 - DEBUG - joeynmt.training - 	Raw source:     ['s30142', 's14c27', 's14c2f', 's23612', 's23606', 's34410', 's10040', 's1dc20', 's14a20', 's18d20', 's11520', 's14a20', 's1dc20', 's38700', 's2ff00', 's18710', 's2e301', 's20500', 's20500', 's14210', 's22f05', 's10611', 's22a04', 's16d47', 's33b00', 's22e00', 's26606', 's15a57', 's26612', 's15a51', 's3770b', 's37713', 's30122', 's26612', 's26606', 's38700', 's30a00', 's18540', 's26506', 's22104', 's14051', 's20500', 's20500', 's22f05', 's10611', 's22a04', 's1a002', 's1a00a', 's22f04', 's16d47', 's33b00', 's22e00', 's26500', 's1f540', 's30122', 's38800']
+2021-10-12 20:01:14,822 - DEBUG - joeynmt.training - 	Raw hypothesis: ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',']
+2021-10-12 20:01:14,822 - INFO - joeynmt.training - 	Source:     s30142 s14c27 s14c2f s23612 s23606 s34410 s10040 s1dc20 s14a20 s18d20 s11520 s14a20 s1dc20 s38700 s2ff00 s18710 s2e301 s20500 s20500 s14210 s22f05 s10611 s22a04 s16d47 s33b00 s22e00 s26606 s15a57 s26612 s15a51 s3770b s37713 s30122 s26612 s26606 s38700 s30a00 s18540 s26506 s22104 s14051 s20500 s20500 s22f05 s10611 s22a04 s1a002 s1a00a s22f04 s16d47 s33b00 s22e00 s26500 s1f540 s30122 s38800
+2021-10-12 20:01:14,822 - INFO - joeynmt.training - 	Reference:  proverbs 31:4 it is not for kings , o lemuel , it is not for kings to drink wine ; nor for princes strong drink oh you lemuel , wine kings should drink not , and princes should alcohol drink not .
+2021-10-12 20:01:14,822 - INFO - joeynmt.training - 	Hypothesis: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+2021-10-12 20:01:14,822 - INFO - joeynmt.training - Example #1
+2021-10-12 20:01:14,823 - DEBUG - joeynmt.training - 	Raw source:     ['s15a07', 's1f010', 's26507', 's14700', 's22114', 's38800', 's15a18', 's1dc10', 's20500', 's20500', 's22a04', 's30a00', 's38700', 's2e74c', 's14028', 's2e700', 's14020', 's10047', 's2d60a', 's30104', 's20300', 's20302', 's14c37', 's14c39', 's22b24', 's38900', 's30a00', 's19200', 's2ff00', 's15a10', 's22a04', 's32107', 's15a37', 's15a37', 's10010', 's2ff00', 's15a56', 's15a20', 's37800', 's2ed09', 's10020', 's10011', 's2ff00', 's2df08', 's10047', 's2d60a', 's2e74c', 's14028', 's2e700', 's14020', 's38700', 's1dc0a', 's10003', 's20500', 's20500', 's22a07', 's10011', 's20340', 's20348', 's2ff00', 's26500', 's1f540', 's2ff00', 's10611', 's22f04', 's38900', 's10010', 's2ff00', 's15a56', 's15a20', 's37800', 's15a18', 's15a18', 's10e22', 's10e02', 's22a13', 's20314', 's14c58', 's14c50', 's30122', 's22a05', 's20310', 's38800']
+2021-10-12 20:01:14,823 - DEBUG - joeynmt.training - 	Raw hypothesis: ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',']
+2021-10-12 20:01:14,823 - INFO - joeynmt.training - 	Source:     s15a07 s1f010 s26507 s14700 s22114 s38800 s15a18 s1dc10 s20500 s20500 s22a04 s30a00 s38700 s2e74c s14028 s2e700 s14020 s10047 s2d60a s30104 s20300 s20302 s14c37 s14c39 s22b24 s38900 s30a00 s19200 s2ff00 s15a10 s22a04 s32107 s15a37 s15a37 s10010 s2ff00 s15a56 s15a20 s37800 s2ed09 s10020 s10011 s2ff00 s2df08 s10047 s2d60a s2e74c s14028 s2e700 s14020 s38700 s1dc0a s10003 s20500 s20500 s22a07 s10011 s20340 s20348 s2ff00 s26500 s1f540 s2ff00 s10611 s22f04 s38900 s10010 s2ff00 s15a56 s15a20 s37800 s15a18 s15a18 s10e22 s10e02 s22a13 s20314 s14c58 s14c50 s30122 s22a05 s20310 s38800
+2021-10-12 20:01:14,823 - INFO - joeynmt.training - 	Reference:  if god 's promise is only for those who obey the law , then faith is not necessary and the promise is pointless .
+2021-10-12 20:01:14,823 - INFO - joeynmt.training - 	Hypothesis: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+2021-10-12 20:01:14,823 - INFO - joeynmt.training - Example #2
+2021-10-12 20:01:14,823 - DEBUG - joeynmt.training - 	Raw source:     ['s15a37', 's1f010', 's26507', 's1a520', 's38800', 's2ff00', 's10001', 's2c610', 's2c601', 's10009', 's37d06', 's37d06', 's30a00', 's38700', 's10118', 's10120', 's29306', 's29316', 's15a31', 's15a31', 's22a04', 's22a14', 's2ff00', 's38700', 's1c519', 's1c511', 's15a17', 's15a1f', 's10001', 's2ff00', 's2b702', 's38700', 's19220', 's2a20c', 's11520', 's10120', 's14a20', 's1f720', 's36d01', 's30a00', 's38700', 's15a48', 's15a40', 's2c600', 's2c611', 's37c06', 's37c06', 's36d01', 's10010', 's10018', 's2b702', 's2b712', 's37c0b', 's37d0b', 's37c0b', 's15a37', 's18220', 's28802', 's38800']
+2021-10-12 20:01:14,823 - DEBUG - joeynmt.training - 	Raw hypothesis: ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',', ',']
+2021-10-12 20:01:14,823 - INFO - joeynmt.training - 	Source:     s15a37 s1f010 s26507 s1a520 s38800 s2ff00 s10001 s2c610 s2c601 s10009 s37d06 s37d06 s30a00 s38700 s10118 s10120 s29306 s29316 s15a31 s15a31 s22a04 s22a14 s2ff00 s38700 s1c519 s1c511 s15a17 s15a1f s10001 s2ff00 s2b702 s38700 s19220 s2a20c s11520 s10120 s14a20 s1f720 s36d01 s30a00 s38700 s15a48 s15a40 s2c600 s2c611 s37c06 s37c06 s36d01 s10010 s10018 s2b702 s2b712 s37c0b s37d0b s37c0b s15a37 s18220 s28802 s38800
+2021-10-12 20:01:14,823 - INFO - joeynmt.training - 	Reference:  finally , he said to his disciples , `` let 's go back to judea . ''
+2021-10-12 20:01:14,823 - INFO - joeynmt.training - 	Hypothesis: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
+2021-10-12 20:01:14,823 - INFO - joeynmt.training - Validation result (greedy) at epoch   1, step       10: bleu:   0.01, loss: 130933.9531, ppl: 710.8040, duration: 118.3632s
+2021-10-12 20:01:15,157 - DEBUG - matplotlib.font_manager - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=1.25.
+2021-10-12 20:01:15,157 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Sans Display' (DejaVuSansDisplay.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,157 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Oblique.ttf) oblique normal 400 normal>) = 11.05
+2021-10-12 20:01:15,157 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Sans' (DejaVuSans.ttf) normal normal 400 normal>) = 0.05
+2021-10-12 20:01:15,157 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymBol.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,157 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,157 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'cmmi10' (cmmi10.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymReg.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'cmtt10' (cmtt10.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeFiveSym' (STIXSizFiveSymReg.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Sans' (DejaVuSans-BoldOblique.ttf) oblique normal 700 normal>) = 1.335
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXNonUnicode' (STIXNonUni.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXGeneral' (STIXGeneral.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Bold.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymReg.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'cmr10' (cmr10.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBolIta.ttf) italic normal 700 normal>) = 11.335
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymReg.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'cmb10' (cmb10.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Oblique.ttf) oblique normal 400 normal>) = 1.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXNonUnicode' (STIXNonUniIta.ttf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Serif Display' (DejaVuSerifDisplay.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,158 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXGeneral' (STIXGeneralItalic.ttf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXGeneral' (STIXGeneralBol.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'cmsy10' (cmsy10.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'cmex10' (cmex10.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymReg.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'cmss10' (cmss10.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Italic.ttf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Serif' (DejaVuSerif.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Bold.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymBol.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXGeneral' (STIXGeneralBolIta.ttf) italic normal 700 normal>) = 11.335
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymBol.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBol.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymBol.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Bold.ttf) normal normal 700 normal>) = 0.33499999999999996
+2021-10-12 20:01:15,159 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Futura' (Futura.ttc) normal normal 500 normal>) = 10.145
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Pahawh Hmong' (NotoSansPahawhHmong-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Verdana' (Verdana Bold Italic.ttf) italic normal 700 normal>) = 4.971363636363637
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Songti SC' (Songti.ttc) normal normal 900 normal>) = 10.525
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Kohinoor Bangla' (KohinoorBangla.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Sinhala MN' (Sinhala MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial Narrow' (Arial Narrow Bold.ttf) normal normal 700 condensed>) = 10.535
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Raanana' (Raanana.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font '.SF NS Mono' (SFNSMono.ttf) normal normal 295 normal>) = 10.14975
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Devanagari MT' (DevanagariMT.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Kokonor' (Kokonor.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DIN Condensed' (DIN Condensed Bold.ttf) normal normal 700 condensed>) = 10.535
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Diwan Kufi' (Diwan Kufi.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Webdings' (Webdings.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXIntegralsD' (STIXIntDReg.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Phosphate' (Phosphate.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Sathu' (Sathu.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,160 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Serif Balinese' (NotoSerifBalinese-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Academy Engraved LET' (Academy Engraved LET Fonts.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Sans' (ヒラギノ角ゴシック W4.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXIntegralsSm' (STIXIntSmBol.otf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Rockwell' (Rockwell.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Charter' (Charter.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymReg.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial' (Arial.ttf) normal normal 400 normal>) = 6.413636363636363
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Sans' (ヒラギノ角ゴシック W0.ttc) normal normal 100 normal>) = 10.335
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Khojki' (NotoSansKhojki-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial Narrow' (Arial Narrow Italic.ttf) italic normal 400 condensed>) = 11.25
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'System Font' (SFNSItalic.ttf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Telugu Sangam MN' (Telugu Sangam MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'SignPainter' (SignPainter.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Silom' (Silom.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Ogham' (NotoSansOgham-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Maru Gothic Pro' (ヒラギノ丸ゴ ProN W4.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,161 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Apple SD Gothic Neo' (AppleSDGothicNeo.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Copperplate' (Copperplate.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Bhaiksuki' (NotoSansBhaiksuki-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Lepcha' (NotoSansLepcha-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Gujarati Sangam MN' (Gujarati Sangam MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Oriya MN' (Oriya MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'PT Sans' (PTSans.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial Unicode MS' (Arial Unicode.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Beirut' (Beirut.ttc) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXVariants' (STIXVarBol.otf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Bodoni 72 Oldstyle' (Bodoni 72 OS.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymReg.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Sans' (ヒラギノ角ゴシック W6.ttc) normal normal 600 normal>) = 10.24
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Mukta Mahee' (MuktaMahee.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Kohinoor Devanagari' (Kohinoor.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Buhid' (NotoSansBuhid-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Coptic' (NotoSansCoptic-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,162 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Runic' (NotoSansRunic-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'PT Serif' (PTSerif.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXIntegralsD' (STIXIntDBol.otf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Apple Braille' (Apple Braille Pinpoint 6 Dot.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Sharada' (NotoSansSharada-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Al Tarikh' (Al Tarikh.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Bodoni 72 Smallcaps' (Bodoni 72 Smallcaps Book.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Apple Braille' (Apple Braille Pinpoint 8 Dot.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Mandaic' (NotoSansMandaic-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Old Persian' (NotoSansOldPersian-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXIntegralsUpSm' (STIXIntUpSmReg.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Big Caslon' (BigCaslon.ttf) normal normal 500 normal>) = 10.145
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Times New Roman' (Times New Roman Italic.ttf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Baghdad' (Baghdad.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font '.Arabic UI Display' (ArabicUIDisplay.ttc) normal normal 900 normal>) = 10.525
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Mongolian' (NotoSansMongolian-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,163 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Nastaliq Urdu' (NotoNastaliq.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Mende Kikakui' (NotoSansMendeKikakui-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXVariants' (STIXVar.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymReg.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Javanese' (NotoSansJavanese-Regular.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Old Turkic' (NotoSansOldTurkic-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Krungthep' (Krungthep.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Nadeem' (Nadeem.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Mahajani' (NotoSansMahajani-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Ol Chiki' (NotoSansOlChiki-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Iowan Old Style' (Iowan Old Style.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Thaana' (NotoSansThaana-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Malayalam MN' (Malayalam MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Tai Le' (NotoSansTaiLe-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font '.Aqua Kana' (AquaKana.ttc) normal normal 300 normal>) = 10.145
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Wancho' (NotoSansWancho-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Sukhumvit Set' (SukhumvitSet.ttc) normal normal 250 normal>) = 10.1925
+2021-10-12 20:01:15,164 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Trebuchet MS' (Trebuchet MS Bold.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Old Hungarian' (NotoSansOldHungarian-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font '.New York' (NewYorkItalic.ttf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Georgia' (Georgia Italic.ttf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'AppleGothic' (AppleGothic.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Modi' (NotoSansModi-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Sora Sompeng' (NotoSansSoraSompeng-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hoefler Text' (Hoefler Text Ornaments.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Syriac' (NotoSansSyriac-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Sans' (ヒラギノ角ゴシック W8.ttc) normal normal 800 normal>) = 10.43
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Adlam' (NotoSansAdlam-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Superclarendon' (SuperClarendon.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Old Permic' (NotoSansOldPermic-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Georgia' (Georgia.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Comic Sans MS' (Comic Sans MS Bold.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Oriya' (NotoSansOriya.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymReg.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,165 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Syloti Nagri' (NotoSansSylotiNagri-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Saurashtra' (NotoSansSaurashtra-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Apple Braille' (Apple Braille Outline 8 Dot.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Avestan' (NotoSansAvestan-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'System Font' (SFNS.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hoefler Text' (Hoefler Text.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Heiti TC' (STHeiti Medium.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Palatino' (Palatino.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Trebuchet MS' (Trebuchet MS.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'AppleMyungjo' (AppleMyungjo.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Courier New' (Courier New Italic.ttf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Avenir Next Condensed' (Avenir Next Condensed.ttc) normal normal 700 condensed>) = 10.535
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Chalkboard SE' (ChalkboardSE.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Brahmi' (NotoSansBrahmi-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Cham' (NotoSansCham-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Avenir Next' (Avenir Next.ttc) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial Narrow' (Arial Narrow Bold Italic.ttf) italic normal 700 condensed>) = 11.535
+2021-10-12 20:01:15,166 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial Black' (Arial Black.ttf) normal normal 900 normal>) = 10.525
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Marchen' (NotoSansMarchen-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Sans' (ヒラギノ角ゴシック W7.ttc) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Serif Myanmar' (NotoSerifMyanmar.ttc) normal normal 900 normal>) = 10.525
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Bangla MN' (Bangla MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Apple Braille' (Apple Braille.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Times New Roman' (Times New Roman Bold.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Serif Ahom' (NotoSerifAhom-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymBol.otf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Party LET' (PartyLET-plain.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Khudawadi' (NotoSansKhudawadi-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Mishafi Gold' (Mishafi Gold.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Geeza Pro' (GeezaPro.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans PhagsPa' (NotoSansPhagsPa-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Wingdings' (Wingdings.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Skia' (Skia.ttf) normal normal 5 normal>) = 10.42525
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Sans GB' (Hiragino Sans GB.ttc) normal normal 300 normal>) = 10.145
+2021-10-12 20:01:15,167 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Kaithi' (NotoSansKaithi-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Myanmar' (NotoSansMyanmar.ttc) normal normal 900 normal>) = 10.525
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Tahoma' (Tahoma Bold.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Devanagari Sangam MN' (Devanagari Sangam MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Osage' (NotoSansOsage-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Times' (Times.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Armenian' (NotoSansArmenian.ttc) normal normal 900 normal>) = 10.525
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXIntegralsUpSm' (STIXIntUpSmBol.otf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Comic Sans MS' (Comic Sans MS.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DecoType Naskh' (DecoTypeNaskh.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Batak' (NotoSansBatak-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Diwan Thuluth' (Diwan Thuluth.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Nabataean' (NotoSansNabataean-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Old South Arabian' (NotoSansOldSouthArabian-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Courier New' (Courier New.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Egyptian Hieroglyphs' (NotoSansEgyptianHieroglyphs-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,168 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Kannada MN' (Kannada MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Gurmukhi Sangam MN' (Gurmukhi Sangam MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'InaiMathi' (InaiMathi-MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Tifinagh' (NotoSansTifinagh-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Bamum' (NotoSansBamum-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Bodoni 72' (Bodoni 72.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Lao MN' (Lao MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXNonUnicode' (STIXNonUni.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Didot' (Didot.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Times New Roman' (Times New Roman.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Tai Viet' (NotoSansTaiViet-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXGeneral' (STIXGeneralItalic.otf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Carian' (NotoSansCarian-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Khmer MN' (Khmer MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Sans' (ヒラギノ角ゴシック W9.ttc) normal normal 900 normal>) = 10.525
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Vai' (NotoSansVai-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,169 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Apple Symbols' (Apple Symbols.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Hanunoo' (NotoSansHanunoo-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Mincho ProN' (ヒラギノ明朝 ProN.ttc) normal normal 300 normal>) = 10.145
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Siddham' (NotoSansSiddham-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Malayalam Sangam MN' (Malayalam Sangam MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBolIta.otf) italic normal 700 normal>) = 11.335
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Lucida Grande' (LucidaGrande.ttc) normal normal 500 normal>) = 2.872272727272727
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Verdana' (Verdana.ttf) normal normal 400 normal>) = 3.6863636363636365
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'New Peninim MT' (NewPeninimMT.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymBol.otf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font '.Arabic UI Text' (ArabicUIText.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Gill Sans' (GillSans.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXIntegralsUp' (STIXIntUpReg.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Tagbanwa' (NotoSansTagbanwa-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXIntegralsUpD' (STIXIntUpDBol.otf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Papyrus' (Papyrus.ttc) normal normal 400 condensed>) = 10.25
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Avenir' (Avenir.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,170 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Euphemia UCAS' (EuphemiaCAS.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Kayah Li' (NotoSansKayahLi-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Ugaritic' (NotoSansUgaritic-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Marker Felt' (MarkerFelt.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Apple Braille' (Apple Braille Outline 6 Dot.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Luminari' (Luminari.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Old North Arabian' (NotoSansOldNorthArabian-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Lisu' (NotoSansLisu-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Lao Sangam MN' (Lao Sangam MN.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Bassa Vah' (NotoSansBassaVah-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Tai Tham' (NotoSansTaiTham-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Inscriptional Parthian' (NotoSansInscriptionalParthian-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Kharoshthi' (NotoSansKharoshthi-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Limbu' (NotoSansLimbu-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Chalkduster' (Chalkduster.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial' (Arial Bold.ttf) normal normal 700 normal>) = 6.698636363636363
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Seravek' (Seravek.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,171 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Sans' (ヒラギノ角ゴシック W1.ttc) normal normal 200 normal>) = 10.24
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Sans' (ヒラギノ角ゴシック W2.ttc) normal normal 250 normal>) = 10.1925
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Hanifi Rohingya' (NotoSansHanifiRohingya-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Caucasian Albanian' (NotoSansCaucasianAlbanian-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'KufiStandardGK' (KufiStandardGK.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Damascus' (Damascus.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Galvji' (Galvji.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Heiti TC' (STHeiti Light.ttc) normal normal 300 normal>) = 10.145
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Rejang' (NotoSansRejang-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Phoenician' (NotoSansPhoenician-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXIntegralsUpD' (STIXIntUpDReg.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Palmyrene' (NotoSansPalmyrene-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Tagalog' (NotoSansTagalog-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXIntegralsSm' (STIXIntSmReg.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Elbasan' (NotoSansElbasan-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Mshtakan' (Mshtakan.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,172 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Snell Roundhand' (SnellRoundhand.ttc) normal normal 500 normal>) = 10.145
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans New Tai Lue' (NotoSansNewTaiLue-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Helvetica' (Helvetica.ttc) normal normal 400 normal>) = 7.322727272727273
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font '.New York' (NewYork.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Times New Roman' (Times New Roman Bold Italic.ttf) italic normal 700 normal>) = 11.335
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Yi' (NotoSansYi-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Linear A' (NotoSansLinearA-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'ITF Devanagari' (ITFDevanagari.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Mro' (NotoSansMro-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Cuneiform' (NotoSansCuneiform-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Gurmukhi MN' (Gurmukhi MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Sinhala Sangam MN' (Sinhala Sangam MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Trattatello' (Trattatello.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Bangla Sangam MN' (Bangla Sangam MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Tamil Sangam MN' (Tamil Sangam MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font '.SF Compact' (SFCompactItalic.ttf) italic normal 1000 normal>) = 11.62
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Verdana' (Verdana Bold.ttf) normal normal 700 normal>) = 3.9713636363636367
+2021-10-12 20:01:15,173 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Sana' (Sana.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Osmanya' (NotoSansOsmanya-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Muna' (Muna.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Georgia' (Georgia Bold.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Buginese' (NotoSansBuginese-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Kohinoor Gujarati' (KohinoorGujarati.ttc) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeFiveSym' (STIXSizFiveSymReg.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Khmer Sangam MN' (Khmer Sangam MN.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'PT Mono' (PTMono.ttc) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Impact' (Impact.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial Rounded MT Bold' (Arial Rounded Bold.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font '.SF Compact Rounded' (SFCompactRounded.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Brush Script MT' (Brush Script.ttf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Myanmar Sangam MN' (Myanmar Sangam MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Helvetica Neue' (HelveticaNeue.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Takri' (NotoSansTakri-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymBol.otf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,174 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Courier New' (Courier New Bold Italic.ttf) italic normal 700 normal>) = 11.335
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Telugu MN' (Telugu MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Chalkboard' (Chalkboard.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Linear B' (NotoSansLinearB-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Kohinoor Telugu' (KohinoorTelugu.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Trebuchet MS' (Trebuchet MS Bold Italic.ttf) italic normal 700 normal>) = 11.335
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Savoye LET' (Savoye LET.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'American Typewriter' (AmericanTypewriter.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Gothic' (NotoSansGothic-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Miao' (NotoSansMiao-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Bradley Hand' (Bradley Hand Bold.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Glagolitic' (NotoSansGlagolitic-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Psalter Pahlavi' (NotoSansPsalterPahlavi-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Inscriptional Pahlavi' (NotoSansInscriptionalPahlavi-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Marion' (Marion.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Farah' (Farah.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Tamil MN' (Tamil MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,175 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noteworthy' (Noteworthy.ttc) normal normal 300 normal>) = 10.145
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXGeneral' (STIXGeneral.otf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Corsiva Hebrew' (Corsiva.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Bodoni Ornaments' (Bodoni Ornaments.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Tahoma' (Tahoma.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial Narrow' (Arial Narrow.ttf) normal normal 400 condensed>) = 10.25
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Old Italic' (NotoSansOldItalic-Regular.ttf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Cochin' (Cochin.ttc) normal normal 500 normal>) = 10.145
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font '.SF Compact' (SFCompact.ttf) normal normal 1000 normal>) = 10.62
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Trebuchet MS' (Trebuchet MS Italic.ttf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Tirhuta' (NotoSansTirhuta-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Al Nile' (Al Nile.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Cypriot' (NotoSansCypriot-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Imperial Aramaic' (NotoSansImperialAramaic-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Shree Devanagari 714' (Shree714.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymBol.otf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXNonUnicode' (STIXNonUniIta.otf) italic normal 400 normal>) = 11.05
+2021-10-12 20:01:15,176 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Courier New' (Courier New Bold.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Kannada' (NotoSansKannada.ttc) normal normal 900 normal>) = 10.525
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font '.SF NS Mono' (SFNSMonoItalic.ttf) italic normal 295 normal>) = 11.14975
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font '.SF NS Rounded' (SFNSRounded.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Chakma' (NotoSansChakma-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Gujarati MT' (GujaratiMT.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Sans' (ヒラギノ角ゴシック W5.ttc) normal normal 500 normal>) = 10.145
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Baskerville' (Baskerville.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Meroitic' (NotoSansMeroitic-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXIntegralsUp' (STIXIntUpBol.otf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBol.otf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Wingdings 3' (Wingdings 3.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Multani' (NotoSansMultani-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Meetei Mayek' (NotoSansMeeteiMayek-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Wingdings 2' (Wingdings 2.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Zapfino' (Zapfino.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Apple Chancery' (Apple Chancery.ttf) normal normal 0 normal>) = 10.43
+2021-10-12 20:01:15,177 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial' (Arial Italic.ttf) italic normal 400 normal>) = 7.413636363636363
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'PingFang HK' (PingFang.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Kannada Sangam MN' (Kannada Sangam MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Optima' (Optima.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Farisi' (Farisi.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Lydian' (NotoSansLydian-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Symbol' (Symbol.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Shavian' (NotoSansShavian-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Athelas' (Athelas.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Verdana' (Verdana Italic.ttf) italic normal 400 normal>) = 4.6863636363636365
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Hiragino Sans' (ヒラギノ角ゴシック W3.ttc) normal normal 300 normal>) = 10.145
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Pau Cin Hau' (NotoSansPauCinHau-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Sundanese' (NotoSansSundanese-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Menlo' (Menlo.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Al Bayan' (AlBayan.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Thonburi' (Thonburi.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font '.Keyboard' (Keyboard.ttf) normal normal 100 normal>) = 10.335
+2021-10-12 20:01:15,178 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial Hebrew' (ArialHB.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Kailasa' (Kailasa.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Hatran' (NotoSansHatran-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Newa' (NotoSansNewa-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial' (Arial Bold Italic.ttf) italic normal 700 normal>) = 7.698636363636363
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Gurmukhi MT' (Gurmukhi.ttf) normal normal 500 normal>) = 10.145
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Warang Citi' (NotoSansWarangCiti-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'PT Serif Caption' (PTSerifCaption.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Plantagenet Cherokee' (PlantagenetCherokee.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Microsoft Sans Serif' (Microsoft Sans Serif.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Waseem' (Waseem.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Andale Mono' (Andale Mono.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Lycian' (NotoSansLycian-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Kefa' (Kefa.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXGeneral' (STIXGeneralBol.otf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'STIXGeneral' (STIXGeneralBolIta.otf) italic normal 700 normal>) = 11.335
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Herculanum' (Herculanum.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,179 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Oriya Sangam MN' (Oriya Sangam MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,180 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Mishafi' (Mishafi.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,180 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans NKo' (NotoSansNKo-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,180 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Duployan' (NotoSansDuployan-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,180 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'DIN Alternate' (DIN Alternate Bold.ttf) normal normal 700 normal>) = 10.335
+2021-10-12 20:01:15,180 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Zapf Dingbats' (ZapfDingbats.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,180 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Arial Unicode MS' (Arial Unicode.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,180 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Manichaean' (NotoSansManichaean-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,180 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Noto Sans Samaritan' (NotoSansSamaritan-Regular.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,180 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Myanmar MN' (Myanmar MN.ttc) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,180 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Georgia' (Georgia Bold Italic.ttf) italic normal 700 normal>) = 11.335
+2021-10-12 20:01:15,180 - DEBUG - matplotlib.font_manager - findfont: score(<Font 'Ayuthaya' (Ayuthaya.ttf) normal normal 400 normal>) = 10.05
+2021-10-12 20:01:15,180 - DEBUG - matplotlib.font_manager - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=1.25 to DejaVu Sans ('/opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+2021-10-12 20:01:16,427 - DEBUG - matplotlib.backends.backend_pdf - Assigning font /b'F1' = '/opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf'
+2021-10-12 20:01:16,817 - DEBUG - matplotlib.backends.backend_pdf - Embedding font /opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf.
+2021-10-12 20:01:16,817 - DEBUG - matplotlib.backends.backend_pdf - Writing TrueType font.
+2021-10-12 20:01:20,563 - DEBUG - matplotlib.backends.backend_pdf - Assigning font /b'F1' = '/opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf'
+2021-10-12 20:01:21,028 - DEBUG - matplotlib.backends.backend_pdf - Embedding font /opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf.
+2021-10-12 20:01:21,028 - DEBUG - matplotlib.backends.backend_pdf - Writing TrueType font.
+2021-10-12 20:01:24,807 - DEBUG - matplotlib.backends.backend_pdf - Assigning font /b'F1' = '/opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf'
+2021-10-12 20:01:25,204 - DEBUG - matplotlib.backends.backend_pdf - Embedding font /opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf.
+2021-10-12 20:01:25,205 - DEBUG - matplotlib.backends.backend_pdf - Writing TrueType font.
+2021-10-12 20:01:40,399 - INFO - joeynmt.training - Epoch   1, Step:       20, Batch Loss:   198.051849, Tokens per Sec:      116, Lr: 0.005000
+2021-10-12 20:03:37,678 - WARNING - sacrebleu - That's 100 lines that end in a tokenized period ('.')
+2021-10-12 20:03:37,679 - WARNING - sacrebleu - It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-10-12 20:03:37,679 - WARNING - sacrebleu - If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+2021-10-12 20:03:37,684 - INFO - joeynmt.training - Hooray! New best validation result [loss]!
+2021-10-12 20:03:37,758 - INFO - joeynmt.training - Example #0
+2021-10-12 20:03:37,758 - DEBUG - joeynmt.training - 	Raw source:     ['s30142', 's14c27', 's14c2f', 's23612', 's23606', 's34410', 's10040', 's1dc20', 's14a20', 's18d20', 's11520', 's14a20', 's1dc20', 's38700', 's2ff00', 's18710', 's2e301', 's20500', 's20500', 's14210', 's22f05', 's10611', 's22a04', 's16d47', 's33b00', 's22e00', 's26606', 's15a57', 's26612', 's15a51', 's3770b', 's37713', 's30122', 's26612', 's26606', 's38700', 's30a00', 's18540', 's26506', 's22104', 's14051', 's20500', 's20500', 's22f05', 's10611', 's22a04', 's1a002', 's1a00a', 's22f04', 's16d47', 's33b00', 's22e00', 's26500', 's1f540', 's30122', 's38800']
+2021-10-12 20:03:37,758 - DEBUG - joeynmt.training - 	Raw hypothesis: ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.']
+2021-10-12 20:03:37,759 - INFO - joeynmt.training - 	Source:     s30142 s14c27 s14c2f s23612 s23606 s34410 s10040 s1dc20 s14a20 s18d20 s11520 s14a20 s1dc20 s38700 s2ff00 s18710 s2e301 s20500 s20500 s14210 s22f05 s10611 s22a04 s16d47 s33b00 s22e00 s26606 s15a57 s26612 s15a51 s3770b s37713 s30122 s26612 s26606 s38700 s30a00 s18540 s26506 s22104 s14051 s20500 s20500 s22f05 s10611 s22a04 s1a002 s1a00a s22f04 s16d47 s33b00 s22e00 s26500 s1f540 s30122 s38800
+2021-10-12 20:03:37,759 - INFO - joeynmt.training - 	Reference:  proverbs 31:4 it is not for kings , o lemuel , it is not for kings to drink wine ; nor for princes strong drink oh you lemuel , wine kings should drink not , and princes should alcohol drink not .
+2021-10-12 20:03:37,759 - INFO - joeynmt.training - 	Hypothesis: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2021-10-12 20:03:37,759 - INFO - joeynmt.training - Example #1
+2021-10-12 20:03:37,759 - DEBUG - joeynmt.training - 	Raw source:     ['s15a07', 's1f010', 's26507', 's14700', 's22114', 's38800', 's15a18', 's1dc10', 's20500', 's20500', 's22a04', 's30a00', 's38700', 's2e74c', 's14028', 's2e700', 's14020', 's10047', 's2d60a', 's30104', 's20300', 's20302', 's14c37', 's14c39', 's22b24', 's38900', 's30a00', 's19200', 's2ff00', 's15a10', 's22a04', 's32107', 's15a37', 's15a37', 's10010', 's2ff00', 's15a56', 's15a20', 's37800', 's2ed09', 's10020', 's10011', 's2ff00', 's2df08', 's10047', 's2d60a', 's2e74c', 's14028', 's2e700', 's14020', 's38700', 's1dc0a', 's10003', 's20500', 's20500', 's22a07', 's10011', 's20340', 's20348', 's2ff00', 's26500', 's1f540', 's2ff00', 's10611', 's22f04', 's38900', 's10010', 's2ff00', 's15a56', 's15a20', 's37800', 's15a18', 's15a18', 's10e22', 's10e02', 's22a13', 's20314', 's14c58', 's14c50', 's30122', 's22a05', 's20310', 's38800']
+2021-10-12 20:03:37,759 - DEBUG - joeynmt.training - 	Raw hypothesis: ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.']
+2021-10-12 20:03:37,759 - INFO - joeynmt.training - 	Source:     s15a07 s1f010 s26507 s14700 s22114 s38800 s15a18 s1dc10 s20500 s20500 s22a04 s30a00 s38700 s2e74c s14028 s2e700 s14020 s10047 s2d60a s30104 s20300 s20302 s14c37 s14c39 s22b24 s38900 s30a00 s19200 s2ff00 s15a10 s22a04 s32107 s15a37 s15a37 s10010 s2ff00 s15a56 s15a20 s37800 s2ed09 s10020 s10011 s2ff00 s2df08 s10047 s2d60a s2e74c s14028 s2e700 s14020 s38700 s1dc0a s10003 s20500 s20500 s22a07 s10011 s20340 s20348 s2ff00 s26500 s1f540 s2ff00 s10611 s22f04 s38900 s10010 s2ff00 s15a56 s15a20 s37800 s15a18 s15a18 s10e22 s10e02 s22a13 s20314 s14c58 s14c50 s30122 s22a05 s20310 s38800
+2021-10-12 20:03:37,759 - INFO - joeynmt.training - 	Reference:  if god 's promise is only for those who obey the law , then faith is not necessary and the promise is pointless .
+2021-10-12 20:03:37,759 - INFO - joeynmt.training - 	Hypothesis: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2021-10-12 20:03:37,759 - INFO - joeynmt.training - Example #2
+2021-10-12 20:03:37,759 - DEBUG - joeynmt.training - 	Raw source:     ['s15a37', 's1f010', 's26507', 's1a520', 's38800', 's2ff00', 's10001', 's2c610', 's2c601', 's10009', 's37d06', 's37d06', 's30a00', 's38700', 's10118', 's10120', 's29306', 's29316', 's15a31', 's15a31', 's22a04', 's22a14', 's2ff00', 's38700', 's1c519', 's1c511', 's15a17', 's15a1f', 's10001', 's2ff00', 's2b702', 's38700', 's19220', 's2a20c', 's11520', 's10120', 's14a20', 's1f720', 's36d01', 's30a00', 's38700', 's15a48', 's15a40', 's2c600', 's2c611', 's37c06', 's37c06', 's36d01', 's10010', 's10018', 's2b702', 's2b712', 's37c0b', 's37d0b', 's37c0b', 's15a37', 's18220', 's28802', 's38800']
+2021-10-12 20:03:37,759 - DEBUG - joeynmt.training - 	Raw hypothesis: ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.']
+2021-10-12 20:03:37,759 - INFO - joeynmt.training - 	Source:     s15a37 s1f010 s26507 s1a520 s38800 s2ff00 s10001 s2c610 s2c601 s10009 s37d06 s37d06 s30a00 s38700 s10118 s10120 s29306 s29316 s15a31 s15a31 s22a04 s22a14 s2ff00 s38700 s1c519 s1c511 s15a17 s15a1f s10001 s2ff00 s2b702 s38700 s19220 s2a20c s11520 s10120 s14a20 s1f720 s36d01 s30a00 s38700 s15a48 s15a40 s2c600 s2c611 s37c06 s37c06 s36d01 s10010 s10018 s2b702 s2b712 s37c0b s37d0b s37c0b s15a37 s18220 s28802 s38800
+2021-10-12 20:03:37,760 - INFO - joeynmt.training - 	Reference:  finally , he said to his disciples , `` let 's go back to judea . ''
+2021-10-12 20:03:37,760 - INFO - joeynmt.training - 	Hypothesis: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2021-10-12 20:03:37,760 - INFO - joeynmt.training - Validation result (greedy) at epoch   1, step       20: bleu:   0.00, loss: 126538.7344, ppl: 570.1927, duration: 117.3605s
+2021-10-12 20:03:39,378 - DEBUG - matplotlib.backends.backend_pdf - Assigning font /b'F1' = '/opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf'
+2021-10-12 20:03:39,780 - DEBUG - matplotlib.backends.backend_pdf - Embedding font /opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf.
+2021-10-12 20:03:39,780 - DEBUG - matplotlib.backends.backend_pdf - Writing TrueType font.
+2021-10-12 20:03:43,478 - DEBUG - matplotlib.backends.backend_pdf - Assigning font /b'F1' = '/opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf'
+2021-10-12 20:03:43,930 - DEBUG - matplotlib.backends.backend_pdf - Embedding font /opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf.
+2021-10-12 20:03:43,931 - DEBUG - matplotlib.backends.backend_pdf - Writing TrueType font.
+2021-10-12 20:03:47,576 - DEBUG - matplotlib.backends.backend_pdf - Assigning font /b'F1' = '/opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf'
+2021-10-12 20:03:48,108 - DEBUG - matplotlib.backends.backend_pdf - Embedding font /opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf.
+2021-10-12 20:03:48,109 - DEBUG - matplotlib.backends.backend_pdf - Writing TrueType font.
+2021-10-12 20:04:04,278 - INFO - joeynmt.training - Epoch   1, Step:       30, Batch Loss:   207.703949, Tokens per Sec:      113, Lr: 0.005000
+2021-10-12 20:06:01,316 - WARNING - sacrebleu - That's 100 lines that end in a tokenized period ('.')
+2021-10-12 20:06:01,316 - WARNING - sacrebleu - It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-10-12 20:06:01,316 - WARNING - sacrebleu - If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+2021-10-12 20:06:01,393 - INFO - joeynmt.training - Example #0
+2021-10-12 20:06:01,393 - DEBUG - joeynmt.training - 	Raw source:     ['s30142', 's14c27', 's14c2f', 's23612', 's23606', 's34410', 's10040', 's1dc20', 's14a20', 's18d20', 's11520', 's14a20', 's1dc20', 's38700', 's2ff00', 's18710', 's2e301', 's20500', 's20500', 's14210', 's22f05', 's10611', 's22a04', 's16d47', 's33b00', 's22e00', 's26606', 's15a57', 's26612', 's15a51', 's3770b', 's37713', 's30122', 's26612', 's26606', 's38700', 's30a00', 's18540', 's26506', 's22104', 's14051', 's20500', 's20500', 's22f05', 's10611', 's22a04', 's1a002', 's1a00a', 's22f04', 's16d47', 's33b00', 's22e00', 's26500', 's1f540', 's30122', 's38800']
+2021-10-12 20:06:01,394 - DEBUG - joeynmt.training - 	Raw hypothesis: ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.']
+2021-10-12 20:06:01,394 - INFO - joeynmt.training - 	Source:     s30142 s14c27 s14c2f s23612 s23606 s34410 s10040 s1dc20 s14a20 s18d20 s11520 s14a20 s1dc20 s38700 s2ff00 s18710 s2e301 s20500 s20500 s14210 s22f05 s10611 s22a04 s16d47 s33b00 s22e00 s26606 s15a57 s26612 s15a51 s3770b s37713 s30122 s26612 s26606 s38700 s30a00 s18540 s26506 s22104 s14051 s20500 s20500 s22f05 s10611 s22a04 s1a002 s1a00a s22f04 s16d47 s33b00 s22e00 s26500 s1f540 s30122 s38800
+2021-10-12 20:06:01,394 - INFO - joeynmt.training - 	Reference:  proverbs 31:4 it is not for kings , o lemuel , it is not for kings to drink wine ; nor for princes strong drink oh you lemuel , wine kings should drink not , and princes should alcohol drink not .
+2021-10-12 20:06:01,394 - INFO - joeynmt.training - 	Hypothesis: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2021-10-12 20:06:01,394 - INFO - joeynmt.training - Example #1
+2021-10-12 20:06:01,394 - DEBUG - joeynmt.training - 	Raw source:     ['s15a07', 's1f010', 's26507', 's14700', 's22114', 's38800', 's15a18', 's1dc10', 's20500', 's20500', 's22a04', 's30a00', 's38700', 's2e74c', 's14028', 's2e700', 's14020', 's10047', 's2d60a', 's30104', 's20300', 's20302', 's14c37', 's14c39', 's22b24', 's38900', 's30a00', 's19200', 's2ff00', 's15a10', 's22a04', 's32107', 's15a37', 's15a37', 's10010', 's2ff00', 's15a56', 's15a20', 's37800', 's2ed09', 's10020', 's10011', 's2ff00', 's2df08', 's10047', 's2d60a', 's2e74c', 's14028', 's2e700', 's14020', 's38700', 's1dc0a', 's10003', 's20500', 's20500', 's22a07', 's10011', 's20340', 's20348', 's2ff00', 's26500', 's1f540', 's2ff00', 's10611', 's22f04', 's38900', 's10010', 's2ff00', 's15a56', 's15a20', 's37800', 's15a18', 's15a18', 's10e22', 's10e02', 's22a13', 's20314', 's14c58', 's14c50', 's30122', 's22a05', 's20310', 's38800']
+2021-10-12 20:06:01,394 - DEBUG - joeynmt.training - 	Raw hypothesis: ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.']
+2021-10-12 20:06:01,394 - INFO - joeynmt.training - 	Source:     s15a07 s1f010 s26507 s14700 s22114 s38800 s15a18 s1dc10 s20500 s20500 s22a04 s30a00 s38700 s2e74c s14028 s2e700 s14020 s10047 s2d60a s30104 s20300 s20302 s14c37 s14c39 s22b24 s38900 s30a00 s19200 s2ff00 s15a10 s22a04 s32107 s15a37 s15a37 s10010 s2ff00 s15a56 s15a20 s37800 s2ed09 s10020 s10011 s2ff00 s2df08 s10047 s2d60a s2e74c s14028 s2e700 s14020 s38700 s1dc0a s10003 s20500 s20500 s22a07 s10011 s20340 s20348 s2ff00 s26500 s1f540 s2ff00 s10611 s22f04 s38900 s10010 s2ff00 s15a56 s15a20 s37800 s15a18 s15a18 s10e22 s10e02 s22a13 s20314 s14c58 s14c50 s30122 s22a05 s20310 s38800
+2021-10-12 20:06:01,394 - INFO - joeynmt.training - 	Reference:  if god 's promise is only for those who obey the law , then faith is not necessary and the promise is pointless .
+2021-10-12 20:06:01,394 - INFO - joeynmt.training - 	Hypothesis: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2021-10-12 20:06:01,394 - INFO - joeynmt.training - Example #2
+2021-10-12 20:06:01,394 - DEBUG - joeynmt.training - 	Raw source:     ['s15a37', 's1f010', 's26507', 's1a520', 's38800', 's2ff00', 's10001', 's2c610', 's2c601', 's10009', 's37d06', 's37d06', 's30a00', 's38700', 's10118', 's10120', 's29306', 's29316', 's15a31', 's15a31', 's22a04', 's22a14', 's2ff00', 's38700', 's1c519', 's1c511', 's15a17', 's15a1f', 's10001', 's2ff00', 's2b702', 's38700', 's19220', 's2a20c', 's11520', 's10120', 's14a20', 's1f720', 's36d01', 's30a00', 's38700', 's15a48', 's15a40', 's2c600', 's2c611', 's37c06', 's37c06', 's36d01', 's10010', 's10018', 's2b702', 's2b712', 's37c0b', 's37d0b', 's37c0b', 's15a37', 's18220', 's28802', 's38800']
+2021-10-12 20:06:01,394 - DEBUG - joeynmt.training - 	Raw hypothesis: ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.']
+2021-10-12 20:06:01,395 - INFO - joeynmt.training - 	Source:     s15a37 s1f010 s26507 s1a520 s38800 s2ff00 s10001 s2c610 s2c601 s10009 s37d06 s37d06 s30a00 s38700 s10118 s10120 s29306 s29316 s15a31 s15a31 s22a04 s22a14 s2ff00 s38700 s1c519 s1c511 s15a17 s15a1f s10001 s2ff00 s2b702 s38700 s19220 s2a20c s11520 s10120 s14a20 s1f720 s36d01 s30a00 s38700 s15a48 s15a40 s2c600 s2c611 s37c06 s37c06 s36d01 s10010 s10018 s2b702 s2b712 s37c0b s37d0b s37c0b s15a37 s18220 s28802 s38800
+2021-10-12 20:06:01,395 - INFO - joeynmt.training - 	Reference:  finally , he said to his disciples , `` let 's go back to judea . ''
+2021-10-12 20:06:01,395 - INFO - joeynmt.training - 	Hypothesis: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2021-10-12 20:06:01,395 - INFO - joeynmt.training - Validation result (greedy) at epoch   1, step       30: bleu:   0.00, loss: 130196.1562, ppl: 684.9844, duration: 117.1166s
+2021-10-12 20:06:02,949 - DEBUG - matplotlib.backends.backend_pdf - Assigning font /b'F1' = '/opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf'
+2021-10-12 20:06:03,355 - DEBUG - matplotlib.backends.backend_pdf - Embedding font /opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf.
+2021-10-12 20:06:03,355 - DEBUG - matplotlib.backends.backend_pdf - Writing TrueType font.
+2021-10-12 20:06:07,045 - DEBUG - matplotlib.backends.backend_pdf - Assigning font /b'F1' = '/opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf'
+2021-10-12 20:06:07,499 - DEBUG - matplotlib.backends.backend_pdf - Embedding font /opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf.
+2021-10-12 20:06:07,499 - DEBUG - matplotlib.backends.backend_pdf - Writing TrueType font.
+2021-10-12 20:06:11,123 - DEBUG - matplotlib.backends.backend_pdf - Assigning font /b'F1' = '/opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf'
+2021-10-12 20:06:11,669 - DEBUG - matplotlib.backends.backend_pdf - Embedding font /opt/anaconda3/envs/joey/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf.
+2021-10-12 20:06:11,670 - DEBUG - matplotlib.backends.backend_pdf - Writing TrueType font.
+2021-10-12 20:06:26,796 - INFO - joeynmt.training - Epoch   1, Step:       40, Batch Loss:   174.565582, Tokens per Sec:      122, Lr: 0.005000

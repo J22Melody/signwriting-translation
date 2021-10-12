@@ -73,7 +73,7 @@ random.shuffle(data_list)
 
 total_size = len(data_list)
 train_size = math.floor(total_size*0.9)
-dev_size = math.floor(total_size*0.05)
+dev_size = math.floor(total_size*0.09)
 
 train = data_list[:train_size]
 dev = data_list[train_size:train_size + dev_size]

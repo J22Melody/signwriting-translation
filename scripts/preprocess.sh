@@ -6,7 +6,7 @@ base=$scripts/..
 data=$base/data
 tools=$base/tools
 
-mkdir -p $base/model
+# mkdir -p $base/model
 
 src=sign
 trg=en
@@ -23,8 +23,8 @@ MOSES=$tools/moses-scripts/scripts
 cat $data/test.en | $MOSES/tokenizer/detokenizer.perl -l en > $data/test.raw.en
 
 # build joeynmt vocab
-python $tools/joeynmt/scripts/build_vocab.py $data/train.$src --output_path $base/model/src_vocab.txt
-python $tools/joeynmt/scripts/build_vocab.py $data/train.$trg --output_path $base/model/trg_vocab.txt
+# python $tools/joeynmt/scripts/build_vocab.py $data/train.$src --output_path $base/model/src_vocab.txt
+# python $tools/joeynmt/scripts/build_vocab.py $data/train.$trg --output_path $base/model/trg_vocab.txt
 
 # file sizes
 for corpus in train dev test; do

@@ -21,6 +21,9 @@ module load nvidia/cuda11.2-cudnn8.1.0
 module load anaconda3
 # conda create -n sign python=3.8 
 source activate joey
-pip install -r requirements.txt
+cd tools/joeynmt
+pip install .
+cd ..
+cd ..
 
-stdbuf -o0 -e0 srun --unbuffered python -u ./baseline4.py 
+stdbuf -o0 -e0 srun --unbuffered ./scripts/train.sh
