@@ -19,20 +19,22 @@ MOSES=$base/tools/moses-scripts/scripts
 num_threads=6
 device=5
 
-model_name=model_baseline_gru
+model_name=$1
 
 # CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/test.$src > $translations/test.$model_name.$trg
-python -m joeynmt translate $configs/baseline_gru.yaml < $data/test.$src > $translations/test.$model_name.$trg
+# python -m joeynmt translate $configs/$model_name.yaml < $data/test.$src > $translations/test.$model_name.$trg
 
-# undo truecasing
+# TODO: recasing
+# For now, compute case-insensitive BLEU by passing --lowercase to sacreBLEU
 
-# cat $translations/test.$model_name.raw.$trg | $MOSES/recaser/detruecase.perl > $translations/test.$model_name.$trg
+# cat $translations/test.$model_name.$trg | $MOSES/recaser/truecase.perl --model $MOSES/recaser/truecase.model > $translations/test.$model_name.truecased.$trg
 
 # undo tokenization
 
-# cat $translations/test.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations/test.$model_name.$trg
+cat $translations/test.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations/test.$model_name.raw.$trg
 
 # compute case-sensitive BLEU on detokenized data
 
-cat $translations/test.$model_name.$trg | sacrebleu $data/test.$trg
+cat $translations/test.$model_name.$trg | sacrebleu --lowercase $data/test.$trg
+cat $translations/test.$model_name.raw.$trg | sacrebleu --lowercase $data/test.raw.$trg
 		

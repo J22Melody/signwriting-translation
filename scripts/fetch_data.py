@@ -67,6 +67,7 @@ for index, row in enumerate(signbank):
             data_list.append({
                 'en': en.encode("unicode_escape").decode("utf-8"),
                 'sign': sign,
+                # 'sign+': sign,
             })
 
 random.shuffle(data_list)

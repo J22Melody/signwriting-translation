@@ -6,7 +6,7 @@
 
 
 #SBATCH --job-name=baseline  	## job name
-#SBATCH --time=0-08:00:00       ## days-hours:minutes:seconds
+#SBATCH --time=0-20:00:00       ## days-hours:minutes:seconds
 #SBATCH --mem=4000M             ##   3GB ram (hardware ratio is < 4GB/core)
 
 ### SBATCH --output=job.out	## standard out file
@@ -26,4 +26,4 @@ pip install .
 cd ..
 cd ..
 
-stdbuf -o0 -e0 srun --unbuffered ./scripts/train.sh
+stdbuf -o0 -e0 srun --unbuffered ./scripts/train.sh $1

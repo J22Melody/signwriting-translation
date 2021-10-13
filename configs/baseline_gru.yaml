@@ -29,7 +29,7 @@ testing:                            # specify which inference algorithm to use f
         tokenize: "13a"             # `tokenize` option in sacrebleu.corpus_bleu() function (default: 13a)
 
 training:                           # specify training details here
-    #load_model: "models/small_model/60.ckpt" # if given, load a pre-trained model from this checkpoint
+    # load_model: "models/baseline_gru/latest.ckpt" # if given, load a pre-trained model from this checkpoint
     reset_best_ckpt: False          # if True, reset the tracking of the best checkpoint and scores. Use for domain adaptation or fine-tuning with new metrics or dev data.
     reset_scheduler: False          # if True, overwrite scheduler in loaded checkpoint with parameters specified in this config. Use for domain adaptation or fine-tuning.
     reset_optimizer: False          # if True, overwrite optimizer in loaded checkpoint with parameters specified in this config. Use for domain adaptation or fine-tuning.
@@ -53,13 +53,13 @@ training:                           # specify training details here
     scheduling: "plateau"           # learning rate scheduling, optional, if not specified stays constant, options: "plateau", "exponential", "decaying", "noam" (for Transformer), "warmupexponentialdecay"
     patience: 5                     # specific to plateau scheduler: wait for this many validations without improvement before decreasing the learning rate
     decrease_factor: 0.5            # specific to plateau & exponential scheduler: decrease the learning rate by this factor
-    epochs: 10                       # train for this many epochs (will be reset in resumed process)
+    epochs: 100                       # train for this many epochs (will be reset in resumed process)
     # updates: 1                    # train for this many updates (won't be reset in resumed process)
     validation_freq: 128             # validate after this many updates (number of mini-batches), default: 1000
     logging_freq: 16                # log the training progress after this many updates, default: 100
     eval_metric: "bleu"             # validation metric, default: "bleu", other options: "chrf", "token_accuracy", "sequence_accuracy"
     early_stopping_metric: "loss"   # when a new high score on this metric is achieved, a checkpoint is written, when "eval_metric" (default) is maximized, when "loss" or "ppl" is minimized
-    model_dir: "models/model_baseline_gru" # directory where models and validation results are stored, required
+    model_dir: "models/baseline_gru" # directory where models and validation results are stored, required
     overwrite: True                 # overwrite existing model directory, default: False. Do not set to True unless for debugging!
     shuffle: True                   # shuffle the training data, default: True
     use_cuda: True                 # use CUDA for acceleration on GPU, required. Set to False when working on CPU.
