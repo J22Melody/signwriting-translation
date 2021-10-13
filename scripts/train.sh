@@ -6,7 +6,7 @@ base=$scripts/..
 models=$base/model_$1
 configs=$base/configs
 
-mkdir -p $model
+# mkdir -p $model
 
 num_threads=6
 device=5
