@@ -55,8 +55,8 @@ training:                           # specify training details here
     decrease_factor: 0.5            # specific to plateau & exponential scheduler: decrease the learning rate by this factor
     epochs: 10                       # train for this many epochs (will be reset in resumed process)
     # updates: 1                    # train for this many updates (won't be reset in resumed process)
-    validation_freq: 10             # validate after this many updates (number of mini-batches), default: 1000
-    logging_freq: 10                # log the training progress after this many updates, default: 100
+    validation_freq: 128             # validate after this many updates (number of mini-batches), default: 1000
+    logging_freq: 16                # log the training progress after this many updates, default: 100
     eval_metric: "bleu"             # validation metric, default: "bleu", other options: "chrf", "token_accuracy", "sequence_accuracy"
     early_stopping_metric: "loss"   # when a new high score on this metric is achieved, a checkpoint is written, when "eval_metric" (default) is maximized, when "loss" or "ppl" is minimized
     model_dir: "models/model_baseline_gru" # directory where models and validation results are stored, required
