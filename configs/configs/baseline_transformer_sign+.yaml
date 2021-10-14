@@ -1,0 +1,82 @@
+# this file is taken from:
+# https://github.com/joeynmt/joeynmt/blob/master/configs/transformer_wmt17_ende.yaml
+
+name: "baseline_transformer"
+
+data:
+    src: "sign+"
+    trg: "en"
+    train: "data/train"
+    dev:   "data/dev"
+    test:  "data/test"
+    level: "word"
+    lowercase: True
+    max_sent_length: 1000
+    # src_vocab: "model/vocab_sign.txt"
+    # trg_vocab: "model/vocab_en.txt"
+
+testing:
+    beam_size: 5
+    alpha: 1.0
+    postprocess: False
+
+training:
+    random_seed: 42
+    optimizer: "adam"
+    normalization: "tokens"
+    adam_betas: [0.9, 0.999]
+    scheduling: "plateau"
+    patience: 5
+    decrease_factor: 0.7
+    loss: "crossentropy"
+    learning_rate: 0.0001
+    learning_rate_min: 0.00000001
+    weight_decay: 0.0
+    label_smoothing: 0.1
+    batch_size: 64
+    eval_batch_size: 64
+    batch_multiplier: 1
+    early_stopping_metric: "loss"
+    epochs: 200
+    validation_freq: 200
+    logging_freq: 100
+    eval_metric: "bleu"
+    overwrite: True
+    shuffle: True
+    use_cuda: True
+    max_output_length: 200
+    print_valid_sents: [0, 1, 2, 3, 6]
+    keep_last_ckpts: 3
+    model_dir: "models/baseline_transformer_sign+"
+    # load_model: "models/baseline_transformer/latest.ckpt"
+
+model:
+    initializer: "xavier"
+    bias_initializer: "zeros"
+    init_gain: 1.0
+    embed_initializer: "xavier"
+    embed_init_gain: 1.0
+    encoder:
+        type: "transformer"
+        num_layers: 6
+        num_heads: 8
+        embeddings:
+            embedding_dim: 1024
+            scale: True
+            dropout: 0.
+        # typically ff_size = 4 x hidden_size
+        hidden_size: 1024
+        ff_size: 4096
+        dropout: 0.1
+    decoder:
+        type: "transformer"
+        num_layers: 6
+        num_heads: 8
+        embeddings:
+            embedding_dim: 512
+            scale: True
+            dropout: 0.
+        # typically ff_size = 4 x hidden_size
+        hidden_size: 512
+        ff_size: 2048
+        dropout: 0.1

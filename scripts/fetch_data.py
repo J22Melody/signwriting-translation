@@ -52,7 +52,7 @@ for index, row in enumerate(signbank):
             # tokenize
             en = ' '.join(nltk.word_tokenize(en))
 
-            sign = row['sign_writing'].numpy().decode('utf-8')
+            sign_sentence = row['sign_writing'].numpy().decode('utf-8')
 
             # run standard js parser (https://github.com/sutton-signwriting/core/blob/master/src/fsw/fsw-parse.js#L63)
             # FIXME: js parser not compatible with dataset input
@@ -60,14 +60,14 @@ for index, row in enumerate(signbank):
             # sign = result.stdout
 
             # run customized parser
-            signs = sign.split(' ')
-            signs = list(map(parse, signs))
-            sign = ' '.join(signs)
+            signs = sign_sentence.split(' ')
+            sign = ' '.join(list(map(parse, signs)))
+            sign_plus = ' '.join(list(map(lambda x: parse(x, True), signs)))
 
             data_list.append({
                 'en': en.encode("unicode_escape").decode("utf-8"),
                 'sign': sign,
-                # 'sign+': sign,
+                'sign+': sign_plus,
             })
 
 random.shuffle(data_list)
@@ -81,19 +81,25 @@ dev = data_list[train_size:train_size + dev_size]
 test = data_list[train_size + dev_size:]
 
 with open('./data/train.sign', 'w+') as f_sign:
-    with open('./data/train.en', 'w+') as f_en:
-        for item in train:
-            f_sign.write("%s\n" % item['sign'])
-            f_en.write("%s\n" % item['en'])
+    with open('./data/train.sign+', 'w+') as f_sign_plus:
+        with open('./data/train.en', 'w+') as f_en:
+            for item in train:
+                f_sign.write("%s\n" % item['sign'])
+                f_sign_plus.write("%s\n" % item['sign+'])
+                f_en.write("%s\n" % item['en'])
 
 with open('./data/dev.sign', 'w+') as f_sign:
-    with open('./data/dev.en', 'w+') as f_en:
-        for item in dev:
-            f_sign.write("%s\n" % item['sign'])
-            f_en.write("%s\n" % item['en'])
+    with open('./data/dev.sign+', 'w+') as f_sign_plus:
+        with open('./data/dev.en', 'w+') as f_en:
+            for item in dev:
+                f_sign.write("%s\n" % item['sign'])
+                f_sign_plus.write("%s\n" % item['sign+'])
+                f_en.write("%s\n" % item['en'])
 
 with open('./data/test.sign', 'w+') as f_sign:
-    with open('./data/test.en', 'w+') as f_en:
-        for item in test:
-            f_sign.write("%s\n" % item['sign'])
-            f_en.write("%s\n" % item['en'])
+    with open('./data/test.sign+', 'w+') as f_sign_plus:
+        with open('./data/test.en', 'w+') as f_en:
+            for item in test:
+                f_sign.write("%s\n" % item['sign'])
+                f_sign_plus.write("%s\n" % item['sign+'])
+                f_en.write("%s\n" % item['en'])

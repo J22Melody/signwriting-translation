@@ -2,3 +2,5 @@
 *.pdf
 .DS_Store
 *.ckpt
+*.out
+*.hyps
