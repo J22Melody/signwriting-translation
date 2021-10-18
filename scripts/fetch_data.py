@@ -50,7 +50,7 @@ for index, row in enumerate(signbank):
             # remove line-break and source, e.g., Nehemiah 3v11 NLT
             en = re.sub(r"\n\n.*NLT", "", en)
             # tokenize
-            en = ' '.join(nltk.word_tokenize(en))
+            en_tokenized = ' '.join(nltk.word_tokenize(en))
 
             sign_sentence = row['sign_writing'].numpy().decode('utf-8')
 
@@ -66,6 +66,7 @@ for index, row in enumerate(signbank):
 
             data_list.append({
                 'en': en.encode("unicode_escape").decode("utf-8"),
+                'en_tokenized': en_tokenized.encode("unicode_escape").decode("utf-8"),
                 'sign': sign,
                 'sign+': sign_plus,
             })
@@ -83,23 +84,29 @@ test = data_list[train_size + dev_size:]
 with open('./data/train.sign', 'w+') as f_sign:
     with open('./data/train.sign+', 'w+') as f_sign_plus:
         with open('./data/train.en', 'w+') as f_en:
-            for item in train:
-                f_sign.write("%s\n" % item['sign'])
-                f_sign_plus.write("%s\n" % item['sign+'])
-                f_en.write("%s\n" % item['en'])
+            with open('./data/train.tokenized.en', 'w+') as f_en_tokenized:
+                for item in train:
+                    f_sign.write("%s\n" % item['sign'])
+                    f_sign_plus.write("%s\n" % item['sign+'])
+                    f_en.write("%s\n" % item['en'])
+                    f_en_tokenized.write("%s\n" % item['en_tokenized'])
 
 with open('./data/dev.sign', 'w+') as f_sign:
     with open('./data/dev.sign+', 'w+') as f_sign_plus:
         with open('./data/dev.en', 'w+') as f_en:
-            for item in dev:
-                f_sign.write("%s\n" % item['sign'])
-                f_sign_plus.write("%s\n" % item['sign+'])
-                f_en.write("%s\n" % item['en'])
+            with open('./data/dev.tokenized.en', 'w+') as f_en_tokenized:
+                for item in dev:
+                    f_sign.write("%s\n" % item['sign'])
+                    f_sign_plus.write("%s\n" % item['sign+'])
+                    f_en.write("%s\n" % item['en'])
+                    f_en_tokenized.write("%s\n" % item['en_tokenized'])
 
 with open('./data/test.sign', 'w+') as f_sign:
     with open('./data/test.sign+', 'w+') as f_sign_plus:
         with open('./data/test.en', 'w+') as f_en:
-            for item in test:
-                f_sign.write("%s\n" % item['sign'])
-                f_sign_plus.write("%s\n" % item['sign+'])
-                f_en.write("%s\n" % item['en'])
+            with open('./data/test.tokenized.en', 'w+') as f_en_tokenized:
+                for item in test:
+                    f_sign.write("%s\n" % item['sign'])
+                    f_sign_plus.write("%s\n" % item['sign+'])
+                    f_en.write("%s\n" % item['en'])
+                    f_en_tokenized.write("%s\n" % item['en_tokenized'])

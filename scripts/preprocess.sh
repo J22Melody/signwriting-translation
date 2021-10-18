@@ -16,11 +16,10 @@ MOSES=$tools/moses-scripts/scripts
 
 #################################################################
 
-# input files are preprocessed already
-
-# remove preprocessing for target language test data, for evaluation
-
-cat $data/test.en | $MOSES/tokenizer/detokenizer.perl -l en > $data/test.raw.en
+spm_train --input=$data/train.en --model_prefix=$data/m --vocab_size=2000 --model_type bpe --character_coverage 1.0
+cat $data/train.en | spm_encode --model=$data/m.model > $data/train.spm.en
+cat $data/dev.en | spm_encode --model=$data/m.model > $data/dev.spm.en
+cat $data/test.en | spm_encode --model=$data/m.model > $data/test.spm.en
 
 # build joeynmt vocab
 # python $tools/joeynmt/scripts/build_vocab.py $data/train.$src --output_path $base/model/src_vocab.txt

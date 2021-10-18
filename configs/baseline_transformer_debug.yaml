@@ -5,7 +5,7 @@ name: "baseline_transformer"
 
 data:
     src: "sign"
-    trg: "en"
+    trg: "spm.en"
     train: "data/train"
     dev:   "data/tiny"
     test:  "data/tiny"
@@ -38,7 +38,7 @@ training:
     eval_batch_size: 2
     batch_multiplier: 1
     early_stopping_metric: "loss"
-    epochs: 200
+    epochs: 2
     validation_freq: 1
     logging_freq: 1
     eval_metric: "bleu"
