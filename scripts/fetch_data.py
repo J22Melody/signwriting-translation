@@ -36,10 +36,14 @@ data_list = []
 
 for index, row in enumerate(signbank):
     puddle_id = row['puddle'].numpy().item()
+    assumed_spoken_language_code = row['assumed_spoken_language_code'].numpy().item()
+    country_code = row['country_code'].numpy().item()
 
     # ASL Bible Books NLT and ASL Bible Books Shores Deaf Church
     # see https://github.com/sign-language-processing/datasets/blob/master/sign_language_datasets/datasets/signbank/signbank.py#L164
     if puddle_id == 151 or puddle_id == 152:
+    # ASL to English
+    # if country_code == 'us' and assumed_spoken_language_code == 'en':
         terms = [f.decode('utf-8') for f in row['terms'].numpy()]
 
         # the first element is chapter

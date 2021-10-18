@@ -16,7 +16,7 @@ MOSES=$tools/moses-scripts/scripts
 
 #################################################################
 
-spm_train --input=$data/train.en --model_prefix=$data/m --vocab_size=2000 --model_type bpe --character_coverage 1.0
+spm_train --input=$data/train.en --model_prefix=$data/m --vocab_size=2000 --model_type bpe --character_coverage 1.0 --normalization_rule_name=nmt_nfkc_cf
 cat $data/train.en | spm_encode --model=$data/m.model > $data/train.spm.en
 cat $data/dev.en | spm_encode --model=$data/m.model > $data/dev.spm.en
 cat $data/test.en | spm_encode --model=$data/m.model > $data/test.spm.en

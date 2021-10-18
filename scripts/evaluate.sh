@@ -32,9 +32,10 @@ python -m joeynmt translate $configs/$model_name.yaml --ckpt $model/best.ckpt < 
 
 # undo tokenization
 
-cat $translations/test.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations/test.$model_name.raw.$trg
+# cat $translations/test.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations/test.$model_name.raw.$trg
+cat $translations/test.$model_name.$trg | spm_decode --model=$base/data/m.model > translations/test.$model_name.raw.$trg
 
-# compute case-sensitive BLEU on detokenized data
+# compute case-insensitive BLEU on detokenized data
 
 cat $translations/test.$model_name.$trg | sacrebleu --lowercase $data/test.$trg
 cat $translations/test.$model_name.raw.$trg | sacrebleu --lowercase $data/test.raw.$trg
