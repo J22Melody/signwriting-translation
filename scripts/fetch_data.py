@@ -33,84 +33,105 @@ def parse(raw, includeSpatials=False):
 
 signbank = tfds.load(name='sign_bank')['train']
 data_list = []
+count = {'total': 0}
 
+# see https://github.com/sign-language-processing/datasets/blob/master/sign_language_datasets/datasets/signbank/signbank.py#L164
 for index, row in enumerate(signbank):
     puddle_id = row['puddle'].numpy().item()
-    assumed_spoken_language_code = row['assumed_spoken_language_code'].numpy().item()
-    country_code = row['country_code'].numpy().item()
+    assumed_spoken_language_code = row['assumed_spoken_language_code'].numpy().decode('utf-8')
+    country_code = row['country_code'].numpy().decode('utf-8')
 
-    # ASL Bible Books NLT and ASL Bible Books Shores Deaf Church
-    # see https://github.com/sign-language-processing/datasets/blob/master/sign_language_datasets/datasets/signbank/signbank.py#L164
-    if puddle_id == 151 or puddle_id == 152:
     # ASL to English
-    # if country_code == 'us' and assumed_spoken_language_code == 'en':
+    if country_code == 'us' and assumed_spoken_language_code == 'en':
         terms = [f.decode('utf-8') for f in row['terms'].numpy()]
 
-        # the first element is chapter
-        # the second is the main text
-        if len(terms) == 2:
-            # only take the main text
-            en = terms[1]
-            # remove line-break and source, e.g., Nehemiah 3v11 NLT
-            en = re.sub(r"\n\n.*NLT", "", en)
-            # tokenize
-            en_tokenized = ' '.join(nltk.word_tokenize(en))
+        # print('#', puddle_id)
+        # print(terms)
+        # continue
 
-            sign_sentence = row['sign_writing'].numpy().decode('utf-8')
+        en = ''
 
-            # run standard js parser (https://github.com/sutton-signwriting/core/blob/master/src/fsw/fsw-parse.js#L63)
-            # FIXME: js parser not compatible with dataset input
-            # result = subprocess.run(['node', 'parse.js', sign], stdout=subprocess.PIPE)
-            # sign = result.stdout
+        # Sentences: Literature US, ASL Bible Books NLT, ASL Bible Books Shores Deaf Church
+        if puddle_id == 5 or puddle_id == 151 or puddle_id == 152:
+            # the first element is the title
+            # the second is the main text
+            if len(terms) > 1:
+                # only take the main text
+                en = terms[1]
 
-            # run customized parser
-            signs = sign_sentence.split(' ')
-            sign = ' '.join(list(map(parse, signs)))
-            sign_plus = ' '.join(list(map(lambda x: parse(x, True), signs)))
+                if puddle_id == 151:
+                    # remove line-break and source, e.g., Nehemiah 3v11 NLT
+                    en = re.sub(r"\n\n.*NLT", "", en)
 
-            data_list.append({
-                'en': en.encode("unicode_escape").decode("utf-8"),
-                'en_tokenized': en_tokenized.encode("unicode_escape").decode("utf-8"),
-                'sign': sign,
-                'sign+': sign_plus,
-            })
+        # Dictionaries: Dictionary US, LLCN & SignTyp, ASL Bible Dictionary
+        if puddle_id == 4 or puddle_id == 25 or puddle_id == 28:
+            # longest word allowed
+            if len(terms) > 0 and len(terms[0]) < 100:
+                en = terms[0]
+
+        if not en:
+            continue
+
+        # tokenize
+        en_tokenized = ' '.join(nltk.word_tokenize(en))
+
+        sign_sentence = row['sign_writing'].numpy().decode('utf-8')
+
+        # run customized parser
+        signs = sign_sentence.split(' ')
+        sign = ' '.join(list(map(parse, signs)))
+        # sign_plus = ' '.join(list(map(lambda x: parse(x, True), signs)))
+
+        data_list.append({
+            'en': en.encode("unicode_escape").decode("utf-8"),
+            'en_tokenized': en_tokenized.encode("unicode_escape").decode("utf-8"),
+            'sign': sign,
+            # 'sign+': sign_plus,
+        })
+
+        count['total'] += 1
+        count[puddle_id] = count[puddle_id] + 1 if puddle_id in count else 1
+        print(count['total'])
+
+from pprint import pprint
+pprint(count)
 
 random.shuffle(data_list)
 
 total_size = len(data_list)
 train_size = math.floor(total_size*0.9)
-dev_size = math.floor(total_size*0.09)
+dev_size = math.floor(total_size*0.08)
 
 train = data_list[:train_size]
 dev = data_list[train_size:train_size + dev_size]
 test = data_list[train_size + dev_size:]
 
-with open('./data/train.sign', 'w+') as f_sign:
-    with open('./data/train.sign+', 'w+') as f_sign_plus:
-        with open('./data/train.en', 'w+') as f_en:
-            with open('./data/train.tokenized.en', 'w+') as f_en_tokenized:
+with open('./data_full/train.sign', 'w+') as f_sign:
+    with open('./data_full/train.sign+', 'w+') as f_sign_plus:
+        with open('./data_full/train.en', 'w+') as f_en:
+            with open('./data_full/train.tokenized.en', 'w+') as f_en_tokenized:
                 for item in train:
                     f_sign.write("%s\n" % item['sign'])
-                    f_sign_plus.write("%s\n" % item['sign+'])
+                    # f_sign_plus.write("%s\n" % item['sign+'])
                     f_en.write("%s\n" % item['en'])
                     f_en_tokenized.write("%s\n" % item['en_tokenized'])
 
-with open('./data/dev.sign', 'w+') as f_sign:
-    with open('./data/dev.sign+', 'w+') as f_sign_plus:
-        with open('./data/dev.en', 'w+') as f_en:
-            with open('./data/dev.tokenized.en', 'w+') as f_en_tokenized:
+with open('./data_full/dev.sign', 'w+') as f_sign:
+    with open('./data_full/dev.sign+', 'w+') as f_sign_plus:
+        with open('./data_full/dev.en', 'w+') as f_en:
+            with open('./data_full/dev.tokenized.en', 'w+') as f_en_tokenized:
                 for item in dev:
                     f_sign.write("%s\n" % item['sign'])
-                    f_sign_plus.write("%s\n" % item['sign+'])
+                    # f_sign_plus.write("%s\n" % item['sign+'])
                     f_en.write("%s\n" % item['en'])
                     f_en_tokenized.write("%s\n" % item['en_tokenized'])
 
-with open('./data/test.sign', 'w+') as f_sign:
-    with open('./data/test.sign+', 'w+') as f_sign_plus:
-        with open('./data/test.en', 'w+') as f_en:
-            with open('./data/test.tokenized.en', 'w+') as f_en_tokenized:
+with open('./data_full/test.sign', 'w+') as f_sign:
+    with open('./data_full/test.sign+', 'w+') as f_sign_plus:
+        with open('./data_full/test.en', 'w+') as f_en:
+            with open('./data_full/test.tokenized.en', 'w+') as f_en_tokenized:
                 for item in test:
                     f_sign.write("%s\n" % item['sign'])
-                    f_sign_plus.write("%s\n" % item['sign+'])
+                    # f_sign_plus.write("%s\n" % item['sign+'])
                     f_en.write("%s\n" % item['en'])
                     f_en_tokenized.write("%s\n" % item['en_tokenized'])

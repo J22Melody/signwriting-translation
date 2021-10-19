@@ -3,7 +3,8 @@
 scripts=`dirname "$0"`
 base=$scripts/..
 
-data=$base/data
+# data=$base/data
+data=$base/data_full
 
 mkdir -p $data
 
