@@ -23,7 +23,7 @@ model_name=$1
 model=$base/models/$model_name
 
 # CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/test.$src > $translations/test.$model_name.$trg
-python -m joeynmt translate $configs/$model_name.yaml --ckpt $model/best.ckpt < $data/test.$src > $translations/test.$model_name.$trg
+# python -m joeynmt translate $configs/$model_name.yaml --ckpt $model/best.ckpt < $data/test.$src > $translations/test.$model_name.$trg
 
 # TODO: recasing
 # For now, compute case-insensitive BLEU by passing --lowercase to sacreBLEU
