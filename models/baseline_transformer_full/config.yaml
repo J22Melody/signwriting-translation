@@ -1,11 +1,11 @@
 # this file is taken from:
 # https://github.com/joeynmt/joeynmt/blob/master/configs/transformer_wmt17_ende.yaml
 
-name: "baseline_transformer_spm"
+name: "baseline_transformer_full"
 
 data:
     src: "sign"
-    trg: "spm.en"
+    trg: "tokenized.en"
     train: "data_full/train.withDict"
     dev:   "data_full/dev"
     test:  "data_full/test"
