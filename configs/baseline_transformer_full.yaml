@@ -5,8 +5,8 @@ name: "baseline_transformer_full"
 
 data:
     src: "sign"
-    trg: "en.tokenized"
-    train: "data_full/train"
+    trg: "tokenized.en"
+    train: "data_full/train.withDict"
     dev:   "data_full/dev"
     test:  "data_full/test"
     level: "word"
@@ -33,15 +33,15 @@ training:
     learning_rate_min: 0.00000001
     weight_decay: 0.0
     label_smoothing: 0.1
-    batch_size: 64
-    eval_batch_size: 64
+    batch_size: 32
+    eval_batch_size: 32
     batch_multiplier: 1
-    early_stopping_metric: "loss"
+    early_stopping_metric: "eval_metric"
     epochs: 200
-    validation_freq: 200
+    validation_freq: 1000
     logging_freq: 100
     eval_metric: "bleu"
-    overwrite: False
+    overwrite: True
     shuffle: True
     use_cuda: True
     max_output_length: 200

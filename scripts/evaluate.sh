@@ -3,7 +3,7 @@
 scripts=`dirname "$0"`
 base=$scripts/..
 
-data=$base/data
+data=$base/data_full
 configs=$base/configs
 
 translations=$base/translations
@@ -32,11 +32,11 @@ python -m joeynmt translate $configs/$model_name.yaml --ckpt $model/best.ckpt < 
 
 # undo tokenization
 
-# cat $translations/test.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations/test.$model_name.raw.$trg
-cat $translations/test.$model_name.$trg | spm_decode --model=$base/data/m.model > translations/test.$model_name.raw.$trg
+cat $translations/test.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations/test.$model_name.raw.$trg
+# cat $translations/test.$model_name.$trg | spm_decode --model=$base/data/m.model > translations/test.$model_name.raw.$trg
 
 # compute case-insensitive BLEU on detokenized data
 
-cat $translations/test.$model_name.$trg | sacrebleu --lowercase $data/test.$trg
-cat $translations/test.$model_name.raw.$trg | sacrebleu --lowercase $data/test.raw.$trg
+cat $translations/test.$model_name.$trg | sacrebleu --lowercase $data/test.tokenized.$trg > $translations/test.$model_name.bleu
+cat $translations/test.$model_name.raw.$trg | sacrebleu --lowercase $data/test.$trg > $translations/test.$model_name.raw.bleu
 		

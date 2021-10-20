@@ -26,4 +26,4 @@ pip install .
 cd ..
 cd ..
 
-stdbuf -o0 -e0 srun --unbuffered ./scripts/train.sh $1
+stdbuf -o0 -e0 srun --unbuffered $1 $2

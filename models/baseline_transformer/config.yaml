@@ -5,10 +5,10 @@ name: "baseline_transformer"
 
 data:
     src: "sign"
-    trg: "en"
-    train: "data/train"
-    dev:   "data/dev"
-    test:  "data/test"
+    trg: "tokenized.en"
+    train: "data_full/train"
+    dev:   "data_full/dev"
+    test:  "data_full/test"
     level: "word"
     lowercase: True
     max_sent_length: 500
@@ -26,29 +26,28 @@ training:
     normalization: "tokens"
     adam_betas: [0.9, 0.999]
     scheduling: "plateau"
-    patience: 8
+    patience: 5
     decrease_factor: 0.7
     loss: "crossentropy"
-    learning_rate: 0.0002
+    learning_rate: 0.0001
     learning_rate_min: 0.00000001
     weight_decay: 0.0
     label_smoothing: 0.1
-    batch_size: 32
-    eval_batch_size: 32
+    batch_size: 16
+    eval_batch_size: 16
     batch_multiplier: 1
-    early_stopping_metric: "loss"
-    epochs: 100
-    validation_freq: 300
+    early_stopping_metric: "eval_metric"
+    epochs: 200
+    validation_freq: 600
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "model"
     overwrite: True
     shuffle: True
     use_cuda: True
     max_output_length: 200
-    print_valid_sents: [0, 1, 2, 3]
+    print_valid_sents: [0, 1, 2, 3, 6]
     keep_last_ckpts: 3
-    model_dir: "models/model_baseline_transformer"
+    model_dir: "models/baseline_transformer"
 
 model:
     initializer: "xavier"

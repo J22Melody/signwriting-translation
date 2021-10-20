@@ -50,6 +50,7 @@ for index, row in enumerate(signbank):
         # continue
 
         en = ''
+        isDict = False
 
         # Sentences: Literature US, ASL Bible Books NLT, ASL Bible Books Shores Deaf Church
         if puddle_id == 5 or puddle_id == 151 or puddle_id == 152:
@@ -69,7 +70,9 @@ for index, row in enumerate(signbank):
             if len(terms) > 0 and len(terms[0]) < 100:
                 en = terms[0]
 
-        if not en:
+            isDict = True
+
+        if not en or en.startswith('<iframe'):
             continue
 
         # tokenize
@@ -77,12 +80,16 @@ for index, row in enumerate(signbank):
 
         sign_sentence = row['sign_writing'].numpy().decode('utf-8')
 
+        if not sign_sentence:
+            continue
+
         # run customized parser
         signs = sign_sentence.split(' ')
         sign = ' '.join(list(map(parse, signs)))
         # sign_plus = ' '.join(list(map(lambda x: parse(x, True), signs)))
 
         data_list.append({
+            'isDict': isDict, 
             'en': en.encode("unicode_escape").decode("utf-8"),
             'en_tokenized': en_tokenized.encode("unicode_escape").decode("utf-8"),
             'sign': sign,
@@ -99,22 +106,35 @@ pprint(count)
 random.shuffle(data_list)
 
 total_size = len(data_list)
-train_size = math.floor(total_size*0.9)
-dev_size = math.floor(total_size*0.08)
+train_size = math.floor(total_size*0.95)
+dev_size = math.floor(total_size*0.03)
+test_size = total_size - train_size - dev_size
 
-train = data_list[:train_size]
-dev = data_list[train_size:train_size + dev_size]
-test = data_list[train_size + dev_size:]
+data_list = sorted(data_list, key=lambda d: d['isDict']) 
+
+dev = data_list[:dev_size]
+test = data_list[dev_size:test_size + dev_size]
+train = data_list[test_size + dev_size:]
+
+random.shuffle(train)
 
 with open('./data_full/train.sign', 'w+') as f_sign:
     with open('./data_full/train.sign+', 'w+') as f_sign_plus:
-        with open('./data_full/train.en', 'w+') as f_en:
-            with open('./data_full/train.tokenized.en', 'w+') as f_en_tokenized:
-                for item in train:
-                    f_sign.write("%s\n" % item['sign'])
-                    # f_sign_plus.write("%s\n" % item['sign+'])
-                    f_en.write("%s\n" % item['en'])
-                    f_en_tokenized.write("%s\n" % item['en_tokenized'])
+        with open('./data_full/train.withDict.sign', 'w+') as f_sign_withDict:
+            with open('./data_full/train.en', 'w+') as f_en:
+                with open('./data_full/train.tokenized.en', 'w+') as f_en_tokenized:
+                    with open('./data_full/train.withDict.en', 'w+') as f_en_withDict:
+                        with open('./data_full/train.withDict.tokenized.en', 'w+') as f_en_withDict_tokenized:
+                            for item in train:
+                                if not item['isDict']:
+                                    f_en.write("%s\n" % item['en'])
+                                    f_en_tokenized.write("%s\n" % item['en_tokenized'])
+                                    f_sign.write("%s\n" % item['sign'])
+                                    # f_sign_plus.write("%s\n" % item['sign+'])
+                                f_en_withDict.write("%s\n" % item['en'])
+                                f_en_withDict_tokenized.write("%s\n" % item['en_tokenized'])
+                                f_sign_withDict.write("%s\n" % item['sign'])
+                    
 
 with open('./data_full/dev.sign', 'w+') as f_sign:
     with open('./data_full/dev.sign+', 'w+') as f_sign_plus:
