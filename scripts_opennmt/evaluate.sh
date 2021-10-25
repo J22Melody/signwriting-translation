@@ -7,9 +7,10 @@ models=$base/models_opennmt
 translations=$base/translations_opennmt
 data=$base/data
 
-mkdir -p $translations
-
 model_name=$1
+
+mkdir -p $translations
+mkdir -p $translations/$model_name
 
 for checkpoint in $models/$model_name/model_step*.pt; do
     echo "# Translating with checkpoint $checkpoint"
@@ -18,18 +19,23 @@ for checkpoint in $models/$model_name/model_step*.pt; do
         -gpu 0 \
         -batch_size 32 -batch_type sents \
         -beam_size 5 \
+        -length_penalty wu \
+        -alpha 1 \
         -model $checkpoint \
         -src $data/test.sign \
         -tgt $data/test.spm.en \
-        -output $translations/test.hyp_${name%.*}.en
+        -output $translations/$model_name/test.hyp_${name%.*}.en
 
-    echo "detokenize the hypothesis ... "
-    spm_decode \
-        -model=$data/m.model \
-        -input_format=piece \
-        < $translations/test.hyp_${name%.*}.en \
-        > $translations/test.hyp_${name%.*}.raw.en
+    echo "compute BLEU with sacrebleu ... "
+    sacrebleu --lowercase $data/test.spm.en < $translations/$model_name/test.hyp_${name%.*}.en
 
-    echo "compute detokenized BLEU with sacrebleu ... "
-    sacrebleu --lowercase $data/test.en < $translations/test.hyp_${name%.*}.raw.en
+    # echo "detokenize the hypothesis ... "
+    # spm_decode \
+    #     -model=$data/m.model \
+    #     -input_format=piece \
+    #     < $translations/test.hyp_${name%.*}.en \
+    #     > $translations/test.hyp_${name%.*}.raw.en
+
+    # echo "compute detokenized BLEU with sacrebleu ... "
+    # sacrebleu --lowercase $data/test.en < $translations/test.hyp_${name%.*}.raw.en
 done

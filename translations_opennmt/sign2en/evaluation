@@ -1,0 +1,232 @@
+# Translating with checkpoint /net/cephfs/home/zifjia/signwriting-translation/./scripts_opennmt/../models_opennmt/sign2en/model_step_54000.pt
+[2021-10-25 21:17:22,488 INFO] Translating shard 0.
+/home/cluster/zifjia/.local/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+[2021-10-25 21:17:35,224 INFO] PRED AVG SCORE: -0.1161, PRED PPL: 1.1232
+[2021-10-25 21:17:35,225 INFO] GOLD AVG SCORE: -3.5173, GOLD PPL: 33.6926
+compute BLEU with sacrebleu ... 
+sacreBLEU: That's 100 lines that end in a tokenized period ('.')
+sacreBLEU: It looks like you forgot to detokenize your test data, which may hurt your score.
+sacreBLEU: If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+{
+ "name": "BLEU",
+ "score": 18.8,
+ "signature": "nrefs:1|case:lc|eff:no|tok:13a|smooth:exp|version:2.0.0",
+ "verbose_score": "51.8/26.7/17.8/12.8 (BP = 0.793 ratio = 0.812 hyp_len = 23678 ref_len = 29178)",
+ "nrefs": "1",
+ "case": "lc",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.0.0"
+}
+[0m# Translating with checkpoint /net/cephfs/home/zifjia/signwriting-translation/./scripts_opennmt/../models_opennmt/sign2en/model_step_57000.pt
+[2021-10-25 21:17:43,966 INFO] Translating shard 0.
+/home/cluster/zifjia/.local/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+[2021-10-25 21:17:57,005 INFO] PRED AVG SCORE: -0.1156, PRED PPL: 1.1226
+[2021-10-25 21:17:57,005 INFO] GOLD AVG SCORE: -3.5279, GOLD PPL: 34.0517
+compute BLEU with sacrebleu ... 
+sacreBLEU: That's 100 lines that end in a tokenized period ('.')
+sacreBLEU: It looks like you forgot to detokenize your test data, which may hurt your score.
+sacreBLEU: If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+{
+ "name": "BLEU",
+ "score": 19.0,
+ "signature": "nrefs:1|case:lc|eff:no|tok:13a|smooth:exp|version:2.0.0",
+ "verbose_score": "51.8/26.9/17.9/12.8 (BP = 0.799 ratio = 0.817 hyp_len = 23836 ref_len = 29178)",
+ "nrefs": "1",
+ "case": "lc",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.0.0"
+}
+[0m# Translating with checkpoint /net/cephfs/home/zifjia/signwriting-translation/./scripts_opennmt/../models_opennmt/sign2en/model_step_60000.pt
+[2021-10-25 21:18:06,790 INFO] Translating shard 0.
+/home/cluster/zifjia/.local/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+[2021-10-25 21:18:19,791 INFO] PRED AVG SCORE: -0.1163, PRED PPL: 1.1233
+[2021-10-25 21:18:19,791 INFO] GOLD AVG SCORE: -3.5309, GOLD PPL: 34.1536
+compute BLEU with sacrebleu ... 
+sacreBLEU: That's 100 lines that end in a tokenized period ('.')
+sacreBLEU: It looks like you forgot to detokenize your test data, which may hurt your score.
+sacreBLEU: If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+{
+ "name": "BLEU",
+ "score": 18.6,
+ "signature": "nrefs:1|case:lc|eff:no|tok:13a|smooth:exp|version:2.0.0",
+ "verbose_score": "51.6/26.6/17.5/12.5 (BP = 0.795 ratio = 0.813 hyp_len = 23733 ref_len = 29178)",
+ "nrefs": "1",
+ "case": "lc",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.0.0"
+}
+[0m# Translating with checkpoint /net/cephfs/home/zifjia/signwriting-translation/./scripts_opennmt/../models_opennmt/sign2en/model_step_63000.pt
+[2021-10-25 21:18:28,933 INFO] Translating shard 0.
+/home/cluster/zifjia/.local/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+[2021-10-25 21:18:41,714 INFO] PRED AVG SCORE: -0.1175, PRED PPL: 1.1247
+[2021-10-25 21:18:41,714 INFO] GOLD AVG SCORE: -3.5370, GOLD PPL: 34.3639
+compute BLEU with sacrebleu ... 
+sacreBLEU: That's 100 lines that end in a tokenized period ('.')
+sacreBLEU: It looks like you forgot to detokenize your test data, which may hurt your score.
+sacreBLEU: If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+{
+ "name": "BLEU",
+ "score": 18.8,
+ "signature": "nrefs:1|case:lc|eff:no|tok:13a|smooth:exp|version:2.0.0",
+ "verbose_score": "51.8/26.9/17.8/12.8 (BP = 0.791 ratio = 0.810 hyp_len = 23648 ref_len = 29178)",
+ "nrefs": "1",
+ "case": "lc",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.0.0"
+}
+[0m# Translating with checkpoint /net/cephfs/home/zifjia/signwriting-translation/./scripts_opennmt/../models_opennmt/sign2en/model_step_66000.pt
+[2021-10-25 21:18:50,934 INFO] Translating shard 0.
+/home/cluster/zifjia/.local/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+[2021-10-25 21:19:03,444 INFO] PRED AVG SCORE: -0.1173, PRED PPL: 1.1245
+[2021-10-25 21:19:03,444 INFO] GOLD AVG SCORE: -3.5526, GOLD PPL: 34.9038
+compute BLEU with sacrebleu ... 
+sacreBLEU: That's 100 lines that end in a tokenized period ('.')
+sacreBLEU: It looks like you forgot to detokenize your test data, which may hurt your score.
+sacreBLEU: If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+{
+ "name": "BLEU",
+ "score": 18.8,
+ "signature": "nrefs:1|case:lc|eff:no|tok:13a|smooth:exp|version:2.0.0",
+ "verbose_score": "51.9/26.9/17.8/12.7 (BP = 0.795 ratio = 0.813 hyp_len = 23725 ref_len = 29178)",
+ "nrefs": "1",
+ "case": "lc",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.0.0"
+}
+[0m# Translating with checkpoint /net/cephfs/home/zifjia/signwriting-translation/./scripts_opennmt/../models_opennmt/sign2en/model_step_69000.pt
+[2021-10-25 21:19:12,053 INFO] Translating shard 0.
+/home/cluster/zifjia/.local/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+[2021-10-25 21:19:24,745 INFO] PRED AVG SCORE: -0.1182, PRED PPL: 1.1255
+[2021-10-25 21:19:24,745 INFO] GOLD AVG SCORE: -3.5652, GOLD PPL: 35.3465
+compute BLEU with sacrebleu ... 
+sacreBLEU: That's 100 lines that end in a tokenized period ('.')
+sacreBLEU: It looks like you forgot to detokenize your test data, which may hurt your score.
+sacreBLEU: If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+{
+ "name": "BLEU",
+ "score": 18.7,
+ "signature": "nrefs:1|case:lc|eff:no|tok:13a|smooth:exp|version:2.0.0",
+ "verbose_score": "52.6/27.2/17.8/12.6 (BP = 0.784 ratio = 0.805 hyp_len = 23477 ref_len = 29178)",
+ "nrefs": "1",
+ "case": "lc",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.0.0"
+}
+[0m# Translating with checkpoint /net/cephfs/home/zifjia/signwriting-translation/./scripts_opennmt/../models_opennmt/sign2en/model_step_72000.pt
+[2021-10-25 21:19:34,161 INFO] Translating shard 0.
+/home/cluster/zifjia/.local/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+[2021-10-25 21:19:46,821 INFO] PRED AVG SCORE: -0.1179, PRED PPL: 1.1251
+[2021-10-25 21:19:46,821 INFO] GOLD AVG SCORE: -3.5750, GOLD PPL: 35.6961
+compute BLEU with sacrebleu ... 
+sacreBLEU: That's 100 lines that end in a tokenized period ('.')
+sacreBLEU: It looks like you forgot to detokenize your test data, which may hurt your score.
+sacreBLEU: If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+{
+ "name": "BLEU",
+ "score": 18.8,
+ "signature": "nrefs:1|case:lc|eff:no|tok:13a|smooth:exp|version:2.0.0",
+ "verbose_score": "52.0/27.1/17.9/12.7 (BP = 0.789 ratio = 0.808 hyp_len = 23585 ref_len = 29178)",
+ "nrefs": "1",
+ "case": "lc",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.0.0"
+}
+[0m# Translating with checkpoint /net/cephfs/home/zifjia/signwriting-translation/./scripts_opennmt/../models_opennmt/sign2en/model_step_75000.pt
+[2021-10-25 21:19:55,259 INFO] Translating shard 0.
+/home/cluster/zifjia/.local/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+[2021-10-25 21:20:08,484 INFO] PRED AVG SCORE: -0.1170, PRED PPL: 1.1242
+[2021-10-25 21:20:08,484 INFO] GOLD AVG SCORE: -3.5791, GOLD PPL: 35.8430
+compute BLEU with sacrebleu ... 
+sacreBLEU: That's 100 lines that end in a tokenized period ('.')
+sacreBLEU: It looks like you forgot to detokenize your test data, which may hurt your score.
+sacreBLEU: If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+{
+ "name": "BLEU",
+ "score": 18.8,
+ "signature": "nrefs:1|case:lc|eff:no|tok:13a|smooth:exp|version:2.0.0",
+ "verbose_score": "51.7/26.9/17.7/12.5 (BP = 0.798 ratio = 0.816 hyp_len = 23814 ref_len = 29178)",
+ "nrefs": "1",
+ "case": "lc",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.0.0"
+}
+[0m# Translating with checkpoint /net/cephfs/home/zifjia/signwriting-translation/./scripts_opennmt/../models_opennmt/sign2en/model_step_78000.pt
+[2021-10-25 21:20:17,629 INFO] Translating shard 0.
+/home/cluster/zifjia/.local/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+[2021-10-25 21:20:30,448 INFO] PRED AVG SCORE: -0.1189, PRED PPL: 1.1263
+[2021-10-25 21:20:30,449 INFO] GOLD AVG SCORE: -3.5970, GOLD PPL: 36.4890
+compute BLEU with sacrebleu ... 
+sacreBLEU: That's 100 lines that end in a tokenized period ('.')
+sacreBLEU: It looks like you forgot to detokenize your test data, which may hurt your score.
+sacreBLEU: If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+{
+ "name": "BLEU",
+ "score": 18.6,
+ "signature": "nrefs:1|case:lc|eff:no|tok:13a|smooth:exp|version:2.0.0",
+ "verbose_score": "52.3/27.1/17.8/12.6 (BP = 0.784 ratio = 0.804 hyp_len = 23459 ref_len = 29178)",
+ "nrefs": "1",
+ "case": "lc",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.0.0"
+}
+[0m# Translating with checkpoint /net/cephfs/home/zifjia/signwriting-translation/./scripts_opennmt/../models_opennmt/sign2en/model_step_80000.pt
+[2021-10-25 21:20:38,866 INFO] Translating shard 0.
+/home/cluster/zifjia/.local/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+[2021-10-25 21:20:51,840 INFO] PRED AVG SCORE: -0.1187, PRED PPL: 1.1260
+[2021-10-25 21:20:51,840 INFO] GOLD AVG SCORE: -3.6012, GOLD PPL: 36.6434
+compute BLEU with sacrebleu ... 
+sacreBLEU: That's 100 lines that end in a tokenized period ('.')
+sacreBLEU: It looks like you forgot to detokenize your test data, which may hurt your score.
+sacreBLEU: If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+{
+ "name": "BLEU",
+ "score": 18.5,
+ "signature": "nrefs:1|case:lc|eff:no|tok:13a|smooth:exp|version:2.0.0",
+ "verbose_score": "51.6/26.5/17.4/12.4 (BP = 0.795 ratio = 0.814 hyp_len = 23745 ref_len = 29178)",
+ "nrefs": "1",
+ "case": "lc",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.0.0"
+}
+[0mslurmstepd: Exceeded job memory limit at some point.
+slurmstepd: Exceeded job memory limit at some point.
