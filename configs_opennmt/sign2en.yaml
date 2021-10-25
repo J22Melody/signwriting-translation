@@ -30,13 +30,13 @@ tgt_seq_length: 500
 skip_empty_level: silent
 
 # General opts
-save_model: models_opennmt
-keep_checkpoint: 5
-save_checkpoint_steps: 5000
+save_model: models_opennmt/sign2en/model
+keep_checkpoint: 10
+save_checkpoint_steps: 3000
 average_decay: 0.0005
 seed: 1234
 report_every: 100
-train_steps: 100000
+train_steps: 80000
 valid_steps: 1000
 
 # Batching
@@ -79,3 +79,7 @@ dropout: [0.1]
 attention_dropout: [0.1]
 share_decoder_embeddings: true
 share_embeddings: false
+
+# Early stopping
+# early_stopping: 5
+# early_stopping_criteria: 'ppl'
