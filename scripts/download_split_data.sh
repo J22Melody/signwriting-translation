@@ -4,7 +4,7 @@ scripts=`dirname "$0"`
 base=$scripts/..
 
 # data=$base/data
-data=$base/data_full
+data=$base/data
 
 mkdir -p $data
 

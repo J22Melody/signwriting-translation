@@ -17,9 +17,9 @@
 2021-10-20 14:15:07,117 - INFO - joeynmt.helpers - cfg.name                           : baseline_transformer
 2021-10-20 14:15:07,117 - INFO - joeynmt.helpers - cfg.data.src                       : sign
 2021-10-20 14:15:07,117 - INFO - joeynmt.helpers - cfg.data.trg                       : tokenized.en
-2021-10-20 14:15:07,117 - INFO - joeynmt.helpers - cfg.data.train                     : data_full/train
-2021-10-20 14:15:07,118 - INFO - joeynmt.helpers - cfg.data.dev                       : data_full/dev
-2021-10-20 14:15:07,118 - INFO - joeynmt.helpers - cfg.data.test                      : data_full/test
+2021-10-20 14:15:07,117 - INFO - joeynmt.helpers - cfg.data.train                     : data/train
+2021-10-20 14:15:07,118 - INFO - joeynmt.helpers - cfg.data.dev                       : data/dev
+2021-10-20 14:15:07,118 - INFO - joeynmt.helpers - cfg.data.test                      : data/test
 2021-10-20 14:15:07,118 - INFO - joeynmt.helpers - cfg.data.level                     : word
 2021-10-20 14:15:07,118 - INFO - joeynmt.helpers - cfg.data.lowercase                 : True
 2021-10-20 14:15:07,118 - INFO - joeynmt.helpers - cfg.data.max_sent_length           : 500

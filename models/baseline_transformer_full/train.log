@@ -17,9 +17,9 @@
 2021-10-20 20:03:38,962 - INFO - joeynmt.helpers - cfg.name                           : baseline_transformer_full
 2021-10-20 20:03:38,962 - INFO - joeynmt.helpers - cfg.data.src                       : sign
 2021-10-20 20:03:38,962 - INFO - joeynmt.helpers - cfg.data.trg                       : tokenized.en
-2021-10-20 20:03:38,962 - INFO - joeynmt.helpers - cfg.data.train                     : data_full/train.withDict
-2021-10-20 20:03:38,962 - INFO - joeynmt.helpers - cfg.data.dev                       : data_full/dev
-2021-10-20 20:03:38,962 - INFO - joeynmt.helpers - cfg.data.test                      : data_full/test
+2021-10-20 20:03:38,962 - INFO - joeynmt.helpers - cfg.data.train                     : data/train.withDict
+2021-10-20 20:03:38,962 - INFO - joeynmt.helpers - cfg.data.dev                       : data/dev
+2021-10-20 20:03:38,962 - INFO - joeynmt.helpers - cfg.data.test                      : data/test
 2021-10-20 20:03:38,962 - INFO - joeynmt.helpers - cfg.data.level                     : word
 2021-10-20 20:03:38,962 - INFO - joeynmt.helpers - cfg.data.lowercase                 : True
 2021-10-20 20:03:38,962 - INFO - joeynmt.helpers - cfg.data.max_sent_length           : 500
@@ -10544,13 +10544,13 @@
 2021-10-21 06:02:28,014 - INFO - joeynmt.prediction - Loading model from models/baseline_transformer_full/194000.ckpt
 2021-10-21 06:02:28,675 - INFO - joeynmt.model - Building an encoder-decoder model...
 2021-10-21 06:02:29,506 - INFO - joeynmt.model - Enc-dec model built.
-2021-10-21 06:02:29,684 - INFO - joeynmt.prediction - Decoding on dev set (data_full/dev.tokenized.en)...
+2021-10-21 06:02:29,684 - INFO - joeynmt.prediction - Decoding on dev set (data/dev.tokenized.en)...
 2021-10-21 06:03:37,427 - WARNING - sacrebleu - That's 100 lines that end in a tokenized period ('.')
 2021-10-21 06:03:37,428 - WARNING - sacrebleu - It looks like you forgot to detokenize your test data, which may hurt your score.
 2021-10-21 06:03:37,428 - WARNING - sacrebleu - If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
 2021-10-21 06:03:37,435 - INFO - joeynmt.prediction -  dev bleu[13a]:  27.46 [Beam search decoding with beam size = 5 and alpha = 1.0]
 2021-10-21 06:03:37,436 - INFO - joeynmt.prediction - Translations saved to: models/baseline_transformer_full/00194000.hyps.dev
-2021-10-21 06:03:37,436 - INFO - joeynmt.prediction - Decoding on test set (data_full/test.tokenized.en)...
+2021-10-21 06:03:37,436 - INFO - joeynmt.prediction - Decoding on test set (data/test.tokenized.en)...
 2021-10-21 06:04:20,128 - WARNING - sacrebleu - That's 100 lines that end in a tokenized period ('.')
 2021-10-21 06:04:20,128 - WARNING - sacrebleu - It looks like you forgot to detokenize your test data, which may hurt your score.
 2021-10-21 06:04:20,128 - WARNING - sacrebleu - If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.

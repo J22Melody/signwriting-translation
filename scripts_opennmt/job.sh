@@ -20,5 +20,6 @@
 module load nvidia/cuda11.2-cudnn8.1.0
 module load anaconda3
 source activate opennmt
+pip install opennmt
 
 stdbuf -o0 -e0 srun --unbuffered $1 $2

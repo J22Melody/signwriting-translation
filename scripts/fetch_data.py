@@ -17,7 +17,6 @@ def parse(raw):
     # raw: L536x584S10058480x536S26526506x570S10050498x536S20500493x571S20500526x572S36d03478x517S30a00486x483 L537x518S20500497x507S20500463x507S10043507x483S2d600473x493 L541x531S22e04524x513S15a11518x485S2ff00482x483 L538x553S14c37511x527S14c3f460x527S30d10482x488S30302482x477 S38700463x496 L566x524S10047504x503S2d60a543x503S36d03479x477 L542x524S16d51476x477S16d51522x477S26616459x508S26606501x506S26602501x493S26612459x494 L511x515S10049490x485 L518x553S20320497x447S19220497x466S11502482x489S17620497x508S11920491x527 S38700463x496 M529x530S17620513x495S1f000499x515S36d03479x471 S38700463x496 M567x527S10040523x497S2d608538x479S36d03479x473 M508x515S10e00493x485 M513x582S1f720487x419S18d20487x438S17620492x467S11a20492x487S19220492x521S1fb20493x544S14a20492x567 M532x533S20500522x522S20500498x499S22a05507x508S14210469x467 S38700463x496 M528x593S19220507x442S2a20c488x425S17620507x464S11a20507x483S10120507x517S1f720502x549S11920501x567S36d03479x407 M548x615S2ff00482x483S18710502x505S14c50521x574S14c58477x584S26510481x546S26500526x536S22520516x557S22520473x567 R526x509S14a20475x492S26606496x493 S38700463x496 M564x525S10040520x495S2d608535x477S36d03479x476 M529x538S2e74c472x513S14220498x462S2e700514x497S14228471x478 M531x511S10047469x490S2d60a508x490 M537x549S14c38474x471S14c50492x451S1f738497x517S26703464x481S1f751482x528S26707506x495 M528x523S15a06480x503S15a41473x477S23d04501x489 S38800464x496
 
     is_valid = False
-
     if raw.startswith('AS'):
         # find first M or L box
         MAX = 999999
@@ -26,33 +25,44 @@ def parse(raw):
         IndexOfM = IndexOfM if IndexOfM > 0 else MAX
         IndexOfL = IndexOfL if IndexOfL > 0 else MAX
         startingIndex = min(IndexOfM, IndexOfL)
-        if startIndex != MAX:
+        if startingIndex != MAX:
             is_valid = True
             raw = raw[startingIndex:]
-            
+    else:
+        is_valid = raw.startswith('M') or raw.startswith('L')
 
-    sequence = []
+    if not is_valid:
+        return False
+
+    sign = []
+    sign_plus = []
     feat_col = []
     feat_row = []
     feat_x = []
     feat_y = []
 
-    # if not punctuation, add the box information
-    if includeSpatials and not raw.startswith('S'):
-        for ch2 in raw[0:8]:
-            sequence.append(ch2)
+    for token in raw.split(' '):
+        if len(token) > 0:
+            # if not punctuation, add the box information
+            if not token.startswith('S'):
+                sign_plus.append(token[0])
+                feat_col.append('0')
+                feat_row.append('0')
+                feat_x.append(token[1:4])
+                feat_y.append(token[5:8])
 
-    for index, ch in enumerate(raw):
-        if ch == 'S':
-            # sequence of symbols
-            sequence.append(raw[index:index + 6])
+            # find all symbols
+            # how to factorize a symbol: see https://slevinski.github.io/SuttonSignWriting/characters/symbols.html#?ui=en&set=fsw&sym=S100
+            for index, ch in enumerate(token):
+                if ch == 'S':
+                    sign.append(token[index:index + 6])
+                    sign_plus.append(token[index:index + 4])
+                    feat_col.append(token[index + 4])
+                    feat_row.append(token[index + 5])
+                    feat_x.append(token[index + 6:index + 9])
+                    feat_y.append(token[index + 10:index + 13])
 
-            # spatials
-            if includeSpatials:
-                for ch2 in raw[index + 6:index + 13]:
-                    sequence.append(ch2)
-
-    return ' '.join(sequence), ' '.join(feat_col), ' '.join(feat_row), ' '.join(feat_x), ' '.join(feat_x)
+    return ' '.join(sign), ' '.join(sign_plus), ' '.join(feat_col), ' '.join(feat_row), ' '.join(feat_x), ' '.join(feat_y)
 
 signbank = tfds.load(name='sign_bank')['train']
 data_list = []
@@ -98,19 +108,18 @@ for index, row in enumerate(signbank):
         if not en or en.startswith('<iframe'):
             continue
 
-        # tokenize
-        en_tokenized = ' '.join(nltk.word_tokenize(en))
-
         sign_sentence = row['sign_writing'].numpy().decode('utf-8')
-
         if not sign_sentence:
             continue
 
-        # run customized parser
-        sign, sign_plus, feat_col, feat_row, feat_x, feat_y = parse(sign_sentence)
+        # tokenize
+        en_tokenized = ' '.join(nltk.word_tokenize(en))
 
-        if not sign:
+        # run customized sign parser
+        parsed = parse(sign_sentence)
+        if not parsed:
             continue
+        sign, sign_plus, feat_col, feat_row, feat_x, feat_y = parsed
 
         data_list.append({
             'isDict': isDict, 
@@ -118,6 +127,10 @@ for index, row in enumerate(signbank):
             'en_tokenized': en_tokenized.encode("unicode_escape").decode("utf-8"),
             'sign': sign,
             'sign+': sign_plus,
+            'feat_col': feat_col,
+            'feat_row': feat_row,
+            'feat_x': feat_x,
+            'feat_y': feat_y,  
         })
 
         count['total'] += 1
@@ -150,7 +163,11 @@ open('./data/train.withDict.sign+', 'w+') as f_sign_plus_withDict, \
 open('./data/train.en', 'w+') as f_en, \
 open('./data/train.tokenized.en', 'w+') as f_en_tokenized, \
 open('./data/train.withDict.en', 'w+') as f_en_withDict, \
-open('./data/train.withDict.tokenized.en', 'w+') as f_en_withDict_tokenized:
+open('./data/train.withDict.tokenized.en', 'w+') as f_en_withDict_tokenized, \
+open('./data/train.sign+.feat_col', 'w+') as f_feat_col, \
+open('./data/train.sign+.feat_row', 'w+') as f_feat_row, \
+open('./data/train.sign+.feat_x', 'w+') as f_feat_x, \
+open('./data/train.sign+.feat_y', 'w+') as f_feat_y:
     for item in train:
         if not item['isDict']:
             f_en.write("%s\n" % item['en'])
@@ -161,25 +178,45 @@ open('./data/train.withDict.tokenized.en', 'w+') as f_en_withDict_tokenized:
         f_en_withDict_tokenized.write("%s\n" % item['en_tokenized'])
         f_sign_withDict.write("%s\n" % item['sign'])
         f_sign_plus_withDict.write("%s\n" % item['sign+'])
+        f_feat_col.write("%s\n" % item['feat_col'])
+        f_feat_row.write("%s\n" % item['feat_row'])
+        f_feat_x.write("%s\n" % item['feat_x'])
+        f_feat_y.write("%s\n" % item['feat_y'])
                     
 with \
 open('./data/dev.sign', 'w+') as f_sign, \
 open('./data/dev.sign+', 'w+') as f_sign_plus, \
 open('./data/dev.en', 'w+') as f_en, \
-open('./data/dev.tokenized.en', 'w+') as f_en_tokenized:
+open('./data/dev.tokenized.en', 'w+') as f_en_tokenized, \
+open('./data/dev.sign+.feat_col', 'w+') as f_feat_col, \
+open('./data/dev.sign+.feat_row', 'w+') as f_feat_row, \
+open('./data/dev.sign+.feat_x', 'w+') as f_feat_x, \
+open('./data/dev.sign+.feat_y', 'w+') as f_feat_y:
     for item in dev:
         f_sign.write("%s\n" % item['sign'])
         f_sign_plus.write("%s\n" % item['sign+'])
         f_en.write("%s\n" % item['en'])
         f_en_tokenized.write("%s\n" % item['en_tokenized'])
+        f_feat_col.write("%s\n" % item['feat_col'])
+        f_feat_row.write("%s\n" % item['feat_row'])
+        f_feat_x.write("%s\n" % item['feat_x'])
+        f_feat_y.write("%s\n" % item['feat_y'])
 
 with \
 open('./data/test.sign', 'w+') as f_sign, \
 open('./data/test.sign+', 'w+') as f_sign_plus, \
 open('./data/test.en', 'w+') as f_en, \
-open('./data/test.tokenized.en', 'w+') as f_en_tokenized:
+open('./data/test.tokenized.en', 'w+') as f_en_tokenized, \
+open('./data/test.sign+.feat_col', 'w+') as f_feat_col, \
+open('./data/test.sign+.feat_row', 'w+') as f_feat_row, \
+open('./data/test.sign+.feat_x', 'w+') as f_feat_x, \
+open('./data/test.sign+.feat_y', 'w+') as f_feat_y:
     for item in test:
         f_sign.write("%s\n" % item['sign'])
         f_sign_plus.write("%s\n" % item['sign+'])
         f_en.write("%s\n" % item['en'])
         f_en_tokenized.write("%s\n" % item['en_tokenized'])
+        f_feat_col.write("%s\n" % item['feat_col'])
+        f_feat_row.write("%s\n" % item['feat_row'])
+        f_feat_x.write("%s\n" % item['feat_x'])
+        f_feat_y.write("%s\n" % item['feat_y'])

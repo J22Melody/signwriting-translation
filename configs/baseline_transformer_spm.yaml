@@ -6,9 +6,9 @@ name: "baseline_transformer_spm"
 data:
     src: "sign"
     trg: "spm.en"
-    train: "data_full/train.withDict"
-    dev:   "data_full/dev"
-    test:  "data_full/test"
+    train: "data/train.withDict"
+    dev:   "data/dev"
+    test:  "data/test"
     level: "word"
     lowercase: True
     max_sent_length: 500

@@ -3,7 +3,7 @@
 scripts=`dirname "$0"`
 base=$scripts/..
 
-data=$base/data_full
+data=$base/data
 configs=$base/configs
 
 translations=$base/translations
