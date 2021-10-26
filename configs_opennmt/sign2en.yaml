@@ -3,8 +3,8 @@
 
 save_data: data/
 ## Where the vocab(s) will be written
-src_vocab: data/opennmt_vocab.src
-tgt_vocab: data/opennmt_vocab.tgt
+src_vocab: data/opennmt_vocab.sign
+tgt_vocab: data/opennmt_vocab.spm.en
 
 # Corpus opts:
 data:
