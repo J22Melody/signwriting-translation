@@ -44,6 +44,7 @@ def parse(raw):
 
             # if not punctuation, add the box information
             if not token.startswith('S'):
+                sign.append(token[0])
                 sign_plus.append(token[0])
                 feat_col.append('0')
                 feat_row.append('0')

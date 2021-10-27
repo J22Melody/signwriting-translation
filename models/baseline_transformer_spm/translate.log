@@ -28,3 +28,14 @@
 2021-10-21 09:59:10,211 - INFO - joeynmt.prediction - Loading model from /net/cephfs/home/zifjia/signwriting-translation/./scripts/../models/baseline_transformer_spm/best.ckpt
 2021-10-21 09:59:15,995 - INFO - joeynmt.model - Building an encoder-decoder model...
 2021-10-21 09:59:16,814 - INFO - joeynmt.model - Enc-dec model built.
+2021-10-27 12:26:48,427 - INFO - root - Hello! This is Joey-NMT (version 1.3).
+2021-10-27 12:26:48,905 - DEBUG - joeynmt.prediction - Process device: cuda, n_gpu: 1
+2021-10-27 12:26:48,905 - INFO - joeynmt.prediction - Loading model from /net/cephfs/home/zifjia/signwriting-translation/./scripts/../models/baseline_transformer_spm/best.ckpt
+2021-10-27 12:28:32,811 - INFO - root - Hello! This is Joey-NMT (version 1.3).
+2021-10-27 12:28:33,258 - DEBUG - joeynmt.prediction - Process device: cuda, n_gpu: 1
+2021-10-27 12:28:33,258 - INFO - joeynmt.prediction - Loading model from /net/cephfs/home/zifjia/signwriting-translation/./scripts/../models/baseline_transformer_spm/best.ckpt
+2021-10-27 12:32:50,774 - INFO - root - Hello! This is Joey-NMT (version 1.3).
+2021-10-27 12:32:51,218 - DEBUG - joeynmt.prediction - Process device: cuda, n_gpu: 1
+2021-10-27 12:32:51,219 - INFO - joeynmt.prediction - Loading model from /net/cephfs/home/zifjia/signwriting-translation/./scripts/../models/baseline_transformer_spm/best.ckpt
+2021-10-27 12:33:00,561 - INFO - joeynmt.model - Building an encoder-decoder model...
+2021-10-27 12:33:01,442 - INFO - joeynmt.model - Enc-dec model built.

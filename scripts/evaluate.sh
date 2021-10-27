@@ -23,7 +23,7 @@ model_name=$1
 model=$base/models/$model_name
 
 # CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/test.$src > $translations/test.$model_name.$trg
-# python -m joeynmt translate $configs/$model_name.yaml --ckpt $model/best.ckpt < $data/test.$src > $translations/test.$model_name.$trg
+python -m joeynmt translate $configs/$model_name.yaml --ckpt $model/best.ckpt < $data/test.$src > $translations/test.$model_name.$trg
 
 # TODO: recasing
 # For now, compute case-insensitive BLEU by passing --lowercase to sacreBLEU
@@ -33,12 +33,12 @@ model=$base/models/$model_name
 # undo tokenization
 
 # cat $translations/test.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations/test.$model_name.raw.$trg
-cat $translations/test.$model_name.$trg | spm_decode --model=$data/m.model > translations/test.$model_name.raw.$trg
+# cat $translations/test.$model_name.$trg | spm_decode --model=$data/m.model > translations/test.$model_name.raw.$trg
 
 # compute case-insensitive BLEU on detokenized data
 
 # cat $translations/test.$model_name.$trg | sacrebleu --lowercase $data/test.tokenized.$trg > $translations/test.$model_name.bleu
 # cat $translations/test.$model_name.raw.$trg | sacrebleu --lowercase $data/test.$trg > $translations/test.$model_name.raw.bleu
 cat $translations/test.$model_name.$trg | sacrebleu --lowercase $data/test.spm.$trg > $translations/test.$model_name.bleu
-cat $translations/test.$model_name.raw.$trg | sacrebleu --lowercase $data/test.$trg > $translations/test.$model_name.raw.bleu
+# cat $translations/test.$model_name.raw.$trg | sacrebleu --lowercase $data/test.$trg > $translations/test.$model_name.raw.bleu
 		
