@@ -68,14 +68,14 @@ model:
         num_layers: 6
         num_heads: 8
         embeddings:
-            embedding_dim: 16
+            embedding_dim: 12
             scale: True
             dropout: 0.
         # changes for factors:
         factor_embeddings:
-            embedding_dim: 16
+            embedding_dim: 4
             scale: False
-        factor_combine: "add" # or: "concatenate"
+        factor_combine: "concatenate" # or: "concatenate"
         # typically ff_size = 4 x hidden_size
         hidden_size: 16
         ff_size: 64
