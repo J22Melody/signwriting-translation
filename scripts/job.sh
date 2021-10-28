@@ -15,7 +15,7 @@
 ###SBATCH --partition=generic  ##  can specify partition here, but it is pre-empted by what module is loaded
 ###SBATCH --account=your_tenant_name    ## only need to specify if you belong to multiple tenants on ScienceCluster
 #SBATCH --gres gpu:1
-###SBATCH --gres gpu:Tesla-V100-32GB:1
+#SBATCH --gres gpu:Tesla-V100-32GB:1
 
 module load nvidia/cuda11.2-cudnn8.1.0
 module load anaconda3
