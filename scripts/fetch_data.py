@@ -158,26 +158,17 @@ random.shuffle(train)
 with \
 open('./data/train.sign', 'w+') as f_sign, \
 open('./data/train.sign+', 'w+') as f_sign_plus, \
-open('./data/train.withDict.sign', 'w+') as f_sign_withDict, \
-open('./data/train.withDict.sign+', 'w+') as f_sign_plus_withDict, \
 open('./data/train.en', 'w+') as f_en, \
 open('./data/train.tokenized.en', 'w+') as f_en_tokenized, \
-open('./data/train.withDict.en', 'w+') as f_en_withDict, \
-open('./data/train.withDict.tokenized.en', 'w+') as f_en_withDict_tokenized, \
-open('./data/train.sign+.feat_col', 'w+') as f_feat_col, \
-open('./data/train.sign+.feat_row', 'w+') as f_feat_row, \
-open('./data/train.sign+.feat_x', 'w+') as f_feat_x, \
-open('./data/train.sign+.feat_y', 'w+') as f_feat_y:
+open('./data/train.feat_col', 'w+') as f_feat_col, \
+open('./data/train.feat_row', 'w+') as f_feat_row, \
+open('./data/train.feat_x', 'w+') as f_feat_x, \
+open('./data/train.feat_y', 'w+') as f_feat_y:
     for item in train:
-        if not item['isDict']:
-            f_en.write("%s\n" % item['en'])
-            f_en_tokenized.write("%s\n" % item['en_tokenized'])
-            f_sign.write("%s\n" % item['sign'])
-            f_sign_plus.write("%s\n" % item['sign+'])
-        f_en_withDict.write("%s\n" % item['en'])
-        f_en_withDict_tokenized.write("%s\n" % item['en_tokenized'])
-        f_sign_withDict.write("%s\n" % item['sign'])
-        f_sign_plus_withDict.write("%s\n" % item['sign+'])
+        f_en.write("%s\n" % item['en'])
+        f_en_tokenized.write("%s\n" % item['en_tokenized'])
+        f_sign.write("%s\n" % item['sign'])
+        f_sign_plus.write("%s\n" % item['sign+'])
         f_feat_col.write("%s\n" % item['feat_col'])
         f_feat_row.write("%s\n" % item['feat_row'])
         f_feat_x.write("%s\n" % item['feat_x'])
@@ -188,10 +179,10 @@ open('./data/dev.sign', 'w+') as f_sign, \
 open('./data/dev.sign+', 'w+') as f_sign_plus, \
 open('./data/dev.en', 'w+') as f_en, \
 open('./data/dev.tokenized.en', 'w+') as f_en_tokenized, \
-open('./data/dev.sign+.feat_col', 'w+') as f_feat_col, \
-open('./data/dev.sign+.feat_row', 'w+') as f_feat_row, \
-open('./data/dev.sign+.feat_x', 'w+') as f_feat_x, \
-open('./data/dev.sign+.feat_y', 'w+') as f_feat_y:
+open('./data/dev.feat_col', 'w+') as f_feat_col, \
+open('./data/dev.feat_row', 'w+') as f_feat_row, \
+open('./data/dev.feat_x', 'w+') as f_feat_x, \
+open('./data/dev.feat_y', 'w+') as f_feat_y:
     for item in dev:
         f_sign.write("%s\n" % item['sign'])
         f_sign_plus.write("%s\n" % item['sign+'])
@@ -207,10 +198,10 @@ open('./data/test.sign', 'w+') as f_sign, \
 open('./data/test.sign+', 'w+') as f_sign_plus, \
 open('./data/test.en', 'w+') as f_en, \
 open('./data/test.tokenized.en', 'w+') as f_en_tokenized, \
-open('./data/test.sign+.feat_col', 'w+') as f_feat_col, \
-open('./data/test.sign+.feat_row', 'w+') as f_feat_row, \
-open('./data/test.sign+.feat_x', 'w+') as f_feat_x, \
-open('./data/test.sign+.feat_y', 'w+') as f_feat_y:
+open('./data/test.feat_col', 'w+') as f_feat_col, \
+open('./data/test.feat_row', 'w+') as f_feat_row, \
+open('./data/test.feat_x', 'w+') as f_feat_x, \
+open('./data/test.feat_y', 'w+') as f_feat_y:
     for item in test:
         f_sign.write("%s\n" % item['sign'])
         f_sign_plus.write("%s\n" % item['sign+'])
