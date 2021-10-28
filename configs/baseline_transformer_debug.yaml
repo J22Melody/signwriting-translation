@@ -1,12 +1,12 @@
 # this file is taken from:
 # https://github.com/joeynmt/joeynmt/blob/master/configs/transformer_wmt17_ende.yaml
 
-name: "baseline_transformer"
+name: "baseline_transformer_debug"
 
 data:
     src: "sign"
     trg: "spm.en"
-    train: "data/train"
+    train: "data/train.withDict"
     dev:   "data/tiny"
     test:  "data/tiny"
     level: "word"
@@ -14,7 +14,12 @@ data:
     max_sent_length: 500
     # src_vocab: "model/vocab_sign.txt"
     # trg_vocab: "model/vocab_en.txt"
+    # factor_vocab: "shared_models/vocab.factor"
     random_train_subset: 10
+    # changes for factors:
+    factor_voc_limit: 10000
+    factor_voc_min_freq: 1
+    use_factor: True
 
 testing:
     beam_size: 5
@@ -65,6 +70,11 @@ model:
             embedding_dim: 16
             scale: True
             dropout: 0.
+        # changes for factors:
+        factor_embeddings:
+            embedding_dim: 16
+            scale: False
+        factor_combine: "add" # or: "concatenate"
         # typically ff_size = 4 x hidden_size
         hidden_size: 16
         ff_size: 64

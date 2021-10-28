@@ -5,3 +5,5 @@
 *.out
 *.hyps
 *.pt
+models/baseline_transformer_debug/
+tools/joeynmt_bak/
