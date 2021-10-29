@@ -6,7 +6,7 @@ name: "baseline_transformer_debug"
 data:
     src: "sign"
     trg: "spm.en"
-    factor: "feat_x"
+    factors: ["feat_col", "feat_row", "feat_x", "feat_y"]
     train: "data/train"
     dev:   "data/tiny"
     test:  "data/tiny"
@@ -45,7 +45,7 @@ training:
     batch_multiplier: 1
     early_stopping_metric: "loss"
     epochs: 2
-    validation_freq: 1
+    validation_freq: 2
     logging_freq: 1
     eval_metric: "bleu"
     overwrite: True
@@ -73,7 +73,7 @@ model:
             dropout: 0.
         # changes for factors:
         factor_embeddings:
-            embedding_dim: 4
+            embedding_dim: 1
             scale: False
         factor_combine: "concatenate" # or: "concatenate"
         # typically ff_size = 4 x hidden_size
