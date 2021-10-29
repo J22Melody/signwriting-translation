@@ -1,0 +1,89 @@
+# this file is taken from:
+# https://github.com/joeynmt/joeynmt/blob/master/configs/transformer_wmt17_ende.yaml
+
+name: "baseline_transformer_spm_factor"
+
+data:
+    src: "sign"
+    trg: "spm.en"
+    factor: "feat_x"
+    train: "data/train"
+    dev:   "data/dev"
+    test:  "data/test"
+    level: "word"
+    lowercase: True
+    max_sent_length: 500
+    # changes for factors:
+    factor_voc_limit: 10000
+    factor_voc_min_freq: 1
+    use_factor: True
+
+testing:
+    beam_size: 5
+    alpha: 1.0
+    postprocess: False
+
+training:
+    random_seed: 42
+    optimizer: "adam"
+    normalization: "tokens"
+    adam_betas: [0.9, 0.999]
+    scheduling: "plateau"
+    patience: 5
+    decrease_factor: 0.7
+    loss: "crossentropy"
+    learning_rate: 0.0001
+    learning_rate_min: 0.00000001
+    weight_decay: 0.0
+    label_smoothing: 0.1
+    batch_size: 32
+    eval_batch_size: 32
+    batch_multiplier: 1
+    early_stopping_metric: "eval_metric"
+    epochs: 200
+    validation_freq: 1000
+    logging_freq: 100
+    eval_metric: "bleu"
+    overwrite: True
+    shuffle: True
+    use_cuda: True
+    max_output_length: 200
+    print_valid_sents: [0, 1, 2, 3, 6]
+    keep_last_ckpts: 3
+    model_dir: "models/baseline_transformer_spm_factor"
+
+model:
+    initializer: "xavier"
+    bias_initializer: "zeros"
+    init_gain: 1.0
+    embed_initializer: "xavier"
+    embed_init_gain: 1.0
+    encoder:
+        type: "transformer"
+        num_layers: 6
+        num_heads: 8
+        embeddings:
+            embedding_dim: 500
+            scale: True
+            dropout: 0.
+        # changes for factors:
+        factor_embeddings:
+            embedding_dim: 12
+            scale: False
+        factor_combine: "concatenate"
+        # typically ff_size = 4 x hidden_size
+        hidden_size: 512
+        ff_size: 2048
+        dropout: 0.1
+    decoder:
+        type: "transformer"
+        num_layers: 6
+        num_heads: 8
+        embeddings:
+            embedding_dim: 512
+            scale: True
+            dropout: 0.
+        # typically ff_size = 4 x hidden_size
+        hidden_size: 512
+        ff_size: 2048
+        dropout: 0.1

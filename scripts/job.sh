@@ -19,10 +19,9 @@
 
 module load nvidia/cuda11.2-cudnn8.1.0
 module load anaconda3
-# conda create -n sign python=3.8 
 source activate joey
 cd tools/joeynmt
-pip install .
+pip install -e .
 cd ..
 cd ..
 
