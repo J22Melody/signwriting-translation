@@ -54,6 +54,15 @@ def parse(raw):
                 feat_y.append(token[5:8])
                 feat_x_rel.append('-1')
                 feat_y_rel.append('-1')
+            else:
+                sign.append('P')
+                sign_plus.append('P')
+                feat_col.append('-1')
+                feat_row.append('-1')
+                feat_x.append('-1')
+                feat_y.append('-1')
+                feat_x_rel.append('-1')
+                feat_y_rel.append('-1')
 
             # find all symbols
             # how to factorize a symbol: see https://slevinski.github.io/SuttonSignWriting/characters/symbols.html#?ui=en&set=fsw&sym=S100
@@ -82,7 +91,7 @@ def parse(raw):
                 feat_x_rel.append(str(x_sorted.index(int(s['x']))))
                 feat_y_rel.append(str(y_sorted.index(int(s['y']))))
 
-    return ' '.join(sign), ' '.join(sign_plus), ' '.join(feat_col), ' '.join(feat_row), ' '.join(feat_x), ' '.join(feat_y)
+    return ' '.join(sign), ' '.join(sign_plus), ' '.join(feat_col), ' '.join(feat_row), ' '.join(feat_x), ' '.join(feat_y), ' '.join(feat_x_rel), ' '.join(feat_y_rel)
 
 signbank = tfds.load(name='sign_bank')['train']
 data_list = []
@@ -139,7 +148,7 @@ for index, row in enumerate(signbank):
         parsed = parse(sign_sentence)
         if not parsed:
             continue
-        sign, sign_plus, feat_col, feat_row, feat_x, feat_y = parsed
+        sign, sign_plus, feat_col, feat_row, feat_x, feat_y, feat_x_rel, feat_y_rel = parsed
 
         data_list.append({
             'isDict': isDict, 
@@ -151,6 +160,8 @@ for index, row in enumerate(signbank):
             'feat_row': feat_row,
             'feat_x': feat_x,
             'feat_y': feat_y,  
+            'feat_x_rel': feat_x_rel,
+            'feat_y_rel': feat_y_rel,  
         })
 
         count['total'] += 1
@@ -183,7 +194,9 @@ open('./data/train.tokenized.en', 'w+') as f_en_tokenized, \
 open('./data/train.feat_col', 'w+') as f_feat_col, \
 open('./data/train.feat_row', 'w+') as f_feat_row, \
 open('./data/train.feat_x', 'w+') as f_feat_x, \
-open('./data/train.feat_y', 'w+') as f_feat_y:
+open('./data/train.feat_y', 'w+') as f_feat_y, \
+open('./data/train.feat_x_rel', 'w+') as f_feat_x_rel, \
+open('./data/train.feat_y_rel', 'w+') as f_feat_y_rel:
     for item in train:
         f_en.write("%s\n" % item['en'])
         f_en_tokenized.write("%s\n" % item['en_tokenized'])
@@ -193,6 +206,8 @@ open('./data/train.feat_y', 'w+') as f_feat_y:
         f_feat_row.write("%s\n" % item['feat_row'])
         f_feat_x.write("%s\n" % item['feat_x'])
         f_feat_y.write("%s\n" % item['feat_y'])
+        f_feat_x_rel.write("%s\n" % item['feat_x_rel'])
+        f_feat_y_rel.write("%s\n" % item['feat_y_rel'])
                     
 with \
 open('./data/dev.sign', 'w+') as f_sign, \
@@ -202,7 +217,9 @@ open('./data/dev.tokenized.en', 'w+') as f_en_tokenized, \
 open('./data/dev.feat_col', 'w+') as f_feat_col, \
 open('./data/dev.feat_row', 'w+') as f_feat_row, \
 open('./data/dev.feat_x', 'w+') as f_feat_x, \
-open('./data/dev.feat_y', 'w+') as f_feat_y:
+open('./data/dev.feat_y', 'w+') as f_feat_y, \
+open('./data/dev.feat_x_rel', 'w+') as f_feat_x_rel, \
+open('./data/dev.feat_y_rel', 'w+') as f_feat_y_rel:
     for item in dev:
         f_sign.write("%s\n" % item['sign'])
         f_sign_plus.write("%s\n" % item['sign+'])
@@ -212,6 +229,8 @@ open('./data/dev.feat_y', 'w+') as f_feat_y:
         f_feat_row.write("%s\n" % item['feat_row'])
         f_feat_x.write("%s\n" % item['feat_x'])
         f_feat_y.write("%s\n" % item['feat_y'])
+        f_feat_x_rel.write("%s\n" % item['feat_x_rel'])
+        f_feat_y_rel.write("%s\n" % item['feat_y_rel'])
 
 with \
 open('./data/test.sign', 'w+') as f_sign, \
@@ -221,7 +240,9 @@ open('./data/test.tokenized.en', 'w+') as f_en_tokenized, \
 open('./data/test.feat_col', 'w+') as f_feat_col, \
 open('./data/test.feat_row', 'w+') as f_feat_row, \
 open('./data/test.feat_x', 'w+') as f_feat_x, \
-open('./data/test.feat_y', 'w+') as f_feat_y:
+open('./data/test.feat_y', 'w+') as f_feat_y, \
+open('./data/test.feat_x_rel', 'w+') as f_feat_x_rel, \
+open('./data/test.feat_y_rel', 'w+') as f_feat_y_rel:
     for item in test:
         f_sign.write("%s\n" % item['sign'])
         f_sign_plus.write("%s\n" % item['sign+'])
@@ -231,3 +252,5 @@ open('./data/test.feat_y', 'w+') as f_feat_y:
         f_feat_row.write("%s\n" % item['feat_row'])
         f_feat_x.write("%s\n" % item['feat_x'])
         f_feat_y.write("%s\n" % item['feat_y'])
+        f_feat_x_rel.write("%s\n" % item['feat_x_rel'])
+        f_feat_y_rel.write("%s\n" % item['feat_y_rel'])
