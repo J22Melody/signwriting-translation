@@ -26,6 +26,8 @@ def parse(raw):
     feat_row = []
     feat_x = []
     feat_y = []
+    feat_x_rel = []
+    feat_y_rel = []
 
     for token in raw.split(' '):
         if len(token) > 0:
@@ -46,21 +48,39 @@ def parse(raw):
             if not token.startswith('S'):
                 sign.append(token[0])
                 sign_plus.append(token[0])
-                feat_col.append('0')
-                feat_row.append('0')
+                feat_col.append('-1')
+                feat_row.append('-1')
                 feat_x.append(token[1:4])
                 feat_y.append(token[5:8])
+                feat_x_rel.append('-1')
+                feat_y_rel.append('-1')
 
             # find all symbols
             # how to factorize a symbol: see https://slevinski.github.io/SuttonSignWriting/characters/symbols.html#?ui=en&set=fsw&sym=S100
+            symbols = []
             for index, ch in enumerate(token):
                 if ch == 'S':
-                    sign.append(token[index:index + 6])
-                    sign_plus.append(token[index:index + 4])
-                    feat_col.append(token[index + 4])
-                    feat_row.append(token[index + 5])
-                    feat_x.append(token[index + 6:index + 9])
-                    feat_y.append(token[index + 10:index + 13])
+                    symbols.append({
+                        'sign': token[index:index + 6],
+                        'sign_plus': token[index:index + 4],
+                        'feat_col': token[index + 4],
+                        'feat_row': token[index + 5],
+                        'x': token[index + 6:index + 9],
+                        'y': token[index + 10:index + 13],
+                    })
+
+            x_sorted = list(dict.fromkeys(sorted([int(s['x']) for s in symbols])))
+            y_sorted = list(dict.fromkeys(sorted([int(s['y']) for s in symbols])))
+
+            for s in symbols:
+                sign.append(s['sign'])
+                sign_plus.append(s['sign_plus'])
+                feat_col.append(s['feat_col'])
+                feat_row.append(s['feat_row'])
+                feat_x.append(s['x'])
+                feat_y.append(s['y'])
+                feat_x_rel.append(str(x_sorted.index(int(s['x']))))
+                feat_y_rel.append(str(y_sorted.index(int(s['y']))))
 
     return ' '.join(sign), ' '.join(sign_plus), ' '.join(feat_col), ' '.join(feat_row), ' '.join(feat_x), ' '.join(feat_y)
 
