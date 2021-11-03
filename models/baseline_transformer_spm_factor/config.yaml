@@ -6,7 +6,7 @@ name: "baseline_transformer_spm_factor"
 data:
     src: "sign"
     trg: "spm.en"
-    factor: "feat_x"
+    factors: ["feat_x", "feat_y"]
     train: "data/train"
     dev:   "data/dev"
     test:  "data/test"
@@ -63,12 +63,12 @@ model:
         num_layers: 6
         num_heads: 8
         embeddings:
-            embedding_dim: 500
+            embedding_dim: 464
             scale: True
             dropout: 0.
         # changes for factors:
         factor_embeddings:
-            embedding_dim: 12
+            embedding_dim: 24
             scale: False
         factor_combine: "concatenate"
         # typically ff_size = 4 x hidden_size
