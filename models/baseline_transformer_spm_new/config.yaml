@@ -6,7 +6,7 @@ name: "baseline_transformer_spm_new"
 data:
     src: "sign"
     trg: "spm.en"
-    train: "data/train.withDict"
+    train: "data/train"
     dev:   "data/dev"
     test:  "data/test"
     level: "word"

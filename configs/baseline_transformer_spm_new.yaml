@@ -6,7 +6,7 @@ name: "baseline_transformer_spm_new"
 data:
     src: "sign"
     trg: "spm.en"
-    train: "data/train.withDict"
+    train: "data/train"
     dev:   "data/dev"
     test:  "data/test"
     level: "word"
@@ -47,7 +47,7 @@ training:
     max_output_length: 200
     print_valid_sents: [0, 1, 2, 3, 6]
     keep_last_ckpts: 3
-    model_dir: "models/baseline_transformer_spm_tmp"
+    model_dir: "models/baseline_transformer_spm_new"
 
 model:
     initializer: "xavier"
