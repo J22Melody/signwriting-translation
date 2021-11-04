@@ -1,6 +1,7 @@
 Model,BLEU on tokenized,BLEU on raw,chrF2 on raw
 baseline_transformer,25.6,22.5,
 baseline_transformer_full (add dicts),28.8,25.2,
-baseline_transformer_spm (add BPE),28.8,28.2,
-baseline_transformer_spm_factor (add x and y),27.8,27.0,46.2
+baseline_transformer_spm (add BPE),28.1,27.0,46.2
+baseline_transformer_spm_factor (add x and y),28.1,27.5,46.5
 baseline_transformer_spm_factor_sign+ (factored FSW graphemes),23.4,23.1,41.2
+baseline_transformer_spm_factor_rel (add relative x and y),29.1,28.1,47.5
