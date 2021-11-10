@@ -58,19 +58,19 @@ model:
     init_gain: 1.0
     embed_initializer: "xavier"
     embed_init_gain: 1.0
-    tied_softmax: True
+    tied_softmax: False
     encoder:
         type: "transformer"
         num_layers: 6
         num_heads: 8
         embeddings:
             embedding_dim: 464
-            scale: False
+            scale: True
             dropout: 0.5
         # changes for factors:
         factor_embeddings:
             embedding_dim: 12
-            scale: False
+            scale: True
             dropout: 0.5
         factor_combine: "concatenate"
         # typically ff_size = 4 x hidden_size
@@ -83,7 +83,7 @@ model:
         num_heads: 8
         embeddings:
             embedding_dim: 512
-            scale: False
+            scale: True
             dropout: 0.5
         # typically ff_size = 4 x hidden_size
         hidden_size: 512
