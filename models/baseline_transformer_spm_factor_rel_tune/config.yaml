@@ -58,7 +58,7 @@ model:
     init_gain: 1.0
     embed_initializer: "xavier"
     embed_init_gain: 1.0
-    tied_softmax: False
+    tied_softmax: True
     encoder:
         type: "transformer"
         num_layers: 6
