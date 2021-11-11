@@ -47,6 +47,7 @@ model=$base/models/$model_name
 
 for test_out in $model/*.hyps.test; do	
 cat $test_out | sacrebleu --lowercase --chrf-lowercase $data/test.spm.$trg -m bleu chrf > $test_out.eval
-cat $test_out | spm_decode --model=$data/spm.model | $MOSES/recaser/detruecase.perl --model $data/truecase_model > $test_out.raw
+# cat $test_out | spm_decode --model=$data/spm.model | $MOSES/recaser/detruecase.perl --model $data/truecase_model > $test_out.raw
+cat $test_out | spm_decode --model=$data/spm.model > $test_out.raw
 cat $test_out.raw | sacrebleu --lowercase --chrf-lowercase $data/test.$trg -m bleu chrf > $test_out.raw.eval
 done

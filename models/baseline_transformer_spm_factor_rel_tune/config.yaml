@@ -29,7 +29,7 @@ training:
     normalization: "tokens"
     adam_betas: [0.9, 0.999]
     scheduling: "plateau"
-    patience: 5
+    patience: 7
     decrease_factor: 0.7
     loss: "crossentropy"
     learning_rate: 0.0001
@@ -40,7 +40,7 @@ training:
     eval_batch_size: 32
     batch_multiplier: 1
     early_stopping_metric: "eval_metric"
-    epochs: 200
+    epochs: 100
     validation_freq: 1000
     logging_freq: 100
     eval_metric: "bleu"
@@ -50,7 +50,8 @@ training:
     max_output_length: 200
     print_valid_sents: [0, 1, 2, 3, 6]
     keep_last_ckpts: 3
-    model_dir: "models/baseline_transformer_spm_factor_rel_tune"
+    model_dir: "models/baseline_transformer_spm_factor_rel_tune_cont"
+    load_model: "models/baseline_transformer_spm_factor_rel_tune/latest.ckpt"
 
 model:
     initializer: "xavier"
