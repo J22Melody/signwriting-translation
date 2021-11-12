@@ -26,7 +26,8 @@ MOSES=$tools/moses-scripts/scripts
 # $MOSES/recaser/train-recaser.perl --dir $data/recaser_model --corpus $data/train.tokenized.en --first-step 2
 
 # BPE by spm
-spm_train --input=$data/train.en --model_prefix=$data/spm --vocab_size=2000 --model_type bpe --character_coverage 1.0 --normalization_rule_name nmt_nfkc_cf
+# spm_train --input=$data/train.en --model_prefix=$data/spm --vocab_size=2000 --model_type bpe --character_coverage 1.0 --normalization_rule_name nmt_nfkc_cf
+spm_train --input=$data/train.en --model_prefix=$data/spm --vocab_size=2000 --model_type bpe --character_coverage 1.0
 cat $data/train.en | spm_encode --model=$data/spm.model > $data/train.spm.en
 cat $data/dev.en | spm_encode --model=$data/spm.model > $data/dev.spm.en
 cat $data/test.en | spm_encode --model=$data/spm.model > $data/test.spm.en
