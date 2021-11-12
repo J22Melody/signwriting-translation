@@ -1,4 +1,4 @@
-Model,BLEU on tokenized,BLEU on raw,chrF2 on raw
+Model,BLEU on tokenized (by sentencepiece),BLEU on raw,chrF2 on raw
 baseline_transformer,25.6,22.5,
 baseline_transformer_full (2 + dicts),28.8,25.2,
 baseline_transformer_spm (3 + BPE),28.1,27.0,46.2
