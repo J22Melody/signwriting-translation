@@ -6,7 +6,7 @@ name: "baseline_transformer_spm_factor_sign+"
 data:
     src: "sign"
     trg: "spm.en"
-    factors: ["sign+", "feat_col", "feat_row", "feat_x", "feat_y"]
+    factors: ["sign+", "feat_col", "feat_row", "feat_x", "feat_y", "feat_x_rel", "feat_y_rel"]
     train: "data/train"
     dev:   "data/dev"
     test:  "data/test"
@@ -40,7 +40,7 @@ training:
     eval_batch_size: 32
     batch_multiplier: 1
     early_stopping_metric: "eval_metric"
-    epochs: 100
+    epochs: 300
     validation_freq: 1000
     logging_freq: 100
     eval_metric: "bleu"
@@ -64,7 +64,7 @@ model:
         num_layers: 6
         num_heads: 8
         embeddings:
-            embedding_dim: 432
+            embedding_dim: 400
             scale: True
             dropout: 0.5
         # changes for factors:

@@ -20,7 +20,6 @@
 module load nvidia/cuda11.2-cudnn8.1.0
 module load anaconda3
 source activate joey
-pip install numpy
 cd tools/joeynmt
 pip install -e .
 cd ..
