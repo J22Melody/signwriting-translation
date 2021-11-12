@@ -40,7 +40,7 @@ training:
     eval_batch_size: 32
     batch_multiplier: 1
     early_stopping_metric: "eval_metric"
-    epochs: 300
+    epochs: 100
     validation_freq: 1000
     logging_freq: 100
     eval_metric: "bleu"
@@ -49,9 +49,9 @@ training:
     use_cuda: True
     max_output_length: 200
     print_valid_sents: [0, 1, 2, 3, 6]
-    keep_last_ckpts: 3
+    keep_last_ckpts: 1
     model_dir: "models/baseline_transformer_spm_factor_rel_tune_de"
-    # load_model: "models/baseline_transformer_spm_factor_rel_tune/latest.ckpt"
+    load_model: "models/baseline_transformer_spm_factor_rel_tune_de/latest.ckpt"
 
 model:
     initializer: "xavier"
