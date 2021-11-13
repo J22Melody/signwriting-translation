@@ -6,12 +6,12 @@ name: "baseline_transformer_spm_factor_rel_tune_de"
 data:
     src: "sign"
     trg: "spm.en"
-    factors: ["feat_x", "feat_y", "feat_x_rel", "feat_y_rel"]
+    factors: ["sign+", "feat_col", "feat_row", "feat_x", "feat_y", "feat_x_rel", "feat_y_rel"]
     train: "data_de/train"
     dev:   "data_de/dev"
     test:  "data_de/test"
     level: "word"
-    lowercase: True
+    lowercase: False
     max_sent_length: 500
     # changes for factors:
     factor_voc_limit: 10000
@@ -40,7 +40,7 @@ training:
     eval_batch_size: 32
     batch_multiplier: 1
     early_stopping_metric: "eval_metric"
-    epochs: 100
+    epochs: 300
     validation_freq: 1000
     logging_freq: 100
     eval_metric: "bleu"
@@ -65,12 +65,12 @@ model:
         num_layers: 6
         num_heads: 8
         embeddings:
-            embedding_dim: 464
+            embedding_dim: 400
             scale: True
             dropout: 0.5
         # changes for factors:
         factor_embeddings:
-            embedding_dim: 12
+            embedding_dim: 16
             scale: True
             dropout: 0.5
         factor_combine: "concatenate"
@@ -90,3 +90,4 @@ model:
         hidden_size: 512
         ff_size: 2048
         dropout: 0.5
+
