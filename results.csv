@@ -7,3 +7,4 @@ baseline_transformer_spm_factor_sign+ (5 + factored FSW graphemes as source and 
 baseline_transformer_spm_factor_rel (5 + relative x and y),29.1,28.1,47.5
 baseline_transformer_spm_factor_rel_tune (7 + aggressive dropout + tied_softmax),32.7,31.4,52.0
 baseline_transformer_spm_factor_sign+ (8 + factored FSW graphemes as factors only),33.5,32.0,52.7
+baseline_transformer_spm_factor_sign+ (9 + no lowercasing),33.1,31.6,51.8
