@@ -51,7 +51,6 @@ training:
     print_valid_sents: [0, 1, 2, 3, 6]
     keep_last_ckpts: 1
     model_dir: "models/baseline_transformer_spm_factor_rel_tune_de"
-    load_model: "models/baseline_transformer_spm_factor_rel_tune_de/latest.ckpt"
 
 model:
     initializer: "xavier"
