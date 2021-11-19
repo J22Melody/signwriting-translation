@@ -14,7 +14,7 @@ python ./scripts/fetch_data.py
 echo "Sizes of corpora:"
 for corpus in train dev test; do
 	echo "corpus: "$corpus
-	wc -l $data/$corpus.sign $data/$corpus.en
+	wc -l $data/$corpus.sign $data/$corpus.spoken
 done
 
 # sanity checks
