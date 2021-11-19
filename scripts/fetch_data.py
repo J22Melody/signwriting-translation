@@ -153,7 +153,7 @@ for index, row in enumerate(signbank):
     tags = '<2{}> <4{}> <{}> '.format(assumed_spoken_language_code, country_code, 'dict' if is_dict else 'sent')
     sign = tags + sign
     sign_plus = tags + sign_plus
-    tags_feat = '-1 -1 '
+    tags_feat = '-1 -1 -1 '
     feat_col = tags_feat + feat_col
     feat_row = tags_feat + feat_row
     feat_x = tags_feat + feat_x
