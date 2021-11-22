@@ -1,0 +1,13 @@
+2021-11-22 16:52:47,393 - INFO - root - Hello! This is Joey-NMT (version 1.3).
+2021-11-22 16:52:48,614 - DEBUG - joeynmt.prediction - Process device: cpu, n_gpu: 0
+2021-11-22 16:52:48,614 - INFO - joeynmt.prediction - Loading model from ./scripts/../models/baseline_multilingual/best.ckpt
+2021-11-22 16:55:06,147 - INFO - root - Hello! This is Joey-NMT (version 1.3).
+2021-11-22 16:55:07,453 - DEBUG - joeynmt.prediction - Process device: cpu, n_gpu: 0
+2021-11-22 16:55:07,453 - INFO - joeynmt.prediction - Loading model from ./scripts/../models/baseline_multilingual/best.ckpt
+2021-11-22 16:55:08,350 - INFO - joeynmt.model - Building an encoder-decoder model...
+2021-11-22 16:55:09,055 - INFO - joeynmt.model - Enc-dec model built.
+2021-11-22 17:08:54,311 - INFO - root - Hello! This is Joey-NMT (version 1.3).
+2021-11-22 17:08:55,558 - DEBUG - joeynmt.prediction - Process device: cpu, n_gpu: 0
+2021-11-22 17:08:55,558 - INFO - joeynmt.prediction - Loading model from ./scripts/../models/baseline_multilingual/best.ckpt
+2021-11-22 17:08:56,460 - INFO - joeynmt.model - Building an encoder-decoder model...
+2021-11-22 17:08:57,189 - INFO - joeynmt.model - Enc-dec model built.
