@@ -5,8 +5,8 @@ name: "baseline_transformer_debug"
 
 data:
     src: "sign"
-    trg: "spm.en"
-    factors: ["sign+", "feat_col", "feat_row", "feat_x", "feat_y", "feat_x_rel", "feat_y_rel"]
+    trg: "spoken"
+    # factors: ["sign+", "feat_col", "feat_row", "feat_x", "feat_y", "feat_x_rel", "feat_y_rel"]
     train: "data/train"
     dev:   "data/tiny"
     test:  "data/tiny"
@@ -14,9 +14,9 @@ data:
     lowercase: False
     max_sent_length: 500
     # changes for factors:
-    factor_voc_limit: 10000
-    factor_voc_min_freq: 1
-    use_factor: True
+    # factor_voc_limit: 10000
+    # factor_voc_min_freq: 1
+    # use_factor: True
     random_train_subset: 10
 
 testing:
@@ -65,15 +65,15 @@ model:
         num_layers: 6
         num_heads: 8
         embeddings:
-            embedding_dim: 400
+            embedding_dim: 512
             scale: True
             dropout: 0.5
         # changes for factors:
-        factor_embeddings:
-            embedding_dim: 16
-            scale: True
-            dropout: 0.5
-        factor_combine: "concatenate"
+        # factor_embeddings:
+        #     embedding_dim: 16
+        #     scale: True
+        #     dropout: 0.5
+        # factor_combine: "concatenate"
         # typically ff_size = 4 x hidden_size
         hidden_size: 512
         ff_size: 2048

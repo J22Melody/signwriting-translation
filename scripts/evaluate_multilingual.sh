@@ -23,7 +23,7 @@ model_name=$1
 model=$base/models/$model_name
 
 paste -d'|' $data/test.sign $data/test.sign+ $data/test.feat_col $data/test.feat_row $data/test.feat_x $data/test.feat_y $data/test.feat_x_rel $data/test.feat_y_rel \
-| python -m joeynmt translate $configs/$model_name.yaml --ckpt $model/best.ckpt \
+| python -m joeynmt translate $configs/$model_name.yaml -n 5 --ckpt $model/best.ckpt \
 > $model/best1.hyps.test
 
 # test_out=$model/best.hyps.test
