@@ -40,7 +40,7 @@ training:
     eval_batch_size: 32
     batch_multiplier: 1
     early_stopping_metric: "eval_metric"
-    epochs: 500
+    epochs: 200
     validation_freq: 1000
     logging_freq: 100
     eval_metric: "bleu"
