@@ -162,7 +162,7 @@ for index, row in enumerate(signbank):
     feat_y_rel = tags_feat + feat_y_rel
 
     data_list.append({
-        'spoken': spoken.encode("unicode_escape").decode("utf-8"),
+        'spoken': spoken.replace("\n", "\\n"), # escape newline to \n
         'sign': sign,
         'sign+': sign_plus,
         'feat_col': feat_col,
