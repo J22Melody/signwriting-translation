@@ -29,7 +29,7 @@ training:
     normalization: "tokens"
     adam_betas: [0.9, 0.999]
     scheduling: "plateau"
-    patience: 7
+    patience: 5
     decrease_factor: 0.7
     loss: "crossentropy"
     learning_rate: 0.0001
@@ -43,9 +43,9 @@ training:
     batch_multiplier: 1
     early_stopping_metric: "eval_metric"
     epochs: 200
-    validation_freq: 1000
-    logging_freq: 100
-    eval_metric: "bleu"
+    validation_freq: 3600
+    logging_freq: 360
+    eval_metric: "chrf"
     overwrite: True
     shuffle: True
     use_cuda: True
