@@ -26,6 +26,10 @@ paste -d'|' $data/test.sign $data/test.sign+ $data/test.feat_col $data/test.feat
 | python -m joeynmt translate $configs/$model_name.yaml -n 5 --ckpt $model/best.ckpt \
 > $model/best1.hyps.test
 
+# for dicts: top-5 accuracy
+
+# for sentences: bleu and chrf
+
 # test_out=$model/best.hyps.test
 
 # cat $test_out | sacrebleu $data/test.spm.$trg -m bleu chrf > $test_out.eval
