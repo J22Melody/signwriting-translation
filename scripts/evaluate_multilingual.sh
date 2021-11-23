@@ -25,21 +25,22 @@ model=$base/models/$model_name
 test_out=$model/best.hyps.test
 
 # n-best translation
-
-paste -d'|' $data/test.sign $data/test.sign+ $data/test.feat_col $data/test.feat_row $data/test.feat_x $data/test.feat_y $data/test.feat_x_rel $data/test.feat_y_rel \
-| python -m joeynmt translate $configs/$model_name.yaml -n 5 --ckpt $model/best.ckpt \
-> $test_out
+# paste -d'|' $data/test.sign $data/test.sign+ $data/test.feat_col $data/test.feat_row $data/test.feat_x $data/test.feat_y $data/test.feat_x_rel $data/test.feat_y_rel \
+# | python -m joeynmt translate $configs/$model_name.yaml -n 5 --ckpt $model/best.ckpt \
+# > $test_out
 
 # decode spm
-
 cat $test_out | spm_decode --model=$data/spm.model > $test_out.raw
 
+# split languages
+python ./scripts/split_data_by_language.py
+
 # for sentences: bleu and chrf
-
-# python ./scripts/split_data_by_language.py
-
-# for language in dict.fr en pt dict.de dict.en dict.pt; do
-#     cat $test_out.raw.$language | sacrebleu $data/test.$language -m bleu chrf > $test_out.raw.$language.eval
-# done
+for language in en pt; do
+    cat $test_out.$language | sacrebleu $data/test.$language -m bleu chrf > $test_out.$language.eval
+done
 
 # for dicts: top-5 accuracy
+for language in dict.en dict.de dict.fr dict.pt; do
+    python ./scripts/top-n-accuracy.py $test_out.$language $data/test.$language > $test_out.$language.eval
+done
