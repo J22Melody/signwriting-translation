@@ -1,4 +1,4 @@
-,en-us,,,dict,,,,pt-br,,,,,,,de-de,,,,,,,fr-ca,,,,,,
+,en-us,,dict,,,,,pt-br,,dict,,,,,de-de,,dict,,,,,fr-ca,,dict,,,,
 Model,BLEU,chrF2,top1,top2,top3,top4,top5,BLEU,chrF2,top1,top2,top3,top4,top5,BLEU,chrF2,top1,top2,top3,top4,top5,BLEU,chrF2,top1,top2,top3,top4,top5
 "baseline_multilingual (threshold 10000: en-us, pt-br, de-de, fr-ca)",29.5,49.8,0.37,0.46,0.49,0.51,0.52,,,,,,,,,,,,,,,,,,,,,
 
