@@ -28,3 +28,8 @@
 2021-11-23 15:38:01,458 - INFO - joeynmt.prediction - Loading model from /net/cephfs/home/zifjia/signwriting-translation/./scripts/../models/baseline_multilingual/best.ckpt
 2021-11-23 15:38:06,143 - INFO - joeynmt.model - Building an encoder-decoder model...
 2021-11-23 15:38:06,907 - INFO - joeynmt.model - Enc-dec model built.
+2021-11-25 13:34:07,375 - INFO - root - Hello! This is Joey-NMT (version 1.3).
+2021-11-25 13:34:08,637 - DEBUG - joeynmt.prediction - Process device: cuda, n_gpu: 1
+2021-11-25 13:34:08,637 - INFO - joeynmt.prediction - Loading model from /net/cephfs/home/zifjia/signwriting-translation/./scripts/../models/baseline_multilingual/best.ckpt
+2021-11-25 13:34:13,632 - INFO - joeynmt.model - Building an encoder-decoder model...
+2021-11-25 13:34:14,370 - INFO - joeynmt.model - Enc-dec model built.
