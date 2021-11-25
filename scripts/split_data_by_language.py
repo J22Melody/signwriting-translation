@@ -1,6 +1,8 @@
+import sys
+
 source = 'sign'
 target = 'spoken'
-model_name = 'baseline_multilingual'
+model_name = sys.argv[1] or 'baseline_multilingual'
 
 sent_languages = ['en', 'pt']
 dict_languages = ['dict.fr', 'dict.de', 'dict.en', 'dict.pt']
