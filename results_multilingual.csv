@@ -1,4 +1,4 @@
-,en-us,,,,,en-sg,,,pt-br,,,,,mt-mt,,,,,de-de,,,de-ch,,,fr-ca,,,fr-fr,,,fr-ch,,,fr-be,,,es-hn,,,es-ni,,,es-es,,,es-ar,,,
+,en-us,,,,,en-sg,,,pt-br,,,,,mt-mt,,,,,de-de,,,de-ch,,,fr-ca,,,fr-fr,,,fr-ch,,,fr-be,,,es-hn,,,es-ni,,,es-es,,,es-ar,,
 Model,BLEU,chrF2,top1,top3,top5,top1,top3,top5,BLEU,chrF2,top1,top3,top5,BLEU,chrF2,top1,top3,top5,top1,top3,top5,top1,top3,top5,top1,top3,top5,top1,top3,top5,top1,top3,top5,top1,top3,top5,top1,top3,top5,top1,top3,top5,top1,top3,top5,top1,top3,top5
 "baseline_multilingual (4 languages with threshold 10000, training sample 100000)     ",29.5,49.8,0.37,0.49,0.52,,,,23.8,44.3,0.12,0.16,0.17,,,,,,0.22,0.29,0.31,,,,0.04,0.07,0.08,,,,,,,,,,,,,,,,,,,,,
 "baseline_multilingual_plus (21 languages with threshold 1000, training sample 170000)",25.0,47.0,0.33,0.43,0.45,0.20,0.20,0.27,6.4,17.5,0.09,0.14,0.15,10.1,29.8,0.05,0.05,0.05,0.15,0.24,0.27,0.04,0.06,0.06,0.07,0.09,0.10,0.16,0.24,0.24,0.07,0.07,0.09,0.03,0.05,0.05,0.14,0.20,0.20,0.08,0.13,0.13,0.02,0.03,0.03,0,0,0
