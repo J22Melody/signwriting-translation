@@ -11,7 +11,7 @@ languages = sent_languages + dict_languages
 n_best = 5
 
 filedata = {filename: open('./data/test.{}'.format(filename), 'w+') for filename in languages}
-# filedata_hyps = {filename: open('./models/{}/best.hyps.test.{}'.format(model_name, filename), 'w+') for filename in languages}
+filedata_hyps = {filename: open('./models/{}/best.hyps.test.{}'.format(model_name, filename), 'w+') for filename in languages}
 
 with open('./data/test.{}'.format(source)) as source_file, \
      open('./data/test.{}'.format(target)) as target_file, \
@@ -31,17 +31,17 @@ with open('./data/test.{}'.format(source)) as source_file, \
         file = filedata[filename]
         file.write("%s\n" % target_lines[index])
 
-        # if filename in sent_languages:
-        #     # write the top-1 hyps for bleu/chrf
-        #     file_hyps = filedata_hyps[filename]
-        #     file_hyps.write("%s\n" % hyps_lines[index * n_best])
-        # elif filename in dict_languages:
-        #     # write the top-n hyps for top-n accuracy
-        #     file_hyps = filedata_hyps[filename]
-        #     for i in range(n_best):
-        #         file_hyps.write("%s\n" % hyps_lines[index * n_best + i])
+        if filename in sent_languages:
+            # write the top-1 hyps for bleu/chrf
+            file_hyps = filedata_hyps[filename]
+            file_hyps.write("%s\n" % hyps_lines[index * n_best])
+        elif filename in dict_languages:
+            # write the top-n hyps for top-n accuracy
+            file_hyps = filedata_hyps[filename]
+            for i in range(n_best):
+                file_hyps.write("%s\n" % hyps_lines[index * n_best + i])
 
 for file in filedata.values():
     file.close()
-# for file in filedata_hyps.values():
-#     file.close()
+for file in filedata_hyps.values():
+    file.close()
