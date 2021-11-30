@@ -6,3 +6,4 @@
 *.hyps
 models/baseline_transformer_debug/
 tools/joeynmt_bak/
+tools/stanford-ner/

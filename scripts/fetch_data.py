@@ -93,6 +93,19 @@ def parse(raw):
 
     return ' '.join(sign), ' '.join(sign_plus), ' '.join(feat_col), ' '.join(feat_row), ' '.join(feat_x), ' '.join(feat_y), ' '.join(feat_x_rel), ' '.join(feat_y_rel)
 
+def tokenize_fingerspelling(sign, spoken):
+    fingerspelling_table = {
+        'S18d20': 'm',
+        'S19220': 'i',
+        'S16d20': 'c',
+        'S1f720': 'a',
+    }
+
+    for index, symbol in enumerate(sign.split(' ')):
+        pass
+
+    return sign, spoken
+
 signbank = tfds.load(name='sign_bank')['train']
 data_list = []
 
@@ -180,6 +193,7 @@ for index, row in enumerate(signbank):
             spoken = terms[0]
         is_dict = True
 
+    # correctness check
     if not spoken or spoken.startswith('<iframe'):
         continue
 
@@ -187,8 +201,10 @@ for index, row in enumerate(signbank):
     parsed = parse(sign_sentence)
     if not parsed:
         continue
-
     sign, sign_plus, feat_col, feat_row, feat_x, feat_y, feat_x_rel, feat_y_rel = parsed
+
+    # handle fingerspelling
+    # sign, spoken = tokenize_fingerspelling(sign, spoken)
 
     # add language, country, dict tag
     tags = '<2{}> <4{}> <{}> '.format(assumed_spoken_language_code, country_code, 'dict' if is_dict else 'sent')
