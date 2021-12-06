@@ -2,10 +2,10 @@ import sys
 
 source = 'sign'
 target = 'spoken'
-model_name = sys.argv[1]
+model_name = sys.argv[1] or 'baseline_multilingual'
 
-sent_languages = ['en-us', 'pt-br', 'mt-mt']
-dict_languages = ['dict.en-us', 'dict.en-sg', 'dict.de-de', 'dict.de-ch', 'dict.fr-ca', 'dict.fr-be', 'dict.fr-ch', 'dict.fr-fr', 'dict.pt-br', 'dict.es-es', 'dict.es-hn', 'dict.es-ar', 'dict.es-ni', 'dict.ca-es', 'dict.ar-tn', 'dict.ko-kr', 'dict.mt-mt', 'dict.nl-be', 'dict.pl-pl', 'dict.sk-sk', 'dict.sl-sl']
+sent_languages = ['en', 'pt']
+dict_languages = ['dict.fr', 'dict.de', 'dict.en', 'dict.pt']
 languages = sent_languages + dict_languages
 
 n_best = 5
@@ -23,7 +23,7 @@ with open('./data/test.{}'.format(source)) as source_file, \
 
     for index, source_line in enumerate(source_lines):
         tags = source_line.split(' ')[:3]
-        language_name = tags[0][2:4] + '-' + tags[1][2:4]
+        language_name = tags[0][2:4]
         is_dict = tags[2] == '<dict>'
         filename = 'dict.{}'.format(language_name) if is_dict else language_name
 
