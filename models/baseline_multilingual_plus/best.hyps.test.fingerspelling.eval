@@ -1,0 +1,894 @@
+line 1
+[]
+[]
+line 2
+['Abraham', 'Abimelech']
+['Abraham', 'Abimelech']
+line 3
+['Jesus', 'Christ']
+['Jesus', 'Christ']
+line 4
+[]
+[]
+line 5
+[]
+[]
+line 6
+['Christ']
+['Christ']
+line 7
+['Paul', 'Barnabas', 'Antioch', 'Pisidia']
+['Paul', 'Barnabas', 'Barnabas', 'Antioch', 'Pisidia']
+1.0
+(base) ➜  signwriting-translation git:(fingerspelling) ✗ python ./scripts/evaluate_fingerspelling.py ./models/baseline_multilingual_plus/best.hyps.test.en-us ./data/test.en-us
+line 1
+[]
+[]
+line 2
+['Abraham', 'Abimelech']
+['Abraham', 'Abimelech']
+line 3
+['Jesus', 'Christ']
+['Jesus', 'Christ']
+line 4
+[]
+[]
+line 5
+[]
+[]
+line 6
+['Christ']
+['Christ']
+line 7
+['Paul', 'Barnabas', 'Antioch', 'Pisidia']
+['Paul', 'Barnabas', 'Barnabas', 'Antioch', 'Pisidia']
+line 8
+[]
+[]
+line 9
+['ASL', 'Facial', 'Adverbs']
+['ASL', 'Facial', 'Adverbs']
+line 10
+[]
+[]
+line 11
+[]
+[]
+line 12
+[]
+[]
+line 13
+[]
+[]
+line 14
+['Jesus', 'Christ', 'Silas', 'Timothy']
+['Jesus', 'Christ', 'Timothy']
+line 15
+[]
+['Ephraim']
+line 16
+[]
+[]
+line 17
+[]
+[]
+line 18
+['Jesus', 'Bethsaida']
+['Jesus']
+line 19
+[]
+[]
+line 20
+[]
+[]
+line 21
+[]
+[]
+line 22
+[]
+[]
+line 23
+['Judea']
+['Judea']
+line 24
+[]
+[]
+line 25
+[]
+[]
+line 26
+[]
+[]
+line 27
+['Kingdom', 'of', 'God']
+['Kingdom', 'of', 'God']
+line 28
+['Jesus']
+['Jesus']
+line 29
+['Jason', 'Paul', 'Silas']
+['Jason', 'Paul', 'Silas']
+line 30
+['Holy', 'Spirit', 'David']
+['David']
+line 31
+[]
+[]
+line 32
+[]
+['Philip']
+line 33
+[]
+[]
+line 34
+[]
+[]
+line 35
+['Jesus']
+['Jesus']
+line 36
+[]
+[]
+line 37
+[]
+[]
+line 38
+['Goldilocks']
+['Goldilocks']
+line 39
+['Noah', 'Shem', 'Japheth', 'Ham', 'Canaan']
+['Noah', 'Shem', 'Japheth', 'Canaan']
+line 40
+[]
+[]
+line 41
+['Zechariah']
+['Zechariah']
+line 42
+['Adam']
+['Adam', 'Esther']
+line 43
+[]
+[]
+line 44
+[]
+[]
+line 45
+['Agrippa']
+['Agrippa']
+line 46
+['Paul']
+['Paul']
+line 47
+[]
+[]
+line 48
+['Daniel']
+['Daniel']
+line 49
+[]
+[]
+line 50
+[]
+[]
+line 51
+['Jesus']
+['Jesus']
+line 52
+[]
+['Hympympy']
+line 53
+['Jesus']
+['Jesus']
+line 54
+[]
+[]
+line 55
+['Jesus', 'Christ']
+['Jesus', 'Christ']
+line 56
+['England', 'Darline', 'Clark']
+['Jesus', 'Darcalilee']
+line 57
+['Daniel']
+['Boaz', 'Daniel']
+line 58
+[]
+[]
+line 59
+[]
+[]
+line 60
+[]
+[]
+line 61
+['Jesus']
+['Jesus']
+line 62
+[]
+[]
+line 63
+[]
+[]
+line 64
+['LORD']
+[]
+line 65
+[]
+[]
+line 66
+[]
+[]
+line 67
+['Jesus']
+['Jesus']
+line 68
+[]
+[]
+line 69
+[]
+[]
+line 70
+[]
+[]
+line 71
+['Jesus', 'Magadan']
+['Jesus']
+line 72
+[]
+[]
+line 73
+['Hashabiah', 'Sherebiah', 'Jeshua', 'Binnui', 'Kadmiel']
+['Levites', 'Hashabiah', 'Jeshua', 'Binnuth', 'Kadmiel']
+line 74
+['Christ']
+['Christ']
+line 75
+['Christ']
+['Christ']
+line 76
+[]
+[]
+line 77
+[]
+[]
+line 78
+['Susa']
+['Susa']
+line 79
+[]
+[]
+line 80
+[]
+[]
+line 81
+['Abram']
+['LORD', 'Abram']
+line 82
+['Christ', 'Eve']
+[]
+line 83
+['Jesus', 'John']
+['Jesus', 'John']
+line 84
+[]
+[]
+line 85
+[]
+[]
+line 86
+['Siddim']
+['Sidim']
+line 87
+[]
+[]
+line 88
+['Daniel']
+['Daniel']
+line 89
+[]
+[]
+line 90
+[]
+[]
+line 91
+[]
+[]
+line 92
+['Damascus', 'Gilead']
+['Gilades']
+line 93
+[]
+[]
+line 94
+[]
+[]
+line 95
+[]
+[]
+line 96
+[]
+['Goldilocks']
+line 97
+['Jesus']
+['Jesus']
+line 98
+[]
+[]
+line 99
+[]
+[]
+line 100
+['Jesus']
+['Jesus']
+line 101
+[]
+[]
+line 102
+['Abraham', 'Abraham']
+['Abraham', 'Abraham']
+line 103
+['Jesus', 'Jerusalem']
+['Jesus', 'Jerusalem']
+line 104
+[]
+[]
+line 105
+['Susa']
+[]
+line 106
+[]
+[]
+line 107
+[]
+[]
+line 108
+[]
+[]
+line 109
+[]
+[]
+line 110
+[]
+[]
+line 111
+[]
+[]
+line 112
+[]
+[]
+line 113
+[]
+[]
+line 114
+[]
+[]
+line 115
+['Nebuchadnezzar', 'Babylon']
+['Nebuchadnezzar', 'Nebuchadnezzar', 'Babylon']
+line 116
+[]
+[]
+line 117
+[]
+[]
+line 118
+[]
+[]
+line 119
+[]
+[]
+line 120
+['Jesus']
+['Jesus']
+line 121
+[]
+[]
+line 122
+['Philistine']
+['Israel']
+line 123
+[]
+[]
+line 124
+[]
+[]
+line 125
+[]
+[]
+line 126
+[]
+[]
+line 127
+[]
+[]
+line 128
+['Pharaoh']
+['Pharaoh']
+line 129
+[]
+[]
+line 130
+[]
+[]
+line 131
+[]
+[]
+line 132
+[]
+[]
+line 133
+['Christ', 'Jesus']
+['Jesus']
+line 134
+[]
+['Galilee']
+line 135
+[]
+[]
+line 136
+['Jerusalem', 'Son', 'of', 'Man']
+['Jerusalem']
+line 137
+[]
+[]
+line 138
+[]
+[]
+line 139
+[]
+[]
+line 140
+[]
+[]
+line 141
+[]
+[]
+line 142
+['Jacob', 'Joseph', 'Mary', 'Mary', 'Jesus']
+['Jacob', 'Joseph', 'Mary', 'Jesus']
+line 143
+[]
+['Egypt']
+line 144
+['Noah']
+['Noah']
+line 145
+[]
+[]
+line 146
+[]
+[]
+line 147
+['Peter', 'Jesus']
+['Peter', 'Jesus', 'Galilee']
+line 148
+['Levi', 'Israel', 'Israel', 'Levi']
+['Israel', 'Levi']
+line 149
+['Jesus']
+['Jesus']
+line 150
+['Ephraim', 'Israel']
+['Israel']
+line 151
+['Abraham']
+[]
+line 152
+['Saul']
+['Saul']
+line 153
+[]
+[]
+line 154
+['India', 'Ethiopia']
+['Egypt', 'Ethiopia', 'Ethiopia']
+line 155
+[]
+['Israel']
+line 156
+['Shallum', 'Ater', 'Talmon', 'Akkub', 'Hatita', 'Shobai']
+['Shelum', 'Termon', 'Talkub', 'Hatti', 'Shobiah']
+line 157
+[]
+[]
+line 158
+[]
+[]
+line 159
+['Samuel', 'Samuel', 'Samuel']
+['Samuel']
+line 160
+[]
+[]
+line 161
+[]
+[]
+line 162
+[]
+[]
+line 163
+[]
+[]
+line 164
+['Jesus']
+['Jesus']
+line 165
+[]
+[]
+line 166
+[]
+[]
+line 167
+['Israel']
+['Israel', 'Israel']
+line 168
+[]
+[]
+line 169
+['Jesus']
+['Jesus']
+line 170
+[]
+['Valerie', 'Valerie', 'V']
+line 171
+['Mordecai', 'Bigthana']
+['Mordecai', 'Bigthan', 'Teresha']
+line 172
+['Christ']
+['Christ']
+line 173
+['Jerusalem']
+['Jerusalem']
+line 174
+[]
+[]
+line 175
+[]
+[]
+line 176
+['Laodicea', 'Nympha']
+['Laodicea', 'Nympha']
+line 177
+[]
+[]
+line 178
+['Jesus']
+['Jesus']
+line 179
+['Jawbone', 'Hill']
+['Jalvon']
+line 180
+['Darius']
+['Stephen', 'Darius']
+line 181
+[]
+[]
+line 182
+[]
+[]
+line 183
+[]
+[]
+line 184
+[]
+[]
+line 185
+[]
+[]
+line 186
+[]
+[]
+line 187
+[]
+[]
+line 188
+['Sarai', 'Abram', 'Abram', 'Sarai']
+['Sarai', 'Abram', 'Abram', 'Sarim']
+line 189
+['Saul', 'Jerusalem']
+['Saul', 'Jerusalem']
+line 190
+['Adam']
+['Adam']
+line 191
+[]
+[]
+line 192
+[]
+[]
+line 193
+[]
+[]
+line 194
+['Zechariah', 'Shemaiah', 'Azarel', 'Milalai', 'Gilalai', 'Maai', 'Nethanel', 'Judah', 'Hanani']
+['Zechariah', 'Shemaiah', 'Azramael', 'Milgalai', 'Mattaliah', 'Netaniah', 'Hanananiah']
+line 195
+[]
+[]
+line 196
+[]
+[]
+line 197
+['Jesus']
+['Jesus']
+line 198
+['Noah']
+['Noah']
+line 199
+[]
+[]
+line 200
+[]
+[]
+line 201
+[]
+[]
+line 202
+['Jairus', 'Jesus']
+['Jesus', 'Jairus', 'Jesus']
+line 203
+['John']
+['John']
+line 204
+['Christ', 'Jesus']
+['Christ', 'Jesus']
+line 205
+['Jesus']
+['Jesus']
+line 206
+[]
+[]
+line 207
+[]
+[]
+line 208
+[]
+[]
+line 209
+['Samson', 'Philistines']
+['Samson', 'Philistines']
+line 210
+[]
+[]
+line 211
+[]
+[]
+line 212
+['Elimelech', 'Naomi', 'Mahlon']
+['Elimelech', 'Naomi', 'Mahlon', 'Kilon']
+line 213
+[]
+[]
+line 214
+[]
+[]
+line 215
+['Jesus']
+['Jesus']
+line 216
+['Jesus']
+['Jesus']
+line 217
+[]
+[]
+line 218
+['Jesus']
+['Jesus']
+line 219
+[]
+[]
+line 220
+[]
+[]
+line 221
+['Hosea', 'Gomer', 'Diblaim', 'Hosea']
+['Gomer']
+line 222
+[]
+['Temple']
+line 223
+['Jerusalem']
+['Jerusalem', 'Jesus']
+line 224
+['Paul', 'Christ', 'Jesus']
+['Paul', 'Christ', 'Jesus']
+line 225
+['John']
+['John']
+line 226
+[]
+[]
+line 227
+['Bethany', 'Jerusalem']
+['Bethany']
+line 228
+[]
+[]
+line 229
+[]
+[]
+line 230
+[]
+[]
+line 231
+[]
+['Jesus']
+line 232
+['United', 'States', 'National', 'Association', 'US', 'Deaf']
+['Ducated']
+line 233
+[]
+[]
+line 234
+[]
+[]
+line 235
+[]
+[]
+line 236
+[]
+[]
+line 237
+['Greece']
+[]
+line 238
+['Jesus', 'Melchizedek']
+['Jesus', 'Melchizedek']
+line 239
+[]
+[]
+line 240
+['Mary']
+['Manoah']
+line 241
+['Jesus']
+['Jesus']
+line 242
+[]
+[]
+line 243
+[]
+[]
+line 244
+['Herod', 'Blastus', 'Herod']
+['Herod', 'Herod']
+line 245
+['Haman']
+['Haman']
+line 246
+[]
+[]
+line 247
+['Jason', 'Caesar', 'Jesus']
+['Jonas', 'Teresarea', 'Caesar', 'Jesus']
+line 248
+['Jesus']
+['Jesus']
+line 249
+[]
+[]
+line 250
+['Peter']
+['Peter']
+line 251
+['Shephatiah']
+['Shephatiah']
+line 252
+[]
+[]
+line 253
+[]
+[]
+line 254
+['John', 'the', 'Baptist', 'Kingdom', 'of', 'God']
+['John', 'the', 'Baptist', 'Kingdom', 'of', 'God', 'Kingdom']
+line 255
+['Simon', 'Peter']
+['Simon', 'Peter']
+line 256
+[]
+[]
+line 257
+[]
+[]
+line 258
+[]
+[]
+line 259
+[]
+[]
+line 260
+[]
+[]
+line 261
+[]
+[]
+line 262
+['Daniel']
+[]
+line 263
+['Christ']
+['Christ']
+line 264
+[]
+['Jesus']
+line 265
+[]
+[]
+line 266
+[]
+[]
+line 267
+[]
+[]
+line 268
+[]
+[]
+line 269
+['Jerusalem']
+['Jerusalem']
+line 270
+[]
+[]
+line 271
+[]
+[]
+line 272
+['Mica', 'Rehob', 'Hashabiah']
+['Rehobam', 'Hasshaiah']
+line 273
+[]
+[]
+line 274
+[]
+[]
+line 275
+[]
+[]
+line 276
+[]
+[]
+line 277
+[]
+[]
+line 278
+['Jesus']
+['Jesus']
+line 279
+[]
+[]
+line 280
+[]
+[]
+line 281
+[]
+[]
+line 282
+['Gibeah']
+['Gibeah']
+line 283
+[]
+[]
+line 284
+[]
+[]
+line 285
+['Jesus', 'Christ']
+['Jesus', 'Christ']
+line 286
+[]
+[]
+line 287
+['Haggai']
+['Haggai']
+line 288
+[]
+['Pereth', 'Terbeth']
+line 289
+[]
+[]
+line 290
+['Israel', 'Edom']
+['Israel']
+0.7162790697674418
