@@ -25,6 +25,7 @@ def parse(raw):
     feat_y = []
     feat_x_rel = []
     feat_y_rel = []
+    sign_reverse = []
 
     for token in raw.split(' '):
         if len(token) > 0:
@@ -43,7 +44,7 @@ def parse(raw):
                 if startingIndex != MAX:
                     token = token[startingIndex:]
 
-            # if not punctuation, add the box information
+            # if not punctuation (without box marker), add the box marker
             if not token.startswith('S'):
                 sign.append(token[0])
                 sign_plus.append(token[0])
@@ -53,6 +54,10 @@ def parse(raw):
                 feat_y.append(token[5:8])
                 feat_x_rel.append('-1')
                 feat_y_rel.append('-1')
+                sign_reverse.append(token[0])
+                sign_reverse.append(token[1:4])
+                sign_reverse.append('x')
+                sign_reverse.append(token[5:8])
             else:
                 sign.append('P')
                 sign_plus.append('P')
@@ -62,6 +67,7 @@ def parse(raw):
                 feat_y.append('-1')
                 feat_x_rel.append('-1')
                 feat_y_rel.append('-1')
+                sign_reverse.append('P')
 
             # find all symbols
             # how to factorize a symbol: see https://slevinski.github.io/SuttonSignWriting/characters/symbols.html#?ui=spoken&set=fsw&sym=S100
@@ -89,8 +95,12 @@ def parse(raw):
                 feat_y.append(s['y'])
                 feat_x_rel.append(str(x_sorted.index(int(s['x']))))
                 feat_y_rel.append(str(y_sorted.index(int(s['y']))))
+                sign_reverse.append(s['sign'])
+                sign_reverse.append(s['x'])
+                sign_reverse.append('x')
+                sign_reverse.append(s['y'])
 
-    return ' '.join(sign), ' '.join(sign_plus), ' '.join(feat_col), ' '.join(feat_row), ' '.join(feat_x), ' '.join(feat_y), ' '.join(feat_x_rel), ' '.join(feat_y_rel)
+    return ' '.join(sign), ' '.join(sign_plus), ' '.join(feat_col), ' '.join(feat_row), ' '.join(feat_x), ' '.join(feat_y), ' '.join(feat_x_rel), ' '.join(feat_y_rel), ' '.join(sign_reverse)
 
 signbank = tfds.load(name='sign_bank')['train']
 data_list = []
@@ -142,14 +152,17 @@ for index, row in enumerate(signbank):
     if not spoken or spoken.startswith('<iframe'):
         continue
 
+    # escape newline to \n
+    spoken = spoken.replace("\n", "\\n")
+
     # run customized sign parser
     parsed = parse(sign_sentence)
     if not parsed:
         continue
 
-    sign, sign_plus, feat_col, feat_row, feat_x, feat_y, feat_x_rel, feat_y_rel = parsed
+    sign, sign_plus, feat_col, feat_row, feat_x, feat_y, feat_x_rel, feat_y_rel, sign_reverse = parsed
 
-    # add language, country, dict tag
+    # add language, country, dict tag on source side
     tags = '<2{}> <4{}> <{}> '.format(assumed_spoken_language_code, country_code, 'dict' if is_dict else 'sent')
     sign = tags + sign
     sign_plus = tags + sign_plus
@@ -160,9 +173,11 @@ for index, row in enumerate(signbank):
     feat_y = tags_feat + feat_y
     feat_x_rel = tags_feat + feat_x_rel
     feat_y_rel = tags_feat + feat_y_rel
+    spoken_reverse = tags + spoken
 
     data_list.append({
-        'spoken': spoken.replace("\n", "\\n"), # escape newline to \n
+        # sign2spoken
+        'spoken': spoken, 
         'sign': sign,
         'sign+': sign_plus,
         'feat_col': feat_col,
@@ -171,6 +186,9 @@ for index, row in enumerate(signbank):
         'feat_y': feat_y,  
         'feat_x_rel': feat_x_rel,
         'feat_y_rel': feat_y_rel,  
+        # spoken2sign
+        'spoken_reverse': spoken_reverse,
+        'sign_reverse': sign_reverse,
     })
 
     print(index)
@@ -252,3 +270,24 @@ open('./data/test.feat_y_rel', 'w+') as f_feat_y_rel:
         f_feat_y.write("%s\n" % item['feat_y'])
         f_feat_x_rel.write("%s\n" % item['feat_x_rel'])
         f_feat_y_rel.write("%s\n" % item['feat_y_rel'])
+
+with \
+open('./data_reverse/train.sign', 'w+') as f_sign, \
+open('./data_reverse/train.spoken', 'w+') as f_spoken:
+    for item in train:
+        f_sign.write("%s\n" % item['sign_reverse'])
+        f_spoken.write("%s\n" % item['spoken_reverse'])
+                    
+with \
+open('./data_reverse/dev.sign', 'w+') as f_sign, \
+open('./data_reverse/dev.spoken', 'w+') as f_spoken:
+    for item in dev:
+        f_sign.write("%s\n" % item['sign_reverse'])
+        f_spoken.write("%s\n" % item['spoken_reverse'])
+
+with \
+open('./data_reverse/test.sign', 'w+') as f_sign, \
+open('./data_reverse/test.spoken', 'w+') as f_spoken:
+    for item in test:
+        f_sign.write("%s\n" % item['sign_reverse'])
+        f_spoken.write("%s\n" % item['spoken_reverse'])

@@ -6,8 +6,6 @@ base=$scripts/..
 data=$base/data
 tools=$base/tools
 
-# mkdir -p $base/model
-
 src=sign
 trg=spoken
 
