@@ -197,6 +197,8 @@ for index, row in enumerate(signbank):
 
 random.shuffle(data_list)
 
+# sign2spoken
+
 total_size = len(data_list)
 train_size = math.floor(total_size*0.95)
 dev_size = math.floor(total_size*0.03)
@@ -270,6 +272,18 @@ open('./data/test.feat_y_rel', 'w+') as f_feat_y_rel:
         f_feat_y.write("%s\n" % item['feat_y'])
         f_feat_x_rel.write("%s\n" % item['feat_x_rel'])
         f_feat_y_rel.write("%s\n" % item['feat_y_rel'])
+
+# spoken2sign
+
+train_size = math.floor(total_size*0.98)
+dev_size = math.floor(total_size*0.01)
+test_size = total_size - train_size - dev_size
+
+dev = data_list[:dev_size]
+test = data_list[dev_size:test_size + dev_size]
+train = data_list[test_size + dev_size:]
+
+random.shuffle(train)
 
 with \
 open('./data_reverse/train.sign', 'w+') as f_sign, \
