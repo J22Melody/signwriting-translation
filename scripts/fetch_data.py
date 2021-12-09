@@ -189,6 +189,7 @@ for index, row in enumerate(signbank):
         # spoken2sign
         'spoken_reverse': spoken_reverse,
         'sign_reverse': sign_reverse,
+        'symbol_reverse': ' '.join([token for token in sign_reverse.split(' ') if not token.isnumeric() and token != 'x']),
     })
 
     print(index)
@@ -287,21 +288,27 @@ random.shuffle(train)
 
 with \
 open('./data_reverse/train.sign', 'w+') as f_sign, \
+open('./data_reverse/train.symbol', 'w+') as f_symbol, \
 open('./data_reverse/train.spoken', 'w+') as f_spoken:
     for item in train:
         f_sign.write("%s\n" % item['sign_reverse'])
+        f_symbol.write("%s\n" % item['symbol_reverse'])
         f_spoken.write("%s\n" % item['spoken_reverse'])
                     
 with \
 open('./data_reverse/dev.sign', 'w+') as f_sign, \
+open('./data_reverse/dev.symbol', 'w+') as f_symbol, \
 open('./data_reverse/dev.spoken', 'w+') as f_spoken:
     for item in dev:
         f_sign.write("%s\n" % item['sign_reverse'])
+        f_symbol.write("%s\n" % item['symbol_reverse'])
         f_spoken.write("%s\n" % item['spoken_reverse'])
 
 with \
 open('./data_reverse/test.sign', 'w+') as f_sign, \
+open('./data_reverse/test.symbol', 'w+') as f_symbol, \
 open('./data_reverse/test.spoken', 'w+') as f_spoken:
     for item in test:
         f_sign.write("%s\n" % item['sign_reverse'])
+        f_symbol.write("%s\n" % item['symbol_reverse'])
         f_spoken.write("%s\n" % item['spoken_reverse'])

@@ -18,13 +18,16 @@ test_out=$model/best.hyps.test
 # python -m joeynmt translate $configs/$model_name.yaml --ckpt $model/best.ckpt \
 # < $data/test.$src > $test_out
 
-# split languages and parts
-python ./scripts/split_data_reverse.py $model_name
+# evaluate altogether
+cat $test_out | sacrebleu $data/test.$trg -m bleu chrf --chrf-word-order 2 > $test_out.eval
 
-# evaluate symbols
-for language in en pt dict.en dict.de dict.fr dict.pt; do
-    cat $test_out.$language.sym.$trg | sacrebleu $data/test.$language.sym.$trg -m bleu chrf --chrf-word-order 2 > $test_out.$language.sym.eval
-done
+# # split languages and parts
+# python ./scripts/split_data_reverse.py $model_name
+
+# # evaluate symbols
+# for language in en pt dict.en dict.de dict.fr dict.pt; do
+#     cat $test_out.$language.sym.$trg | sacrebleu $data/test.$language.sym.$trg -m bleu chrf --chrf-word-order 2 > $test_out.$language.sym.eval
+# done
 
 # evaluate numbers
 
