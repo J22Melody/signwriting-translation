@@ -33,13 +33,13 @@ training:
     label_smoothing: 0.2
     batch_size: 4096
     batch_type: "token"
-    eval_batch_size: 2048
+    eval_batch_size: 4096
     eval_batch_type: "token"
     batch_multiplier: 1
     early_stopping_metric: "eval_metric"
     epochs: 200
-    validation_freq: 3600
-    logging_freq: 360
+    validation_freq: 25000
+    logging_freq: 1000
     eval_metric: "bleu"
     overwrite: True
     shuffle: True
