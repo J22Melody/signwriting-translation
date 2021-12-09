@@ -38,8 +38,8 @@ training:
     batch_multiplier: 1
     early_stopping_metric: "eval_metric"
     epochs: 200
-    validation_freq: 25000
-    logging_freq: 1000
+    validation_freq: 5000
+    logging_freq: 500
     eval_metric: "bleu"
     overwrite: True
     shuffle: True
