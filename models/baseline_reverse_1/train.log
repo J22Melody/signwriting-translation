@@ -1615,3 +1615,9 @@
 2021-12-12 13:23:38,697 - INFO - joeynmt.training - EPOCH 67
 2021-12-12 13:24:50,627 - INFO - joeynmt.training - Epoch  67, Step:   576000, Batch Loss:     1.027863, Tokens per Sec:     6953, Lr: 0.000100
 2021-12-12 13:26:45,596 - INFO - joeynmt.training - Epoch  67, Step:   577000, Batch Loss:     1.748984, Tokens per Sec:     6828, Lr: 0.000100
+2021-12-12 13:28:40,940 - INFO - joeynmt.training - Epoch  67, Step:   578000, Batch Loss:     1.786922, Tokens per Sec:     6864, Lr: 0.000100
+2021-12-12 13:30:35,310 - INFO - joeynmt.training - Epoch  67, Step:   579000, Batch Loss:     1.625716, Tokens per Sec:     6866, Lr: 0.000100
+2021-12-12 13:32:30,484 - INFO - joeynmt.training - Epoch  67, Step:   580000, Batch Loss:     1.401378, Tokens per Sec:     6906, Lr: 0.000100
+2021-12-12 13:34:27,539 - INFO - joeynmt.training - Epoch  67, Step:   581000, Batch Loss:     0.881889, Tokens per Sec:     6785, Lr: 0.000100
+2021-12-12 13:36:25,019 - INFO - joeynmt.training - Epoch  67, Step:   582000, Batch Loss:     1.753969, Tokens per Sec:     6762, Lr: 0.000100
+2021-12-12 13:38:23,060 - INFO - joeynmt.training - Epoch  67, Step:   583000, Batch Loss:     1.495170, Tokens per Sec:     6727, Lr: 0.000100
