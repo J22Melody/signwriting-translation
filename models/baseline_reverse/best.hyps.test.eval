@@ -3,7 +3,7 @@
  "name": "BLEU",
  "score": 8.8,
  "signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.0.0",
- "verbose_score": "41.1/15.1/8.6/6.2 (BP = 0.651 ratio = 0.700 hyp_len = 72922 ref_len = 104246)",
+ "verbose_score": "40.9/15.1/8.6/6.2 (BP = 0.652 ratio = 0.701 hyp_len = 73047 ref_len = 104246)",
  "nrefs": "1",
  "case": "mixed",
  "eff": "no",

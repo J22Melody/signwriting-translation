@@ -32,6 +32,9 @@ source = 'spoken'
 target = 'sign'
 model_name = sys.argv[1]
 
+file_all_num = open('./models/{}/best.hyps.test.num.sign'.format(model_name), 'w+')
+file_all_sym = open('./models/{}/best.hyps.test.sym.sign'.format(model_name), 'w+')
+
 sent_languages = ['en', 'pt']
 dict_languages = ['dict.fr', 'dict.de', 'dict.en', 'dict.pt']
 languages = sent_languages + dict_languages
@@ -67,10 +70,14 @@ with open('./data_reverse/test.{}'.format(source)) as source_file, \
         # write hyps samples
         line = hyps_lines[index]
         numbers, symbols = parse(line)
+        file_all_num.write("%s\n" % numbers)
+        file_all_sym.write("%s\n" % symbols)
         filedata_hyps[filename].write("%s\n" % line)
         filedata_hyps_num[filename].write("%s\n" % numbers)
         filedata_hyps_sym[filename].write("%s\n" % symbols)
 
+file_all_num.close()
+file_all_sym.close()
 for file in filedata.values():
     file.close()
 for file in filedata_hyps.values():
