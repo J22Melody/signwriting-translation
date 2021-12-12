@@ -14,7 +14,7 @@ data:
     max_sent_length: 512
 
 testing:
-    beam_size: 5
+    beam_size: 3
     alpha: 1.0
     postprocess: False
 

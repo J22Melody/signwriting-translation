@@ -14,7 +14,7 @@ data:
     max_sent_length: 200
 
 testing:
-    beam_size: 5
+    beam_size: 3
     alpha: 1.0
     postprocess: False
 
@@ -36,8 +36,8 @@ training:
     eval_batch_size: 4096
     eval_batch_type: "token"
     batch_multiplier: 1
-    early_stopping_metric: "eval_metric"
-    epochs: 200
+    early_stopping_metric: "loss"
+    epochs: 300
     validation_freq: 5000
     logging_freq: 500
     eval_metric: "bleu"
@@ -48,6 +48,7 @@ training:
     print_valid_sents: [0, 1, 2, 3, 6]
     keep_last_ckpts: 1
     model_dir: "models/baseline_reverse_symbol"
+    # load_model: "models/baseline_reverse_symbol_1/latest.ckpt"
 
 model:
     initializer: "xavier"

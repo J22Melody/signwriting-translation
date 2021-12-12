@@ -1,7 +1,7 @@
 # this file is taken from:
 # https://github.com/joeynmt/joeynmt/blob/master/configs/transformer_wmt17_ende.yaml
 
-name: "baseline_reverse_symbol"
+name: "baseline_reverse_symbol_1"
 
 data:
     src: "spm.spoken"
@@ -36,7 +36,7 @@ training:
     eval_batch_size: 4096
     eval_batch_type: "token"
     batch_multiplier: 1
-    early_stopping_metric: "eval_metric"
+    early_stopping_metric: "loss"
     epochs: 200
     validation_freq: 5000
     logging_freq: 500
@@ -47,7 +47,7 @@ training:
     max_output_length: 200
     print_valid_sents: [0, 1, 2, 3, 6]
     keep_last_ckpts: 1
-    model_dir: "models/baseline_reverse_symbol"
+    model_dir: "models/baseline_reverse_symbol_1"
 
 model:
     initializer: "xavier"
