@@ -1105,3 +1105,7 @@
 2021-12-13 19:19:11,222 - INFO - joeynmt.training - 	Reference:  509 514 493 499 491 486
 2021-12-13 19:19:11,222 - INFO - joeynmt.training - 	Hypothesis: 508 521 493 506 493 479
 2021-12-13 19:19:11,222 - INFO - joeynmt.training - Validation result (greedy) at epoch  20, step   110000: token_accuracy:  12.49, loss: 75114.1328, ppl:   7.0818, duration: 162.3499s
+2021-12-13 19:20:13,836 - INFO - joeynmt.training - Epoch  20, Step:   110500, Batch Loss:     1.585938, Tokens per Sec:     5434, Lr: 0.000100
+2021-12-13 19:21:16,841 - INFO - joeynmt.training - Epoch  20, Step:   111000, Batch Loss:     1.909833, Tokens per Sec:     5448, Lr: 0.000100
+2021-12-13 19:22:20,122 - INFO - joeynmt.training - Epoch  20, Step:   111500, Batch Loss:     1.950739, Tokens per Sec:     5379, Lr: 0.000100
+2021-12-13 19:23:23,348 - INFO - joeynmt.training - Epoch  20, Step:   112000, Batch Loss:     1.549240, Tokens per Sec:     5328, Lr: 0.000100
