@@ -40,7 +40,7 @@ training:
     epochs: 300
     validation_freq: 10000
     logging_freq: 1000
-    eval_metric: ["bleu", "chrf"]
+    eval_metric: "bleu"
     overwrite: True
     shuffle: True
     use_cuda: True
