@@ -1,0 +1,87 @@
+Steps: 5000	Loss: 5538.12744	PPL: 1.15526	token_accuracy: 0.00000	LR: 0.00010000	*
+Steps: 10000	Loss: 438.49158	PPL: 1.01149	token_accuracy: 0.14802	LR: 0.00010000	*
+Steps: 15000	Loss: 426.46637	PPL: 1.01118	token_accuracy: 0.66134	LR: 0.00010000	*
+Steps: 20000	Loss: 420.94370	PPL: 1.01103	token_accuracy: 0.53730	LR: 0.00010000	*
+Steps: 25000	Loss: 418.27771	PPL: 1.01096	token_accuracy: 0.63647	LR: 0.00010000	*
+Steps: 30000	Loss: 415.51456	PPL: 1.01089	token_accuracy: 0.62078	LR: 0.00010000	*
+Steps: 35000	Loss: 413.29071	PPL: 1.01083	token_accuracy: 0.63943	LR: 0.00010000	*
+Steps: 40000	Loss: 410.81726	PPL: 1.01076	token_accuracy: 0.66134	LR: 0.00010000	*
+Steps: 45000	Loss: 381.95935	PPL: 1.01000	token_accuracy: 0.66015	LR: 0.00010000	*
+Steps: 50000	Loss: 378.06104	PPL: 1.00990	token_accuracy: 0.66015	LR: 0.00010000	*
+Steps: 55000	Loss: 379.40939	PPL: 1.00994	token_accuracy: 0.65631	LR: 0.00010000	
+Steps: 60000	Loss: 378.91016	PPL: 1.00992	token_accuracy: 0.65927	LR: 0.00010000	
+Steps: 65000	Loss: 377.62540	PPL: 1.00989	token_accuracy: 0.45115	LR: 0.00010000	*
+Steps: 70000	Loss: 376.85373	PPL: 1.00987	token_accuracy: 0.65956	LR: 0.00010000	*
+Steps: 75000	Loss: 377.13837	PPL: 1.00988	token_accuracy: 0.65157	LR: 0.00010000	
+Steps: 80000	Loss: 365.65280	PPL: 1.00957	token_accuracy: 0.65574	LR: 0.00010000	*
+Steps: 85000	Loss: 357.49738	PPL: 1.00936	token_accuracy: 0.66104	LR: 0.00010000	*
+Steps: 90000	Loss: 366.68341	PPL: 1.00960	token_accuracy: 0.66104	LR: 0.00010000	
+Steps: 95000	Loss: 358.36279	PPL: 1.00938	token_accuracy: 0.58525	LR: 0.00010000	
+Steps: 100000	Loss: 355.98593	PPL: 1.00932	token_accuracy: 0.45441	LR: 0.00010000	*
+Steps: 105000	Loss: 351.20453	PPL: 1.00919	token_accuracy: 0.53316	LR: 0.00010000	*
+Steps: 110000	Loss: 354.41571	PPL: 1.00928	token_accuracy: 0.38188	LR: 0.00010000	
+Steps: 115000	Loss: 352.49329	PPL: 1.00923	token_accuracy: 0.65561	LR: 0.00010000	
+Steps: 120000	Loss: 347.89313	PPL: 1.00911	token_accuracy: 0.66075	LR: 0.00010000	*
+Steps: 125000	Loss: 342.39142	PPL: 1.00896	token_accuracy: 0.64861	LR: 0.00010000	*
+Steps: 130000	Loss: 339.45871	PPL: 1.00889	token_accuracy: 0.48816	LR: 0.00010000	*
+Steps: 135000	Loss: 343.07327	PPL: 1.00898	token_accuracy: 0.63440	LR: 0.00010000	
+Steps: 140000	Loss: 343.40891	PPL: 1.00899	token_accuracy: 0.57046	LR: 0.00010000	
+Steps: 145000	Loss: 335.92111	PPL: 1.00879	token_accuracy: 0.60036	LR: 0.00010000	*
+Steps: 150000	Loss: 332.19232	PPL: 1.00869	token_accuracy: 0.62404	LR: 0.00010000	*
+Steps: 155000	Loss: 330.76682	PPL: 1.00866	token_accuracy: 0.41534	LR: 0.00010000	*
+Steps: 160000	Loss: 337.85858	PPL: 1.00884	token_accuracy: 0.41415	LR: 0.00010000	
+Steps: 165000	Loss: 326.30505	PPL: 1.00854	token_accuracy: 0.63736	LR: 0.00010000	*
+Steps: 170000	Loss: 328.42749	PPL: 1.00860	token_accuracy: 0.39432	LR: 0.00010000	
+Steps: 175000	Loss: 329.01120	PPL: 1.00861	token_accuracy: 0.38011	LR: 0.00010000	
+Steps: 180000	Loss: 329.05832	PPL: 1.00861	token_accuracy: 0.39080	LR: 0.00010000	
+Steps: 185000	Loss: 333.58307	PPL: 1.00873	token_accuracy: 0.44560	LR: 0.00010000	
+Steps: 190000	Loss: 330.11456	PPL: 1.00864	token_accuracy: 0.58858	LR: 0.00010000	
+Steps: 195000	Loss: 326.76172	PPL: 1.00855	token_accuracy: 0.46932	LR: 0.00007000	
+Steps: 200000	Loss: 322.53687	PPL: 1.00844	token_accuracy: 0.46373	LR: 0.00007000	*
+Steps: 205000	Loss: 324.26404	PPL: 1.00849	token_accuracy: 0.51198	LR: 0.00007000	
+Steps: 210000	Loss: 321.20789	PPL: 1.00841	token_accuracy: 0.44560	LR: 0.00007000	*
+Steps: 215000	Loss: 320.59549	PPL: 1.00839	token_accuracy: 0.38584	LR: 0.00007000	*
+Steps: 220000	Loss: 321.49408	PPL: 1.00841	token_accuracy: 0.38041	LR: 0.00007000	
+Steps: 225000	Loss: 318.59695	PPL: 1.00834	token_accuracy: 0.63636	LR: 0.00007000	*
+Steps: 230000	Loss: 318.20401	PPL: 1.00833	token_accuracy: 0.51608	LR: 0.00007000	*
+Steps: 235000	Loss: 317.95044	PPL: 1.00832	token_accuracy: 0.63608	LR: 0.00007000	*
+Steps: 240000	Loss: 318.80237	PPL: 1.00834	token_accuracy: 0.56884	LR: 0.00007000	
+Steps: 245000	Loss: 315.71408	PPL: 1.00826	token_accuracy: 0.36091	LR: 0.00007000	*
+Steps: 250000	Loss: 314.07336	PPL: 1.00822	token_accuracy: 0.37326	LR: 0.00007000	*
+Steps: 255000	Loss: 312.20355	PPL: 1.00817	token_accuracy: 0.38855	LR: 0.00007000	*
+Steps: 260000	Loss: 316.65369	PPL: 1.00829	token_accuracy: 0.39480	LR: 0.00007000	
+Steps: 265000	Loss: 313.26419	PPL: 1.00820	token_accuracy: 0.39666	LR: 0.00007000	
+Steps: 270000	Loss: 312.99023	PPL: 1.00819	token_accuracy: 0.58700	LR: 0.00007000	
+Steps: 275000	Loss: 315.86203	PPL: 1.00827	token_accuracy: 0.38571	LR: 0.00007000	
+Steps: 280000	Loss: 310.78903	PPL: 1.00813	token_accuracy: 0.38372	LR: 0.00007000	*
+Steps: 285000	Loss: 314.01993	PPL: 1.00822	token_accuracy: 0.61725	LR: 0.00007000	
+Steps: 290000	Loss: 310.79770	PPL: 1.00813	token_accuracy: 0.61343	LR: 0.00007000	
+Steps: 295000	Loss: 308.30722	PPL: 1.00807	token_accuracy: 0.48672	LR: 0.00007000	*
+Steps: 300000	Loss: 306.75504	PPL: 1.00803	token_accuracy: 0.39506	LR: 0.00007000	*
+Steps: 305000	Loss: 307.02191	PPL: 1.00803	token_accuracy: 0.37899	LR: 0.00007000	
+Steps: 310000	Loss: 305.16061	PPL: 1.00798	token_accuracy: 0.40359	LR: 0.00007000	*
+Steps: 315000	Loss: 303.70898	PPL: 1.00795	token_accuracy: 0.39666	LR: 0.00007000	*
+Steps: 320000	Loss: 302.20721	PPL: 1.00791	token_accuracy: 0.38593	LR: 0.00007000	*
+Steps: 325000	Loss: 301.95450	PPL: 1.00790	token_accuracy: 0.63681	LR: 0.00007000	*
+Steps: 330000	Loss: 301.17850	PPL: 1.00788	token_accuracy: 0.56092	LR: 0.00007000	*
+Steps: 335000	Loss: 300.83286	PPL: 1.00787	token_accuracy: 0.37770	LR: 0.00007000	*
+Steps: 340000	Loss: 300.53906	PPL: 1.00786	token_accuracy: 0.60716	LR: 0.00007000	*
+Steps: 345000	Loss: 300.59573	PPL: 1.00786	token_accuracy: 0.38215	LR: 0.00007000	
+Steps: 350000	Loss: 298.13876	PPL: 1.00780	token_accuracy: 0.37978	LR: 0.00007000	*
+Steps: 355000	Loss: 298.58438	PPL: 1.00781	token_accuracy: 0.35250	LR: 0.00007000	
+Steps: 360000	Loss: 297.97638	PPL: 1.00780	token_accuracy: 0.35961	LR: 0.00007000	*
+Steps: 365000	Loss: 296.67630	PPL: 1.00776	token_accuracy: 0.38274	LR: 0.00007000	*
+Steps: 370000	Loss: 296.18893	PPL: 1.00775	token_accuracy: 0.39163	LR: 0.00007000	*
+Steps: 375000	Loss: 296.54926	PPL: 1.00776	token_accuracy: 0.37148	LR: 0.00007000	
+Steps: 380000	Loss: 296.45679	PPL: 1.00776	token_accuracy: 0.36437	LR: 0.00007000	
+Steps: 385000	Loss: 295.64490	PPL: 1.00773	token_accuracy: 0.35791	LR: 0.00007000	*
+Steps: 390000	Loss: 296.02353	PPL: 1.00774	token_accuracy: 0.36614	LR: 0.00007000	
+Steps: 395000	Loss: 296.19223	PPL: 1.00775	token_accuracy: 0.37541	LR: 0.00007000	
+Steps: 400000	Loss: 295.93863	PPL: 1.00774	token_accuracy: 0.38096	LR: 0.00007000	
+Steps: 405000	Loss: 295.93414	PPL: 1.00774	token_accuracy: 0.36911	LR: 0.00007000	
+Steps: 410000	Loss: 296.30072	PPL: 1.00775	token_accuracy: 0.37002	LR: 0.00007000	
+Steps: 415000	Loss: 296.92374	PPL: 1.00777	token_accuracy: 0.39788	LR: 0.00004900	
+Steps: 420000	Loss: 296.04843	PPL: 1.00775	token_accuracy: 0.39373	LR: 0.00004900	
+Steps: 425000	Loss: 295.52310	PPL: 1.00773	token_accuracy: 0.39017	LR: 0.00004900	*
+Steps: 430000	Loss: 295.24911	PPL: 1.00772	token_accuracy: 0.39395	LR: 0.00004900	*
+Steps: 435000	Loss: 294.67334	PPL: 1.00771	token_accuracy: 0.40606	LR: 0.00004900	*
