@@ -20,8 +20,8 @@ test_out=$model/best.hyps.test
 # python -m joeynmt test $configs/$model_name.yaml --ckpt $model/best.ckpt --output_path $model/best.hyps
 
 # generate number by and additional model
-python -m joeynmt translate $configs/baseline_reverse_number.yaml --ckpt $base/models/baseline_reverse_number/best.ckpt \
-< $test_out > $test_out.number
+# python -m joeynmt translate $configs/baseline_reverse_number.yaml --ckpt $base/models/baseline_reverse_number/best.ckpt \
+# < $test_out > $test_out.number
 
 # evaluate symbol
 # cat $test_out | sacrebleu $data/test.$trg -m bleu chrf --chrf-word-order 2 > $test_out.eval
