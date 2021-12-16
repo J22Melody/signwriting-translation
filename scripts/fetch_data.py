@@ -98,7 +98,7 @@ def parse(raw):
                 sign_reverse.append(s['x'])
                 sign_reverse.append(s['y'])
 
-    return ' '.join(sign), ' '.join(sign_plus), ' '.join(feat_col), ' '.join(feat_row), ' '.join(feat_x), ' '.join(feat_y), ' '.join(feat_x_rel), ' '.join(feat_y_rel), ' '.join(sign_reverse)
+    return raw, ' '.join(sign), ' '.join(sign_plus), ' '.join(feat_col), ' '.join(feat_row), ' '.join(feat_x), ' '.join(feat_y), ' '.join(feat_x_rel), ' '.join(feat_y_rel), ' '.join(sign_reverse)
 
 signbank = tfds.load(name='sign_bank')['train']
 data_list = []
@@ -158,7 +158,7 @@ for index, row in enumerate(signbank):
     if not parsed:
         continue
 
-    sign, sign_plus, feat_col, feat_row, feat_x, feat_y, feat_x_rel, feat_y_rel, sign_reverse = parsed
+    fsw, sign, sign_plus, feat_col, feat_row, feat_x, feat_y, feat_x_rel, feat_y_rel, sign_reverse = parsed
 
     # add language, country, dict tag on source side
     tags = '<2{}> <4{}> <{}> '.format(assumed_spoken_language_code, country_code, 'dict' if is_dict else 'sent')
@@ -174,6 +174,7 @@ for index, row in enumerate(signbank):
     spoken_reverse = tags + spoken
 
     data_list.append({
+        'fsw': fsw,
         # sign2spoken
         'spoken': spoken, 
         'sign': sign,
@@ -289,31 +290,37 @@ with \
 open('./data_reverse/train.sign', 'w+') as f_sign, \
 open('./data_reverse/train.symbol', 'w+') as f_symbol, \
 open('./data_reverse/train.number', 'w+') as f_number, \
+open('./data_reverse/train.fsw', 'w+') as f_fsw, \
 open('./data_reverse/train.spoken', 'w+') as f_spoken:
     for item in train:
         f_sign.write("%s\n" % item['sign_reverse'])
         f_symbol.write("%s\n" % item['symbol_reverse'])
         f_number.write("%s\n" % item['number_reverse'])
+        f_fsw.write("%s\n" % item['fsw'])
         f_spoken.write("%s\n" % item['spoken_reverse'])
                     
 with \
 open('./data_reverse/dev.sign', 'w+') as f_sign, \
 open('./data_reverse/dev.symbol', 'w+') as f_symbol, \
 open('./data_reverse/dev.number', 'w+') as f_number, \
+open('./data_reverse/dev.fsw', 'w+') as f_fsw, \
 open('./data_reverse/dev.spoken', 'w+') as f_spoken:
     for item in dev:
         f_sign.write("%s\n" % item['sign_reverse'])
         f_symbol.write("%s\n" % item['symbol_reverse'])
         f_number.write("%s\n" % item['number_reverse'])
+        f_fsw.write("%s\n" % item['fsw'])
         f_spoken.write("%s\n" % item['spoken_reverse'])
 
 with \
 open('./data_reverse/test.sign', 'w+') as f_sign, \
 open('./data_reverse/test.symbol', 'w+') as f_symbol, \
 open('./data_reverse/test.number', 'w+') as f_number, \
+open('./data_reverse/test.fsw', 'w+') as f_fsw, \
 open('./data_reverse/test.spoken', 'w+') as f_spoken:
     for item in test:
         f_sign.write("%s\n" % item['sign_reverse'])
         f_symbol.write("%s\n" % item['symbol_reverse'])
         f_number.write("%s\n" % item['number_reverse'])
+        f_fsw.write("%s\n" % item['fsw'])
         f_spoken.write("%s\n" % item['spoken_reverse'])
