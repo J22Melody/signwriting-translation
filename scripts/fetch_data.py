@@ -291,12 +291,16 @@ open('./data_reverse/train.sign', 'w+') as f_sign, \
 open('./data_reverse/train.symbol', 'w+') as f_symbol, \
 open('./data_reverse/train.number', 'w+') as f_number, \
 open('./data_reverse/train.fsw', 'w+') as f_fsw, \
+open('./data_reverse/train.feat_x', 'w+') as f_feat_x, \
+open('./data_reverse/train.feat_y', 'w+') as f_feat_y, \
 open('./data_reverse/train.spoken', 'w+') as f_spoken:
     for item in train:
         f_sign.write("%s\n" % item['sign_reverse'])
         f_symbol.write("%s\n" % item['symbol_reverse'])
         f_number.write("%s\n" % item['number_reverse'])
         f_fsw.write("%s\n" % item['fsw'])
+        f_feat_x.write("%s\n" % item['feat_x'])
+        f_feat_y.write("%s\n" % item['feat_y'])
         f_spoken.write("%s\n" % item['spoken_reverse'])
                     
 with \
@@ -304,12 +308,16 @@ open('./data_reverse/dev.sign', 'w+') as f_sign, \
 open('./data_reverse/dev.symbol', 'w+') as f_symbol, \
 open('./data_reverse/dev.number', 'w+') as f_number, \
 open('./data_reverse/dev.fsw', 'w+') as f_fsw, \
+open('./data_reverse/dev.feat_x', 'w+') as f_feat_x, \
+open('./data_reverse/dev.feat_y', 'w+') as f_feat_y, \
 open('./data_reverse/dev.spoken', 'w+') as f_spoken:
     for item in dev:
         f_sign.write("%s\n" % item['sign_reverse'])
         f_symbol.write("%s\n" % item['symbol_reverse'])
         f_number.write("%s\n" % item['number_reverse'])
         f_fsw.write("%s\n" % item['fsw'])
+        f_feat_x.write("%s\n" % item['feat_x'])
+        f_feat_y.write("%s\n" % item['feat_y'])
         f_spoken.write("%s\n" % item['spoken_reverse'])
 
 with \
@@ -317,10 +325,14 @@ open('./data_reverse/test.sign', 'w+') as f_sign, \
 open('./data_reverse/test.symbol', 'w+') as f_symbol, \
 open('./data_reverse/test.number', 'w+') as f_number, \
 open('./data_reverse/test.fsw', 'w+') as f_fsw, \
+open('./data_reverse/test.feat_x', 'w+') as f_feat_x, \
+open('./data_reverse/test.feat_y', 'w+') as f_feat_y, \
 open('./data_reverse/test.spoken', 'w+') as f_spoken:
     for item in test:
         f_sign.write("%s\n" % item['sign_reverse'])
         f_symbol.write("%s\n" % item['symbol_reverse'])
         f_number.write("%s\n" % item['number_reverse'])
         f_fsw.write("%s\n" % item['fsw'])
+        f_feat_x.write("%s\n" % item['feat_x'])
+        f_feat_y.write("%s\n" % item['feat_y'])
         f_spoken.write("%s\n" % item['spoken_reverse'])
