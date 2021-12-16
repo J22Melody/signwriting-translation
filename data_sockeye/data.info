@@ -1,0 +1,11 @@
+!DataInfo
+num_shards: 1
+shared_vocab: false
+source_vocabs:
+- null
+sources:
+- /Users/jiangzifan/Desktop/workspace/signwriting-translation/data_reverse/train.spm.spoken
+target_vocabs:
+- null
+targets:
+- /Users/jiangzifan/Desktop/workspace/signwriting-translation/data_reverse/train.symbol

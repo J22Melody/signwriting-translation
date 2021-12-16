@@ -1,0 +1,35 @@
+bucket_scaling: false
+bucket_width: 8
+config: null
+loglevel: INFO
+loglevel_secondary_workers: INFO
+max_processes: 1
+max_seq_len:
+- 200
+- 200
+min_num_shards: 1
+no_bucketing: false
+no_logfile: false
+num_samples_per_shard: 10000000
+num_words:
+- 0
+- 0
+output: ./data_sockeye
+pad_vocab_to_multiple_of: 8
+quiet: false
+quiet_secondary_workers: false
+seed: 42
+shared_vocab: false
+source: data_reverse/train.spm.spoken
+source_factor_vocabs: []
+source_factors: []
+source_factors_use_source_vocab: []
+source_vocab: null
+target: data_reverse/train.symbol
+target_factor_vocabs: []
+target_factors: []
+target_factors_use_target_vocab: []
+target_vocab: null
+word_min_count:
+- 1
+- 1
