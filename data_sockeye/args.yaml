@@ -27,7 +27,9 @@ source_factors_use_source_vocab: []
 source_vocab: null
 target: data_reverse/train.symbol
 target_factor_vocabs: []
-target_factors: []
+target_factors:
+- data_reverse/train.feat_x
+- data_reverse/train.feat_y
 target_factors_use_target_vocab: []
 target_vocab: null
 word_min_count:

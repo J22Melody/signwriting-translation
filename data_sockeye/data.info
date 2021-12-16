@@ -9,3 +9,5 @@ target_vocabs:
 - null
 targets:
 - /Users/jiangzifan/Desktop/workspace/signwriting-translation/data_reverse/train.symbol
+- /Users/jiangzifan/Desktop/workspace/signwriting-translation/data_reverse/train.feat_x
+- /Users/jiangzifan/Desktop/workspace/signwriting-translation/data_reverse/train.feat_y

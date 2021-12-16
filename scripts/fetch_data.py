@@ -295,12 +295,14 @@ open('./data_reverse/train.feat_x', 'w+') as f_feat_x, \
 open('./data_reverse/train.feat_y', 'w+') as f_feat_y, \
 open('./data_reverse/train.spoken', 'w+') as f_spoken:
     for item in train:
+        if item['fsw'].isalpha(): # HACK: remove bad data
+            continue
         f_sign.write("%s\n" % item['sign_reverse'])
         f_symbol.write("%s\n" % item['symbol_reverse'])
         f_number.write("%s\n" % item['number_reverse'])
         f_fsw.write("%s\n" % item['fsw'])
-        f_feat_x.write("%s\n" % item['feat_x'])
-        f_feat_y.write("%s\n" % item['feat_y'])
+        f_feat_x.write("%s\n" % item['feat_x'][9:]) # HACK: remove tags
+        f_feat_y.write("%s\n" % item['feat_y'][9:])
         f_spoken.write("%s\n" % item['spoken_reverse'])
                     
 with \
@@ -316,8 +318,8 @@ open('./data_reverse/dev.spoken', 'w+') as f_spoken:
         f_symbol.write("%s\n" % item['symbol_reverse'])
         f_number.write("%s\n" % item['number_reverse'])
         f_fsw.write("%s\n" % item['fsw'])
-        f_feat_x.write("%s\n" % item['feat_x'])
-        f_feat_y.write("%s\n" % item['feat_y'])
+        f_feat_x.write("%s\n" % item['feat_x'][9:])
+        f_feat_y.write("%s\n" % item['feat_y'][9:])
         f_spoken.write("%s\n" % item['spoken_reverse'])
 
 with \
@@ -333,6 +335,6 @@ open('./data_reverse/test.spoken', 'w+') as f_spoken:
         f_symbol.write("%s\n" % item['symbol_reverse'])
         f_number.write("%s\n" % item['number_reverse'])
         f_fsw.write("%s\n" % item['fsw'])
-        f_feat_x.write("%s\n" % item['feat_x'])
-        f_feat_y.write("%s\n" % item['feat_y'])
+        f_feat_x.write("%s\n" % item['feat_x'][9:])
+        f_feat_y.write("%s\n" % item['feat_y'][9:])
         f_spoken.write("%s\n" % item['spoken_reverse'])
