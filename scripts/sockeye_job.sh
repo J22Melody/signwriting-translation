@@ -19,10 +19,8 @@
 
 module load nvidia/cuda11.2-cudnn8.1.0
 module load anaconda3
-source activate joey
-cd tools/joeynmt
-pip install -e .
-cd ..
-cd ..
+source activate sockeye
+pip install sockeye
+pip install --pre -f https://dist.mxnet.io/python 'mxnet-cu112>=2.0.0b2021'
 
 stdbuf -o0 -e0 srun --unbuffered $1 $2

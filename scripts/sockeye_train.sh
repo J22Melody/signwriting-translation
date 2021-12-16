@@ -1,9 +1,4 @@
-python -m sockeye.prepare_data \
---source data_reverse/train.spm.spoken \
---target data_reverse/train.symbol \
---output ./data_sockeye \
---max-seq-len 200 \
---seed 42
+#! /bin/bash
 
 python -m sockeye.train \
 --prepared-data data_sockeye \
@@ -22,9 +17,11 @@ python -m sockeye.train \
 --learning-rate-reduce-factor 0.7 \
 --learning-rate-reduce-num-not-improved 5 \
 --decode-and-evaluate -1 \
+--keep-last-params 1 \
 --cache-last-best-params 1 \
---dry-run \
---use-cpu \
+--device-id 0 \
+--disable-device-locking \
 --seed 42
-
+# --dry-run \
+# --use-cpu \
 

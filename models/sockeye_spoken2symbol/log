@@ -1,55 +1,268 @@
-[2021-12-16:14:30:13:INFO:sockeye.utils:log_sockeye_version] Sockeye: 3.0.5, commit 64c3b09b3402fffb63799e9ad33c81c6b97d8629, path /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/__init__.py
-[2021-12-16:14:30:13:INFO:sockeye.utils:log_mxnet_version] MXNet: 2.0.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/mxnet/__init__.py)
-[2021-12-16:14:30:13:INFO:sockeye.utils:log_torch_version] PyTorch: 1.10.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/torch/__init__.py)
-[2021-12-16:14:30:13:INFO:sockeye.utils:log_basic_info] Command: /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/train.py --prepared-data data_sockeye -vs data_reverse/dev.spm.spoken -vt data_reverse/dev.symbol --output models/sockeye_spoken2symbol --max-num-checkpoint-not-improved 7
-[2021-12-16:14:30:13:INFO:sockeye.utils:log_basic_info] Arguments: Namespace(allow_missing_params=False, amp=False, apex_amp=False, batch_sentences_multiple_of=8, batch_size=4096, batch_type='word', bucket_scaling=False, bucket_width=8, cache_last_best_params=0, cache_metric='perplexity', cache_strategy='best', checkpoint_improvement_threshold=0.0, checkpoint_interval=4000, config=None, decode_and_evaluate=500, decode_and_evaluate_device_id=None, decoder='transformer', device_id=0, device_ids=[-1], disable_device_locking=False, dist=False, dry_run=False, dtype='float32', embed_dropout=(0.0, 0.0), encoder='transformer', env=None, fixed_param_names=[], fixed_param_strategy=None, gradient_clipping_threshold=1.0, gradient_clipping_type='none', horovod=False, ignore_extra_params=False, initial_learning_rate=0.0002, keep_initializations=False, keep_last_params=-1, kvstore='device', label_smoothing=0.1, label_smoothing_impl='mxnet', learning_rate_reduce_factor=0.9, learning_rate_reduce_num_not_improved=8, learning_rate_scheduler_type='plateau-reduce', learning_rate_t_scale=1.0, learning_rate_warmup=0, length_task=None, length_task_layers=1, length_task_weight=1.0, lhuc=None, lock_dir='/tmp', loglevel='INFO', loglevel_secondary_workers='INFO', loss='cross-entropy-without-softmax-output', max_checkpoints=None, max_num_checkpoint_not_improved=7, max_num_epochs=None, max_samples=None, max_seconds=None, max_seq_len=(95, 95), max_updates=None, min_num_epochs=None, min_samples=None, min_updates=None, momentum=0.0, no_bucketing=False, no_hybridization=False, no_logfile=False, num_embed=(None, None), num_layers=(6, 6), num_words=(0, 0), optimized_metric='perplexity', optimizer='adam', optimizer_betas=(0.9, 0.999), optimizer_eps=1e-08, optimizer_params=None, output='models/sockeye_spoken2symbol', overwrite_output=False, pad_vocab_to_multiple_of=8, params=None, prepared_data='data_sockeye', quiet=False, quiet_secondary_workers=False, seed=1, shared_vocab=False, source=None, source_factor_vocabs=[], source_factors=[], source_factors_combine=[], source_factors_num_embed=[], source_factors_share_embedding=[], source_factors_use_source_vocab=[], source_vocab=None, stop_training_on_decoder_failure=False, target=None, target_factor_vocabs=[], target_factors=[], target_factors_combine=[], target_factors_num_embed=[], target_factors_share_embedding=[], target_factors_use_target_vocab=[], target_factors_weight=[1.0], target_vocab=None, transformer_activation_type=('relu', 'relu'), transformer_attention_heads=(8, 8), transformer_dropout_act=(0.1, 0.1), transformer_dropout_attention=(0.1, 0.1), transformer_dropout_prepost=(0.1, 0.1), transformer_feed_forward_num_hidden=(2048, 2048), transformer_feed_forward_use_glu=False, transformer_model_size=(512, 512), transformer_positional_embedding_type='fixed', transformer_postprocess=('dr', 'dr'), transformer_preprocess=('n', 'n'), update_interval=1, use_cpu=False, validation_source='data_reverse/dev.spm.spoken', validation_source_factors=[], validation_target='data_reverse/dev.symbol', validation_target_factors=[], weight_decay=0.0, weight_init='xavier', weight_init_scale=3.0, weight_init_xavier_factor_type='avg', weight_init_xavier_rand_type='uniform', weight_tying_type='src_trg_softmax', word_min_count=(1, 1))
-[2021-12-16:14:30:13:INFO:__main__:train] Adjusting maximum length to reserve space for a BOS/EOS marker. New maximum length: (96, 96)
-[2021-12-16:14:30:13:ERROR:root:exception_hook] Uncaught exception
-Traceback (most recent call last):
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/runpy.py", line 194, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/runpy.py", line 87, in _run_code
-    exec(code, run_globals)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/train.py", line 1153, in <module>
-    main()
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/train.py", line 906, in main
-    train(args)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/train.py", line 981, in train
-    context = utils.determine_context(device_ids=args.device_ids,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/utils.py", line 385, in determine_context
-    check_condition(num_gpus >= 1,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/utils.py", line 153, in check_condition
-    raise SockeyeError(error_message)
-sockeye.utils.SockeyeError: No GPUs found, consider running on the CPU with --use-cpu 
-[2021-12-16:14:30:28:INFO:sockeye.utils:log_sockeye_version] Sockeye: 3.0.5, commit 64c3b09b3402fffb63799e9ad33c81c6b97d8629, path /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/__init__.py
-[2021-12-16:14:30:28:INFO:sockeye.utils:log_mxnet_version] MXNet: 2.0.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/mxnet/__init__.py)
-[2021-12-16:14:30:28:INFO:sockeye.utils:log_torch_version] PyTorch: 1.10.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/torch/__init__.py)
-[2021-12-16:14:30:28:INFO:sockeye.utils:log_basic_info] Command: /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/train.py --prepared-data data_sockeye -vs data_reverse/dev.spm.spoken -vt data_reverse/dev.symbol --output models/sockeye_spoken2symbol --max-num-checkpoint-not-improved 7 --use-cpu
-[2021-12-16:14:30:28:INFO:sockeye.utils:log_basic_info] Arguments: Namespace(allow_missing_params=False, amp=False, apex_amp=False, batch_sentences_multiple_of=8, batch_size=4096, batch_type='word', bucket_scaling=False, bucket_width=8, cache_last_best_params=0, cache_metric='perplexity', cache_strategy='best', checkpoint_improvement_threshold=0.0, checkpoint_interval=4000, config=None, decode_and_evaluate=500, decode_and_evaluate_device_id=None, decoder='transformer', device_id=0, device_ids=[-1], disable_device_locking=False, dist=False, dry_run=False, dtype='float32', embed_dropout=(0.0, 0.0), encoder='transformer', env=None, fixed_param_names=[], fixed_param_strategy=None, gradient_clipping_threshold=1.0, gradient_clipping_type='none', horovod=False, ignore_extra_params=False, initial_learning_rate=0.0002, keep_initializations=False, keep_last_params=-1, kvstore='device', label_smoothing=0.1, label_smoothing_impl='mxnet', learning_rate_reduce_factor=0.9, learning_rate_reduce_num_not_improved=8, learning_rate_scheduler_type='plateau-reduce', learning_rate_t_scale=1.0, learning_rate_warmup=0, length_task=None, length_task_layers=1, length_task_weight=1.0, lhuc=None, lock_dir='/tmp', loglevel='INFO', loglevel_secondary_workers='INFO', loss='cross-entropy-without-softmax-output', max_checkpoints=None, max_num_checkpoint_not_improved=7, max_num_epochs=None, max_samples=None, max_seconds=None, max_seq_len=(95, 95), max_updates=None, min_num_epochs=None, min_samples=None, min_updates=None, momentum=0.0, no_bucketing=False, no_hybridization=False, no_logfile=False, num_embed=(None, None), num_layers=(6, 6), num_words=(0, 0), optimized_metric='perplexity', optimizer='adam', optimizer_betas=(0.9, 0.999), optimizer_eps=1e-08, optimizer_params=None, output='models/sockeye_spoken2symbol', overwrite_output=False, pad_vocab_to_multiple_of=8, params=None, prepared_data='data_sockeye', quiet=False, quiet_secondary_workers=False, seed=1, shared_vocab=False, source=None, source_factor_vocabs=[], source_factors=[], source_factors_combine=[], source_factors_num_embed=[], source_factors_share_embedding=[], source_factors_use_source_vocab=[], source_vocab=None, stop_training_on_decoder_failure=False, target=None, target_factor_vocabs=[], target_factors=[], target_factors_combine=[], target_factors_num_embed=[], target_factors_share_embedding=[], target_factors_use_target_vocab=[], target_factors_weight=[1.0], target_vocab=None, transformer_activation_type=('relu', 'relu'), transformer_attention_heads=(8, 8), transformer_dropout_act=(0.1, 0.1), transformer_dropout_attention=(0.1, 0.1), transformer_dropout_prepost=(0.1, 0.1), transformer_feed_forward_num_hidden=(2048, 2048), transformer_feed_forward_use_glu=False, transformer_model_size=(512, 512), transformer_positional_embedding_type='fixed', transformer_postprocess=('dr', 'dr'), transformer_preprocess=('n', 'n'), update_interval=1, use_cpu=True, validation_source='data_reverse/dev.spm.spoken', validation_source_factors=[], validation_target='data_reverse/dev.symbol', validation_target_factors=[], weight_decay=0.0, weight_init='xavier', weight_init_scale=3.0, weight_init_xavier_factor_type='avg', weight_init_xavier_rand_type='uniform', weight_tying_type='src_trg_softmax', word_min_count=(1, 1))
-[2021-12-16:14:30:28:INFO:__main__:train] Adjusting maximum length to reserve space for a BOS/EOS marker. New maximum length: (96, 96)
-[2021-12-16:14:30:28:INFO:__main__:train] Training Device(s): cpu(0)
-[2021-12-16:14:30:28:INFO:sockeye.utils:seed_rngs] Random seed: 1
-[2021-12-16:14:30:28:INFO:sockeye.utils:seed_rngs] PyTorch seed: 1
-[2021-12-16:14:30:28:INFO:__main__:use_shared_vocab] A shared source/target vocabulary will be used as weight tying source/target weight tying is enabled
-[2021-12-16:14:30:28:INFO:sockeye.data_io:get_prepared_data_iters] ===============================
-[2021-12-16:14:30:28:INFO:sockeye.data_io:get_prepared_data_iters] Creating training data iterator
-[2021-12-16:14:30:28:INFO:sockeye.data_io:get_prepared_data_iters] ===============================
-[2021-12-16:14:30:28:ERROR:root:exception_hook] Uncaught exception
-Traceback (most recent call last):
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/runpy.py", line 194, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/runpy.py", line 87, in _run_code
-    exec(code, run_globals)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/train.py", line 1153, in <module>
-    main()
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/train.py", line 906, in main
-    train(args)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/train.py", line 994, in train
-    train_iter, eval_iter, config_data, source_vocabs, target_vocabs = create_data_iters_and_vocabs(
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/train.py", line 303, in create_data_iters_and_vocabs
-    train_iter, validation_iter, data_config, source_vocabs, target_vocabs = data_io.get_prepared_data_iters(
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 833, in get_prepared_data_iters
-    check_condition(shared_vocab == data_info.shared_vocab, "Shared vocabulary settings need to match these "
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/utils.py", line 153, in check_condition
-    raise SockeyeError(error_message)
-sockeye.utils.SockeyeError: Shared vocabulary settings need to match these of the prepared data (e.g. for weight tying). Specify or omit --shared-vocab consistently when training and preparing the data.
+[2021-12-16:17:15:04:INFO:sockeye.utils:log_sockeye_version] Sockeye: 3.0.4, commit 8e5033be2a2f09d935c682f33703eff34cf8b3f4, path /home/cluster/zifjia/.local/lib/python3.8/site-packages/sockeye/__init__.py
+[2021-12-16:17:15:04:INFO:sockeye.utils:log_mxnet_version] MXNet: 2.0.0 (/home/cluster/zifjia/.local/lib/python3.8/site-packages/mxnet/__init__.py)
+[2021-12-16:17:15:04:INFO:sockeye.utils:log_torch_version] PyTorch: 1.10.0+cu102 (/home/cluster/zifjia/.local/lib/python3.8/site-packages/torch/__init__.py)
+[2021-12-16:17:15:04:INFO:sockeye.utils:log_basic_info] Command: /home/cluster/zifjia/.local/lib/python3.8/site-packages/sockeye/train.py --prepared-data data_sockeye -vs data_reverse/dev.spm.spoken -vt data_reverse/dev.symbol --output models/sockeye_spoken2symbol --overwrite-output --weight-tying-type trg_softmax --label-smoothing 0.2 --optimized-metric perplexity --checkpoint-interval 4000 --max-num-checkpoint-not-improved 20 --embed-dropout 0.5 --transformer-dropout-attention 0.5 --initial-learning-rate 0.0001 --learning-rate-reduce-factor 0.7 --learning-rate-reduce-num-not-improved 5 --decode-and-evaluate -1 --keep-last-params 1 --cache-last-best-params 1 --device-id 0 --disable-device-locking --seed 42
+[2021-12-16:17:15:04:INFO:sockeye.utils:log_basic_info] Arguments: Namespace(allow_missing_params=False, amp=False, apex_amp=False, batch_sentences_multiple_of=8, batch_size=4096, batch_type='word', bucket_scaling=False, bucket_width=8, cache_last_best_params=1, cache_metric='perplexity', cache_strategy='best', checkpoint_improvement_threshold=0.0, checkpoint_interval=4000, config=None, decode_and_evaluate=-1, decode_and_evaluate_device_id=None, decoder='transformer', device_id=0, device_ids=[-1], disable_device_locking=True, dist=False, dry_run=False, dtype='float32', embed_dropout=(0.5, 0.5), encoder='transformer', env=None, fixed_param_names=[], fixed_param_strategy=None, gradient_clipping_threshold=1.0, gradient_clipping_type='none', horovod=False, ignore_extra_params=False, initial_learning_rate=0.0001, keep_initializations=False, keep_last_params=1, kvstore='device', label_smoothing=0.2, label_smoothing_impl='mxnet', learning_rate_reduce_factor=0.7, learning_rate_reduce_num_not_improved=5, learning_rate_scheduler_type='plateau-reduce', learning_rate_t_scale=1.0, learning_rate_warmup=0, length_task=None, length_task_layers=1, length_task_weight=1.0, lhuc=None, lock_dir='/tmp', loglevel='INFO', loglevel_secondary_workers='INFO', loss='cross-entropy-without-softmax-output', max_checkpoints=None, max_num_checkpoint_not_improved=20, max_num_epochs=None, max_samples=None, max_seconds=None, max_seq_len=(95, 95), max_updates=None, min_num_epochs=None, min_samples=None, min_updates=None, momentum=0.0, no_bucketing=False, no_hybridization=False, no_logfile=False, num_embed=(None, None), num_layers=(6, 6), num_words=(0, 0), optimized_metric='perplexity', optimizer='adam', optimizer_betas=(0.9, 0.999), optimizer_eps=1e-08, optimizer_params=None, output='models/sockeye_spoken2symbol', overwrite_output=True, pad_vocab_to_multiple_of=8, params=None, prepared_data='data_sockeye', quiet=False, quiet_secondary_workers=False, seed=42, shared_vocab=False, source=None, source_factor_vocabs=[], source_factors=[], source_factors_combine=[], source_factors_num_embed=[], source_factors_share_embedding=[], source_factors_use_source_vocab=[], source_vocab=None, stop_training_on_decoder_failure=False, target=None, target_factor_vocabs=[], target_factors=[], target_factors_combine=[], target_factors_num_embed=[], target_factors_share_embedding=[], target_factors_use_target_vocab=[], target_factors_weight=[1.0], target_vocab=None, transformer_activation_type=('relu', 'relu'), transformer_attention_heads=(8, 8), transformer_dropout_act=(0.1, 0.1), transformer_dropout_attention=(0.5, 0.5), transformer_dropout_prepost=(0.1, 0.1), transformer_feed_forward_num_hidden=(2048, 2048), transformer_feed_forward_use_glu=False, transformer_model_size=(512, 512), transformer_positional_embedding_type='fixed', transformer_postprocess=('dr', 'dr'), transformer_preprocess=('n', 'n'), update_interval=1, use_cpu=False, validation_source='data_reverse/dev.spm.spoken', validation_source_factors=[], validation_target='data_reverse/dev.symbol', validation_target_factors=[], weight_decay=0.0, weight_init='xavier', weight_init_scale=3.0, weight_init_xavier_factor_type='avg', weight_init_xavier_rand_type='uniform', weight_tying_type='trg_softmax', word_min_count=(1, 1))
+[2021-12-16:17:15:04:INFO:__main__:train] Adjusting maximum length to reserve space for a BOS/EOS marker. New maximum length: (96, 96)
+[2021-12-16:17:15:04:WARNING:sockeye.utils:expand_requested_device_ids] Sockeye currently does not respect CUDA_VISIBLE_DEVICE settings when locking GPU devices.
+[2021-12-16:17:15:04:INFO:sockeye.utils:_expand_requested_device_ids] Attempting to acquire 1 GPUs of 1 GPUs.
+[2021-12-16:17:15:04:INFO:__main__:train] Training Device(s): gpu(0)
+[2021-12-16:17:15:04:INFO:sockeye.utils:seed_rngs] Random seed: 42
+[2021-12-16:17:15:05:INFO:sockeye.utils:seed_rngs] PyTorch seed: 42
+[2021-12-16:17:15:05:INFO:sockeye.data_io:get_prepared_data_iters] ===============================
+[2021-12-16:17:15:05:INFO:sockeye.data_io:get_prepared_data_iters] Creating training data iterator
+[2021-12-16:17:15:05:INFO:sockeye.data_io:get_prepared_data_iters] ===============================
+[2021-12-16:17:15:05:INFO:sockeye.vocab:vocab_from_json] Vocabulary (2000 words) loaded from "data_sockeye/vocab.src.0.json"
+[2021-12-16:17:15:05:INFO:sockeye.vocab:vocab_from_json] Vocabulary (12224 words) loaded from "data_sockeye/vocab.trg.0.json"
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:log] Tokens: source 2075941 target 2225438
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:log] Number of <unk> tokens: source 0 target 0
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:log] Vocabulary coverage: source 100% target 100%
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:log] 111529 sequences across 26 buckets
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:log] 417 sequences did not fit into buckets and were discarded
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (16, 16): 81219 samples in 152 batches of 536, ~4114.7 target tokens/batch, trg/src length ratio: 0.57 (+-0.21)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (24, 24): 14620 samples in 39 batches of 376, ~4105.1 target tokens/batch, trg/src length ratio: 0.64 (+-0.40)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (32, 32): 1193 samples in 5 batches of 256, ~4088.3 target tokens/batch, trg/src length ratio: 0.86 (+-0.74)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (40, 40): 457 samples in 4 batches of 136, ~4131.5 target tokens/batch, trg/src length ratio: 1.55 (+-0.87)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (48, 48): 408 samples in 5 batches of 96, ~4070.6 target tokens/batch, trg/src length ratio: 1.87 (+-0.80)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (56, 56): 628 samples in 8 batches of 80, ~4090.4 target tokens/batch, trg/src length ratio: 1.78 (+-0.72)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (64, 64): 1030 samples in 15 batches of 72, ~4284.3 target tokens/batch, trg/src length ratio: 1.81 (+-0.68)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (72, 72): 1224 samples in 20 batches of 64, ~4326.4 target tokens/batch, trg/src length ratio: 1.85 (+-0.65)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (80, 80): 1199 samples in 22 batches of 56, ~4235.8 target tokens/batch, trg/src length ratio: 1.95 (+-0.71)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (88, 88): 1150 samples in 24 batches of 48, ~4034.3 target tokens/batch, trg/src length ratio: 2.08 (+-0.77)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (96, 96): 1259 samples in 27 batches of 48, ~4431.2 target tokens/batch, trg/src length ratio: 2.19 (+-0.77)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (104, 104): 1170 samples in 30 batches of 40, ~4009.0 target tokens/batch, trg/src length ratio: 2.24 (+-0.76)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (112, 112): 1106 samples in 28 batches of 40, ~4330.3 target tokens/batch, trg/src length ratio: 2.30 (+-0.86)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (120, 120): 1014 samples in 32 batches of 32, ~3725.0 target tokens/batch, trg/src length ratio: 2.38 (+-0.93)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (128, 128): 916 samples in 29 batches of 32, ~3976.0 target tokens/batch, trg/src length ratio: 2.41 (+-1.03)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (136, 136): 731 samples in 23 batches of 32, ~4239.8 target tokens/batch, trg/src length ratio: 2.47 (+-1.19)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (144, 144): 552 samples in 18 batches of 32, ~4495.0 target tokens/batch, trg/src length ratio: 2.45 (+-0.98)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (152, 152): 498 samples in 21 batches of 24, ~3559.2 target tokens/batch, trg/src length ratio: 2.51 (+-1.14)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (160, 160): 361 samples in 16 batches of 24, ~3738.7 target tokens/batch, trg/src length ratio: 2.74 (+-1.65)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (168, 168): 263 samples in 11 batches of 24, ~3943.0 target tokens/batch, trg/src length ratio: 2.63 (+-1.59)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (176, 176): 213 samples in 9 batches of 24, ~4133.9 target tokens/batch, trg/src length ratio: 2.70 (+-1.37)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (184, 184): 145 samples in 7 batches of 24, ~4300.8 target tokens/batch, trg/src length ratio: 3.28 (+-2.51)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (192, 192): 95 samples in 4 batches of 24, ~4508.5 target tokens/batch, trg/src length ratio: 3.63 (+-3.17)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (200, 200): 68 samples in 3 batches of 24, ~4699.4 target tokens/batch, trg/src length ratio: 3.42 (+-2.62)
+[2021-12-16:17:15:05:INFO:sockeye.data_io_pt:describe_data_and_buckets] Bucket (201, 201): 10 samples in 1 batches of 48, ~9648.0 target tokens/batch, trg/src length ratio: 2.25 (+-0.60)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:_load_shard] Loading shard data_sockeye/shard.00000.
+[2021-12-16:17:15:05:INFO:sockeye.data_io:get_validation_data_iter] =================================
+[2021-12-16:17:15:05:INFO:sockeye.data_io:get_validation_data_iter] Creating validation data iterator
+[2021-12-16:17:15:05:INFO:sockeye.data_io:get_validation_data_iter] =================================
+[2021-12-16:17:15:05:INFO:sockeye.data_io:analyze_sequence_lengths] 1137 sequences of maximum length (201, 201) in '/net/cephfs/home/zifjia/signwriting-translation/data_reverse/dev.spm.spoken' and '/net/cephfs/home/zifjia/signwriting-translation/data_reverse/dev.symbol'.
+[2021-12-16:17:15:05:INFO:sockeye.data_io:analyze_sequence_lengths] Mean training target/source length ratio: 0.79 (+-0.76)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:log] Tokens: source 20965 target 22274
+[2021-12-16:17:15:05:INFO:sockeye.data_io:log] Number of <unk> tokens: source 0 target 24
+[2021-12-16:17:15:05:INFO:sockeye.data_io:log] Vocabulary coverage: source 100% target 100%
+[2021-12-16:17:15:05:INFO:sockeye.data_io:log] 1137 sequences across 26 buckets
+[2021-12-16:17:15:05:INFO:sockeye.data_io:log] 5 sequences did not fit into buckets and were discarded
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (16, 16): 812 samples in 2 batches of 536, ~4114.7 target tokens/batch, trg/src length ratio: 0.57 (+-0.21)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (24, 24): 167 samples in 1 batches of 376, ~4105.1 target tokens/batch, trg/src length ratio: 0.60 (+-0.39)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (32, 32): 9 samples in 1 batches of 256, ~4088.3 target tokens/batch, trg/src length ratio: 0.52 (+-0.23)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (40, 40): 6 samples in 1 batches of 136, ~4131.5 target tokens/batch, trg/src length ratio: 1.43 (+-0.88)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (48, 48): 2 samples in 1 batches of 96, ~4070.6 target tokens/batch, trg/src length ratio: 1.95 (+-0.69)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (56, 56): 10 samples in 1 batches of 80, ~4090.4 target tokens/batch, trg/src length ratio: 1.53 (+-0.62)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (64, 64): 14 samples in 1 batches of 72, ~4284.3 target tokens/batch, trg/src length ratio: 1.83 (+-0.38)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (72, 72): 14 samples in 1 batches of 64, ~4326.4 target tokens/batch, trg/src length ratio: 1.60 (+-0.78)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (80, 80): 8 samples in 1 batches of 56, ~4235.8 target tokens/batch, trg/src length ratio: 3.56 (+-1.87)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (88, 88): 10 samples in 1 batches of 48, ~4034.3 target tokens/batch, trg/src length ratio: 2.03 (+-0.18)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (96, 96): 14 samples in 1 batches of 48, ~4431.2 target tokens/batch, trg/src length ratio: 2.26 (+-0.45)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (104, 104): 15 samples in 1 batches of 40, ~4009.0 target tokens/batch, trg/src length ratio: 2.20 (+-0.42)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (112, 112): 10 samples in 1 batches of 40, ~4330.3 target tokens/batch, trg/src length ratio: 2.67 (+-1.62)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (120, 120): 7 samples in 1 batches of 32, ~3725.0 target tokens/batch, trg/src length ratio: 3.30 (+-2.74)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (128, 128): 10 samples in 1 batches of 32, ~3976.0 target tokens/batch, trg/src length ratio: 2.55 (+-1.20)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (136, 136): 6 samples in 1 batches of 32, ~4239.8 target tokens/batch, trg/src length ratio: 2.24 (+-0.45)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (144, 144): 4 samples in 1 batches of 32, ~4495.0 target tokens/batch, trg/src length ratio: 2.59 (+-0.49)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (152, 152): 2 samples in 1 batches of 24, ~3559.2 target tokens/batch, trg/src length ratio: 2.13 (+-0.00)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (160, 160): 7 samples in 1 batches of 24, ~3738.7 target tokens/batch, trg/src length ratio: 2.65 (+-0.52)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (168, 168): 3 samples in 1 batches of 24, ~3943.0 target tokens/batch, trg/src length ratio: 2.61 (+-0.21)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (176, 176): 4 samples in 1 batches of 24, ~4133.9 target tokens/batch, trg/src length ratio: 3.15 (+-1.78)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (184, 184): 2 samples in 1 batches of 24, ~4300.8 target tokens/batch, trg/src length ratio: 2.31 (+-0.07)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:describe_data_and_buckets] Bucket (200, 200): 1 samples in 1 batches of 24, ~4699.4 target tokens/batch, trg/src length ratio: 2.92 (+-0.00)
+[2021-12-16:17:15:05:INFO:sockeye.data_io:load] Created bucketed parallel data set. Introduced padding: source=35.2% target=31.1%)
+[2021-12-16:17:15:05:INFO:__main__:train] Maximum source length determined by prepared data. Using 201 instead of 96
+[2021-12-16:17:15:05:INFO:__main__:train] Maximum target length determined by prepared data. Using 201 instead of 96
+[2021-12-16:17:15:05:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/net/cephfs/home/zifjia/signwriting-translation/models/sockeye_spoken2symbol/vocab.src.0.json"
+[2021-12-16:17:15:05:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/net/cephfs/home/zifjia/signwriting-translation/models/sockeye_spoken2symbol/vocab.trg.0.json"
+[2021-12-16:17:15:05:INFO:__main__:train] Vocabulary sizes: source=[2000] target=[12224]
+[2021-12-16:17:15:05:INFO:__main__:get_num_embed] Source embedding size was not set it will automatically be adjusted to match the Transformer source model size (512).
+[2021-12-16:17:15:05:INFO:__main__:get_num_embed] Target embedding size was not set it will automatically be adjusted to match the Transformer target model size (512).
+[2021-12-16:17:15:05:INFO:sockeye.model:__init__] ModelConfig(config_data=DataConfig(data_statistics=DataStatistics(num_sents=111529, num_discarded=417, num_tokens_source=2075941, num_tokens_target=2225438, num_unks_source=0, num_unks_target=0, max_observed_len_source=185, max_observed_len_target=201, size_vocab_source=2000, size_vocab_target=12224, length_ratio_mean=0.7952563989633317, length_ratio_std=0.6990334237388166, buckets=[(8, 8), (16, 16), (24, 24), (32, 32), (40, 40), (48, 48), (56, 56), (64, 64), (72, 72), (80, 80), (88, 88), (96, 96), (104, 104), (112, 112), (120, 120), (128, 128), (136, 136), (144, 144), (152, 152), (160, 160), (168, 168), (176, 176), (184, 184), (192, 192), (200, 200), (201, 201)], num_sents_per_bucket=[0, 81219, 14620, 1193, 457, 408, 628, 1030, 1224, 1199, 1150, 1259, 1170, 1106, 1014, 916, 731, 552, 498, 361, 263, 213, 145, 95, 68, 10], average_len_target_per_bucket=[None, 7.676615077752828, 10.917852257181917, 15.969823973176855, 30.378555798687103, 42.40196078431373, 51.130573248407686, 59.50485436893204, 67.60049019607851, 75.63886572143453, 84.04869565217392, 92.31691818903899, 100.22478632478625, 108.258589511754, 116.40631163708095, 124.24999999999997, 132.4924760601916, 140.4692028985508, 148.30120481927696, 155.7811634349031, 164.2927756653993, 172.24413145539899, 179.1999999999999, 187.85263157894744, 195.8088235294118, 201.0], length_ratio_stats_per_bucket=[(None, None), (0.5731306316243342, 0.20605685798846987), (0.6421342240936343, 0.39770008592915274), (0.859732548795569, 0.7448782250345781), (1.548934235200316, 0.8692084159265917), (1.8718311852655898, 0.8023738240479706), (1.7827641324506083, 0.7199393121842907), (1.8144343418607083, 0.6790160245445268), (1.849389302228943, 0.6483646482433103), (1.9460433022889274, 0.714701152942034), (2.082878803106982, 0.7668277390407361), (2.1917070789285207, 0.7718414511646764), (2.2440640194205312, 0.763463890478365), (2.29744984926137, 0.8628994817056892), (2.376561672214239, 0.9278811630432776), (2.4055202846639103, 1.0308439838665555), (2.47307220374083, 1.1927088662158885), (2.449640906406911, 0.9844225288697896), (2.506961480708306, 1.1401135689536712), (2.738755276705606, 1.6542230528380326), (2.633704509461338, 1.5948046208089743), (2.695802278434618, 1.3733845272690017), (3.283258200500435, 2.5112983223576277), (3.6306240624382267, 3.172481624967147), (3.417168104320764, 2.6170087795834664), (2.253037210632548, 0.5958326376020144)]), max_seq_len_source=201, max_seq_len_target=201, num_source_factors=1, num_target_factors=1), vocab_source_size=2000, vocab_target_size=12224, config_embed_source=EmbeddingConfig(vocab_size=2000, num_embed=512, dropout=0.5, num_factors=1, factor_configs=None, allow_sparse_grad=True), config_embed_target=EmbeddingConfig(vocab_size=12224, num_embed=512, dropout=0.5, num_factors=1, factor_configs=None, allow_sparse_grad=True), config_encoder=TransformerConfig(model_size=512, attention_heads=8, feed_forward_num_hidden=2048, act_type='relu', num_layers=6, dropout_attention=0.5, dropout_act=0.1, dropout_prepost=0.1, positional_embedding_type='fixed', preprocess_sequence='n', postprocess_sequence='dr', max_seq_len_source=201, max_seq_len_target=201, decoder_type='transformer', use_lhuc=False, depth_key_value=512, use_glu=False), config_decoder=TransformerConfig(model_size=512, attention_heads=8, feed_forward_num_hidden=2048, act_type='relu', num_layers=6, dropout_attention=0.5, dropout_act=0.1, dropout_prepost=0.1, positional_embedding_type='fixed', preprocess_sequence='n', postprocess_sequence='dr', max_seq_len_source=201, max_seq_len_target=201, decoder_type='transformer', use_lhuc=False, depth_key_value=512, use_glu=False), config_length_task=None, weight_tying_type='trg_softmax', lhuc=False, dtype='float32', intgemm_custom_lib='/home/cluster/zifjia/.local/lib/python3.8/site-packages/sockeye/libintgemm.so')
+[2021-12-16:17:15:05:INFO:sockeye.lr_scheduler:__init__] Will reduce the learning rate by a factor of 0.70 whenever the validation score doesn't improve 5 times.
+[2021-12-16:17:15:05:INFO:__main__:create_optimizer_config] Optimizer: adam | kvstore=device | params={'wd': 0.0, 'learning_rate': 0.0001, 'rescale_grad': 1.0, 'lr_scheduler': LearningRateSchedulerPlateauReduce(reduce_factor=0.70, reduce_num_not_improved=5, num_not_improved=0, base_lr=0.0001, lr=None, warmup=0, warmed_up=True)} | initializer=<mxnet.initializer.Xavier object at 0x7f48b5184c40>
+[2021-12-16:17:15:05:INFO:__main__:create_optimizer_config] Gradient accumulation over 1 batch(es) by 1 worker(s). Effective batch size: 4096
+[2021-12-16:17:15:11:INFO:sockeye.utils:log_parameters] # of parameters: 51604416 | trainable: 51398592 (99.60%) | fixed: 205824 (0.40%)
+[2021-12-16:17:15:11:INFO:sockeye.utils:log_parameters] Trainable parameters: 
+['decoder.final_process.layer_norm.beta [(512,), float32]',
+ 'decoder.final_process.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.0.autoregr_layer.ff_in.weight [(1536, 512), float32]',
+ 'decoder.layers.0.autoregr_layer.ff_out.weight [(512, 512), float32]',
+ 'decoder.layers.0.enc_attention.ff_kv.weight [(1024, 512), float32]',
+ 'decoder.layers.0.enc_attention.ff_out.weight [(512, 512), float32]',
+ 'decoder.layers.0.enc_attention.ff_q.weight [(512, 512), float32]',
+ 'decoder.layers.0.ff.ff1.bias [(2048,), float32]',
+ 'decoder.layers.0.ff.ff1.weight [(2048, 512), float32]',
+ 'decoder.layers.0.ff.ff2.bias [(512,), float32]',
+ 'decoder.layers.0.ff.ff2.weight [(512, 2048), float32]',
+ 'decoder.layers.0.pre_autoregr_layer.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.0.pre_autoregr_layer.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.0.pre_enc_attention.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.0.pre_enc_attention.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.0.pre_ff.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.0.pre_ff.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.1.autoregr_layer.ff_in.weight [(1536, 512), float32]',
+ 'decoder.layers.1.autoregr_layer.ff_out.weight [(512, 512), float32]',
+ 'decoder.layers.1.enc_attention.ff_kv.weight [(1024, 512), float32]',
+ 'decoder.layers.1.enc_attention.ff_out.weight [(512, 512), float32]',
+ 'decoder.layers.1.enc_attention.ff_q.weight [(512, 512), float32]',
+ 'decoder.layers.1.ff.ff1.bias [(2048,), float32]',
+ 'decoder.layers.1.ff.ff1.weight [(2048, 512), float32]',
+ 'decoder.layers.1.ff.ff2.bias [(512,), float32]',
+ 'decoder.layers.1.ff.ff2.weight [(512, 2048), float32]',
+ 'decoder.layers.1.pre_autoregr_layer.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.1.pre_autoregr_layer.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.1.pre_enc_attention.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.1.pre_enc_attention.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.1.pre_ff.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.1.pre_ff.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.2.autoregr_layer.ff_in.weight [(1536, 512), float32]',
+ 'decoder.layers.2.autoregr_layer.ff_out.weight [(512, 512), float32]',
+ 'decoder.layers.2.enc_attention.ff_kv.weight [(1024, 512), float32]',
+ 'decoder.layers.2.enc_attention.ff_out.weight [(512, 512), float32]',
+ 'decoder.layers.2.enc_attention.ff_q.weight [(512, 512), float32]',
+ 'decoder.layers.2.ff.ff1.bias [(2048,), float32]',
+ 'decoder.layers.2.ff.ff1.weight [(2048, 512), float32]',
+ 'decoder.layers.2.ff.ff2.bias [(512,), float32]',
+ 'decoder.layers.2.ff.ff2.weight [(512, 2048), float32]',
+ 'decoder.layers.2.pre_autoregr_layer.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.2.pre_autoregr_layer.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.2.pre_enc_attention.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.2.pre_enc_attention.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.2.pre_ff.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.2.pre_ff.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.3.autoregr_layer.ff_in.weight [(1536, 512), float32]',
+ 'decoder.layers.3.autoregr_layer.ff_out.weight [(512, 512), float32]',
+ 'decoder.layers.3.enc_attention.ff_kv.weight [(1024, 512), float32]',
+ 'decoder.layers.3.enc_attention.ff_out.weight [(512, 512), float32]',
+ 'decoder.layers.3.enc_attention.ff_q.weight [(512, 512), float32]',
+ 'decoder.layers.3.ff.ff1.bias [(2048,), float32]',
+ 'decoder.layers.3.ff.ff1.weight [(2048, 512), float32]',
+ 'decoder.layers.3.ff.ff2.bias [(512,), float32]',
+ 'decoder.layers.3.ff.ff2.weight [(512, 2048), float32]',
+ 'decoder.layers.3.pre_autoregr_layer.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.3.pre_autoregr_layer.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.3.pre_enc_attention.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.3.pre_enc_attention.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.3.pre_ff.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.3.pre_ff.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.4.autoregr_layer.ff_in.weight [(1536, 512), float32]',
+ 'decoder.layers.4.autoregr_layer.ff_out.weight [(512, 512), float32]',
+ 'decoder.layers.4.enc_attention.ff_kv.weight [(1024, 512), float32]',
+ 'decoder.layers.4.enc_attention.ff_out.weight [(512, 512), float32]',
+ 'decoder.layers.4.enc_attention.ff_q.weight [(512, 512), float32]',
+ 'decoder.layers.4.ff.ff1.bias [(2048,), float32]',
+ 'decoder.layers.4.ff.ff1.weight [(2048, 512), float32]',
+ 'decoder.layers.4.ff.ff2.bias [(512,), float32]',
+ 'decoder.layers.4.ff.ff2.weight [(512, 2048), float32]',
+ 'decoder.layers.4.pre_autoregr_layer.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.4.pre_autoregr_layer.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.4.pre_enc_attention.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.4.pre_enc_attention.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.4.pre_ff.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.4.pre_ff.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.5.autoregr_layer.ff_in.weight [(1536, 512), float32]',
+ 'decoder.layers.5.autoregr_layer.ff_out.weight [(512, 512), float32]',
+ 'decoder.layers.5.enc_attention.ff_kv.weight [(1024, 512), float32]',
+ 'decoder.layers.5.enc_attention.ff_out.weight [(512, 512), float32]',
+ 'decoder.layers.5.enc_attention.ff_q.weight [(512, 512), float32]',
+ 'decoder.layers.5.ff.ff1.bias [(2048,), float32]',
+ 'decoder.layers.5.ff.ff1.weight [(2048, 512), float32]',
+ 'decoder.layers.5.ff.ff2.bias [(512,), float32]',
+ 'decoder.layers.5.ff.ff2.weight [(512, 2048), float32]',
+ 'decoder.layers.5.pre_autoregr_layer.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.5.pre_autoregr_layer.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.5.pre_enc_attention.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.5.pre_enc_attention.layer_norm.gamma [(512,), float32]',
+ 'decoder.layers.5.pre_ff.layer_norm.beta [(512,), float32]',
+ 'decoder.layers.5.pre_ff.layer_norm.gamma [(512,), float32]',
+ 'embedding_source.weight [(2000, 512), float32]',
+ 'embedding_target.weight [(12224, 512), float32]',
+ 'encoder.final_process.layer_norm.beta [(512,), float32]',
+ 'encoder.final_process.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.0.ff.ff1.bias [(2048,), float32]',
+ 'encoder.layers.0.ff.ff1.weight [(2048, 512), float32]',
+ 'encoder.layers.0.ff.ff2.bias [(512,), float32]',
+ 'encoder.layers.0.ff.ff2.weight [(512, 2048), float32]',
+ 'encoder.layers.0.pre_ff.layer_norm.beta [(512,), float32]',
+ 'encoder.layers.0.pre_ff.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.0.pre_self_attention.layer_norm.beta [(512,), float32]',
+ 'encoder.layers.0.pre_self_attention.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.0.self_attention.ff_in.weight [(1536, 512), float32]',
+ 'encoder.layers.0.self_attention.ff_out.weight [(512, 512), float32]',
+ 'encoder.layers.1.ff.ff1.bias [(2048,), float32]',
+ 'encoder.layers.1.ff.ff1.weight [(2048, 512), float32]',
+ 'encoder.layers.1.ff.ff2.bias [(512,), float32]',
+ 'encoder.layers.1.ff.ff2.weight [(512, 2048), float32]',
+ 'encoder.layers.1.pre_ff.layer_norm.beta [(512,), float32]',
+ 'encoder.layers.1.pre_ff.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.1.pre_self_attention.layer_norm.beta [(512,), float32]',
+ 'encoder.layers.1.pre_self_attention.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.1.self_attention.ff_in.weight [(1536, 512), float32]',
+ 'encoder.layers.1.self_attention.ff_out.weight [(512, 512), float32]',
+ 'encoder.layers.2.ff.ff1.bias [(2048,), float32]',
+ 'encoder.layers.2.ff.ff1.weight [(2048, 512), float32]',
+ 'encoder.layers.2.ff.ff2.bias [(512,), float32]',
+ 'encoder.layers.2.ff.ff2.weight [(512, 2048), float32]',
+ 'encoder.layers.2.pre_ff.layer_norm.beta [(512,), float32]',
+ 'encoder.layers.2.pre_ff.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.2.pre_self_attention.layer_norm.beta [(512,), float32]',
+ 'encoder.layers.2.pre_self_attention.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.2.self_attention.ff_in.weight [(1536, 512), float32]',
+ 'encoder.layers.2.self_attention.ff_out.weight [(512, 512), float32]',
+ 'encoder.layers.3.ff.ff1.bias [(2048,), float32]',
+ 'encoder.layers.3.ff.ff1.weight [(2048, 512), float32]',
+ 'encoder.layers.3.ff.ff2.bias [(512,), float32]',
+ 'encoder.layers.3.ff.ff2.weight [(512, 2048), float32]',
+ 'encoder.layers.3.pre_ff.layer_norm.beta [(512,), float32]',
+ 'encoder.layers.3.pre_ff.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.3.pre_self_attention.layer_norm.beta [(512,), float32]',
+ 'encoder.layers.3.pre_self_attention.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.3.self_attention.ff_in.weight [(1536, 512), float32]',
+ 'encoder.layers.3.self_attention.ff_out.weight [(512, 512), float32]',
+ 'encoder.layers.4.ff.ff1.bias [(2048,), float32]',
+ 'encoder.layers.4.ff.ff1.weight [(2048, 512), float32]',
+ 'encoder.layers.4.ff.ff2.bias [(512,), float32]',
+ 'encoder.layers.4.ff.ff2.weight [(512, 2048), float32]',
+ 'encoder.layers.4.pre_ff.layer_norm.beta [(512,), float32]',
+ 'encoder.layers.4.pre_ff.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.4.pre_self_attention.layer_norm.beta [(512,), float32]',
+ 'encoder.layers.4.pre_self_attention.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.4.self_attention.ff_in.weight [(1536, 512), float32]',
+ 'encoder.layers.4.self_attention.ff_out.weight [(512, 512), float32]',
+ 'encoder.layers.5.ff.ff1.bias [(2048,), float32]',
+ 'encoder.layers.5.ff.ff1.weight [(2048, 512), float32]',
+ 'encoder.layers.5.ff.ff2.bias [(512,), float32]',
+ 'encoder.layers.5.ff.ff2.weight [(512, 2048), float32]',
+ 'encoder.layers.5.pre_ff.layer_norm.beta [(512,), float32]',
+ 'encoder.layers.5.pre_ff.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.5.pre_self_attention.layer_norm.beta [(512,), float32]',
+ 'encoder.layers.5.pre_self_attention.layer_norm.gamma [(512,), float32]',
+ 'encoder.layers.5.self_attention.ff_in.weight [(1536, 512), float32]',
+ 'encoder.layers.5.self_attention.ff_out.weight [(512, 512), float32]',
+ 'output_layer.bias [(12224,), float32]',
+ 'output_layer.weight [(12224, 512), float32]']
+[2021-12-16:17:15:11:INFO:sockeye.utils:log_parameters] Shared parameters: 
+['embedding_target.weight = output_layer.weight']
+[2021-12-16:17:15:11:INFO:sockeye.utils:log_parameters] Fixed parameters:
+['decoder.pos_embedding.weight [(201, 512), float32]',
+ 'encoder.pos_embedding.weight [(201, 512), float32]']
+[2021-12-16:17:15:11:INFO:sockeye.loss:__init__] Loss: cross-entropy | weight=1.00 | metric: perplexity (ppl) | output_name: 'logits' | label_name: 'target_label'
+[2021-12-16:17:15:11:INFO:sockeye.training:__init__] mxboard not found. Consider 'pip install mxboard' to log events to Tensorboard.
+[2021-12-16:17:15:11:INFO:sockeye.inference:__init__] Translator (1 model(s) beam_size=5 algorithm=BeamSearch, beam_search_stop=all max_input_length=200 nbest_size=1 ensemble_mode=None max_batch_size=16 avoiding=0 dtype=float32 softmax_temperature=None)
+[2021-12-16:17:15:11:INFO:sockeye.checkpoint_decoder:__init__] Created CheckpointDecoder(max_input_len=-1, beam_size=5, num_sentences=1142)
+[2021-12-16:17:15:11:INFO:sockeye.training:fit] Early stopping by optimizing 'perplexity'
+[2021-12-16:17:15:11:INFO:sockeye.model:save_config] Saved model config to "models/sockeye_spoken2symbol/config"
+[2021-12-16:17:15:11:INFO:sockeye.training:fit] Training started.
+[2021-12-16:17:15:29:INFO:sockeye.training:__call__] E=0 B=50	s/sec=731.03 tok/sec=22352.02 u/sec=3.84	ppl=2655.313254 
+[2021-12-16:17:15:39:INFO:sockeye.training:__call__] E=0 B=100	s/sec=888.37 tok/sec=27091.92 u/sec=4.78	ppl=1542.226231 
+[2021-12-16:17:15:49:INFO:sockeye.training:__call__] E=0 B=150	s/sec=908.92 tok/sec=29348.97 u/sec=5.28	ppl=1208.422289 
+[2021-12-16:17:15:59:INFO:sockeye.training:__call__] E=0 B=200	s/sec=976.86 tok/sec=29209.70 u/sec=5.00	ppl=1030.452486 
