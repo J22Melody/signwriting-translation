@@ -1,7 +1,7 @@
 #! /bin/bash
 
 python -m sockeye.train \
---prepared-data data_sockeye \
+--prepared-data data_sockeye_factor \
 -vs data_reverse/dev.spm.spoken \
 -vt data_reverse/dev.symbol \
 -vtf data_reverse/dev.feat_x data_reverse/dev.feat_y \

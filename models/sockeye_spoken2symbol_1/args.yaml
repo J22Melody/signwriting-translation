@@ -1,0 +1,156 @@
+allow_missing_params: false
+amp: false
+apex_amp: false
+batch_sentences_multiple_of: 8
+batch_size: 2048
+batch_type: word
+bucket_scaling: false
+bucket_width: 8
+cache_last_best_params: 1
+cache_metric: perplexity
+cache_strategy: best
+checkpoint_improvement_threshold: 0.0
+checkpoint_interval: 4000
+config: null
+decode_and_evaluate: -1
+decode_and_evaluate_device_id: null
+decoder: transformer
+device_id: 0
+device_ids:
+- -1
+disable_device_locking: true
+dist: false
+dry_run: false
+dtype: float32
+embed_dropout:
+- 0.5
+- 0.5
+encoder: transformer
+env: null
+fixed_param_names: []
+fixed_param_strategy: null
+gradient_clipping_threshold: 1.0
+gradient_clipping_type: none
+horovod: false
+ignore_extra_params: false
+initial_learning_rate: 0.0001
+keep_initializations: false
+keep_last_params: 1
+kvstore: device
+label_smoothing: 0.2
+label_smoothing_impl: mxnet
+learning_rate_reduce_factor: 0.7
+learning_rate_reduce_num_not_improved: 5
+learning_rate_scheduler_type: plateau-reduce
+learning_rate_t_scale: 1.0
+learning_rate_warmup: 0
+length_task: null
+length_task_layers: 1
+length_task_weight: 1.0
+lhuc: null
+lock_dir: /tmp
+loglevel: INFO
+loglevel_secondary_workers: INFO
+loss: cross-entropy-without-softmax-output
+max_checkpoints: null
+max_num_checkpoint_not_improved: 20
+max_num_epochs: null
+max_samples: null
+max_seconds: null
+max_seq_len:
+- 95
+- 95
+max_updates: null
+min_num_epochs: null
+min_samples: null
+min_updates: null
+momentum: 0.0
+no_bucketing: false
+no_hybridization: false
+no_logfile: false
+num_embed:
+- null
+- null
+num_layers:
+- 6
+- 6
+num_words:
+- 0
+- 0
+optimized_metric: perplexity
+optimizer: adam
+optimizer_betas:
+- 0.9
+- 0.999
+optimizer_eps: 1.0e-08
+optimizer_params: null
+output: models/sockeye_spoken2symbol_1
+overwrite_output: true
+pad_vocab_to_multiple_of: 8
+params: null
+prepared_data: data_sockeye
+quiet: false
+quiet_secondary_workers: false
+seed: 42
+shared_vocab: false
+source: null
+source_factor_vocabs: []
+source_factors: []
+source_factors_combine: []
+source_factors_num_embed: []
+source_factors_share_embedding: []
+source_factors_use_source_vocab: []
+source_vocab: null
+stop_training_on_decoder_failure: false
+target: null
+target_factor_vocabs: []
+target_factors: []
+target_factors_combine: []
+target_factors_num_embed: []
+target_factors_share_embedding: []
+target_factors_use_target_vocab: []
+target_factors_weight:
+- 1.0
+target_vocab: null
+transformer_activation_type:
+- relu
+- relu
+transformer_attention_heads:
+- 8
+- 8
+transformer_dropout_act: &id001
+- 0.1
+- 0.1
+transformer_dropout_attention:
+- 0.5
+- 0.5
+transformer_dropout_prepost: *id001
+transformer_feed_forward_num_hidden:
+- 2048
+- 2048
+transformer_feed_forward_use_glu: false
+transformer_model_size:
+- 512
+- 512
+transformer_positional_embedding_type: fixed
+transformer_postprocess:
+- dr
+- dr
+transformer_preprocess:
+- n
+- n
+update_interval: 2
+use_cpu: false
+validation_source: data_reverse/dev.spm.spoken
+validation_source_factors: []
+validation_target: data_reverse/dev.symbol
+validation_target_factors: []
+weight_decay: 0.0
+weight_init: xavier
+weight_init_scale: 3.0
+weight_init_xavier_factor_type: avg
+weight_init_xavier_rand_type: uniform
+weight_tying_type: trg_softmax
+word_min_count:
+- 1
+- 1

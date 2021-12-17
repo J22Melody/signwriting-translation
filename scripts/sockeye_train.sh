@@ -2,7 +2,6 @@
 
 python -m sockeye.train \
 --prepared-data data_sockeye \
---target-factors \
 -vs data_reverse/dev.spm.spoken \
 -vt data_reverse/dev.symbol \
 --output models/sockeye_spoken2symbol_1 \
@@ -20,9 +19,11 @@ python -m sockeye.train \
 --decode-and-evaluate -1 \
 --keep-last-params 1 \
 --cache-last-best-params 1 \
---device-id 2 \
+--device-id 0 \
 --disable-device-locking \
---seed 42
+--seed 42 \
+--batch-size 2048 \
+--update-interval 2
 # --dry-run \
 # --use-cpu \
 

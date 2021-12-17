@@ -84,11 +84,11 @@ optimizer_betas:
 - 0.999
 optimizer_eps: 1.0e-08
 optimizer_params: null
-output: models/sockeye_spoken2symbol_factor_2
+output: models/sockeye_spoken2symbol_factor
 overwrite_output: true
 pad_vocab_to_multiple_of: 8
 params: null
-prepared_data: data_sockeye
+prepared_data: data_sockeye_factor
 quiet: false
 quiet_secondary_workers: false
 seed: 42
