@@ -2,12 +2,12 @@
 
 python -m sockeye.train \
 --prepared-data data_sockeye \
---target-factors \
 -vs data_reverse/dev.spm.spoken \
 -vt data_reverse/dev.symbol \
---output models/sockeye_spoken2symbol \
+-vtf data_reverse/dev.feat_x data_reverse/dev.feat_y \
+--output models/sockeye_spoken2symbol_factor_1 \
 --overwrite-output \
---weight-tying-type trg_softmax \
+--weight-tying-type none \
 --label-smoothing 0.2 \
 --optimized-metric perplexity \
 --checkpoint-interval 4000 \
@@ -20,9 +20,12 @@ python -m sockeye.train \
 --decode-and-evaluate -1 \
 --keep-last-params 1 \
 --cache-last-best-params 1 \
---device-id 0 \
+--device-id 2 \
 --disable-device-locking \
---seed 42
+--seed 42 \
+--target-factors-num-embed 16 16 \
+--target-factors-combine concat \
+--target-factors-weight 0.000000000001
 # --dry-run \
 # --use-cpu \
 
