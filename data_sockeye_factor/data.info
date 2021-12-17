@@ -1,0 +1,13 @@
+!DataInfo
+num_shards: 1
+shared_vocab: false
+source_vocabs:
+- null
+sources:
+- /net/cephfs/home/zifjia/signwriting-translation/data_reverse/train.spm.spoken
+target_vocabs:
+- null
+targets:
+- /net/cephfs/home/zifjia/signwriting-translation/data_reverse/train.symbol
+- /net/cephfs/home/zifjia/signwriting-translation/data_reverse/train.feat_x
+- /net/cephfs/home/zifjia/signwriting-translation/data_reverse/train.feat_y

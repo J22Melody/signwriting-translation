@@ -1,350 +1,39 @@
-[2021-12-16:14:15:25:INFO:sockeye.utils:log_sockeye_version] Sockeye: 3.0.5, commit 64c3b09b3402fffb63799e9ad33c81c6b97d8629, path /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/__init__.py
-[2021-12-16:14:15:25:INFO:sockeye.utils:log_mxnet_version] MXNet: 2.0.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/mxnet/__init__.py)
-[2021-12-16:14:15:25:INFO:sockeye.utils:log_torch_version] PyTorch: 1.10.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/torch/__init__.py)
-[2021-12-16:14:15:25:INFO:sockeye.utils:log_basic_info] Command: /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py --source data_reverse/train.spoken --target data_reverse/train.symbol --max-seq-len 200 --seed 42 --output ./data_sockeye
-[2021-12-16:14:15:25:INFO:sockeye.utils:log_basic_info] Arguments: Namespace(bucket_scaling=False, bucket_width=8, config=None, loglevel='INFO', loglevel_secondary_workers='INFO', max_processes=1, max_seq_len=(200, 200), min_num_shards=1, no_bucketing=False, no_logfile=False, num_samples_per_shard=10000000, num_words=(0, 0), output='./data_sockeye', pad_vocab_to_multiple_of=8, quiet=False, quiet_secondary_workers=False, seed=42, shared_vocab=False, source='data_reverse/train.spoken', source_factor_vocabs=[], source_factors=[], source_factors_use_source_vocab=[], source_vocab=None, target='data_reverse/train.symbol', target_factor_vocabs=[], target_factors=[], target_factors_use_target_vocab=[], target_vocab=None, word_min_count=(1, 1))
-[2021-12-16:14:15:25:INFO:sockeye.utils:seed_rngs] Random seed: 42
-[2021-12-16:14:15:25:INFO:sockeye.utils:seed_rngs] PyTorch seed: 42
-[2021-12-16:14:15:25:INFO:__main__:prepare_data] Adjusting maximum length to reserve space for a BOS/EOS marker. New maximum length: (201, 201)
-[2021-12-16:14:15:25:INFO:__main__:prepare_data] 111946 samples will be split into 1 shard(s) (requested samples/shard=10000000, min_num_shards=1).
-[2021-12-16:14:15:25:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:14:15:25:INFO:sockeye.vocab:load_or_create_vocabs] Loading/creating vocabularies
-[2021-12-16:14:15:25:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:14:15:25:INFO:sockeye.vocab:load_or_create_vocabs] (1) Surface form vocabularies (source & target)
-[2021-12-16:14:15:25:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.spoken
-[2021-12-16:14:15:26:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 77990 -> 77992
-[2021-12-16:14:15:26:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 77986/77986/77986/77992 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:14:15:26:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.symbol
-[2021-12-16:14:15:27:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 12218 -> 12224
-[2021-12-16:14:15:27:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 12214/12214/12214/12224 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:14:15:27:INFO:sockeye.data_io:prepare_data] Preparing data.
-[2021-12-16:14:15:27:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.src.0.json"
-[2021-12-16:14:15:27:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.0.json"
-[2021-12-16:14:15:30:INFO:sockeye.data_io:analyze_sequence_lengths] 111533 sequences of maximum length (201, 201) in 'data_reverse/train.spoken' and 'data_reverse/train.symbol'.
-[2021-12-16:14:15:30:INFO:sockeye.data_io:analyze_sequence_lengths] Mean training target/source length ratio: 1.93 (+-1.52)
-[2021-12-16:14:15:30:INFO:sockeye.data_io:prepare_data] Buckets: [(8, 8), (16, 16), (24, 24), (32, 32), (40, 40), (48, 48), (56, 56), (64, 64), (72, 72), (80, 80), (88, 88), (96, 96), (104, 104), (112, 112), (120, 120), (128, 128), (136, 136), (144, 144), (152, 152), (160, 160), (168, 168), (176, 176), (184, 184), (192, 192), (200, 200), (201, 201)]
-[2021-12-16:14:15:37:INFO:sockeye.data_io:load] Created bucketed parallel data set. Introduced padding: source=65.0% target=13.4%)
-[2021-12-16:14:15:37:INFO:sockeye.data_io:log] Tokens: source 898704 target 2225801
-[2021-12-16:14:15:37:INFO:sockeye.data_io:log] Number of <unk> tokens: source 0 target 0
-[2021-12-16:14:15:37:INFO:sockeye.data_io:log] Vocabulary coverage: source 100% target 100%
-[2021-12-16:14:15:37:INFO:sockeye.data_io:log] 111533 sequences across 26 buckets
-[2021-12-16:14:15:37:INFO:sockeye.data_io:log] 413 sequences did not fit into buckets and were discarded
-[2021-12-16:14:15:37:INFO:sockeye.data_io:save_shard] Writing '/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/shard.00000'
-[2021-12-16:14:15:37:INFO:sockeye.data_io:log] Tokens: source 898704 target 2225801
-[2021-12-16:14:15:37:INFO:sockeye.data_io:log] Number of <unk> tokens: source 0 target 0
-[2021-12-16:14:15:37:INFO:sockeye.data_io:log] Vocabulary coverage: source 100% target 100%
-[2021-12-16:14:15:37:INFO:sockeye.data_io:log] 111533 sequences across 26 buckets
-[2021-12-16:14:15:37:INFO:sockeye.data_io:log] 413 sequences did not fit into buckets and were discarded
-[2021-12-16:14:15:37:INFO:sockeye.data_io:prepare_data] Writing data info to '/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/data.info'
-[2021-12-16:14:15:37:INFO:sockeye.data_io:prepare_data] Writing data config to '/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/data.config'
-[2021-12-16:14:18:30:INFO:sockeye.utils:log_sockeye_version] Sockeye: 3.0.5, commit 64c3b09b3402fffb63799e9ad33c81c6b97d8629, path /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/__init__.py
-[2021-12-16:14:18:30:INFO:sockeye.utils:log_mxnet_version] MXNet: 2.0.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/mxnet/__init__.py)
-[2021-12-16:14:18:30:INFO:sockeye.utils:log_torch_version] PyTorch: 1.10.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/torch/__init__.py)
-[2021-12-16:14:18:30:INFO:sockeye.utils:log_basic_info] Command: /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py --source data_reverse/train.spm.spoken --target data_reverse/train.symbol --max-seq-len 200 --seed 42 --output ./data_sockeye
-[2021-12-16:14:18:30:INFO:sockeye.utils:log_basic_info] Arguments: Namespace(bucket_scaling=False, bucket_width=8, config=None, loglevel='INFO', loglevel_secondary_workers='INFO', max_processes=1, max_seq_len=(200, 200), min_num_shards=1, no_bucketing=False, no_logfile=False, num_samples_per_shard=10000000, num_words=(0, 0), output='./data_sockeye', pad_vocab_to_multiple_of=8, quiet=False, quiet_secondary_workers=False, seed=42, shared_vocab=False, source='data_reverse/train.spm.spoken', source_factor_vocabs=[], source_factors=[], source_factors_use_source_vocab=[], source_vocab=None, target='data_reverse/train.symbol', target_factor_vocabs=[], target_factors=[], target_factors_use_target_vocab=[], target_vocab=None, word_min_count=(1, 1))
-[2021-12-16:14:18:30:INFO:sockeye.utils:seed_rngs] Random seed: 42
-[2021-12-16:14:18:30:INFO:sockeye.utils:seed_rngs] PyTorch seed: 42
-[2021-12-16:14:18:30:INFO:__main__:prepare_data] Adjusting maximum length to reserve space for a BOS/EOS marker. New maximum length: (201, 201)
-[2021-12-16:14:18:30:INFO:__main__:prepare_data] 111946 samples will be split into 1 shard(s) (requested samples/shard=10000000, min_num_shards=1).
-[2021-12-16:14:18:30:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:14:18:30:INFO:sockeye.vocab:load_or_create_vocabs] Loading/creating vocabularies
-[2021-12-16:14:18:30:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:14:18:30:INFO:sockeye.vocab:load_or_create_vocabs] (1) Surface form vocabularies (source & target)
-[2021-12-16:14:18:30:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.spm.spoken
-[2021-12-16:14:18:30:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 1999 -> 2000
-[2021-12-16:14:18:30:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 1995/1995/1995/2000 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:14:18:30:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.symbol
-[2021-12-16:14:18:31:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 12218 -> 12224
-[2021-12-16:14:18:31:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 12214/12214/12214/12224 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:14:18:31:INFO:sockeye.data_io:prepare_data] Preparing data.
-[2021-12-16:14:18:31:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.src.0.json"
-[2021-12-16:14:18:31:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.0.json"
-[2021-12-16:14:18:34:INFO:sockeye.data_io:analyze_sequence_lengths] 111529 sequences of maximum length (201, 201) in 'data_reverse/train.spm.spoken' and 'data_reverse/train.symbol'.
-[2021-12-16:14:18:34:INFO:sockeye.data_io:analyze_sequence_lengths] Mean training target/source length ratio: 0.80 (+-0.70)
-[2021-12-16:14:18:34:INFO:sockeye.data_io:prepare_data] Buckets: [(8, 8), (16, 16), (24, 24), (32, 32), (40, 40), (48, 48), (56, 56), (64, 64), (72, 72), (80, 80), (88, 88), (96, 96), (104, 104), (112, 112), (120, 120), (128, 128), (136, 136), (144, 144), (152, 152), (160, 160), (168, 168), (176, 176), (184, 184), (192, 192), (200, 200), (201, 201)]
-[2021-12-16:14:18:42:INFO:sockeye.data_io:load] Created bucketed parallel data set. Introduced padding: source=34.6% target=29.9%)
-[2021-12-16:14:18:42:INFO:sockeye.data_io:log] Tokens: source 2075941 target 2225438
-[2021-12-16:14:18:42:INFO:sockeye.data_io:log] Number of <unk> tokens: source 0 target 0
-[2021-12-16:14:18:42:INFO:sockeye.data_io:log] Vocabulary coverage: source 100% target 100%
-[2021-12-16:14:18:42:INFO:sockeye.data_io:log] 111529 sequences across 26 buckets
-[2021-12-16:14:18:42:INFO:sockeye.data_io:log] 417 sequences did not fit into buckets and were discarded
-[2021-12-16:14:18:42:INFO:sockeye.data_io:save_shard] Writing '/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/shard.00000'
-[2021-12-16:14:18:42:INFO:sockeye.data_io:log] Tokens: source 2075941 target 2225438
-[2021-12-16:14:18:42:INFO:sockeye.data_io:log] Number of <unk> tokens: source 0 target 0
-[2021-12-16:14:18:42:INFO:sockeye.data_io:log] Vocabulary coverage: source 100% target 100%
-[2021-12-16:14:18:42:INFO:sockeye.data_io:log] 111529 sequences across 26 buckets
-[2021-12-16:14:18:42:INFO:sockeye.data_io:log] 417 sequences did not fit into buckets and were discarded
-[2021-12-16:14:18:42:INFO:sockeye.data_io:prepare_data] Writing data info to '/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/data.info'
-[2021-12-16:14:18:42:INFO:sockeye.data_io:prepare_data] Writing data config to '/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/data.config'
-[2021-12-16:17:46:39:INFO:sockeye.utils:log_sockeye_version] Sockeye: 3.0.5, commit 64c3b09b3402fffb63799e9ad33c81c6b97d8629, path /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/__init__.py
-[2021-12-16:17:46:39:INFO:sockeye.utils:log_mxnet_version] MXNet: 2.0.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/mxnet/__init__.py)
-[2021-12-16:17:46:39:INFO:sockeye.utils:log_torch_version] PyTorch: 1.10.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/torch/__init__.py)
-[2021-12-16:17:46:39:INFO:sockeye.utils:log_basic_info] Command: /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py --source data_reverse/train.spm.spoken --target data_reverse/train.symbol --target-factors data_reverse/train.feat_x data_reverse/train.feat_y --output ./data_sockeye --max-seq-len 200 --seed 42
-[2021-12-16:17:46:39:INFO:sockeye.utils:log_basic_info] Arguments: Namespace(bucket_scaling=False, bucket_width=8, config=None, loglevel='INFO', loglevel_secondary_workers='INFO', max_processes=1, max_seq_len=(200, 200), min_num_shards=1, no_bucketing=False, no_logfile=False, num_samples_per_shard=10000000, num_words=(0, 0), output='./data_sockeye', pad_vocab_to_multiple_of=8, quiet=False, quiet_secondary_workers=False, seed=42, shared_vocab=False, source='data_reverse/train.spm.spoken', source_factor_vocabs=[], source_factors=[], source_factors_use_source_vocab=[], source_vocab=None, target='data_reverse/train.symbol', target_factor_vocabs=[], target_factors=['data_reverse/train.feat_x', 'data_reverse/train.feat_y'], target_factors_use_target_vocab=[], target_vocab=None, word_min_count=(1, 1))
-[2021-12-16:17:46:39:INFO:sockeye.utils:seed_rngs] Random seed: 42
-[2021-12-16:17:46:39:INFO:sockeye.utils:seed_rngs] PyTorch seed: 42
-[2021-12-16:17:46:39:INFO:__main__:prepare_data] Adjusting maximum length to reserve space for a BOS/EOS marker. New maximum length: (201, 201)
-[2021-12-16:17:46:39:INFO:__main__:prepare_data] 111946 samples will be split into 1 shard(s) (requested samples/shard=10000000, min_num_shards=1).
-[2021-12-16:17:46:39:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:17:46:39:INFO:sockeye.vocab:load_or_create_vocabs] Loading/creating vocabularies
-[2021-12-16:17:46:39:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:17:46:39:INFO:sockeye.vocab:load_or_create_vocabs] (1) Surface form vocabularies (source & target)
-[2021-12-16:17:46:39:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.spm.spoken
-[2021-12-16:17:46:40:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 1999 -> 2000
-[2021-12-16:17:46:40:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 1995/1995/1995/2000 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:17:46:40:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.symbol
-[2021-12-16:17:46:41:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 12218 -> 12224
-[2021-12-16:17:46:41:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 12214/12214/12214/12224 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:17:46:41:INFO:sockeye.vocab:load_or_create_vocabs] (3) Additional target factor vocabularies
-[2021-12-16:17:46:41:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.feat_x
-[2021-12-16:17:46:41:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 396 -> 400
-[2021-12-16:17:46:41:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 392/392/392/400 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:17:46:41:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.feat_y
-[2021-12-16:17:46:42:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 458 -> 464
-[2021-12-16:17:46:42:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 454/454/454/464 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:17:46:42:INFO:sockeye.data_io:prepare_data] Preparing data.
-[2021-12-16:17:46:42:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.src.0.json"
-[2021-12-16:17:46:42:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.0.json"
-[2021-12-16:17:46:42:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.1.json"
-[2021-12-16:17:46:42:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.2.json"
-[2021-12-16:17:46:42:ERROR:root:exception_hook] Uncaught exception
-Traceback (most recent call last):
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/runpy.py", line 194, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/runpy.py", line 87, in _run_code
-    exec(code, run_globals)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py", line 121, in <module>
-    main()
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py", line 32, in main
-    prepare_data(args)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py", line 101, in prepare_data
-    data_io.prepare_data(source_fnames=source_paths,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 627, in prepare_data
-    length_stats = pool.starmap(analyze_sequence_lengths, stats_args)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/utils.py", line 790, in starmap
-    return list(starmap(func, iterable))
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 257, in analyze_sequence_lengths
-    length_statistics = calculate_length_statistics(train_sources_sentences, train_targets_sentences,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 236, in calculate_length_statistics
-    for sources, targets in parallel_iter(source_iterables, target_iterables):
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 1318, in parallel_iterate
-    check_condition(are_none(targets) or are_token_parallel(targets),
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/utils.py", line 153, in check_condition
-    raise SockeyeError(error_message)
-sockeye.utils.SockeyeError: Target sequences are not token-parallel: [[2, 4, 548, 622, 450, 559, 806, 2014], [2, 4, 4, 4, 82, 37, 86, 47, 51, 10, 15], [2, 4, 4, 4, 93, 137, 137, 54, 57, 41, 18]]
-[2021-12-16:17:55:25:INFO:sockeye.utils:log_sockeye_version] Sockeye: 3.0.5, commit 64c3b09b3402fffb63799e9ad33c81c6b97d8629, path /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/__init__.py
-[2021-12-16:17:55:25:INFO:sockeye.utils:log_mxnet_version] MXNet: 2.0.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/mxnet/__init__.py)
-[2021-12-16:17:55:25:INFO:sockeye.utils:log_torch_version] PyTorch: 1.10.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/torch/__init__.py)
-[2021-12-16:17:55:25:INFO:sockeye.utils:log_basic_info] Command: /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py --source data_reverse/train.spm.spoken --target data_reverse/train.symbol --target-factors data_reverse/train.feat_x data_reverse/train.feat_y --output ./data_sockeye --max-seq-len 200 --seed 42
-[2021-12-16:17:55:25:INFO:sockeye.utils:log_basic_info] Arguments: Namespace(bucket_scaling=False, bucket_width=8, config=None, loglevel='INFO', loglevel_secondary_workers='INFO', max_processes=1, max_seq_len=(200, 200), min_num_shards=1, no_bucketing=False, no_logfile=False, num_samples_per_shard=10000000, num_words=(0, 0), output='./data_sockeye', pad_vocab_to_multiple_of=8, quiet=False, quiet_secondary_workers=False, seed=42, shared_vocab=False, source='data_reverse/train.spm.spoken', source_factor_vocabs=[], source_factors=[], source_factors_use_source_vocab=[], source_vocab=None, target='data_reverse/train.symbol', target_factor_vocabs=[], target_factors=['data_reverse/train.feat_x', 'data_reverse/train.feat_y'], target_factors_use_target_vocab=[], target_vocab=None, word_min_count=(1, 1))
-[2021-12-16:17:55:25:INFO:sockeye.utils:seed_rngs] Random seed: 42
-[2021-12-16:17:55:25:INFO:sockeye.utils:seed_rngs] PyTorch seed: 42
-[2021-12-16:17:55:25:INFO:__main__:prepare_data] Adjusting maximum length to reserve space for a BOS/EOS marker. New maximum length: (201, 201)
-[2021-12-16:17:55:25:INFO:__main__:prepare_data] 111946 samples will be split into 1 shard(s) (requested samples/shard=10000000, min_num_shards=1).
-[2021-12-16:17:55:25:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:17:55:25:INFO:sockeye.vocab:load_or_create_vocabs] Loading/creating vocabularies
-[2021-12-16:17:55:25:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:17:55:25:INFO:sockeye.vocab:load_or_create_vocabs] (1) Surface form vocabularies (source & target)
-[2021-12-16:17:55:25:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.spm.spoken
-[2021-12-16:17:55:25:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 1999 -> 2000
-[2021-12-16:17:55:25:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 1995/1995/1995/2000 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:17:55:25:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.symbol
-[2021-12-16:17:55:26:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 12218 -> 12224
-[2021-12-16:17:55:26:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 12214/12214/12214/12224 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:17:55:26:INFO:sockeye.vocab:load_or_create_vocabs] (3) Additional target factor vocabularies
-[2021-12-16:17:55:26:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.feat_x
-[2021-12-16:17:55:27:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 396 -> 400
-[2021-12-16:17:55:27:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 392/392/392/400 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:17:55:27:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.feat_y
-[2021-12-16:17:55:27:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 458 -> 464
-[2021-12-16:17:55:27:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 454/454/454/464 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:17:55:27:INFO:sockeye.data_io:prepare_data] Preparing data.
-[2021-12-16:17:55:27:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.src.0.json"
-[2021-12-16:17:55:27:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.0.json"
-[2021-12-16:17:55:27:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.1.json"
-[2021-12-16:17:55:27:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.2.json"
-[2021-12-16:17:55:27:ERROR:root:exception_hook] Uncaught exception
-Traceback (most recent call last):
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/runpy.py", line 194, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/runpy.py", line 87, in _run_code
-    exec(code, run_globals)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py", line 121, in <module>
-    main()
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py", line 32, in main
-    prepare_data(args)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py", line 101, in prepare_data
-    data_io.prepare_data(source_fnames=source_paths,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 627, in prepare_data
-    length_stats = pool.starmap(analyze_sequence_lengths, stats_args)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/utils.py", line 790, in starmap
-    return list(starmap(func, iterable))
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 257, in analyze_sequence_lengths
-    length_statistics = calculate_length_statistics(train_sources_sentences, train_targets_sentences,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 236, in calculate_length_statistics
-    for sources, targets in parallel_iter(source_iterables, target_iterables):
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 1318, in parallel_iterate
-    check_condition(are_none(targets) or are_token_parallel(targets),
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/utils.py", line 153, in check_condition
-    raise SockeyeError(error_message)
-sockeye.utils.SockeyeError: Target sequences are not token-parallel: [[2, 4, 548, 622, 450, 559, 806, 2014], [2, 4, 82, 37, 86, 47, 51, 10, 15], [2, 4, 93, 137, 137, 54, 57, 41, 18]]
-[2021-12-16:17:59:18:INFO:sockeye.utils:log_sockeye_version] Sockeye: 3.0.5, commit 64c3b09b3402fffb63799e9ad33c81c6b97d8629, path /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/__init__.py
-[2021-12-16:17:59:18:INFO:sockeye.utils:log_mxnet_version] MXNet: 2.0.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/mxnet/__init__.py)
-[2021-12-16:17:59:18:INFO:sockeye.utils:log_torch_version] PyTorch: 1.10.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/torch/__init__.py)
-[2021-12-16:17:59:18:INFO:sockeye.utils:log_basic_info] Command: /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py --source data_reverse/train.spm.spoken --target data_reverse/train.symbol --target-factors data_reverse/train.feat_x data_reverse/train.feat_y --output ./data_sockeye --max-seq-len 200 --seed 42
-[2021-12-16:17:59:18:INFO:sockeye.utils:log_basic_info] Arguments: Namespace(bucket_scaling=False, bucket_width=8, config=None, loglevel='INFO', loglevel_secondary_workers='INFO', max_processes=1, max_seq_len=(200, 200), min_num_shards=1, no_bucketing=False, no_logfile=False, num_samples_per_shard=10000000, num_words=(0, 0), output='./data_sockeye', pad_vocab_to_multiple_of=8, quiet=False, quiet_secondary_workers=False, seed=42, shared_vocab=False, source='data_reverse/train.spm.spoken', source_factor_vocabs=[], source_factors=[], source_factors_use_source_vocab=[], source_vocab=None, target='data_reverse/train.symbol', target_factor_vocabs=[], target_factors=['data_reverse/train.feat_x', 'data_reverse/train.feat_y'], target_factors_use_target_vocab=[], target_vocab=None, word_min_count=(1, 1))
-[2021-12-16:17:59:18:INFO:sockeye.utils:seed_rngs] Random seed: 42
-[2021-12-16:17:59:18:INFO:sockeye.utils:seed_rngs] PyTorch seed: 42
-[2021-12-16:17:59:18:INFO:__main__:prepare_data] Adjusting maximum length to reserve space for a BOS/EOS marker. New maximum length: (201, 201)
-[2021-12-16:17:59:18:INFO:__main__:prepare_data] 111946 samples will be split into 1 shard(s) (requested samples/shard=10000000, min_num_shards=1).
-[2021-12-16:17:59:18:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:17:59:18:INFO:sockeye.vocab:load_or_create_vocabs] Loading/creating vocabularies
-[2021-12-16:17:59:18:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:17:59:18:INFO:sockeye.vocab:load_or_create_vocabs] (1) Surface form vocabularies (source & target)
-[2021-12-16:17:59:18:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.spm.spoken
-[2021-12-16:17:59:19:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 1999 -> 2000
-[2021-12-16:17:59:19:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 1995/1995/1995/2000 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:17:59:19:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.symbol
-[2021-12-16:17:59:20:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 12218 -> 12224
-[2021-12-16:17:59:20:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 12214/12214/12214/12224 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:17:59:20:INFO:sockeye.vocab:load_or_create_vocabs] (3) Additional target factor vocabularies
-[2021-12-16:17:59:20:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.feat_x
-[2021-12-16:17:59:20:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 396 -> 400
-[2021-12-16:17:59:20:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 392/392/392/400 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:17:59:20:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.feat_y
-[2021-12-16:17:59:21:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 458 -> 464
-[2021-12-16:17:59:21:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 454/454/454/464 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:17:59:21:INFO:sockeye.data_io:prepare_data] Preparing data.
-[2021-12-16:17:59:21:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.src.0.json"
-[2021-12-16:17:59:21:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.0.json"
-[2021-12-16:17:59:21:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.1.json"
-[2021-12-16:17:59:21:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.2.json"
-[2021-12-16:17:59:22:ERROR:root:exception_hook] Uncaught exception
-Traceback (most recent call last):
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/runpy.py", line 194, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/runpy.py", line 87, in _run_code
-    exec(code, run_globals)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py", line 121, in <module>
-    main()
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py", line 32, in main
-    prepare_data(args)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py", line 101, in prepare_data
-    data_io.prepare_data(source_fnames=source_paths,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 627, in prepare_data
-    length_stats = pool.starmap(analyze_sequence_lengths, stats_args)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/utils.py", line 790, in starmap
-    return list(starmap(func, iterable))
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 257, in analyze_sequence_lengths
-    length_statistics = calculate_length_statistics(train_sources_sentences, train_targets_sentences,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 236, in calculate_length_statistics
-    for sources, targets in parallel_iter(source_iterables, target_iterables):
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 1318, in parallel_iterate
-    check_condition(are_none(targets) or are_token_parallel(targets),
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/utils.py", line 153, in check_condition
-    raise SockeyeError(error_message)
-sockeye.utils.SockeyeError: Target sequences are not token-parallel: [[2, 6965, 9324, 9323], [2, 362], [2, 425]]
-[2021-12-16:18:08:50:INFO:sockeye.utils:log_sockeye_version] Sockeye: 3.0.5, commit 64c3b09b3402fffb63799e9ad33c81c6b97d8629, path /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/__init__.py
-[2021-12-16:18:08:50:INFO:sockeye.utils:log_mxnet_version] MXNet: 2.0.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/mxnet/__init__.py)
-[2021-12-16:18:08:50:INFO:sockeye.utils:log_torch_version] PyTorch: 1.10.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/torch/__init__.py)
-[2021-12-16:18:08:50:INFO:sockeye.utils:log_basic_info] Command: /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py --source data_reverse/train.spm.spoken --target data_reverse/train.symbol --target-factors data_reverse/train.feat_x data_reverse/train.feat_y --output ./data_sockeye --max-seq-len 200 --seed 42
-[2021-12-16:18:08:50:INFO:sockeye.utils:log_basic_info] Arguments: Namespace(bucket_scaling=False, bucket_width=8, config=None, loglevel='INFO', loglevel_secondary_workers='INFO', max_processes=1, max_seq_len=(200, 200), min_num_shards=1, no_bucketing=False, no_logfile=False, num_samples_per_shard=10000000, num_words=(0, 0), output='./data_sockeye', pad_vocab_to_multiple_of=8, quiet=False, quiet_secondary_workers=False, seed=42, shared_vocab=False, source='data_reverse/train.spm.spoken', source_factor_vocabs=[], source_factors=[], source_factors_use_source_vocab=[], source_vocab=None, target='data_reverse/train.symbol', target_factor_vocabs=[], target_factors=['data_reverse/train.feat_x', 'data_reverse/train.feat_y'], target_factors_use_target_vocab=[], target_vocab=None, word_min_count=(1, 1))
-[2021-12-16:18:08:50:INFO:sockeye.utils:seed_rngs] Random seed: 42
-[2021-12-16:18:08:50:INFO:sockeye.utils:seed_rngs] PyTorch seed: 42
-[2021-12-16:18:08:50:INFO:__main__:prepare_data] Adjusting maximum length to reserve space for a BOS/EOS marker. New maximum length: (201, 201)
-[2021-12-16:18:08:50:INFO:__main__:prepare_data] 111946 samples will be split into 1 shard(s) (requested samples/shard=10000000, min_num_shards=1).
-[2021-12-16:18:08:50:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:18:08:50:INFO:sockeye.vocab:load_or_create_vocabs] Loading/creating vocabularies
-[2021-12-16:18:08:50:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:18:08:50:INFO:sockeye.vocab:load_or_create_vocabs] (1) Surface form vocabularies (source & target)
-[2021-12-16:18:08:50:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.spm.spoken
-[2021-12-16:18:08:51:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 1999 -> 2000
-[2021-12-16:18:08:51:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 1995/1995/1995/2000 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:18:08:51:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.symbol
-[2021-12-16:18:08:52:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 12218 -> 12224
-[2021-12-16:18:08:52:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 12214/12214/12214/12224 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:18:08:52:INFO:sockeye.vocab:load_or_create_vocabs] (3) Additional target factor vocabularies
-[2021-12-16:18:08:52:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.feat_x
-[2021-12-16:18:08:52:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 396 -> 400
-[2021-12-16:18:08:52:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 392/392/392/400 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:18:08:52:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.feat_y
-[2021-12-16:18:08:53:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 458 -> 464
-[2021-12-16:18:08:53:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 454/454/454/464 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:18:08:53:INFO:sockeye.data_io:prepare_data] Preparing data.
-[2021-12-16:18:08:53:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.src.0.json"
-[2021-12-16:18:08:53:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.0.json"
-[2021-12-16:18:08:53:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.1.json"
-[2021-12-16:18:08:53:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.2.json"
-[2021-12-16:18:08:54:ERROR:root:exception_hook] Uncaught exception
-Traceback (most recent call last):
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/runpy.py", line 194, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/runpy.py", line 87, in _run_code
-    exec(code, run_globals)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py", line 121, in <module>
-    main()
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py", line 32, in main
-    prepare_data(args)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py", line 101, in prepare_data
-    data_io.prepare_data(source_fnames=source_paths,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 627, in prepare_data
-    length_stats = pool.starmap(analyze_sequence_lengths, stats_args)
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/utils.py", line 790, in starmap
-    return list(starmap(func, iterable))
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 257, in analyze_sequence_lengths
-    length_statistics = calculate_length_statistics(train_sources_sentences, train_targets_sentences,
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 236, in calculate_length_statistics
-    for sources, targets in parallel_iter(source_iterables, target_iterables):
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/data_io.py", line 1318, in parallel_iterate
-    check_condition(are_none(targets) or are_token_parallel(targets),
-  File "/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/utils.py", line 153, in check_condition
-    raise SockeyeError(error_message)
-sockeye.utils.SockeyeError: Target sequences are not token-parallel: [[2, 6965, 9324, 9323], [2, 362], [2, 425]]
-[2021-12-16:18:19:40:INFO:sockeye.utils:log_sockeye_version] Sockeye: 3.0.5, commit 64c3b09b3402fffb63799e9ad33c81c6b97d8629, path /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/__init__.py
-[2021-12-16:18:19:40:INFO:sockeye.utils:log_mxnet_version] MXNet: 2.0.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/mxnet/__init__.py)
-[2021-12-16:18:19:40:INFO:sockeye.utils:log_torch_version] PyTorch: 1.10.0 (/opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/torch/__init__.py)
-[2021-12-16:18:19:40:INFO:sockeye.utils:log_basic_info] Command: /opt/anaconda3/envs/sockeye/lib/python3.8/site-packages/sockeye/prepare_data.py --source data_reverse/train.spm.spoken --target data_reverse/train.symbol --target-factors data_reverse/train.feat_x data_reverse/train.feat_y --output ./data_sockeye --max-seq-len 200 --seed 42
-[2021-12-16:18:19:40:INFO:sockeye.utils:log_basic_info] Arguments: Namespace(bucket_scaling=False, bucket_width=8, config=None, loglevel='INFO', loglevel_secondary_workers='INFO', max_processes=1, max_seq_len=(200, 200), min_num_shards=1, no_bucketing=False, no_logfile=False, num_samples_per_shard=10000000, num_words=(0, 0), output='./data_sockeye', pad_vocab_to_multiple_of=8, quiet=False, quiet_secondary_workers=False, seed=42, shared_vocab=False, source='data_reverse/train.spm.spoken', source_factor_vocabs=[], source_factors=[], source_factors_use_source_vocab=[], source_vocab=None, target='data_reverse/train.symbol', target_factor_vocabs=[], target_factors=['data_reverse/train.feat_x', 'data_reverse/train.feat_y'], target_factors_use_target_vocab=[], target_vocab=None, word_min_count=(1, 1))
-[2021-12-16:18:19:40:INFO:sockeye.utils:seed_rngs] Random seed: 42
-[2021-12-16:18:19:40:INFO:sockeye.utils:seed_rngs] PyTorch seed: 42
-[2021-12-16:18:19:40:INFO:__main__:prepare_data] Adjusting maximum length to reserve space for a BOS/EOS marker. New maximum length: (201, 201)
-[2021-12-16:18:19:40:INFO:__main__:prepare_data] 111946 samples will be split into 1 shard(s) (requested samples/shard=10000000, min_num_shards=1).
-[2021-12-16:18:19:40:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:18:19:40:INFO:sockeye.vocab:load_or_create_vocabs] Loading/creating vocabularies
-[2021-12-16:18:19:40:INFO:sockeye.vocab:load_or_create_vocabs] =============================
-[2021-12-16:18:19:40:INFO:sockeye.vocab:load_or_create_vocabs] (1) Surface form vocabularies (source & target)
-[2021-12-16:18:19:40:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.spm.spoken
-[2021-12-16:18:19:40:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 1999 -> 2000
-[2021-12-16:18:19:40:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 1995/1995/1995/2000 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:18:19:40:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.symbol
-[2021-12-16:18:19:41:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 12216 -> 12216
-[2021-12-16:18:19:41:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 12212/12212/12212/12216 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:18:19:41:INFO:sockeye.vocab:load_or_create_vocabs] (3) Additional target factor vocabularies
-[2021-12-16:18:19:41:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.feat_x
-[2021-12-16:18:19:42:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 395 -> 400
-[2021-12-16:18:19:42:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 391/391/391/400 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:18:19:42:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.feat_y
-[2021-12-16:18:19:42:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 457 -> 464
-[2021-12-16:18:19:42:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 453/453/453/464 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
-[2021-12-16:18:19:42:INFO:sockeye.data_io:prepare_data] Preparing data.
-[2021-12-16:18:19:42:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.src.0.json"
-[2021-12-16:18:19:42:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.0.json"
-[2021-12-16:18:19:42:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.1.json"
-[2021-12-16:18:19:42:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/vocab.trg.2.json"
-[2021-12-16:18:19:48:INFO:sockeye.data_io:analyze_sequence_lengths] 111496 sequences of maximum length (201, 201) in 'data_reverse/train.spm.spoken' and 'data_reverse/train.symbol'.
-[2021-12-16:18:19:48:INFO:sockeye.data_io:analyze_sequence_lengths] Mean training target/source length ratio: 1.23 (+-2.14)
-[2021-12-16:18:19:48:INFO:sockeye.data_io:prepare_data] Buckets: [(8, 8), (16, 16), (24, 24), (32, 32), (40, 40), (48, 48), (56, 56), (64, 64), (72, 72), (80, 80), (88, 88), (96, 96), (104, 104), (112, 112), (120, 120), (128, 128), (136, 136), (144, 144), (152, 152), (160, 160), (168, 168), (176, 176), (184, 184), (192, 192), (200, 200), (201, 201)]
-[2021-12-16:18:20:04:INFO:sockeye.data_io:load] Created bucketed parallel data set. Introduced padding: source=41.1% target=37.3%)
-[2021-12-16:18:20:04:INFO:sockeye.data_io:log] Tokens: source 2089428 target 2224742
-[2021-12-16:18:20:04:INFO:sockeye.data_io:log] Number of <unk> tokens: source 0 target 0
-[2021-12-16:18:20:04:INFO:sockeye.data_io:log] Vocabulary coverage: source 100% target 100%
-[2021-12-16:18:20:04:INFO:sockeye.data_io:log] 111496 sequences across 26 buckets
-[2021-12-16:18:20:04:INFO:sockeye.data_io:log] 449 sequences did not fit into buckets and were discarded
-[2021-12-16:18:20:04:INFO:sockeye.data_io:save_shard] Writing '/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/shard.00000'
-[2021-12-16:18:20:04:INFO:sockeye.data_io:log] Tokens: source 2089428 target 2224742
-[2021-12-16:18:20:04:INFO:sockeye.data_io:log] Number of <unk> tokens: source 0 target 0
-[2021-12-16:18:20:04:INFO:sockeye.data_io:log] Vocabulary coverage: source 100% target 100%
-[2021-12-16:18:20:04:INFO:sockeye.data_io:log] 111496 sequences across 26 buckets
-[2021-12-16:18:20:04:INFO:sockeye.data_io:log] 449 sequences did not fit into buckets and were discarded
-[2021-12-16:18:20:04:INFO:sockeye.data_io:prepare_data] Writing data info to '/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/data.info'
-[2021-12-16:18:20:04:INFO:sockeye.data_io:prepare_data] Writing data config to '/Users/jiangzifan/Desktop/workspace/signwriting-translation/data_sockeye/data.config'
+[2021-12-17:16:42:41:INFO:sockeye.utils:log_sockeye_version] Sockeye: 3.0.4, commit 8e5033be2a2f09d935c682f33703eff34cf8b3f4, path /home/cluster/zifjia/.local/lib/python3.8/site-packages/sockeye/__init__.py
+[2021-12-17:16:42:41:INFO:sockeye.utils:log_mxnet_version] MXNet: 2.0.0 (/home/cluster/zifjia/.local/lib/python3.8/site-packages/mxnet/__init__.py)
+[2021-12-17:16:42:41:INFO:sockeye.utils:log_torch_version] PyTorch: 1.10.0+cu102 (/home/cluster/zifjia/.local/lib/python3.8/site-packages/torch/__init__.py)
+[2021-12-17:16:42:41:INFO:sockeye.utils:log_basic_info] Command: /home/cluster/zifjia/.local/lib/python3.8/site-packages/sockeye/prepare_data.py --source data_reverse/train.spm.spoken --target data_reverse/train.symbol --output ./data_sockeye --max-seq-len 200 --seed 42
+[2021-12-17:16:42:41:INFO:sockeye.utils:log_basic_info] Arguments: Namespace(bucket_scaling=False, bucket_width=8, config=None, loglevel='INFO', loglevel_secondary_workers='INFO', max_processes=1, max_seq_len=(200, 200), min_num_shards=1, no_bucketing=False, no_logfile=False, num_samples_per_shard=10000000, num_words=(0, 0), output='./data_sockeye', pad_vocab_to_multiple_of=8, quiet=False, quiet_secondary_workers=False, seed=42, shared_vocab=False, source='data_reverse/train.spm.spoken', source_factor_vocabs=[], source_factors=[], source_factors_use_source_vocab=[], source_vocab=None, target='data_reverse/train.symbol', target_factor_vocabs=[], target_factors=[], target_factors_use_target_vocab=[], target_vocab=None, word_min_count=(1, 1))
+[2021-12-17:16:42:41:INFO:sockeye.utils:seed_rngs] Random seed: 42
+[2021-12-17:16:42:41:INFO:sockeye.utils:seed_rngs] PyTorch seed: 42
+[2021-12-17:16:42:41:INFO:__main__:prepare_data] Adjusting maximum length to reserve space for a BOS/EOS marker. New maximum length: (201, 201)
+[2021-12-17:16:42:41:INFO:__main__:prepare_data] 111946 samples will be split into 1 shard(s) (requested samples/shard=10000000, min_num_shards=1).
+[2021-12-17:16:42:41:INFO:sockeye.vocab:load_or_create_vocabs] =============================
+[2021-12-17:16:42:41:INFO:sockeye.vocab:load_or_create_vocabs] Loading/creating vocabularies
+[2021-12-17:16:42:41:INFO:sockeye.vocab:load_or_create_vocabs] =============================
+[2021-12-17:16:42:41:INFO:sockeye.vocab:load_or_create_vocabs] (1) Surface form vocabularies (source & target)
+[2021-12-17:16:42:41:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.spm.spoken
+[2021-12-17:16:42:41:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 1999 -> 2000
+[2021-12-17:16:42:41:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 1995/1995/1995/2000 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
+[2021-12-17:16:42:41:INFO:sockeye.vocab:build_from_paths] Building vocabulary from dataset(s): data_reverse/train.symbol
+[2021-12-17:16:42:42:INFO:sockeye.vocab:build_pruned_vocab] Padding vocabulary to a multiple of 8: 12216 -> 12216
+[2021-12-17:16:42:42:INFO:sockeye.vocab:build_pruned_vocab] Vocabulary: types: 12212/12212/12212/12216 (initial/min_pruned/max_pruned/+special) [min_frequency=1, max_num_types=None, pad_to_multiple_of=8]
+[2021-12-17:16:42:42:INFO:sockeye.data_io:prepare_data] Preparing data.
+[2021-12-17:16:42:42:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/net/cephfs/home/zifjia/signwriting-translation/data_sockeye/vocab.src.0.json"
+[2021-12-17:16:42:42:INFO:sockeye.vocab:vocab_to_json] Vocabulary saved to "/net/cephfs/home/zifjia/signwriting-translation/data_sockeye/vocab.trg.0.json"
+[2021-12-17:16:42:44:INFO:sockeye.data_io:analyze_sequence_lengths] 111496 sequences of maximum length (201, 201) in 'data_reverse/train.spm.spoken' and 'data_reverse/train.symbol'.
+[2021-12-17:16:42:44:INFO:sockeye.data_io:analyze_sequence_lengths] Mean training target/source length ratio: 1.23 (+-2.14)
+[2021-12-17:16:42:44:INFO:sockeye.data_io:prepare_data] Buckets: [(8, 8), (16, 16), (24, 24), (32, 32), (40, 40), (48, 48), (56, 56), (64, 64), (72, 72), (80, 80), (88, 88), (96, 96), (104, 104), (112, 112), (120, 120), (128, 128), (136, 136), (144, 144), (152, 152), (160, 160), (168, 168), (176, 176), (184, 184), (192, 192), (200, 200), (201, 201)]
+[2021-12-17:16:42:49:INFO:sockeye.data_io:load] Created bucketed parallel data set. Introduced padding: source=41.1% target=37.3%)
+[2021-12-17:16:42:49:INFO:sockeye.data_io:log] Tokens: source 2089428 target 2224742
+[2021-12-17:16:42:49:INFO:sockeye.data_io:log] Number of <unk> tokens: source 0 target 0
+[2021-12-17:16:42:49:INFO:sockeye.data_io:log] Vocabulary coverage: source 100% target 100%
+[2021-12-17:16:42:49:INFO:sockeye.data_io:log] 111496 sequences across 26 buckets
+[2021-12-17:16:42:49:INFO:sockeye.data_io:log] 449 sequences did not fit into buckets and were discarded
+[2021-12-17:16:42:49:INFO:sockeye.data_io:save_shard] Writing '/net/cephfs/home/zifjia/signwriting-translation/data_sockeye/shard.00000'
+[2021-12-17:16:42:49:INFO:sockeye.data_io:log] Tokens: source 2089428 target 2224742
+[2021-12-17:16:42:49:INFO:sockeye.data_io:log] Number of <unk> tokens: source 0 target 0
+[2021-12-17:16:42:49:INFO:sockeye.data_io:log] Vocabulary coverage: source 100% target 100%
+[2021-12-17:16:42:49:INFO:sockeye.data_io:log] 111496 sequences across 26 buckets
+[2021-12-17:16:42:49:INFO:sockeye.data_io:log] 449 sequences did not fit into buckets and were discarded
+[2021-12-17:16:42:49:INFO:sockeye.data_io:prepare_data] Writing data info to '/net/cephfs/home/zifjia/signwriting-translation/data_sockeye/data.info'
+[2021-12-17:16:42:49:INFO:sockeye.data_io:prepare_data] Writing data config to '/net/cephfs/home/zifjia/signwriting-translation/data_sockeye/data.config'

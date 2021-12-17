@@ -4,10 +4,8 @@ shared_vocab: false
 source_vocabs:
 - null
 sources:
-- /Users/jiangzifan/Desktop/workspace/signwriting-translation/data_reverse/train.spm.spoken
+- /net/cephfs/home/zifjia/signwriting-translation/data_reverse/train.spm.spoken
 target_vocabs:
 - null
 targets:
-- /Users/jiangzifan/Desktop/workspace/signwriting-translation/data_reverse/train.symbol
-- /Users/jiangzifan/Desktop/workspace/signwriting-translation/data_reverse/train.feat_x
-- /Users/jiangzifan/Desktop/workspace/signwriting-translation/data_reverse/train.feat_y
+- /net/cephfs/home/zifjia/signwriting-translation/data_reverse/train.symbol
