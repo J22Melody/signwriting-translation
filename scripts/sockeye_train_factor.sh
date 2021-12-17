@@ -5,7 +5,7 @@ python -m sockeye.train \
 -vs data_reverse/dev.spm.spoken \
 -vt data_reverse/dev.symbol \
 -vtf data_reverse/dev.feat_x data_reverse/dev.feat_y \
---output models/sockeye_spoken2symbol_factor_2 \
+--output models/sockeye_spoken2symbol_factor \
 --overwrite-output \
 --weight-tying-type none \
 --label-smoothing 0.2 \

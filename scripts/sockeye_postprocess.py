@@ -1,6 +1,10 @@
-with open('./models/sockeye_spoken2symbol_factor/test.hyps.mixed') as source_file, \
-     open('./models/sockeye_spoken2symbol_factor/test.hyps.symbol', 'w+') as symbol_file, \
-     open('./models/sockeye_spoken2symbol_factor/test.hyps.fsw', 'w+') as fsw_file:
+import sys
+
+model_name = sys.argv[1]
+
+with open('./models/{}/test.hyps.mixed'.format(model_name)) as source_file, \
+     open('./models/{}/test.hyps.symbol'.format(model_name), 'w+') as symbol_file, \
+     open('./models/{}/test.hyps.fsw'.format(model_name), 'w+') as fsw_file:
 
     source_lines = [line.rstrip() for line in source_file.readlines()]
 

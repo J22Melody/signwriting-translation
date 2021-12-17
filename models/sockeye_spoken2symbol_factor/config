@@ -240,7 +240,7 @@ config_decoder: !TransformerConfig
   feed_forward_num_hidden: 2048
   max_seq_len_source: 201
   max_seq_len_target: 201
-  model_size: 576
+  model_size: 544
   num_layers: 6
   positional_embedding_type: fixed
   postprocess_sequence: dr
@@ -260,12 +260,12 @@ config_embed_target: !EmbeddingConfig
   factor_configs:
   - !FactorConfig
     combine: concat
-    num_embed: 32
+    num_embed: 16
     share_embedding: false
     vocab_size: 400
   - !FactorConfig
     combine: concat
-    num_embed: 32
+    num_embed: 16
     share_embedding: false
     vocab_size: 464
   num_embed: 512
