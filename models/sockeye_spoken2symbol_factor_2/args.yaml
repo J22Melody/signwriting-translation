@@ -15,7 +15,7 @@ config: null
 decode_and_evaluate: -1
 decode_and_evaluate_device_id: null
 decoder: transformer
-device_id: 2
+device_id: 1
 device_ids:
 - -1
 disable_device_locking: true
@@ -84,7 +84,7 @@ optimizer_betas:
 - 0.999
 optimizer_eps: 1.0e-08
 optimizer_params: null
-output: models/sockeye_spoken2symbol_factor_1
+output: models/sockeye_spoken2symbol_factor_2
 overwrite_output: true
 pad_vocab_to_multiple_of: 8
 params: null
@@ -116,7 +116,7 @@ target_factors_share_embedding:
 - false
 target_factors_use_target_vocab: []
 target_factors_weight:
-- 1.0e-10
+- 0.01
 target_vocab: null
 transformer_activation_type:
 - relu
