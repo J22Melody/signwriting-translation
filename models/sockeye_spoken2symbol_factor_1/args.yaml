@@ -84,7 +84,7 @@ optimizer_betas:
 - 0.999
 optimizer_eps: 1.0e-08
 optimizer_params: null
-output: models/sockeye_spoken2symbol_factor_1
+output: models/sockeye_spoken2symbol_factor_2
 overwrite_output: true
 pad_vocab_to_multiple_of: 8
 params: null
@@ -116,7 +116,7 @@ target_factors_share_embedding:
 - false
 target_factors_use_target_vocab: []
 target_factors_weight:
-- 0.1
+- 1.0
 target_vocab: null
 transformer_activation_type:
 - relu
