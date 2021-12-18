@@ -15,7 +15,7 @@ config: null
 decode_and_evaluate: -1
 decode_and_evaluate_device_id: null
 decoder: transformer
-device_id: 0
+device_id: 2
 device_ids:
 - -1
 disable_device_locking: true
@@ -84,11 +84,11 @@ optimizer_betas:
 - 0.999
 optimizer_eps: 1.0e-08
 optimizer_params: null
-output: models/sockeye_spoken2symbol_1
+output: models/sockeye_spoken2symbol_factor_2
 overwrite_output: true
 pad_vocab_to_multiple_of: 8
 params: null
-prepared_data: data_sockeye
+prepared_data: data_sockeye_factor
 quiet: false
 quiet_secondary_workers: false
 seed: 42
@@ -105,9 +105,15 @@ stop_training_on_decoder_failure: false
 target: null
 target_factor_vocabs: []
 target_factors: []
-target_factors_combine: []
-target_factors_num_embed: []
-target_factors_share_embedding: []
+target_factors_combine:
+- concat
+- concat
+target_factors_num_embed:
+- 16
+- 16
+target_factors_share_embedding:
+- false
+- false
 target_factors_use_target_vocab: []
 target_factors_weight:
 - 1.0
@@ -144,13 +150,15 @@ use_cpu: false
 validation_source: data_reverse/dev.spm.spoken
 validation_source_factors: []
 validation_target: data_reverse/dev.symbol
-validation_target_factors: []
+validation_target_factors:
+- data_reverse/dev.feat_x
+- data_reverse/dev.feat_y
 weight_decay: 0.0
 weight_init: xavier
 weight_init_scale: 3.0
 weight_init_xavier_factor_type: avg
 weight_init_xavier_rand_type: uniform
-weight_tying_type: trg_softmax
+weight_tying_type: none
 word_min_count:
 - 1
 - 1

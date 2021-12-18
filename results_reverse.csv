@@ -1,0 +1,5 @@
+Model,BLEU (on symbols),CHRF++(on symbols), Mean L1 Error(on x,y position)
+spoken2symbol,
+spoken2symbol with target factors (weight=1),
+spoken2symbol with target factors (weight=0.1),
+spoken2symbol with target factors (weight=0.01),
