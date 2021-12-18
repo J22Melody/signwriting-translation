@@ -1,5 +1,5 @@
 import sys
-import math
+from itertools import zip_longest
 
 with open(sys.argv[1]) as file_hyps, open(sys.argv[2]) as file_gold:
     total_distance = 0
@@ -15,12 +15,12 @@ with open(sys.argv[1]) as file_hyps, open(sys.argv[2]) as file_gold:
         hyps_numbers = hyps_line.split(' ')
         gold_numbers = gold_line.split(' ')
 
-        assert len(hyps_numbers) == len(gold_numbers)
+        zipped = list(zip_longest(hyps_numbers, gold_numbers, fillvalue=482))
 
-        total_number += len(hyps_numbers)
+        total_number += len(zipped)
 
-        for hyps, gold in zip(hyps_numbers, gold_numbers):
-            distance = math.abs(int(hyps) - int(gold))
+        for hyps, gold in zipped:
+            distance = abs(int(hyps) - int(gold))
             total_distance += distance
 
     mean_distance = total_distance / total_number

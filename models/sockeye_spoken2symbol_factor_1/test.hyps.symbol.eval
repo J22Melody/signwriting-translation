@@ -1,2 +1,26 @@
-BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.0 57.0/36.4/26.9/20.7 (BP = 0.672 ratio = 0.715 hyp_len = 19105 ref_len = 26711)
-chrF2+numchars.6+space.false+version.1.4.14 = 0.44
+[
+{
+ "name": "BLEU",
+ "score": 22.0,
+ "signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.0.0",
+ "verbose_score": "57.0/36.4/26.9/20.7 (BP = 0.672 ratio = 0.715 hyp_len = 19105 ref_len = 26711)",
+ "nrefs": "1",
+ "case": "mixed",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.0.0"
+},
+{
+ "name": "chrF2++",
+ "score": 41.7,
+ "signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.0.0",
+ "nrefs": "1",
+ "case": "mixed",
+ "eff": "yes",
+ "nc": "6",
+ "nw": "2",
+ "space": "no",
+ "version": "2.0.0"
+}
+]
