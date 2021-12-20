@@ -1,4 +1,4 @@
-Model,BLEU (on symbols),chrF2 (on symbols), Mean L1 Error (on x), Mean L1 Error (on y)
+Model,BLEU (on symbols),chrF2++ (on symbols), Mean L1 Error (on x), Mean L1 Error (on y)
 spoken2symbol and numbers,6.6,23.1,,
 spoken2symbol,25.6,44.2,,
 spoken2symbol with target factors (weight=1),19.9,39.1,46.5,52.6
