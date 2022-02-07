@@ -1,6 +1,7 @@
 import subprocess
 import json
 from flask import Flask, request
+from flask_cors import CORS
 
 from scripts.fetch_data import parse
 
@@ -8,6 +9,7 @@ MODEL_PATH = './models'
 CONFIG_PATH = './configs'
 
 app = Flask(__name__)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/api/translate/<direction>', methods=['POST'])
 def translate(direction):
