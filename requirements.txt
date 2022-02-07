@@ -35,7 +35,7 @@ isort==5.9.3
 itsdangerous==2.0.1
 Jinja2==3.0.2
 joblib==1.1.0
--e git+ssh://git@github.com/J22Melody/joeynmt.git@b9d90a4904de60821ed4fb26f4ccb13bc2213c10#egg=joeynmt&subdirectory=../../../tools/joeynmt
+joeynmt @ git+ssh://git@github.com/J22Melody/joeynmt.git@b9d90a4904de60821ed4fb26f4ccb13bc2213c10
 keras==2.6.0
 Keras-Preprocessing==1.1.2
 kiwisolver==1.3.2
@@ -44,7 +44,6 @@ Markdown==3.3.4
 MarkupSafe==2.0.1
 matplotlib==3.4.3
 mccabe==0.6.1
-mxnet==2.0.0b20210707
 nltk==3.6.5
 numpy==1.21.3
 oauthlib==3.1.1

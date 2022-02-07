@@ -1,5 +1,6 @@
 import subprocess
 import json
+import sys
 from flask import Flask, request
 from flask_cors import CORS
 
@@ -36,8 +37,8 @@ def translate(direction):
             else '-1 -1 -1 {}'.format(input) for i, input in enumerate(inputs)]
         input_str = '|'.join(inputs)
 
-        command = 'echo "{}" | python -m joeynmt translate {} -n {} --ckpt {} | spm_decode --model={}'.format(
-            input_str, config_path, n_best, model_path, spm_path)
+        command = 'echo "{}" | {} -m joeynmt translate {} -n {} --ckpt {} | spm_decode --model={}'.format(
+            input_str, sys.executable, config_path, n_best, model_path, spm_path)
         output = subprocess.run(command, shell=True, check=True, capture_output=True)
         translations = output.stdout.decode("utf-8").split('\n')[:-1]
 
@@ -50,8 +51,8 @@ def translate(direction):
         spm_path = './data_reverse/spm.model'
 
         tag_str = '<2{}> <4{}> <{}>'.format(language_code, country_code, translation_type)
-        command = 'echo "{} {}" | spm_encode --model={} | python -m sockeye.translate --nbest-size {} --models {} --beam-size {} --seed 42 --use-cpu'.format(
-            tag_str, text, spm_path, n_best, model_path, beam_size)
+        command = 'echo "{} {}" | spm_encode --model={} | {} -m sockeye.translate --nbest-size {} --models {} --beam-size {} --use-cpu'.format(
+            tag_str, text, spm_path, sys.executable, n_best, model_path, beam_size)
         output = subprocess.run(command, shell=True, check=True, capture_output=True)
         output = json.loads(output.stdout.decode("utf-8"))
 
