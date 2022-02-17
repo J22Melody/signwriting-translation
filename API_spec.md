@@ -4,6 +4,10 @@ All paramters are optional.
 
 `POST /api/translate/spoken2sign`
 
+or
+
+`POST https://pub.cl.uzh.ch/demo/signwriting/spoken2sign`
+
 requests
 
 ```
@@ -34,6 +38,10 @@ returns
 ```
 
 `POST /api/translate/sign2spoken`
+
+or
+
+`POST https://pub.cl.uzh.ch/demo/signwriting/sign2spoken`
 
 requests
 
