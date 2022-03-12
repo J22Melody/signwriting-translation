@@ -16,6 +16,12 @@ CONFIG_PATH = './configs'
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
+context = mx.cpu()
+model_name = 'sockeye_spoken2symbol_factor_0.1'
+model_path = '{}/{}'.format(MODEL_PATH, model_name)
+sockeye_models, sockeye_source_vocabs, sockeye_target_vocabs = model.load_models(
+    context=context, dtype=None, model_folders=[model_path], inference_only=True)
+
 @app.route('/api/translate/<direction>', methods=['POST'])
 def translate(direction):
     payload = request.get_json()
@@ -107,17 +113,8 @@ def translate(direction):
     }
 
 if __name__ == '__main__':
-    port = int(environ.get('PORT', 5000))
+    port = int(environ.get('PORT', 3030))
     with app.app_context():
-        global context
-        context = mx.cpu()
-
-        global sockeye_models, sockeye_source_vocabs, sockeye_target_vocabs
-        model_name = 'sockeye_spoken2symbol_factor_0.1'
-        model_path = '{}/{}'.format(MODEL_PATH, model_name)
-        sockeye_models, sockeye_source_vocabs, sockeye_target_vocabs = model.load_models(
-            context=context, dtype=None, model_folders=[model_path], inference_only=True)
-
         app.run(threaded=False,
                 debug=False,
                 port=port)
