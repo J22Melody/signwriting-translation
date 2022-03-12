@@ -1,8 +1,12 @@
 import subprocess
 import json
 import sys
+from os import environ
 from flask import Flask, request
 from flask_cors import CORS
+
+import mxnet as mx
+from sockeye import inference, model
 
 from scripts.fetch_data import parse
 
@@ -43,25 +47,36 @@ def translate(direction):
         translations = output.stdout.decode("utf-8").split('\n')[:-1]
 
     elif direction == 'spoken2sign':
-        n_best = payload.get('n_best', '3')
+        n_best = int(payload.get('n_best', '3'))
         beam_size = n_best
 
-        model_name = 'sockeye_spoken2symbol_factor_0.1'
-        model_path = '{}/{}'.format(MODEL_PATH, model_name)
         spm_path = './data_reverse/spm.model'
-
         tag_str = '<2{}> <4{}> <{}>'.format(language_code, country_code, translation_type)
-        command = 'echo "{} {}" | spm_encode --model={} | {} -m sockeye.translate --nbest-size {} --models {} --beam-size {} --use-cpu'.format(
-            tag_str, text, spm_path, sys.executable, n_best, model_path, beam_size)
-        output = subprocess.run(command, shell=True, check=True, capture_output=True)
-        output = json.loads(output.stdout.decode("utf-8"))
+        command = 'echo "{} {}" | spm_encode --model={}'.format(tag_str, text, spm_path)
+        input = subprocess.run(command, shell=True, check=True, capture_output=True)
+        input = input.stdout.decode("utf-8")
+        
+        translator = inference.Translator(context=context,
+                                          ensemble_mode='linear',
+                                          scorer=inference.CandidateScorer(),
+                                          output_scores=True,
+                                          batch_size=1,
+                                          beam_size=beam_size,
+                                          beam_search_stop='all',
+                                          nbest_size=n_best,
+                                          models=sockeye_models,
+                                          source_vocabs=sockeye_source_vocabs,
+                                          target_vocabs=sockeye_target_vocabs)
 
-        symbols_candidates = output['translations']
-        factors_candidates = output['translations_factors']
+        input = inference.make_input_from_plain_string(0, input)
+        output = translator.translate([input])[0]
+
+        symbols_candidates = output.nbest_translations
+        factors_candidates = output.nbest_factor_translations
         for symbols, factors in zip(symbols_candidates, factors_candidates):
             symbols = symbols.split(' ')
-            xs = factors['factor1'].split(' ')
-            ys = factors['factor2'].split(' ')
+            xs = factors[0].split(' ')
+            ys = factors[1].split(' ')
             fsw = ''
 
             for i, (symbol, x, y) in enumerate(zip(symbols, xs, ys)):
@@ -90,3 +105,19 @@ def translate(direction):
         #     'perplexity': 0,
         # }],
     }
+
+if __name__ == '__main__':
+    port = int(environ.get('PORT', 5000))
+    with app.app_context():
+        global context
+        context = mx.cpu()
+
+        global sockeye_models, sockeye_source_vocabs, sockeye_target_vocabs
+        model_name = 'sockeye_spoken2symbol_factor_0.1'
+        model_path = '{}/{}'.format(MODEL_PATH, model_name)
+        sockeye_models, sockeye_source_vocabs, sockeye_target_vocabs = model.load_models(
+            context=context, dtype=None, model_folders=[model_path], inference_only=True)
+
+        app.run(threaded=False,
+                debug=False,
+                port=port)
