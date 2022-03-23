@@ -100,241 +100,242 @@ def parse(raw):
 
     return raw, ' '.join(sign), ' '.join(sign_plus), ' '.join(feat_col), ' '.join(feat_row), ' '.join(feat_x), ' '.join(feat_y), ' '.join(feat_x_rel), ' '.join(feat_y_rel), ' '.join(sign_reverse)
 
-signbank = tfds.load(name='sign_bank')['train']
-data_list = []
+if __name__ == "__main__":
+    signbank = tfds.load(name='sign_bank')['train']
+    data_list = []
 
-# see https://github.com/sign-language-processing/datasets/blob/master/sign_language_datasets/datasets/signbank/signbank.py#L164
-for index, row in enumerate(signbank):
-    puddle_id = row['puddle'].numpy().item()
-    assumed_spoken_language_code = row['assumed_spoken_language_code'].numpy().decode('utf-8')
-    country_code = row['country_code'].numpy().decode('utf-8')
-    terms = [f.decode('utf-8') for f in row['terms'].numpy()]
-    sign_sentence = row['sign_writing'].numpy().decode('utf-8')
+    # see https://github.com/sign-language-processing/datasets/blob/master/sign_language_datasets/datasets/signbank/signbank.py#L164
+    for index, row in enumerate(signbank):
+        puddle_id = row['puddle'].numpy().item()
+        assumed_spoken_language_code = row['assumed_spoken_language_code'].numpy().decode('utf-8')
+        country_code = row['country_code'].numpy().decode('utf-8')
+        terms = [f.decode('utf-8') for f in row['terms'].numpy()]
+        sign_sentence = row['sign_writing'].numpy().decode('utf-8')
 
-    if not puddle_id or not assumed_spoken_language_code or not country_code or \
-        not sign_sentence or len(terms) < 1:
-        continue
-
-    spoken = ''
-    is_dict = False
-
-    # Sentences
-    # en-us: Literature US, ASL Bible Books NLT, ASL Bible Books Shores Deaf Church
-    # pt-br: Literatura Brasil
-    if puddle_id == 5 or puddle_id == 151 or puddle_id == 152 or \
-       puddle_id == 114:
-        # the first element is the title
-        # the second is the main text
-        if len(terms) > 1:
-            # only take the main text
-            spoken = terms[1]
-
-            if puddle_id == 151:
-                # remove line-break and source, e.g., Nehemiah 3v11 NLT
-                spoken = re.sub(r"\n\n.*NLT", "", spoken)
-
-    # Dictionaries
-    # en-us: Dictionary US, LLCN & SignTyp, ASL Bible Dictionary
-    # de-de: Wörterbuch DE
-    # fr-ca: Dictionnaire Quebec
-    # pt-br: Dicionário Brasil, Enciclopédia Brasil
-    if puddle_id == 4 or puddle_id == 25 or puddle_id == 28 or \
-       puddle_id == 53 or \
-       puddle_id == 47 or \
-       puddle_id == 46 or puddle_id == 116:
-        # longest word allowed
-        if len(terms[0]) < 100:
-            spoken = terms[0]
-        is_dict = True
-
-    if not spoken or spoken.startswith('<iframe'):
-        continue
-
-    # escape newline to \n
-    spoken = spoken.replace("\n", "\\n")
-
-    # run customized sign parser
-    parsed = parse(sign_sentence)
-    if not parsed:
-        continue
-
-    fsw, sign, sign_plus, feat_col, feat_row, feat_x, feat_y, feat_x_rel, feat_y_rel, sign_reverse = parsed
-
-    # add language, country, dict tag on source side
-    tags = '<2{}> <4{}> <{}> '.format(assumed_spoken_language_code, country_code, 'dict' if is_dict else 'sent')
-    sign = tags + sign
-    sign_plus = tags + sign_plus
-    tags_feat = '-1 -1 -1 '
-    feat_col = tags_feat + feat_col
-    feat_row = tags_feat + feat_row
-    feat_x = tags_feat + feat_x
-    feat_y = tags_feat + feat_y
-    feat_x_rel = tags_feat + feat_x_rel
-    feat_y_rel = tags_feat + feat_y_rel
-    spoken_reverse = tags + spoken
-
-    data_list.append({
-        'fsw': fsw,
-        # sign2spoken
-        'spoken': spoken, 
-        'sign': sign,
-        'sign+': sign_plus,
-        'feat_col': feat_col,
-        'feat_row': feat_row,
-        'feat_x': feat_x,
-        'feat_y': feat_y,  
-        'feat_x_rel': feat_x_rel,
-        'feat_y_rel': feat_y_rel,  
-        # spoken2sign
-        'spoken_reverse': spoken_reverse,
-        'sign_reverse': sign_reverse,
-        'symbol_reverse': ' '.join([token for token in sign_reverse.split(' ') if not token.isnumeric()]),
-        'number_reverse': ' '.join([token for token in sign_reverse.split(' ') if token.isnumeric()]),
-    })
-
-    print(index)
-    # if index > 100:
-    #     break
-
-random.shuffle(data_list)
-
-# sign2spoken
-
-total_size = len(data_list)
-train_size = math.floor(total_size*0.95)
-dev_size = math.floor(total_size*0.03)
-test_size = total_size - train_size - dev_size
-
-dev = data_list[:dev_size]
-test = data_list[dev_size:test_size + dev_size]
-train = data_list[test_size + dev_size:]
-
-random.shuffle(train)
-
-with \
-open('./data/train.sign', 'w+') as f_sign, \
-open('./data/train.sign+', 'w+') as f_sign_plus, \
-open('./data/train.spoken', 'w+') as f_spoken, \
-open('./data/train.feat_col', 'w+') as f_feat_col, \
-open('./data/train.feat_row', 'w+') as f_feat_row, \
-open('./data/train.feat_x', 'w+') as f_feat_x, \
-open('./data/train.feat_y', 'w+') as f_feat_y, \
-open('./data/train.feat_x_rel', 'w+') as f_feat_x_rel, \
-open('./data/train.feat_y_rel', 'w+') as f_feat_y_rel:
-    for item in train:
-        f_spoken.write("%s\n" % item['spoken'])
-        f_sign.write("%s\n" % item['sign'])
-        f_sign_plus.write("%s\n" % item['sign+'])
-        f_feat_col.write("%s\n" % item['feat_col'])
-        f_feat_row.write("%s\n" % item['feat_row'])
-        f_feat_x.write("%s\n" % item['feat_x'])
-        f_feat_y.write("%s\n" % item['feat_y'])
-        f_feat_x_rel.write("%s\n" % item['feat_x_rel'])
-        f_feat_y_rel.write("%s\n" % item['feat_y_rel'])
-                    
-with \
-open('./data/dev.sign', 'w+') as f_sign, \
-open('./data/dev.sign+', 'w+') as f_sign_plus, \
-open('./data/dev.spoken', 'w+') as f_spoken, \
-open('./data/dev.feat_col', 'w+') as f_feat_col, \
-open('./data/dev.feat_row', 'w+') as f_feat_row, \
-open('./data/dev.feat_x', 'w+') as f_feat_x, \
-open('./data/dev.feat_y', 'w+') as f_feat_y, \
-open('./data/dev.feat_x_rel', 'w+') as f_feat_x_rel, \
-open('./data/dev.feat_y_rel', 'w+') as f_feat_y_rel:
-    for item in dev:
-        f_sign.write("%s\n" % item['sign'])
-        f_sign_plus.write("%s\n" % item['sign+'])
-        f_spoken.write("%s\n" % item['spoken'])
-        f_feat_col.write("%s\n" % item['feat_col'])
-        f_feat_row.write("%s\n" % item['feat_row'])
-        f_feat_x.write("%s\n" % item['feat_x'])
-        f_feat_y.write("%s\n" % item['feat_y'])
-        f_feat_x_rel.write("%s\n" % item['feat_x_rel'])
-        f_feat_y_rel.write("%s\n" % item['feat_y_rel'])
-
-with \
-open('./data/test.sign', 'w+') as f_sign, \
-open('./data/test.sign+', 'w+') as f_sign_plus, \
-open('./data/test.spoken', 'w+') as f_spoken, \
-open('./data/test.feat_col', 'w+') as f_feat_col, \
-open('./data/test.feat_row', 'w+') as f_feat_row, \
-open('./data/test.feat_x', 'w+') as f_feat_x, \
-open('./data/test.feat_y', 'w+') as f_feat_y, \
-open('./data/test.feat_x_rel', 'w+') as f_feat_x_rel, \
-open('./data/test.feat_y_rel', 'w+') as f_feat_y_rel:
-    for item in test:
-        f_sign.write("%s\n" % item['sign'])
-        f_sign_plus.write("%s\n" % item['sign+'])
-        f_spoken.write("%s\n" % item['spoken'])
-        f_feat_col.write("%s\n" % item['feat_col'])
-        f_feat_row.write("%s\n" % item['feat_row'])
-        f_feat_x.write("%s\n" % item['feat_x'])
-        f_feat_y.write("%s\n" % item['feat_y'])
-        f_feat_x_rel.write("%s\n" % item['feat_x_rel'])
-        f_feat_y_rel.write("%s\n" % item['feat_y_rel'])
-
-# spoken2sign
-
-train_size = math.floor(total_size*0.98)
-dev_size = math.floor(total_size*0.01)
-test_size = total_size - train_size - dev_size
-
-dev = data_list[:dev_size]
-test = data_list[dev_size:test_size + dev_size]
-train = data_list[test_size + dev_size:]
-
-random.shuffle(train)
-
-with \
-open('./data_reverse/train.sign', 'w+') as f_sign, \
-open('./data_reverse/train.symbol', 'w+') as f_symbol, \
-open('./data_reverse/train.number', 'w+') as f_number, \
-open('./data_reverse/train.fsw', 'w+') as f_fsw, \
-open('./data_reverse/train.feat_x', 'w+') as f_feat_x, \
-open('./data_reverse/train.feat_y', 'w+') as f_feat_y, \
-open('./data_reverse/train.spoken', 'w+') as f_spoken:
-    for item in train:
-        if item['fsw'].isalpha(): # HACK: remove bad data
+        if not puddle_id or not assumed_spoken_language_code or not country_code or \
+            not sign_sentence or len(terms) < 1:
             continue
-        f_sign.write("%s\n" % item['sign_reverse'])
-        f_symbol.write("%s\n" % item['symbol_reverse'])
-        f_number.write("%s\n" % item['number_reverse'])
-        f_fsw.write("%s\n" % item['fsw'])
-        f_feat_x.write("%s\n" % item['feat_x'][9:]) # HACK: remove tags
-        f_feat_y.write("%s\n" % item['feat_y'][9:])
-        f_spoken.write("%s\n" % item['spoken_reverse'])
-                    
-with \
-open('./data_reverse/dev.sign', 'w+') as f_sign, \
-open('./data_reverse/dev.symbol', 'w+') as f_symbol, \
-open('./data_reverse/dev.number', 'w+') as f_number, \
-open('./data_reverse/dev.fsw', 'w+') as f_fsw, \
-open('./data_reverse/dev.feat_x', 'w+') as f_feat_x, \
-open('./data_reverse/dev.feat_y', 'w+') as f_feat_y, \
-open('./data_reverse/dev.spoken', 'w+') as f_spoken:
-    for item in dev:
-        f_sign.write("%s\n" % item['sign_reverse'])
-        f_symbol.write("%s\n" % item['symbol_reverse'])
-        f_number.write("%s\n" % item['number_reverse'])
-        f_fsw.write("%s\n" % item['fsw'])
-        f_feat_x.write("%s\n" % item['feat_x'][9:])
-        f_feat_y.write("%s\n" % item['feat_y'][9:])
-        f_spoken.write("%s\n" % item['spoken_reverse'])
 
-with \
-open('./data_reverse/test.sign', 'w+') as f_sign, \
-open('./data_reverse/test.symbol', 'w+') as f_symbol, \
-open('./data_reverse/test.number', 'w+') as f_number, \
-open('./data_reverse/test.fsw', 'w+') as f_fsw, \
-open('./data_reverse/test.feat_x', 'w+') as f_feat_x, \
-open('./data_reverse/test.feat_y', 'w+') as f_feat_y, \
-open('./data_reverse/test.spoken', 'w+') as f_spoken:
-    for item in test:
-        f_sign.write("%s\n" % item['sign_reverse'])
-        f_symbol.write("%s\n" % item['symbol_reverse'])
-        f_number.write("%s\n" % item['number_reverse'])
-        f_fsw.write("%s\n" % item['fsw'])
-        f_feat_x.write("%s\n" % item['feat_x'][9:])
-        f_feat_y.write("%s\n" % item['feat_y'][9:])
-        f_spoken.write("%s\n" % item['spoken_reverse'])
+        spoken = ''
+        is_dict = False
+
+        # Sentences
+        # en-us: Literature US, ASL Bible Books NLT, ASL Bible Books Shores Deaf Church
+        # pt-br: Literatura Brasil
+        if puddle_id == 5 or puddle_id == 151 or puddle_id == 152 or \
+        puddle_id == 114:
+            # the first element is the title
+            # the second is the main text
+            if len(terms) > 1:
+                # only take the main text
+                spoken = terms[1]
+
+                if puddle_id == 151:
+                    # remove line-break and source, e.g., Nehemiah 3v11 NLT
+                    spoken = re.sub(r"\n\n.*NLT", "", spoken)
+
+        # Dictionaries
+        # en-us: Dictionary US, LLCN & SignTyp, ASL Bible Dictionary
+        # de-de: Wörterbuch DE
+        # fr-ca: Dictionnaire Quebec
+        # pt-br: Dicionário Brasil, Enciclopédia Brasil
+        if puddle_id == 4 or puddle_id == 25 or puddle_id == 28 or \
+        puddle_id == 53 or \
+        puddle_id == 47 or \
+        puddle_id == 46 or puddle_id == 116:
+            # longest word allowed
+            if len(terms[0]) < 100:
+                spoken = terms[0]
+            is_dict = True
+
+        if not spoken or spoken.startswith('<iframe'):
+            continue
+
+        # escape newline to \n
+        spoken = spoken.replace("\n", "\\n")
+
+        # run customized sign parser
+        parsed = parse(sign_sentence)
+        if not parsed:
+            continue
+
+        fsw, sign, sign_plus, feat_col, feat_row, feat_x, feat_y, feat_x_rel, feat_y_rel, sign_reverse = parsed
+
+        # add language, country, dict tag on source side
+        tags = '<2{}> <4{}> <{}> '.format(assumed_spoken_language_code, country_code, 'dict' if is_dict else 'sent')
+        sign = tags + sign
+        sign_plus = tags + sign_plus
+        tags_feat = '-1 -1 -1 '
+        feat_col = tags_feat + feat_col
+        feat_row = tags_feat + feat_row
+        feat_x = tags_feat + feat_x
+        feat_y = tags_feat + feat_y
+        feat_x_rel = tags_feat + feat_x_rel
+        feat_y_rel = tags_feat + feat_y_rel
+        spoken_reverse = tags + spoken
+
+        data_list.append({
+            'fsw': fsw,
+            # sign2spoken
+            'spoken': spoken, 
+            'sign': sign,
+            'sign+': sign_plus,
+            'feat_col': feat_col,
+            'feat_row': feat_row,
+            'feat_x': feat_x,
+            'feat_y': feat_y,  
+            'feat_x_rel': feat_x_rel,
+            'feat_y_rel': feat_y_rel,  
+            # spoken2sign
+            'spoken_reverse': spoken_reverse,
+            'sign_reverse': sign_reverse,
+            'symbol_reverse': ' '.join([token for token in sign_reverse.split(' ') if not token.isnumeric()]),
+            'number_reverse': ' '.join([token for token in sign_reverse.split(' ') if token.isnumeric()]),
+        })
+
+        print(index)
+        # if index > 100:
+        #     break
+
+    random.shuffle(data_list)
+
+    # sign2spoken
+
+    total_size = len(data_list)
+    train_size = math.floor(total_size*0.95)
+    dev_size = math.floor(total_size*0.03)
+    test_size = total_size - train_size - dev_size
+
+    dev = data_list[:dev_size]
+    test = data_list[dev_size:test_size + dev_size]
+    train = data_list[test_size + dev_size:]
+
+    random.shuffle(train)
+
+    with \
+    open('./data/train.sign', 'w+') as f_sign, \
+    open('./data/train.sign+', 'w+') as f_sign_plus, \
+    open('./data/train.spoken', 'w+') as f_spoken, \
+    open('./data/train.feat_col', 'w+') as f_feat_col, \
+    open('./data/train.feat_row', 'w+') as f_feat_row, \
+    open('./data/train.feat_x', 'w+') as f_feat_x, \
+    open('./data/train.feat_y', 'w+') as f_feat_y, \
+    open('./data/train.feat_x_rel', 'w+') as f_feat_x_rel, \
+    open('./data/train.feat_y_rel', 'w+') as f_feat_y_rel:
+        for item in train:
+            f_spoken.write("%s\n" % item['spoken'])
+            f_sign.write("%s\n" % item['sign'])
+            f_sign_plus.write("%s\n" % item['sign+'])
+            f_feat_col.write("%s\n" % item['feat_col'])
+            f_feat_row.write("%s\n" % item['feat_row'])
+            f_feat_x.write("%s\n" % item['feat_x'])
+            f_feat_y.write("%s\n" % item['feat_y'])
+            f_feat_x_rel.write("%s\n" % item['feat_x_rel'])
+            f_feat_y_rel.write("%s\n" % item['feat_y_rel'])
+                        
+    with \
+    open('./data/dev.sign', 'w+') as f_sign, \
+    open('./data/dev.sign+', 'w+') as f_sign_plus, \
+    open('./data/dev.spoken', 'w+') as f_spoken, \
+    open('./data/dev.feat_col', 'w+') as f_feat_col, \
+    open('./data/dev.feat_row', 'w+') as f_feat_row, \
+    open('./data/dev.feat_x', 'w+') as f_feat_x, \
+    open('./data/dev.feat_y', 'w+') as f_feat_y, \
+    open('./data/dev.feat_x_rel', 'w+') as f_feat_x_rel, \
+    open('./data/dev.feat_y_rel', 'w+') as f_feat_y_rel:
+        for item in dev:
+            f_sign.write("%s\n" % item['sign'])
+            f_sign_plus.write("%s\n" % item['sign+'])
+            f_spoken.write("%s\n" % item['spoken'])
+            f_feat_col.write("%s\n" % item['feat_col'])
+            f_feat_row.write("%s\n" % item['feat_row'])
+            f_feat_x.write("%s\n" % item['feat_x'])
+            f_feat_y.write("%s\n" % item['feat_y'])
+            f_feat_x_rel.write("%s\n" % item['feat_x_rel'])
+            f_feat_y_rel.write("%s\n" % item['feat_y_rel'])
+
+    with \
+    open('./data/test.sign', 'w+') as f_sign, \
+    open('./data/test.sign+', 'w+') as f_sign_plus, \
+    open('./data/test.spoken', 'w+') as f_spoken, \
+    open('./data/test.feat_col', 'w+') as f_feat_col, \
+    open('./data/test.feat_row', 'w+') as f_feat_row, \
+    open('./data/test.feat_x', 'w+') as f_feat_x, \
+    open('./data/test.feat_y', 'w+') as f_feat_y, \
+    open('./data/test.feat_x_rel', 'w+') as f_feat_x_rel, \
+    open('./data/test.feat_y_rel', 'w+') as f_feat_y_rel:
+        for item in test:
+            f_sign.write("%s\n" % item['sign'])
+            f_sign_plus.write("%s\n" % item['sign+'])
+            f_spoken.write("%s\n" % item['spoken'])
+            f_feat_col.write("%s\n" % item['feat_col'])
+            f_feat_row.write("%s\n" % item['feat_row'])
+            f_feat_x.write("%s\n" % item['feat_x'])
+            f_feat_y.write("%s\n" % item['feat_y'])
+            f_feat_x_rel.write("%s\n" % item['feat_x_rel'])
+            f_feat_y_rel.write("%s\n" % item['feat_y_rel'])
+
+    # spoken2sign
+
+    train_size = math.floor(total_size*0.98)
+    dev_size = math.floor(total_size*0.01)
+    test_size = total_size - train_size - dev_size
+
+    dev = data_list[:dev_size]
+    test = data_list[dev_size:test_size + dev_size]
+    train = data_list[test_size + dev_size:]
+
+    random.shuffle(train)
+
+    with \
+    open('./data_reverse/train.sign', 'w+') as f_sign, \
+    open('./data_reverse/train.symbol', 'w+') as f_symbol, \
+    open('./data_reverse/train.number', 'w+') as f_number, \
+    open('./data_reverse/train.fsw', 'w+') as f_fsw, \
+    open('./data_reverse/train.feat_x', 'w+') as f_feat_x, \
+    open('./data_reverse/train.feat_y', 'w+') as f_feat_y, \
+    open('./data_reverse/train.spoken', 'w+') as f_spoken:
+        for item in train:
+            if item['fsw'].isalpha(): # HACK: remove bad data
+                continue
+            f_sign.write("%s\n" % item['sign_reverse'])
+            f_symbol.write("%s\n" % item['symbol_reverse'])
+            f_number.write("%s\n" % item['number_reverse'])
+            f_fsw.write("%s\n" % item['fsw'])
+            f_feat_x.write("%s\n" % item['feat_x'][9:]) # HACK: remove tags
+            f_feat_y.write("%s\n" % item['feat_y'][9:])
+            f_spoken.write("%s\n" % item['spoken_reverse'])
+                        
+    with \
+    open('./data_reverse/dev.sign', 'w+') as f_sign, \
+    open('./data_reverse/dev.symbol', 'w+') as f_symbol, \
+    open('./data_reverse/dev.number', 'w+') as f_number, \
+    open('./data_reverse/dev.fsw', 'w+') as f_fsw, \
+    open('./data_reverse/dev.feat_x', 'w+') as f_feat_x, \
+    open('./data_reverse/dev.feat_y', 'w+') as f_feat_y, \
+    open('./data_reverse/dev.spoken', 'w+') as f_spoken:
+        for item in dev:
+            f_sign.write("%s\n" % item['sign_reverse'])
+            f_symbol.write("%s\n" % item['symbol_reverse'])
+            f_number.write("%s\n" % item['number_reverse'])
+            f_fsw.write("%s\n" % item['fsw'])
+            f_feat_x.write("%s\n" % item['feat_x'][9:])
+            f_feat_y.write("%s\n" % item['feat_y'][9:])
+            f_spoken.write("%s\n" % item['spoken_reverse'])
+
+    with \
+    open('./data_reverse/test.sign', 'w+') as f_sign, \
+    open('./data_reverse/test.symbol', 'w+') as f_symbol, \
+    open('./data_reverse/test.number', 'w+') as f_number, \
+    open('./data_reverse/test.fsw', 'w+') as f_fsw, \
+    open('./data_reverse/test.feat_x', 'w+') as f_feat_x, \
+    open('./data_reverse/test.feat_y', 'w+') as f_feat_y, \
+    open('./data_reverse/test.spoken', 'w+') as f_spoken:
+        for item in test:
+            f_sign.write("%s\n" % item['sign_reverse'])
+            f_symbol.write("%s\n" % item['symbol_reverse'])
+            f_number.write("%s\n" % item['number_reverse'])
+            f_fsw.write("%s\n" % item['fsw'])
+            f_feat_x.write("%s\n" % item['feat_x'][9:])
+            f_feat_y.write("%s\n" % item['feat_y'][9:])
+            f_spoken.write("%s\n" % item['spoken_reverse'])
