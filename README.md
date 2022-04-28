@@ -33,7 +33,7 @@ For SPOKEN to SIGN, install `MXNet` and `Sockeye`:
 
 `pip install sockeye==3.0.13`
 
-Note `joeynmt` and `Sockeye` require different versions of the package `sacreBLEU`, thus results in version conflict if both installed. 
+Note `joeynmt` and `Sockeye` require different versions of the package [sacreBLEU](https://github.com/mjpost/sacrebleu), thus results in version conflict if both installed. 
 
 For training, we recommend two separate environments for the two different settings. For inferring (using the API server), this conflict can be safely ignored because `sacreBLEU` is not used there.
 
@@ -47,15 +47,15 @@ For training, we recommend two separate environments for the two different setti
 
 ## API Server
 
-Run locally for debugging:
+Run [Flask](https://flask.palletsprojects.com/) locally for debugging:
 
 `python app.py`
 
-Run with `Gunicorn` for deployment:
+Run with [Gunicorn](https://gunicorn.org/) for deployment:
 
 `gunicorn -w 4 -b 0.0.0.0:3030 app:app`
 
-Example `Supervisor` config file (`/etc/supervisor/conf.d/gunicorn.conf`):
+Example [Supervisor](http://supervisord.org/) config file (`/etc/supervisor/conf.d/gunicorn.conf`):
 
 ```
 [program:gunicorn]
