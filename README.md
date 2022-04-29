@@ -51,14 +51,27 @@ For a more visual overview in a [Colab Notebook](https://colab.research.google.c
 
 Translate from [Formal SignWriting (FSW)](https://tools.ietf.org/id/draft-slevinski-formal-signwriting-09.html) of American Sign Language to American English.
 
-See full results [here](https://github.com/J22Melody/signwriting-translation/blob/main/results_sign2en.csv).
+<!-- Prepare data in `./data_bilingual/` directory:
+
+`python ./scripts/fetch_data_bilingual.py`
+
+`sh ./scripts/preprocess_bilingual.sh`
+
+Train the start-of-art model `baseline_multilingual` from scratch:
+
+`python -m joeynmt train ./configs/baseline_transformer_spm_factor_sign+`
+
+Test, postprocess and evaluate it:
+
+`sh ./scripts/evaluate.sh baseline_transformer_spm_factor_sign+` -->
+
+See full results of all experiments [here](https://github.com/J22Melody/signwriting-translation/blob/main/results_sign2en.csv).
 
 ### 100K SIGN to SPOKEN (Multilingual)
 
-Extend the first from a bilingual setting to a multilingual setting, translate from FSW of multiple signed languages to corresponding spoken
-languages.
+Extend the first from a bilingual setting to a multilingual setting, translate from FSW of 4 signed languages to 4 corresponding spoken languages.
 
-Prepare data:
+Prepare data in `./data/` directory:
 
 `python ./scripts/fetch_data.py`
 
@@ -72,11 +85,15 @@ Test, postprocess and evaluate it:
 
 `sh ./scripts/evaluate_multilingual.sh baseline_multilingual`
 
-See full results of all experiments [here](https://github.com/J22Melody/signwriting-translation/blob/main/results_multilingual.csv).
+We also have an additional multilingual model that contains 21 language pairs, see branch [multilingual_plus](https://github.com/J22Melody/signwriting-translation/tree/multilingual_plus) (not well documented).
+
+See full results of both experiments [here](https://github.com/J22Melody/signwriting-translation/blob/main/results_multilingual.csv).
 
 ### 100K SPOKEN to SIGN (Multilingual)
 
-Prepare data:
+Translate the reverse direction, from 4 spoken languages to FSW of 4 corresponding signed languages.
+
+Prepare data in `./data_reverse/` directory:
 
 `python ./scripts/fetch_data.py`
 
