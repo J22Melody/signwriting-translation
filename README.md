@@ -37,6 +37,14 @@ Note `joeynmt` and `Sockeye` require different versions of the package [sacreBLE
 
 For training, we recommend two separate environments for the two different settings. For inferring (using the API server), this conflict can be safely ignored because `sacreBLEU` is not used there.
 
+## Data Analysis
+
+`python analyze_dataset.py`
+
+which results in [dataset_stats.txt](https://github.com/J22Melody/signwriting-translation/blob/main/dataset_stats.txt).
+
+For a more visual overview in a [Colab Notebook](https://colab.research.google.com/drive/12_MTjQ-1YD4TCyhnvOlcMCnyA3_BmBCP?usp=sharing).
+
 ## Model Training
 
 ### 40K SIGN to SPOKEN (Bilingual)
