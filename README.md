@@ -39,11 +39,56 @@ For training, we recommend two separate environments for the two different setti
 
 ## Model Training
 
-### 40K SIGN to SPOKEN (EN-US) (Bilingual)
+### 40K SIGN to SPOKEN (Bilingual)
+
+Translate from [Formal SignWriting (FSW)](https://tools.ietf.org/id/draft-slevinski-formal-signwriting-09.html) of American Sign Language to American English.
+
+See full results [here](https://github.com/J22Melody/signwriting-translation/blob/main/results_sign2en.csv).
 
 ### 100K SIGN to SPOKEN (Multilingual)
 
+Extend the first from a bilingual setting to a multilingual setting, translate from FSW of multiple signed languages to corresponding spoken
+languages.
+
+Prepare data:
+
+`python ./scripts/fetch_data.py`
+
+`sh ./scripts/preprocess.sh`
+
+Train the start-of-art model `baseline_multilingual` from scratch:
+
+`python -m joeynmt train ./configs/baseline_multilingual.yaml`
+
+Test, postprocess and evaluate it:
+
+`sh ./scripts/evaluate_multilingual.sh baseline_multilingual`
+
+See full results of all experiments [here](https://github.com/J22Melody/signwriting-translation/blob/main/results_multilingual.csv).
+
 ### 100K SPOKEN to SIGN (Multilingual)
+
+Prepare data:
+
+`python ./scripts/fetch_data.py`
+
+`sh ./scripts/preprocess_reverse.sh`
+
+`sh ./scripts/sockeye_prepare_factor.sh`
+
+Train the start-of-art model `sockeye_spoken2symbol_factor_0.1` from scratch:
+
+`sh ./scripts/sockeye_train_factor.sh`
+
+Test, postprocess and evaluate it:
+
+`sh ./scripts/sockeye_translate_factor.sh sockeye_spoken2symbol_factor_0.1`
+
+`sh ./scripts/sockeye_evaluate_factor.sh sockeye_spoken2symbol_factor_0.1`
+
+`sh ./scripts/sockeye_evaluate_factor_multilingual.sh sockeye_spoken2symbol_factor_0.1`
+
+See full results of all experiments [here](https://github.com/J22Melody/signwriting-translation/blob/main/results_reverse.csv).
 
 ## API Server
 

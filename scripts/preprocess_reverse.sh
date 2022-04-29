@@ -20,7 +20,7 @@ cat $data/test.$trg | spm_encode --model=$data/spm.model > $data/test.spm.$trg
 # file sizes
 for corpus in train dev test; do
 	echo "corpus: "$corpus
-	wc -l $data/$corpus.$src $data/$corpus.$trg
+	wc -l $data/$corpus.$src $data/$corpus.spm.$trg
 done
 
 # sanity checks

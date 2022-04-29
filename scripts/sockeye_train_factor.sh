@@ -5,7 +5,7 @@ python -m sockeye.train \
 -vs data_reverse/dev.spm.spoken \
 -vt data_reverse/dev.symbol \
 -vtf data_reverse/dev.feat_x data_reverse/dev.feat_y \
---output models/sockeye_spoken2symbol_factor_0.5 \
+--output models/sockeye_spoken2symbol_factor_0.1 \
 --overwrite-output \
 --weight-tying-type none \
 --label-smoothing 0.2 \
@@ -25,7 +25,7 @@ python -m sockeye.train \
 --seed 42 \
 --target-factors-num-embed 16 16 \
 --target-factors-combine concat \
---target-factors-weight 0.5 \
+--target-factors-weight 0.1 \
 --batch-size 2048 \
 --update-interval 2 \
 # --dry-run \

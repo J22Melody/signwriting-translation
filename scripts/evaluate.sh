@@ -6,23 +6,13 @@ base=$scripts/..
 data=$base/data
 configs=$base/configs
 
-translations=$base/translations
-
-mkdir -p $translations
-
 src=sign
 trg=spoken
-
-# cloned from https://github.com/bricksdont/moses-scripts
-MOSES=$base/tools/moses-scripts/scripts
-
-num_threads=6
-device=5
 
 model_name=$1
 model=$base/models/$model_name
 
-# python -m joeynmt test $configs/$model_name.yaml --ckpt $model/best.ckpt --output_path $model/best.hyps
+python -m joeynmt test $configs/$model_name.yaml --ckpt $model/best.ckpt --output_path $model/best.hyps
 
 for test_out in $model/*.hyps.test; do	
 cat $test_out | sacrebleu $data/test.spm.$trg -m bleu chrf > $test_out.eval
