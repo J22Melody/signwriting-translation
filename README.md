@@ -57,7 +57,7 @@ Prepare data in `./data_bilingual/` directory:
 
 `sh ./scripts/preprocess_bilingual.sh`
 
-Train the start-of-art model `baseline_multilingual` from scratch:
+Train the start-of-art model `baseline_transformer_spm_factor_sign+` from scratch:
 
 `python -m joeynmt train ./configs/baseline_transformer_spm_factor_sign+`
 
