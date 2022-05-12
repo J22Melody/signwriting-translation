@@ -59,7 +59,7 @@ Prepare data in `./data_bilingual/` directory:
 
 Train the start-of-art model `baseline_transformer_spm_factor_sign+` from scratch:
 
-`python -m joeynmt train ./configs/baseline_transformer_spm_factor_sign+`
+`python -m joeynmt train ./configs/baseline_transformer_spm_factor_sign+.yaml`
 
 Test, postprocess and evaluate it:
 
