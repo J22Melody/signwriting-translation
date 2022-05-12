@@ -51,7 +51,7 @@ For a more visual overview in a [Colab Notebook](https://colab.research.google.c
 
 Translate from [Formal SignWriting (FSW)](https://tools.ietf.org/id/draft-slevinski-formal-signwriting-09.html) of American Sign Language to American English.
 
-<!-- Prepare data in `./data_bilingual/` directory:
+Prepare data in `./data_bilingual/` directory:
 
 `python ./scripts/fetch_data_bilingual.py`
 
@@ -63,7 +63,7 @@ Train the start-of-art model `baseline_multilingual` from scratch:
 
 Test, postprocess and evaluate it:
 
-`sh ./scripts/evaluate.sh baseline_transformer_spm_factor_sign+` -->
+`sh ./scripts/evaluate.sh baseline_transformer_spm_factor_sign+`
 
 See full results of all experiments [here](https://github.com/J22Melody/signwriting-translation/blob/main/results_sign2en.csv).
 
