@@ -1,6 +1,8 @@
 # signwriting-translation
 
-This repo contains code and documentation for training bilingual and multilingual translation models between spoken languages and signed languages in [SignWriting](https://www.signwriting.org/). We also provide an API server for inferring based on the best trained models.
+This repo contains code and documentation for training bilingual and multilingual translation models between spoken languages and signed languages in [SignWriting](https://www.signwriting.org/), a **writting notation system** (not a glossing system!) of signed languages. 
+
+We also provide an API server for inferring based on the best trained models. A live demo translator from spoken languages to signed languages based on this is available on [sign.mt](https://sign.mt/).
 
 ## Environment
 
@@ -19,7 +21,7 @@ Install common dependencies:
 
 `sudo apt-get install sentencepiece`
 
-For SIGN to SPOKEN, install `joeynmt` (a customized version supporting source factors):
+For SIGN to SPOKEN, install `joeynmt` (a custom version supporting source factors):
 
 `pip install git+ssh://git@github.com/J22Melody/joeynmt.git@factors_complete`
 
