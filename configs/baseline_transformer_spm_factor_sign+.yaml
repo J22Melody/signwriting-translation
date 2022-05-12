@@ -7,9 +7,9 @@ data:
     src: "sign"
     trg: "spm.en"
     factors: ["sign+", "feat_col", "feat_row", "feat_x", "feat_y", "feat_x_rel", "feat_y_rel"]
-    train: "data/train"
-    dev:   "data/dev"
-    test:  "data/test"
+    train: "data_bilingual/train"
+    dev:   "data_bilingual/dev"
+    test:  "data_bilingual/test"
     level: "word"
     lowercase: False
     max_sent_length: 500
