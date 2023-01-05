@@ -6,6 +6,8 @@ We also provide an API server for inferring based on the best trained models. A 
 
 ## Citation
 
+Please cite [our paper](https://arxiv.org/abs/2210.05404) as follows:
+
 ```
 @article{jiang2022machine,
   title={Machine Translation between Spoken Languages and Signed Languages Represented in SignWriting},
