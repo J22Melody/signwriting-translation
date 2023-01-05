@@ -4,6 +4,17 @@ This repo contains code and documentation for training bilingual and multilingua
 
 We also provide an API server for inferring based on the best trained models. A live demo translator from spoken languages to signed languages based on this is available on [sign.mt](https://sign.mt/).
 
+## Citation
+
+```
+@article{jiang2022machine,
+  title={Machine Translation between Spoken Languages and Signed Languages Represented in SignWriting},
+  author={Jiang, Zifan and Moryossef, Amit and M{\"u}ller, Mathias and Ebling, Sarah},
+  journal={arXiv preprint arXiv:2210.05404},
+  year={2022}
+}
+```
+
 ## Environment
 
 We have the following main dependencies:
