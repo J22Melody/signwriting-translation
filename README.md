@@ -9,11 +9,20 @@ We also provide an API server for inferring based on the best trained models. A 
 Please cite [our paper](https://arxiv.org/abs/2210.05404) as follows:
 
 ```
-@article{jiang2022machine,
-  title={Machine Translation between Spoken Languages and Signed Languages Represented in SignWriting},
-  author={Jiang, Zifan and Moryossef, Amit and M{\"u}ller, Mathias and Ebling, Sarah},
-  journal={arXiv preprint arXiv:2210.05404},
-  year={2022}
+@inproceedings{jiang-etal-2023-machine,
+    title = "Machine Translation between Spoken Languages and Signed Languages Represented in {S}ign{W}riting",
+    author = {Jiang, Zifan  and
+      Moryossef, Amit  and
+      M{\"u}ller, Mathias  and
+      Ebling, Sarah},
+    booktitle = "Findings of the Association for Computational Linguistics: EACL 2023",
+    month = may,
+    year = "2023",
+    address = "Dubrovnik, Croatia",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.findings-eacl.127",
+    pages = "1661--1679",
+    abstract = "This paper presents work on novel machine translation (MT) systems between spoken and signed languages, where signed languages are represented in SignWriting, a sign language writing system. Our work seeks to address the lack of out-of-the-box support for signed languages in current MT systems and is based on the SignBank dataset, which contains pairs of spoken language text and SignWriting content. We introduce novel methods to parse, factorize, decode, and evaluate SignWriting, leveraging ideas from neural factored MT. In a bilingual setup{---}translating from American Sign Language to (American) English{---}our method achieves over 30 BLEU, while in two multilingual setups{---}translating in both directions between spoken languages and signed languages{---}we achieve over 20 BLEU. We find that common MT techniques used to improve spoken language translation similarly affect the performance of sign language translation. These findings validate our use of an intermediate text representation for signed languages to include them in natural language processing research.",
 }
 ```
 
