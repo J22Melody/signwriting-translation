@@ -41,7 +41,9 @@ Install common dependencies:
 
 `pip install -r requirements.txt`
 
-`sudo apt-get install sentencepiece`
+`sudo apt-get install sentencepiece` 
+
+(or on Mac `brew apt-get install sentencepiece`)
 
 For SIGN to SPOKEN, install `joeynmt` (a custom version supporting source factors):
 

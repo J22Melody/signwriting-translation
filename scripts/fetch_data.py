@@ -2,10 +2,6 @@ import re
 import random
 import math
 
-import tensorflow_datasets as tfds
-import sign_language_datasets.datasets
-
-
 random.seed(42)
 
 def parse(raw):
@@ -101,6 +97,9 @@ def parse(raw):
     return raw, ' '.join(sign), ' '.join(sign_plus), ' '.join(feat_col), ' '.join(feat_row), ' '.join(feat_x), ' '.join(feat_y), ' '.join(feat_x_rel), ' '.join(feat_y_rel), ' '.join(sign_reverse)
 
 if __name__ == "__main__":
+    import tensorflow_datasets as tfds
+    import sign_language_datasets.datasets
+
     signbank = tfds.load(name='sign_bank')['train']
     data_list = []
 
