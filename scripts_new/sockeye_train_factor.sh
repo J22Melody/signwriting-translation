@@ -1,12 +1,16 @@
 #! /bin/bash
 
+data_dir=$1
+data_dir_prepared=$2
+model_name=$3
+
 python -m sockeye.train \
---prepared-data data_sockeye_factor_new \
--vt data_new_original/dev.spm.spoken \
--vs data_new_original/dev.sign \
--vsf data_new_original/dev.feat_x data_new_original/dev.feat_y data_new_original/dev.feat_x_rel data_new_original/dev.feat_y_rel \
-    data_new_original/dev.sign+ data_new_original/dev.feat_col data_new_original/dev.feat_row \
---output models_new/sockeye_factor \
+--prepared-data $data_dir_prepared \
+-vt $data_dir/dev.spm.spoken \
+-vs $data_dir/dev.sign \
+-vsf $data_dir/dev.feat_x $data_dir/dev.feat_y $data_dir/dev.feat_x_rel $data_dir/dev.feat_y_rel \
+    $data_dir/dev.sign+ $data_dir/dev.feat_col $data_dir/dev.feat_row \
+--output models_new/$model_name \
 --overwrite-output \
 --weight-tying-type trg_softmax \
 --label-smoothing 0.2 \
