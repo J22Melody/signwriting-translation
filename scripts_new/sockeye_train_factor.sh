@@ -3,6 +3,11 @@
 data_dir=$1
 data_dir_prepared=$2
 model_name=$3
+model_pretrained_name=$4
+
+if [ -n "$model_pretrained_name" ]; then
+  optional_training_args="--params models_new/$model_pretrained_name/params.best"
+fi
 
 python -m sockeye.train \
 --prepared-data $data_dir_prepared \
@@ -31,4 +36,5 @@ python -m sockeye.train \
 --seed 42 \
 --source-factors-num-embed 16 16 16 16 16 16 16 \
 --source-factors-combine concat \
---batch-size 2048 
+--batch-size 2048 \
+$optional_training_args
