@@ -1,13 +1,8 @@
 #! /bin/bash
 
-# Usage:
-
-# sh ./scripts_new/prepare_data.sh original data_new_original
-# sh ./scripts_new/prepare_data.sh cleaned data_new_cleaned
-# sh ./scripts_new/prepare_data.sh expanded data_new_expanded
-
 dataset=$1
 data_dir=$2
+data_dir_pretrained=$3
 
 echo "Prepare the $dataset SignBank+ dataset in ./$data_dir ..."
 
@@ -23,7 +18,11 @@ cp ../../../data/parallel/test/test.source.unique ./$data_dir/test.fsw
 
 # 2. BPE segmentation on the spoken side
 
-spm_train --input=$data_dir/train.spoken --model_prefix=$data_dir/spm --vocab_size=3000 --model_type bpe
+if [ -n "$data_dir_pretrained" ]; then
+    cp $data_dir_pretrained/spm.model $data_dir/spm.model
+else
+    spm_train --input=$data_dir/train.spoken --model_prefix=$data_dir/spm --vocab_size=3000 --model_type bpe
+fi
 cat $data_dir/train.spoken | spm_encode --model=$data_dir/spm.model > $data_dir/train.spm.spoken
 cat $data_dir/dev.spoken | spm_encode --model=$data_dir/spm.model > $data_dir/dev.spm.spoken
 

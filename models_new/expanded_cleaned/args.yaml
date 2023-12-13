@@ -163,16 +163,16 @@ transformer_preprocess:
 - n
 update_interval: 2
 use_cpu: false
-validation_source: data_new_cleaned/dev.sign
+validation_source: data_new_expanded_cleaned/dev.sign
 validation_source_factors:
-- data_new_cleaned/dev.feat_x
-- data_new_cleaned/dev.feat_y
-- data_new_cleaned/dev.feat_x_rel
-- data_new_cleaned/dev.feat_y_rel
-- data_new_cleaned/dev.sign+
-- data_new_cleaned/dev.feat_col
-- data_new_cleaned/dev.feat_row
-validation_target: data_new_cleaned/dev.spm.spoken
+- data_new_expanded_cleaned/dev.feat_x
+- data_new_expanded_cleaned/dev.feat_y
+- data_new_expanded_cleaned/dev.feat_x_rel
+- data_new_expanded_cleaned/dev.feat_y_rel
+- data_new_expanded_cleaned/dev.sign+
+- data_new_expanded_cleaned/dev.feat_col
+- data_new_expanded_cleaned/dev.feat_row
+validation_target: data_new_expanded_cleaned/dev.spm.spoken
 validation_target_factors: []
 weight_decay: 0.0
 weight_tying_type: trg_softmax

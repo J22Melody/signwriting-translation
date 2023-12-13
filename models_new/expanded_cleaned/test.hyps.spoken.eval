@@ -1,0 +1,26 @@
+[
+{
+ "name": "BLEU",
+ "score": 23.88,
+ "signature": "nrefs:8|case:mixed|eff:no|tok:13a|smooth:exp|version:2.3.2",
+ "verbose_score": "29.0/24.2/21.7/21.3 (BP = 1.000 ratio = 1.097 hyp_len = 1089 ref_len = 993)",
+ "nrefs": "8",
+ "case": "mixed",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.3.2"
+},
+{
+ "name": "chrF2",
+ "score": 30.36,
+ "signature": "nrefs:8|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.3.2",
+ "nrefs": "8",
+ "case": "mixed",
+ "eff": "yes",
+ "nc": "6",
+ "nw": "0",
+ "space": "no",
+ "version": "2.3.2"
+}
+]

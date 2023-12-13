@@ -20,3 +20,7 @@ python -m sockeye.translate \
 # cat $test_out.spm.spoken | sacrebleu $data_dir/test.spm.spoken -m bleu chrf > $test_out.spm.spoken.eval
 cat $test_out.spm.spoken | spm_decode --model=$data_dir/spm.model > $test_out.spoken
 sacrebleu $(find $test_source_dir -type f -name "test.target*") -i $test_out.spoken -m bleu chrf --width 2 > $test_out.spoken.eval
+
+# eval on en subset
+sh ./scripts_new/filter_lines.sh ../../../data/parallel/test/en_ids.txt $test_out.spoken > $test_out.en
+sacrebleu $(find $test_source_dir -type f -name "test.en*") -i $test_out.en -m bleu chrf --width 2 > $test_out.en.eval
