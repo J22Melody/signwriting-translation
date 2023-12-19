@@ -8,8 +8,10 @@ models/baseline_transformer_debug/
 models/baseline_reverse_debug/
 tools/joeynmt_bak/
 tools/stanford-ner/
+data_new_*
 # sockeye
 **/training_state
 *.pkl
 **/params.*
 **/decode.output.*
+data_sockeye_*

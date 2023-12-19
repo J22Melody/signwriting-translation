@@ -4,6 +4,12 @@ This repo contains code and documentation for training bilingual and multilingua
 
 We also provide an API server for inferring based on the best trained models. A live demo translator from spoken languages to signed languages based on this is available on [sign.mt](https://sign.mt/).
 
+## SignBank+ (December 2023)
+
+We rerun our models on the new datasets introduced in the follow-up work [SignBank+](https://github.com/sign-language-processing/signbank-plus/), please see details in:
+
+https://github.com/J22Melody/signwriting-translation/tree/main/scripts_new
+
 ## Citation
 
 Please cite [our paper](https://arxiv.org/abs/2210.05404) as follows:
