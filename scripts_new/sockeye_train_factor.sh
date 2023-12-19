@@ -30,8 +30,7 @@ python -m sockeye.train \
 --learning-rate-reduce-factor 0.7 \
 --learning-rate-reduce-num-not-improved 5 \
 --decode-and-evaluate 500 \
---keep-last-params 1 \
---cache-last-best-params 1 \
+--keep-last-params -1 \
 --device-id 0 \
 --seed 42 \
 --source-factors-num-embed 16 16 16 16 16 16 16 \

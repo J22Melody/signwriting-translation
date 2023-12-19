@@ -17,7 +17,6 @@ python -m sockeye.translate \
 --brevity-penalty-type constant \
 --seed 42 
 
-# cat $test_out.spm.spoken | sacrebleu $data_dir/test.spm.spoken -m bleu chrf > $test_out.spm.spoken.eval
 cat $test_out.spm.spoken | spm_decode --model=$data_dir/spm.model > $test_out.spoken
 sacrebleu $(find $test_source_dir -type f -name "test.target*") -i $test_out.spoken -m bleu chrf --width 2 > $test_out.spoken.eval
 
