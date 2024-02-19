@@ -12,7 +12,7 @@ https://github.com/J22Melody/signwriting-translation/tree/main/scripts_new
 
 ## Citation
 
-Please cite [our paper](https://arxiv.org/abs/2210.05404) as follows:
+Please cite [our paper](https://aclanthology.org/2023.findings-eacl.127) as follows:
 
 ```
 @inproceedings{jiang-etal-2023-machine,
