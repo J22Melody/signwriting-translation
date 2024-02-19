@@ -149,7 +149,7 @@ See full results of all experiments [here](https://github.com/J22Melody/signwrit
 
 ## API Server
 
-(make sure you have the model checkpoint files in place, which are not included in this repo)
+First make sure you have the [model checkpoint files](https://drive.google.com/drive/folders/1u2uBm64vzfmccuPBoYJn54XadiOd6MP2) in place, which are not part of this repo.
 
 Run [Flask](https://flask.palletsprojects.com/) locally for debugging:
 
