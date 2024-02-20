@@ -61,7 +61,7 @@ or
 
 For SPOKEN to SIGN, install `MXNet` and `Sockeye`:
 
-`pip install --pre -f https://dist.mxnet.io/python 'mxnet>=2.0.0b2021'`
+`pip install --pre -f https://dist.mxnet.io/python 'mxnet==2.0.0b20220206'`
 
 `pip install sockeye==3.0.13`
 
