@@ -4,11 +4,27 @@ This repo contains code and documentation for training bilingual and multilingua
 
 We also provide an API server for inferring based on the best trained models. A live demo translator from spoken languages to signed languages based on this is available on [sign.mt](https://sign.mt/).
 
+## sign.mt API Upgrade (July 2024)
+
+[sign.mt](https://sign.mt/) no longer relies on the API provided by this work to translate from text to SignWriting. 
+
+It now uses a model trained here (which supports more languages and better fingerspelling): 
+
+https://github.com/sign-language-processing/signwriting-translation
+
+and stored here: 
+
+https://huggingface.co/sign/sockeye-text-to-factored-signwriting/tree/main
+
+The old API and models in this work are still online.
+
 ## SignBank+ (December 2023)
 
 We rerun our models on the new datasets introduced in the follow-up work [SignBank+](https://github.com/sign-language-processing/signbank-plus/), please see details in:
 
 https://github.com/J22Melody/signwriting-translation/tree/main/scripts_new
+
+This gives the new state-of-the-art SignWriting-to-text translation performance.
 
 ## Citation
 
