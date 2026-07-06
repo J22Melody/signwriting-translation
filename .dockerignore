@@ -1,0 +1,13 @@
+# Only what serving sign2spoken needs; keeps the image small.
+*
+!app.py
+!serve.py
+!clear_execstack.py
+!scripts
+!scripts/**
+!configs
+!configs/baseline_multilingual_plus.yaml
+!models/baseline_multilingual_plus
+!models/baseline_multilingual_plus/**
+!data_plus
+!data_plus/spm.model
