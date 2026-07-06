@@ -190,3 +190,21 @@ stderr_logfile=/home/xxx/log/gunicorn.err.log
 ```
 
 See [API_spec.md](https://github.com/J22Melody/signwriting-translation/blob/main/API_spec.md) for API specifications.
+
+### Docker
+
+Alternatively, build and run the API server in Docker — it installs the pinned
+serving dependencies and downloads the `sign2spoken` checkpoint automatically:
+
+```
+docker build -t signwriting-translation .
+docker run -p 3030:3030 signwriting-translation
+```
+
+Note the Docker image serves only the `sign2spoken` direction: `spoken2sign`
+requires MXNet, which is retired and no longer installable. For spoken-to-signed
+translation, see the Sockeye models on
+[HuggingFace](https://huggingface.co/sign/sockeye-text-to-factored-signwriting)
+or the follow-up
+[signwriting-translation](https://github.com/sign-language-processing/signwriting-translation)
+project.
